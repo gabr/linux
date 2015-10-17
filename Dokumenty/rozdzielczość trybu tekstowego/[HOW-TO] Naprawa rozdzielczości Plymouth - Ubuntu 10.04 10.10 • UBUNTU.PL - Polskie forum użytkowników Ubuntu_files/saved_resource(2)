@@ -1,0 +1,98 @@
+
+
+//;/
+
+if (typeof(nslog_akon) === 'undefined') nslog_akon = {s:''};
+nslog_akon.s += ' BC';
+
+
+
+
+try {
+  with (quad_akon) {  
+    trace('C');
+    spliter.u_params = '';		
+	
+    spliter.getBoxes = function() {
+      spliter.currads = [];
+      
+        var nbox={};
+        var b=nbox;
+        b.a='http://adsearch.adkontekst.pl/_/ctr2/?u=http%3A%2F%2Fwww.allegro.pl%2Fshowcat.php%3Fid%3D435%26order%3Dt%26view%3Dgtext%3Futm_source%3Dadkontekst%26utm_medium%3Dcpc%26utm_term%3Dubuntu.pl%26utm_campaign%3DTelefony_i_Akcesoria_kontekst&e=3V6E7ztNlmU_mlzSpZJd0L4Od1Xus1ejZTZpdZGCeBY18bfcbtPnGY_Z3_fsAq05JJn4Qa3hlCDg1J2ct6alBU9h2msX7Rf9AkbV_i982NAgkay,vJLLxGjwQgE101CJ2qDPfgS,C6sHn3Y0vgcYWTxmHbHDELcVIRFPzVRRTUI=';
+        b.id='449513';
+        b.aid='';
+        b.cid='';
+        b.vis_id='449513';
+        b.title='Telefony Samsung';
+        b.opis1='U nas zawsze - większy wybór. Sprawdź jak niskie są ceny.';
+        b.opis2='';
+        b.url='www.allegro.pl/samsung/';
+        b._d = 'ubuntu.pl';
+        b._e = '';
+        b._t = 'middle-7.adk.srv';
+        b._qpc = '';
+        b.typ='awatar';
+        b.placement_index=0;
+        b.timestamp='1294937748';
+        b.so=Math.random();
+        
+        spliter.allads.push(b);
+        spliter.currads.push(b);
+      
+        var nbox={};
+        var b=nbox;
+        b.a='http://adsearch.adkontekst.pl/_/ctr2/?u=http%3A%2F%2Fwww.interhome.pl%2Fpolski%2Fw%25c5%2582ochy%2Fjezioro%2Bcomo-lombardia%3Fs%3D2%26utm_source%3DAdkontekst%26utm_medium%3Dcpc%26utm_campaign%3Dsales_premium_imag%26utm_term%3Dubuntu.pl%26utm_content%3Dgory_i_jeziora_wlochy&e=3V6E7ztNlmU_mlzSpZJd0L4Od1Xus1ejZTZpdZGCeBZFYaRGBWSybgudKCUCmz,Xrbc_JBQcRmJbTSSbcTmnNtUEjKV6RpCud6_fcNjVyUCAG1aW,Dvx3FmDybSdJ94_KnJJxakxBW2ICx5w0IbbmmyeWlBn21g2lTGxH8tD6,3ZcD9QWjrUn9F9kLX6t7wR';
+        b.id='520160';
+        b.aid='';
+        b.cid='';
+        b.vis_id='520160';
+        b.title='Włochy - Lago di Como';
+        b.opis1='Urlop pośród gór i jezior. Cudowne panoramy, natura i błogi spokój.';
+        b.opis2='';
+        b.url='www.interhome.pl/urlopy w górach';
+        b._d = 'ubuntu.pl';
+        b._e = '';
+        b._t = 'middle-7.adk.srv';
+        b._qpc = '';
+        b.typ='awatar';
+        b.placement_index=0;
+        b.timestamp='1304201168';
+        b.so=Math.random();
+        
+        spliter.allads.push(b);
+        spliter.currads.push(b);
+      
+        var nbox={};
+        var b=nbox;
+        b.a='http://adsearch.adkontekst.pl/_/ctr2/?u=http%3A%2F%2Fdomowysystemzarabiania.pl%2Ft%2Fgo.php%3Fc%3Dadkontekst_tekst%26s%3Dimage_komputery%26cpc%3D18%26u%3Dhttp%3A%2F%2Fedziennik24.pl%2Fl%2Fzarabianie%2Fzarabianie-z-domu.php%26p%3Dall&e=3V6E7ztNlmU_mlzSpZJd0L4Od1Xus1ejZTZpdZGCeBYIrMCmRTR8bOkPmD9nf51XyvwGv52bULIMbv8T5Kx6TSPuQCvKRfbnOuRaIk_6x,UjMv2xP13_4RVxuL3IfC9hhWRqVWWIhkaYbocgCJeamQpaAHDnYPOMswd80OmGwKz933US5K8ZlnbGQrfyPjvo';
+        b.id='504004';
+        b.aid='';
+        b.cid='';
+        b.vis_id='504004';
+        b.title='Zarabiaj 226zł/h Z Domu';
+        b.opis1='Anna Zarabia 6787,85zł Miesięcznie Z Domu Przez Internet W 1h Dziennie';
+        b.opis2='';
+        b.url='eDziennik24.pl/Zarabianie-Z-Domu';
+        b._d = 'ubuntu.pl';
+        b._e = '';
+        b._t = 'middle-7.adk.srv';
+        b._qpc = '';
+        b.typ='awatar';
+        b.placement_index=0;
+        b.timestamp='1302779630';
+        b.so=Math.random();
+        
+        spliter.allads.push(b);
+        spliter.currads.push(b);
+      
+    }
+    spliter.getBoxes();
+    static.callback(spliter.currads);
+    
+
+
+    trace('~C');
+  }
+} catch(e) {}
+
+

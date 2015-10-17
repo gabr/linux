@@ -1,0 +1,50 @@
+Install Picasa 4.8 over the original Picasa 3.0 for Linux.
+
+
+
+Step 1: Ubuntu Lucid, Karmic, Jaunty, Intrepid and Hardy (Maverick users: skip this step since the latest Wine version is already in the Maverick repositories)
+
+- Ubuntu Karmic and Lucid:
+sudo add-apt-repository ppa:ubuntu-wine/ppa
+
+
+- Ubuntu Jaunty, Intrepid and Hardy:
+echo "deb http://ppa.launchpad.net/ubuntu-wine/ppa/ubuntu  $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F9CB8DB0
+
+
+Step 2: Install WINE
+
+sudo apt-get update && sudo apt-get install wine
+
+
+Step 3: Add the Google Testing PPA
+
+sudo sh -c "echo 'deb http://dl.google.com/linux/deb/ testing non-free' >> /etc/apt/sources.list"
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7FAC5991
+
+
+Step 4: Install Picasa 3.0
+
+Yes, Picasa 3.0, but we'll update it in the next step:
+
+sudo apt-get update && sudo apt-get install picasa
+
+
+Step 5: Download and install Picasa 3.8 for Windows
+
+cd ~/Pobrane && wget http://dl.google.com/picasa/picasa38-setup.exe
+chmod +x ~/Pobrane/picasa38-setup.exe #this is required for Lucid and Maverick to be able to run the exe file
+
+
+Then double click the picasa38-setup.exe file on your desktop and install Picasa 3.8 with the default settings.
+
+Step 6: Now all we have to do is copy the Picasa 3.8 files over 3.0 using the following command:
+sudo cp -r ~/.wine/drive_c/Program\ Files/Google/Picasa3/* /opt/google/picasa/3.0/wine/drive_c/Program\ Files/Google/Picasa3/
+
+
+Now run Picasa 3.8 from Applications > Graphics > Picasa > Picasa.
+
+
+Important note: Don't click the "Places" button as it will freeze Picasa 3.8 and it will fail to start again!
+

@@ -1,0 +1,232 @@
+
+
+//;/
+
+if (typeof(nslog_akon) === 'undefined') nslog_akon = {s:''};
+nslog_akon.s += ' BGI';
+
+
+try {
+  if (typeof(quad_events) == 'undefined') quad_events = {};//bc
+  if (typeof(quad_akon) === 'undefined') {
+    quad_akon = {
+      undefined: ({}).ns_undefined,
+      conf: {},
+      Utils: null,
+      utils: null,
+      PlacementUtils: null,
+      Parser: null,
+      NSTables: null,
+      Writer: null,
+      AutoOrder: null,
+      Features: null,
+      spliter: {},
+      static: {},
+      ads1_version: '_',
+      syso: null,
+      trace: null,
+      nextPlacement: function() {},
+      placement_map: {}
+    }
+  }
+  with (quad_akon) {
+    syso = function(str, color) {
+      
+    }
+    trace = function(str) {
+      if (' __=7893c2f18fbeff50166551205bd18249 '.split('adc_trace').length <= 1) return;
+      syso(str, 'gray'); 
+    }
+    trace('I');
+    if (spliter.initialized) {
+      utils.raport('P1', 'extra spliter call');
+      throw nextPlacement();
+    }
+    spliter.initialized = true;
+    syso('Initializing new boxes emission');
+    
+    spliter.ver = 65;
+    spliter.rev = '1304215632242';
+    spliter.static_url = 'http://adsearch.adkontekst.pl/_/box_static/?nc='+spliter.rev;
+    spliter.dbgUrl = 'http://adsearch.adkontekst.pl/_/dbg_utils/?nc='+spliter.rev;
+    spliter.rqh = 'adsearch.adkontekst.pl';
+    spliter.prid = '4729';
+    spliter.caid = '91802';
+    spliter.ref = '//ubuntu.pl/forum/viewtopic.php?t=124697';
+    spliter.encoding = 'UTF-8';
+    spliter.no_content = '0';
+    spliter.timein = 3000;
+    spliter.timeout = 20000;
+    spliter.earlyRaports = [];
+    spliter.adc_go0_done = false;
+    spliter.dbg_lock = false;
+    spliter.lastChangeForChannel = '-1';
+    spliter.impressionId = '-9nubw6xb9l6h';
+    spliter.started = (new Date()).getTime();
+    spliter.enableAZ=true;
+    spliter.spliterType = 'box';
+    spliter.pserver_id = 0;
+    
+    adc_go1 = function() {
+      spliter.timein = 0;
+    };
+    
+    
+    spliter.events = {
+      oninit: [],
+      onbeforeparse: [],
+      extraForms: [],
+      onafterformsparsed: [],
+      alterContent: [],
+      onaftergo2: [],
+      onbeforewrite: [],
+      onafterwrite: []
+    }
+    spliter.initEv = function() {
+      if (typeof(events_akon) != 'object') return;
+      syso('extra events found');
+      for (var ev in events_akon) {
+        spliter.events[ev] = events_akon[ev];
+      }
+    }
+    spliter.initEv();
+    
+    spliter.cookie_params = function(str) {
+      
+      return false;
+    }
+
+    spliter.exc = function(msg, exc) {
+      if (static.initialized) {
+        utils.exc(msg, exc);
+      } else {
+        trace(msg);
+        trace(exc);
+        spliter.earlyRaports.push([msg, exc]);
+      }
+    }
+
+    spliter.fire = function(attr, par1, par2, par3, par4, par5) {
+      var ev = spliter.events[attr];
+      if (!ev) return;
+      if (typeof(ev) === 'function') ev = [ev];
+      for (var i=0; i<ev.length; i++) {
+        try {
+          ev[i](par1, par2, par3, par4, par5);
+        } catch(e) {
+          spliter.exc('external event failed: ' + attr, e);
+        }
+      }
+    }
+
+    spliter.loadsc = function(href) {
+      try {
+        if (spliter.cookie_params('no_cache')) href += '&noc=' + new Date().getTime();
+        var sc = document.createElement('SCRIPT');
+        sc.src = href;
+        if (navigator.appVersion.indexOf('MSIE') >= 0) {
+          setTimeout(function() {
+            if (static.initialized) return;
+            sc.src += '';
+          }, spliter.timein);
+        }
+        sc.type = 'text/javascript';
+        sc.defer = false;
+        sc.charset = spliter.encoding;
+        var adc_head = document.getElementsByTagName('head');
+        try {
+          adc_head[0].appendChild(sc);
+        } catch(e) {
+          spliter.exc('No head for document', e);
+          document.body.appendChild(sc);
+        }
+      } catch(e) {
+        syso('Unable to load script: '+ href);
+        syso(e);
+      }
+    }
+
+    spliter.adc_go0 = function(check) {
+      if (spliter.adc_go0_done) return;
+      if (spliter.timeout <= 0) {
+        spliter.adc_go0 = function() {};
+        new Image().src = 'http://adsearch.adkontekst.pl/_/raport/?ft=box&type=dead';
+        return syso('EE: static loading timed out');
+      }
+      spliter.timeout -= 50;
+      trace('go0: ' + check);
+      if ((check && document.readyState && (document.readyState === 'loading'))
+        || !static.initialized || spliter.dbg_lock) {
+          return setTimeout(function() {
+            spliter.adc_go0(check);
+          }, 50);
+      }
+      if (spliter.adc_go0_done) return;
+      spliter.adc_go0_done = true;
+      static.adc_go1();
+    };
+
+    spliter.start = function() {
+      try {
+        
+with(quadIx_akon) {
+  spliter.events.oninit.push(function() {
+    spliter.events.onbeforeparse.push(function() {
+      syso('starting plugin: forum ubuntu');
+      if (typeof(adc_skip_tags) != 'undefined') {
+        conf.adc_skip_tags = static.parser.adc_skip_tags = adc_skip_tags;
+      }
+    });
+  });
+}
+
+      } catch(e) {
+        spliter.exc('Error in plugin', e);
+      }
+      spliter.fire('oninit');
+      
+      static.writeBoxes = function(x) {
+        setTimeout(function() {
+          static.writeBoxes(x);
+        }, 200);
+      }
+      spliter.safemode = typeof(nsc_safemode) != 'undefined' || spliter.events.safemode != undefined;
+      spliter.safemode = spliter.safemode != spliter.cookie_params('safeMode');
+      if (spliter.safemode) spliter.timein = 0;
+      spliter.allads = [];
+      spliter.loadsc(spliter.static_url);
+      spliter.adc_go0(true);
+      adc_go1 = spliter.adc_go0;
+      setTimeout(function() {
+        syso('starting at: timeout');
+        spliter.adc_go0(false);
+      }, spliter.timein);
+      spliter.oldonloadd = window.onload;
+      window.onload = function() {
+        if (spliter.stopOnLoad) return;
+        setTimeout(spliter.adc_go0, 0);
+        syso('starting at: onload');
+        if (typeof(spliter.oldonloadd) === 'function') {
+          spliter.stopOnLoad = true;
+          spliter.oldonloadd();
+        }
+      }
+    };
+    
+    if (typeof(quad_spliter) === 'undefined') {
+      quad_spliter = {
+        adc_go0: spliter.adc_go0
+      };
+    }
+    
+    spliter.go_parse_content = false;
+    spliter.start();
+    trace('~I');
+  }
+} catch(e) {}
+
+
+  quad_akon.spliter.go_parse_content = true;
+
+
+

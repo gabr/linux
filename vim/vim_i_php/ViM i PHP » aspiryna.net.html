@@ -1,0 +1,633 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0048)http://aspiryna.net/programowanie/php/vim-i-php/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+
+    <title>ViM i PHP » aspiryna.net</title>
+	
+	
+	<meta name="generator" content="WordPress 3.1"> <!-- leave this for stats -->
+
+
+	<style type="text/css" media="screen">
+		@import url( http://aspiryna.net/wp-content/themes/envision/style.css );
+	</style>
+
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://aspiryna.net/feed/">
+	<link rel="alternate" type="text/xml" title="RSS .92" href="http://aspiryna.net/feed/rss/">
+    <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://aspiryna.net/feed/atom/">
+
+    <link rel="shortcut icon" href="http://aspiryna.net/favicon.png" type="image/png">
+    <link rel="icon" href="http://aspiryna.net/favicon.png" type="image/png"> 
+	
+	<link rel="pingback" href="http://aspiryna.net/xmlrpc.php">
+    	<link rel="archives" title="Kwiecień 2010" href="http://aspiryna.net/2010/04/">
+	<link rel="archives" title="Październik 2008" href="http://aspiryna.net/2008/10/">
+	<link rel="archives" title="Czerwiec 2008" href="http://aspiryna.net/2008/06/">
+	<link rel="archives" title="Styczeń 2008" href="http://aspiryna.net/2008/01/">
+	<link rel="archives" title="Grudzień 2007" href="http://aspiryna.net/2007/12/">
+	<link rel="archives" title="Listopad 2007" href="http://aspiryna.net/2007/11/">
+	<link rel="archives" title="Sierpień 2007" href="http://aspiryna.net/2007/08/">
+	
+	<link rel="alternate" type="application/rss+xml" title="$1aspiryna.net » ViM i PHP Kanał z komentarzami" href="http://aspiryna.net/programowanie/php/vim-i-php/feed/">
+<script type="text/javascript" src="./ViM i PHP » aspiryna.net_files/l10n.js"></script>
+<script type="text/javascript" src="./ViM i PHP » aspiryna.net_files/prototype.js"></script>
+<script type="text/javascript" src="./ViM i PHP » aspiryna.net_files/wp-scriptaculous.js"></script>
+<script type="text/javascript" src="./ViM i PHP » aspiryna.net_files/effects.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://aspiryna.net/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://aspiryna.net/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="aspiryna.net" href="http://aspiryna.net/">
+<link rel="start" title="Okrągłe rogi" href="http://aspiryna.net/grafika/web-design/okragle-rogi/">
+<link rel="prev" title="ViM 7" href="http://aspiryna.net/programy/linux/vim-7/">
+<link rel="next" title="Jabber jako komunikacja w firmie" href="http://aspiryna.net/programy/linux/jabber-jako-komunikacja-w-firmie/">
+<meta name="generator" content="WordPress 3.1">
+<link rel="canonical" href="./ViM i PHP » aspiryna.net_files/ViM i PHP » aspiryna.net.html">
+<link rel="shortlink" href="http://aspiryna.net/?p=5">
+<meta name="description" content="VIM posiada niewyobrażalnie wielkie możliwości jeśli chodzi o wspomaganie programowania, niezależnie od języka. Poniżej opiszę po kolei co może VIM i jak to włączyć. Artykuł ten dotyczy nowszych wersji VIMa - wszystkie ustawienia zaprezentowane tutaj zostały sprawdzone na wersji 6.1. W starszych wersjach część rzeczy może nie działać. Folding został ...">
+	<!-- WP lightbox 2 Plugin version 0.6.3 -->
+	<link rel="stylesheet" href="./ViM i PHP » aspiryna.net_files/lightbox.css" type="text/css" media="screen">
+	<style type="text/css" media="screen">
+		#prevLink, #nextLink { background: transparent url("http://aspiryna.net/wp-content/plugins/wp-lightbox2/images/blank.gif") no-repeat; }
+		#prevLink:hover, #prevLink:visited:hover { background: url("http://aspiryna.net/wp-content/plugins/wp-lightbox2/images/prevlabel.gif") left 15% no-repeat; }
+		#nextLink:hover, #nextLink:visited:hover { background: url("http://aspiryna.net/wp-content/plugins/wp-lightbox2/images/nextlabel.gif") right 15% no-repeat; }
+	</style>
+	<script type="text/javascript" src="./ViM i PHP » aspiryna.net_files/lightbox.js"></script>
+	<script type="text/javascript">
+		var fileLoadingImage = "http://aspiryna.net/wp-content/plugins/wp-lightbox2/images/loading.gif";
+		var fileBottomNavCloseImage = "http://aspiryna.net/wp-content/plugins/wp-lightbox2/images/closelabel.gif";
+	</script>
+<meta name="keywords" content="completion,dopełnianie,omni-complete,PHP,syntax,vim,wcięcia">    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write("\<script src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'>\<\/script>" );
+    </script><script src="./ViM i PHP » aspiryna.net_files/ga.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+
+<!-- wrap starts here -->
+<div id="wrap">
+
+		<!--header -->
+		<div id="header">			
+				
+            <!--image-->
+            <div id="header-image">
+                <a href="http://aspiryna.net/"><img src="./ViM i PHP » aspiryna.net_files/logo.gif" alt="Aspiryna - sieciowa piguła"></a>
+            </div>
+		
+			<!--<h1 id="logo-text">aspiryna.net</h1>		
+			<h2 id="slogan">sieciowa piguła</h2>		-->
+			
+			<div id="header-links">
+<!--
+<form id="searchform" method="get" action="/index.php">
+<input type="text" name="s" id="s" size="21" /> <input type="submit" class="button" value="Szukaj" />
+</form>
+-->
+<!-- google search -->
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.pl/custom" target="_top">
+<table border="0" bgcolor="#ffffff">
+<tbody><tr><td nowrap="nowrap" valign="top" align="left" height="32">
+
+</td>
+<td nowrap="nowrap">
+<input type="hidden" name="domains" value="aspiryna.net">
+<label for="sbi" style="display: none">Wprowad� wyszukiwane has�a</label>
+<input type="text" name="q" size="31" maxlength="255" value="" id="sbi">
+<label for="sbb" style="display: none">Prze�lij formularz wyszukiwania</label>
+<input class="button" type="submit" name="sa" value="Wyszukiwarka Google" id="sbb">
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td nowrap="nowrap" align="right">
+<table>
+<tbody><tr>
+<td>
+<input type="radio" name="sitesearch" value="aspiryna.net" id="ss1" checked="checked">
+<label for="ss1" title="Wyszukaj aspiryna.net">aspiryna.net</label></td>
+<td>
+<input type="radio" name="sitesearch" value="" id="ss0">
+<label for="ss0" title="Szukaj w Internecie">Web</label></td>
+</tr>
+</tbody></table>
+<input type="hidden" name="client" value="pub-0628981714432782">
+<input type="hidden" name="forid" value="1">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="hidden" name="oe" value="UTF-8">
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:2B83B9;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;LH:50;LW:145;L:http://aspiryna.net/wp-content/themes/envision/images/logo.gif;S:http://aspiryna.net/;FORID:1">
+<input type="hidden" name="hl" value="pl">
+</td></tr></tbody></table>
+</form>
+<!-- SiteSearch Google -->
+
+		</div>		
+						
+		</div>
+		
+		<!-- menu -->	
+		<div id="menu">
+		<ul><li><a href="http://aspiryna.net/">Strona główna</a></li>
+		<li class="page_item page-item-2"><a href="http://aspiryna.net/about/" title="O serwisie">O serwisie</a></li>
+		</ul>
+		</div>					
+			
+		<!-- content-wrap starts here -->
+	
+
+
+<div id="content-wrap">
+				
+			<div id="sidebar">
+			
+<!-- sidebar -->
+
+  
+ 
+
+
+
+
+<h2>Działy</h2>
+	<ul>	<li class="cat-item cat-item-74"> <a href="http://aspiryna.net/category/grafika/feed/"><img src="./ViM i PHP » aspiryna.net_files/feed.png" alt="Kanał z wpisami zaszufladkowanymi do Grafika"></a><a href="http://aspiryna.net/category/grafika/" title="Pokaż wszystkie artykuły z kategorii Grafika">Grafika</a>
+<ul class="children">
+	<li class="cat-item cat-item-4"><a href="http://aspiryna.net/category/grafika/web-design/" title="Pokaż wszystkie artykuły z kategorii Web design">Web design</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-58"> <a href="http://aspiryna.net/category/internet/feed/"><img src="./ViM i PHP » aspiryna.net_files/feed.png" alt="Kanał z wpisami zaszufladkowanymi do Internet"></a><a href="http://aspiryna.net/category/internet/" title="Pokaż wszystkie artykuły z kategorii Internet">Internet</a>
+<ul class="children">
+	<li class="cat-item cat-item-139"><a href="http://aspiryna.net/category/internet/wordpress/" title="Pokaż wszystkie artykuły z kategorii Wordpress">Wordpress</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-94"> <a href="http://aspiryna.net/category/lifehacks/feed/"><img src="./ViM i PHP » aspiryna.net_files/feed.png" alt="Kanał z wpisami zaszufladkowanymi do Lifehacks"></a><a href="http://aspiryna.net/category/lifehacks/" title="Pokaż wszystkie artykuły z kategorii Lifehacks">Lifehacks</a>
+</li>
+	<li class="cat-item cat-item-9"> <a href="http://aspiryna.net/category/programowanie/feed/"><img src="./ViM i PHP » aspiryna.net_files/feed.png" alt="Kanał z wpisami zaszufladkowanymi do Programowanie"></a><a href="http://aspiryna.net/category/programowanie/" title="Pokaż wszystkie artykuły z kategorii Programowanie">Programowanie</a>
+<ul class="children">
+	<li class="cat-item cat-item-10"><a href="http://aspiryna.net/category/programowanie/java/" title="Pokaż wszystkie artykuły z kategorii Java">Java</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://aspiryna.net/category/programowanie/php/" title="Pokaż wszystkie artykuły z kategorii PHP">PHP</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-7"> <a href="http://aspiryna.net/category/programy/feed/"><img src="./ViM i PHP » aspiryna.net_files/feed.png" alt="Kanał z wpisami zaszufladkowanymi do Programy"></a><a href="http://aspiryna.net/category/programy/" title="Pokaż wszystkie artykuły z kategorii Programy">Programy</a>
+<ul class="children">
+	<li class="cat-item cat-item-106"><a href="http://aspiryna.net/category/programy/firefox/" title="Pokaż wszystkie artykuły z kategorii Firefox">Firefox</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://aspiryna.net/category/programy/linux/" title="Pokaż wszystkie artykuły z kategorii Linux">Linux</a>
+</li>
+	<li class="cat-item cat-item-82"><a href="http://aspiryna.net/category/programy/windows/" title="Pokaż wszystkie artykuły z kategorii Windows">Windows</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-83"> <a href="http://aspiryna.net/category/zrob-to-sam/feed/"><img src="./ViM i PHP » aspiryna.net_files/feed.png" alt="Kanał z wpisami zaszufladkowanymi do Zrób to sam"></a><a href="http://aspiryna.net/category/zrob-to-sam/" title="Pokaż wszystkie artykuły z kategorii Zrób to sam">Zrób to sam</a>
+</li>
+</ul>
+
+<br>
+
+    
+<br>
+ 
+<h2>Archiwum </h2>
+
+	 <ul>	<li><a href="http://aspiryna.net/2010/04/" title="Kwiecień 2010">Kwiecień 2010</a></li>
+	<li><a href="http://aspiryna.net/2008/10/" title="Październik 2008">Październik 2008</a></li>
+	<li><a href="http://aspiryna.net/2008/06/" title="Czerwiec 2008">Czerwiec 2008</a></li>
+	<li><a href="http://aspiryna.net/2008/01/" title="Styczeń 2008">Styczeń 2008</a></li>
+	<li><a href="http://aspiryna.net/2007/12/" title="Grudzień 2007">Grudzień 2007</a></li>
+	<li><a href="http://aspiryna.net/2007/11/" title="Listopad 2007">Listopad 2007</a></li>
+	<li><a href="http://aspiryna.net/2007/08/" title="Sierpień 2007">Sierpień 2007</a></li>
+</ul>
+
+<br>
+
+<h2>Tagi </h2>
+
+    <a href="http://aspiryna.net/tag/bezpieczenstwo/" class="tag-link-39" title="1 temat" style="font-size: 8pt;">bezpieczeństwo</a>
+<a href="http://aspiryna.net/tag/completion/" class="tag-link-16" title="1 temat" style="font-size: 8pt;">completion</a>
+<a href="http://aspiryna.net/tag/concurrent-versioning-system/" class="tag-link-44" title="1 temat" style="font-size: 8pt;">Concurrent-Versioning-System</a>
+<a href="http://aspiryna.net/tag/cvs/" class="tag-link-43" title="1 temat" style="font-size: 8pt;">CVS</a>
+<a href="http://aspiryna.net/tag/dopelnianie/" class="tag-link-17" title="1 temat" style="font-size: 8pt;">dopełnianie</a>
+<a href="http://aspiryna.net/tag/firefox/" class="tag-link-106" title="5 tematów" style="font-size: 13.1891891892pt;">Firefox</a>
+<a href="http://aspiryna.net/tag/firefox-portable/" class="tag-link-107" title="2 tematy" style="font-size: 9.94594594595pt;">firefox portable</a>
+<a href="http://aspiryna.net/tag/firewall/" class="tag-link-40" title="1 temat" style="font-size: 8pt;">firewall</a>
+<a href="http://aspiryna.net/tag/greylisting/" class="tag-link-24" title="1 temat" style="font-size: 8pt;">greylisting</a>
+<a href="http://aspiryna.net/tag/hostsdeny/" class="tag-link-41" title="1 temat" style="font-size: 8pt;">hosts.deny</a>
+<a href="http://aspiryna.net/tag/jabber/" class="tag-link-19" title="1 temat" style="font-size: 8pt;">jabber</a>
+<a href="http://aspiryna.net/tag/jabberd/" class="tag-link-21" title="1 temat" style="font-size: 8pt;">jabberd</a>
+<a href="http://aspiryna.net/tag/java/" class="tag-link-10" title="6 tematów" style="font-size: 13.9459459459pt;">Java</a>
+<a href="http://aspiryna.net/tag/klawiatura/" class="tag-link-29" title="1 temat" style="font-size: 8pt;">klawiatura</a>
+<a href="http://aspiryna.net/tag/konfiguracja/" class="tag-link-31" title="1 temat" style="font-size: 8pt;">konfiguracja</a>
+<a href="http://aspiryna.net/tag/lan/" class="tag-link-22" title="1 temat" style="font-size: 8pt;">lan</a>
+<a href="http://aspiryna.net/tag/linux/" class="tag-link-5" title="7 tematów" style="font-size: 14.4864864865pt;">Linux</a>
+<a href="http://aspiryna.net/tag/mapowanie-klawiszy/" class="tag-link-30" title="1 temat" style="font-size: 8pt;">mapowanie-klawiszy</a>
+<a href="http://aspiryna.net/tag/nowosci/" class="tag-link-11" title="1 temat" style="font-size: 8pt;">nowości</a>
+<a href="http://aspiryna.net/tag/omni-complete/" class="tag-link-15" title="1 temat" style="font-size: 8pt;">omni-complete</a>
+<a href="http://aspiryna.net/tag/optymalizacja/" class="tag-link-37" title="1 temat" style="font-size: 8pt;">optymalizacja</a>
+<a href="http://aspiryna.net/tag/php/" class="tag-link-6" title="3 tematy" style="font-size: 11.2432432432pt;">PHP</a>
+<a href="http://aspiryna.net/tag/podstawy/" class="tag-link-46" title="6 tematów" style="font-size: 13.9459459459pt;">podstawy</a>
+<a href="http://aspiryna.net/tag/postfix/" class="tag-link-26" title="1 temat" style="font-size: 8pt;">postfix</a>
+<a href="http://aspiryna.net/tag/postgrey/" class="tag-link-27" title="1 temat" style="font-size: 8pt;">postgrey</a>
+<a href="http://aspiryna.net/tag/powloka/" class="tag-link-33" title="1 temat" style="font-size: 8pt;">powłoka</a>
+<a href="http://aspiryna.net/tag/prezentacja/" class="tag-link-36" title="1 temat" style="font-size: 8pt;">prezentacja</a>
+<a href="http://aspiryna.net/tag/programowanie/" class="tag-link-9" title="10 tematów" style="font-size: 16pt;">Programowanie</a>
+<a href="http://aspiryna.net/tag/roster/" class="tag-link-23" title="1 temat" style="font-size: 8pt;">roster</a>
+<a href="http://aspiryna.net/tag/shell/" class="tag-link-32" title="1 temat" style="font-size: 8pt;">shell</a>
+<a href="http://aspiryna.net/tag/siec/" class="tag-link-93" title="2 tematy" style="font-size: 9.94594594595pt;">sieć</a>
+<a href="http://aspiryna.net/tag/skrypty/" class="tag-link-38" title="1 temat" style="font-size: 8pt;">skrypty</a>
+<a href="http://aspiryna.net/tag/smarty/" class="tag-link-34" title="1 temat" style="font-size: 8pt;">smarty</a>
+<a href="http://aspiryna.net/tag/smtp/" class="tag-link-28" title="1 temat" style="font-size: 8pt;">smtp</a>
+<a href="http://aspiryna.net/tag/spam/" class="tag-link-25" title="1 temat" style="font-size: 8pt;">spam</a>
+<a href="http://aspiryna.net/tag/syntax/" class="tag-link-18" title="1 temat" style="font-size: 8pt;">syntax</a>
+<a href="http://aspiryna.net/tag/szablony/" class="tag-link-35" title="1 temat" style="font-size: 8pt;">szablony</a>
+<a href="http://aspiryna.net/tag/tcp-wrappers/" class="tag-link-42" title="1 temat" style="font-size: 8pt;">tcp-wrappers</a>
+<a href="http://aspiryna.net/tag/vim/" class="tag-link-12" title="2 tematy" style="font-size: 9.94594594595pt;">vim</a>
+<a href="http://aspiryna.net/tag/vim-7/" class="tag-link-13" title="1 temat" style="font-size: 8pt;">vim-7</a>
+<a href="http://aspiryna.net/tag/wciecia/" class="tag-link-14" title="1 temat" style="font-size: 8pt;">wcięcia</a>
+<a href="http://aspiryna.net/tag/web-20/" class="tag-link-57" title="2 tematy" style="font-size: 9.94594594595pt;">web 2.0</a>
+<a href="http://aspiryna.net/tag/web-design/" class="tag-link-4" title="1 temat" style="font-size: 8pt;">Web design</a>
+<a href="http://aspiryna.net/tag/wildfire/" class="tag-link-20" title="1 temat" style="font-size: 8pt;">wildfire</a>
+<a href="http://aspiryna.net/tag/windows/" class="tag-link-82" title="3 tematy" style="font-size: 11.2432432432pt;">Windows</a>
+<h2>Meta </h2>
+
+<ul>
+				<li><a href="http://aspiryna.net/wp-login.php">Zaloguj się</a></li>
+		
+		</ul>	
+
+<h2>RSS</h2>
+<a href="http://aspiryna.net/feed/"><img src="./ViM i PHP » aspiryna.net_files/feed.png" alt="rss feed" align="left">Artykuły</a>
+
+
+<br><br>
+
+
+
+
+<!-- end sidebar -->							
+				
+</div>
+
+
+<div id="main">
+
+<a name="TemplateInfo"></a>
+
+<!-- loop -->
+
+
+
+<div id="post-header" class="post-header">
+<h1><a href="./ViM i PHP » aspiryna.net_files/ViM i PHP » aspiryna.net.html" rel="bookmark" title="Permalink do artykułu ViM i PHP">ViM i PHP</a></h1>
+</div>
+<small>Autor: leafnode | Data: 26.08.2007, 11:01 | Kategoria: <a href="http://aspiryna.net/category/programowanie/php/" title="Zobacz wszystkie wpisy z kategorii PHP" rel="category tag">PHP</a>, <a href="http://aspiryna.net/category/programy/" title="Zobacz wszystkie wpisy z kategorii Programy" rel="category tag">Programy</a></small>
+
+<div id="post-body" class="post-body">
+<p> VIM posiada niewyobrażalnie wielkie możliwości jeśli chodzi o wspomaganie programowania, niezależnie od języka. Poniżej opiszę po kolei co może VIM i jak to włączyć.</p>
+<p>Artykuł ten dotyczy nowszych wersji VIMa – wszystkie ustawienia zaprezentowane tutaj zostały sprawdzone na wersji 6.1. W starszych wersjach część rzeczy może nie działać. Folding został wprowadzony w wersji 6.0.</p>
+<p>Zakładam, że osoba czytająca ten tekst ma już jakiekolwiek pojęcie o pracy z VIMem. Jeśli nie – polecam tutorial do VIMa (należy uruchomić program <tt>vimtutor</tt> – tutorial jest przetłumaczony na język polski).</p>
+<p><span id="more-5"></span></p>
+<h3>Pluginy</h3>
+<p>Wszystkie polecenia dotyczące PHP można wrzucić do .vimrc i przypisać je do rozszerzeń używanych przez PHP poleceniem <tt>au</tt>, ale łatwiej jest skorzystać z mechanizmu pluginów. Wystarczy w katalogu domowym stworzyć katalog <tt>.vim</tt> a w nim <tt>ftplugin</tt> i tam stworzyć plik o nazwie <tt>php.vim</tt>, który powinien zawierać wszystkie instrukcje które mają być wykonane przy otwieraniu pliku ze źródłami PHP. VIM przy otwieraniu pliku PHP automatycznie załaduje instrukcje z plików <tt>php.vim</tt>, <tt>php_cokolwiek.vim</tt> i wszystkie z podkatalogu <tt>php/</tt> – oczywiście znajdujące się w katalogu <tt>.vim/ftplugin</tt>. Podobnie można robić dla wielu innych typów plików – opisy nazw tych typów znajdują się w pliku <tt>/usr/share/vim/vim{wersja}/filetype.vim</tt></p>
+<h3>Wcinanie kodu</h3>
+<p>VIM automatycznie rozpoznaje elementy, po których kod powinien być wcięty – otwarcie nawiasów klamrowych, instrukcja warunkowa, pętla, niedomknięte cudzysłowy itp. Do ustawienia automatycznych wcięć służy kilka opcji (wszystkie oprócz ostatniej uaktywnia się przez <tt>:se nazwa_opcji</tt>):</p>
+<dl>
+<dt>autoindent</dt>
+<dd>Po wciśnięciu Enter albo po zawinięciu linii (po dojściu do krawędzi zdefiniowanej w opcji textwidth) następna linia będzie się zaczynała w tym samym miejscu co poprzednia.</dd>
+<dt>smartindent</dt>
+<dd>Działa podobnie jak autoindent, ale automatycznie rozpoznaje elementy składniowe języka (można zdefiniować te elementy; standardowo obsługiwany jest język C) aby zmniejszyć lub zwiększyć wcięcie.</dd>
+<dt>cindent</dt>
+<dd>Włączenie tej opcji uaktywnia automatyczne wcinanie kodu dla języka C. PHP ma składnię prawie identyczną jak C, więc to ustawienie bardzo dobrze zadziała w tym przypadku. Wygląd kodu ułożonego przez tą funkcję można ustalić przez odpowiednie ustawienie opcji <tt>cinoptions</tt> – polecam dokumentację VIMa do<br>
+tej opcji (<tt>:he cinoptions</tt> i ogólnie <tt>:he C-indenting</tt>).</dd>
+<dt>indentexpr</dt>
+<dd>Jest to najbardziej elastyczne ustawienie, ale wymaga napisania własnego kodu obsługi wcięć – jako parametr do tego ustawienia podaje się wyrażenie, które decyduje o wcięciu</dd>
+</dl>
+<p> Istnieje możliwość aby VIM automatycznie poukładał kod już napisany. Wystarczy w trybie <em>Visual</em> zaznaczyć odpowiedni fragment kodu i wcisnąć klawisz =. VIM automatycznie ułoży kod zgodnie z ustawieniami. Można także skorzystać z zewnętrznego programu – wystarczy wartość zmiennej opcji <tt>equalprog</tt> ustawić na nazwę programu, np.:</p>
+<pre>:se equalprog=indent</pre>
+<h3>Ustawienia tabulacji</h3>
+<p>W większości przypadków programiści wolą używać 3 spacji zamiast znaku tabulacji przy wcinaniu kodu. Aby VIM tak wcinał kod należy ustawić następujące opcje:</p>
+<pre>:se expandtab
+:se shiftwidth=3
+:se softtabstop=3</pre>
+<p>Pierwsza opcja wymusza używanie spacji zamiast tabulatora, druga określa ilość spacji używanych w każdy kroku wcięcia a trzecia ustala ile spacji jest uznawane za pojedynczy tabulator przy edycji – na przykład przy kasowaniu wcięcia klawiszem BackSpace</p>
+<h3>Podświetlanie składni</h3>
+<p>To jest podstawowa rzecz, której można wymagać od edytora wspomagającego pisanie programów. VIM automatycznie dobiera format podświetlania (aktualnie obsługuje ponad 300 formatów). Trzeba jedynie to podświetlanie włączyć. Najlepiej jest ustawić, aby podświetlanie składni włączało się przy<br>
+uruchomieniu VIMa – jeśli nie ma podświetlania dla danego formatu to nic się nie stanie, a jeśli jest, to przyjemnie jest odkryć, że na przykład VIM umie pokolorować plik konfiguracyjny do slrn’a. Tak więc do pliku .vimrc, znajdującego się w katalogu domowym użytkownika, należy dopisać linię:</p>
+<pre>:syntax on</pre>
+<p>VIM rozpoznaje kilka standardowych rozszerzeń, które przypisuje do PHP – php, php3, inc, phtml. Ale co jeśli chesz używać innego, niestandardowego rozszerzenia? Wystarczy powiedzieć VIMowi, że przy tworzeniu lub otwieraniu pliku z danym rozszerzeniem ma ustawić kolorowanie składni na PHPowe:</p>
+<pre>:au BufRead,BufNewFile *.php4 se filetype=php</pre>
+<p>Powyższa składnia (polecenie <tt>au</tt> – skrót od <tt>autocmd</tt>) przydaje się bardzo często do ustalania parametrów pracy zależnie od typu pliku, jednak w praktyce wystarczy ustalić w niej tylko typ pliku (w tym przypadku php) i skorzystać z mechanizmu pluginów opisanego wyżej – VIM zajmie się całą resztą,<br>
+czyli ustawi odpowiednie kolorowanie składni, odczyta pliki przeznaczone dla PHP itp.</p>
+<p>Możliwe jest także uwzględnienie składni SQL i HTML w stringach zawartych w kodzie PHP. Aby to zrobić, należy ustawić zmienne kontrolne <tt>php_sql_query</tt> i <tt>php_htmlInStrings</tt> na 1. Czyli:</p>
+<pre>:let php_sql_query 1
+:let php_htmlInStrings 1</pre>
+<p>Po takim przygotowaniu VIM będzie sam rozpoznawał w których stringach jest HTML a w których zapytanie SQL i będzie je odpowiednio kolorował.</p>
+<h3>Folding</h3>
+<p>Folding to tak zwane “zwijanie”. Polega to na tym, że VIM może tymczasowo ukryć pewien fragment kodu – na przykład zawartość definicji funkcji czy blok pętli. Aby włączyć folding trzeba ustawić zmienną <tt>php_folding</tt> na 1:</p>
+<pre>:let php_folding = 1</pre>
+<p>Po ustawieniu tej zmiennej automatycznie ustawione zostaną odpowiednie<br>
+parametry. Folding można wyłączyć później przez:</p>
+<pre>:se nofoldenable</pre>
+<p>Przydatnym parametrem jest <tt>foldlevel</tt>. Dzięki niemu można ustalić ile poziomów foldingu będzie zwinięte automatycznie przy otwarciu dokumentu – jeśli ten parametr będzie ustawiony na 0 wszystkie zwinięcia będą zamknięte.</p>
+<p>Standardowy, wbudowany w plik składni PHP folding pozwala tylko na zwijanie definicji funkcji, klas oraz fragmentów między ?&gt; a &lt;?, czyli fragmentów kodu HTML. Przydaje się jednak, jeśli można zwinąć każdą parę nawiasów klamrowych. Aby to umożliwić, trzeba zmodyfikować plik php.vim znajdujący się w<br>
+katalogu /usr/share/vim/vim{wersja}/syntax/ (aby móc modyfikować ten plik konieczne są prawa administratora – jeśli ich nie masz, można te linijki poprostu dopisać do .vimrc, ale trzeba je podpiąć pod pliki PHP). Trzeba<br>
+znaleźć linię:</p>
+<pre>if exists("php_folding")</pre>
+<p>i przed linijką zawierającą słowo kluczowe <tt>else</tt> (u mnie linia 327) dopisać:</p>
+<pre>syn region phpFoldParent matchgroup=Delimiter start="{" end="}" transparent fold keepend
+syn sync fromstart</pre>
+<p>Trzeba także na końcu linii</p>
+<pre>syn cluster     phpClTop        contains=@phpClFunction,phpFoldFunction,phpFoldClass</pre>
+<p>dopisać <tt>,phpFoldParent</tt>. Linia ta znajduje się wcześniej w tym pliku, u mnie jest to linia 294.</p>
+<p>Standardowo zwinięcia otwiera się poleceniem <tt>zo</tt> a zamyka <tt>zc</tt> w trybie normal (bez : przed poleceniem). Można też otworzyć od razu wszystkie zwinięcia poleceniem <tt>zR</tt>. Otwieranie i zamykanie zwinięć można sobie ułatwić przez podmapowanie tych poleceń do odpowiedniej kombinacji klawiszy. Do pliku .vimrc można wpisać:</p>
+<pre>:map &lt;C-o&gt; zo
+:map &lt;C-c&gt; zc</pre>
+<p>Po wpisaniu takich poleceń zwinięcie można otwierać kombinacją Ctrl-o a zamykać Ctrl-c.</p>
+<h3>Tagi</h3>
+<p>VIM posiada wbudowany mechanizm odnośników, dzięki którym po wskazaniu kursorem nazwy użytej funkcji i wciśnięciu odpowiedniej kombinacji klawiszy można przejść do definicji tej funkcji.</p>
+<p>Najpierw trzeba jednak stworzyć plik z informacją dla VIMa gdzie się te definicje znajdują. Służy do tego specjalny program <tt>ctags</tt>. Jest on dostępny w większości dystrybucji, a poza tym można go znaleźć pod adresem <a href="http://ctags.sourceforge.net/">http://ctags.sourceforge.net/</a>.</p>
+<p>Obsługa tego programu jest bardzo prosta. Wystarczy w katalogu, w którym są pliki źródłowe, uruchomić ten program. Jeśli trzeba uwzględnić też podkatalogi – trzeba dodać parametr <tt>-R</tt>. Warto też zaznaczyć, że ctags nie przypisuje rozszerzenia .inc do PHP. Trzeba je dodać podając jako parametr uruchomienia <tt>---langmap=php:+.inc</tt>.</p>
+<p>Po wywołaniu programu ctags w katalogu w którym program został wywołany utworzony zostanie plik <tt>tags</tt>, który jest automatycznie odczytywany przez VIMa.</p>
+<p>Po otworzeniu jakiegokolwiek z plików z danego katalogu można już używać wszystkich możliwości jakie oferują tagi. Trzeba jedynie pamiętać, żeby uruchamiać VIMa z katalogu w którym jest plik <tt>tags</tt>, w razie potrzeby podając ścieżki względne, lub już po uruchomieniu VIMa ustawić opcję <tt>tags</tt> tak, aby wskazywała na odpowiedni plik, np:</p>
+<pre>:se tags=../tags</pre>
+<p>Po ‘najechaniu’ na użytą funkcję kursorem, aby przejść do jej definicji należy użyć kombinacji <tt>Ctrl-]</tt>. Jeśli definicja jest innym pliku to zostanie on otwarty, jeśli w tym samym – program przejdzie do odpowiedniej<br>
+linijki. Oczywiście można dalej chodzić po tagach. VIM zapamiętuję całą ścieżkę – można ją zobaczyć korzystając z polecenia <tt>:tags</tt>. Do poprzedniej lokalizacji można powrócić poleceniem <tt>:pop</tt> lub kombinacją klawiszy <tt>Ctrl-t</tt>.</p>
+<p>Zachęcam do przeczytania pliku pomocy VIMa dotyczącego tagów (<tt>:he tags</tt>) – tam można znaleźć więcej informacji. Warto jest też przeczytać podręcznik do programu ctags (<tt>man ctags</tt>).</p>
+<h3>Dopełnianie nazw funkcji</h3>
+<p>VIM umożliwia automatyczne dopełnianie słów według kilku kryteriów:</p>
+<ul>
+<li>całych linii</li>
+<li>słów z bieżącego pliku</li>
+<li>słów ze słownika</li>
+<li>słów ze słownika synonimów</li>
+<li>słów z bieżącego pliku i plików dołączonych</li>
+<li>tagów</li>
+<li>nazw plików</li>
+<li>definicji i makr</li>
+<li>linii poleceń VIM</li>
+<li>słów z listy opisanej przez opcję <tt>complete</tt></li>
+</ul>
+<p>Wszystkie te metody są wywoływane z trybu insert, a konkretniej ze specjalnego pod-trybu, do którego wchodzi się kombinacją klawiszy <tt>Ctrl-X</tt> (w poniższych opisach Ctrl-X oznacza właśnie wejście do tego trybu – nie trzeba wciskać tej kombinacji 2 razy). Jeśli VIM znajdzie więcej niż jedno dokończenie<br>
+które pasuje do wpisanego początku, po propozycjach można przewijać kombinacjami <tt>Ctrl-N</tt> (następna) i <tt>Ctrl-P</tt> (poprzednia). Omówię teraz opcje dopełniania po kolei.</p>
+<dl>
+<dt>całe linie</dt>
+<dd>VIM przeszukuje bieżący plik w poszukiwaniu linii, które zaczynają się tak samo jak bieżąca linia (wcięcia są ignorowane) i ewentualnie ją dopełnia. Funkcję tą wywołuje się kombinacją klawiszy <tt>Ctrl-X Ctrl-L</tt></dd>
+<dt>bieżący plik</dt>
+<dd>aktualnie pisane słowo jest dopełnianie na podstawie tych słów, które już zostały do aktualnie edytowanego pliku – czyli bieżący plik jest traktowany jako słownik (tyle że nie ma wymogu, aby każde słowo było w osobnym wierszu). Tą funkcję wywołuje kombinacja <tt>Ctrl-X Ctrl-N</tt></dd>
+<dt>słownik</dt>
+<dd>Korzystanie ze słownika bardzo ułatwia pracę – wystarczy stworzyć plik, w którym będą nazwy wszystkich funkcji PHP a VIM, po wpisaniu początku nazwy, sam dokończy resztę. Przygotowałem taki plik – można go znaleźć pod adresem <a href="http://www.leon.w-wa.pl/texts/phpfunclist">http://www.leon.w-wa.pl/texts/phpfunclist</a>. Trzeba jednak VIMa poinstruować gdzie ma szukać tego pliku. Służy do tego opcja <tt>dictionary</tt>. Można pod pliki PHP podpiąć taką instrukcję:<p></p>
+<pre>:se dictionary=~/phpfunclist</pre>
+<p>Przeszukiwanie słownika wywołuje <tt>Ctrl-X Ctrl-K</tt>. Plik phpfunclist to tylko nazwy funkcji – bez parametrów jakie przyjmują. Jednak jeśli ktoś bardzo potrzebuje prototypów funkcji, jest sposób żeby pojawiały się one przy dopełnianiu. Sprawa jest skomplikowana dlatego, że VIM używa tej samej opcji,<br>
+<tt>iskeyword</tt>, do ustalania które znaki nie należą do słów kluczowych dla wielu zadań – na przykład do dopełniania, kolorowania składni itp. Plik <a href="http://www.leon.w-wa.pl/texts/phpproto"><br>
+http://www.leon.w-wa.pl/texts/phpproto</a> zawiera prototypy, ale lekko poprawione – to znaczy nie ma żadnych spacji, zamiast spacji pomiędzy typem parametru a jego nazwą jest kropka itp. Plik ten jest taki a nie inny aby do minimum zmniejszyć ilość znaków które trzeba dodać do wspomnianej opcji aby<br>
+dopełnianie z prototypami działało. Teraz trzeba właśnie tą opcję odpowiednio poprawić:</p>
+<pre>:se iskeyword=@,40-41,44,46,91,93,48-57,_,192-255</pre>
+<p>Takie ustawienie spowoduje, że VIM będzie uważał nawiasy kwadratowe, okrągłe i kropki za część słowa kluczowego. Teraz wystarczy ustawić opcję <tt>dictionary</tt> tak, aby wskazywała na plik z prototypami i gotowe. Trzeba jednak pamiętać, że wszelkie modyfikacje <tt>iskeyword</tt> mogą prowadzić do<br>
+nieprawidłowego działania różnych opcji VIMa.</p>
+</dd>
+<dt>słownik synonimów</dt>
+<dd>Ta opcja jest już mniej przydatna, ale można ją wykorzystać. Działa ona podobnie jak poprzednia, lecz zamiast szukać słów, które zaczynają się tak samo jak już wpisany początek szuka tylko pierwszego takiego dopasowania a później przeskakuje po słowach z tej samej linii co to znalezione. Na przykład<br>
+można stworzyć sobie plik zawierający następującą treścią:<p></p>
+<pre>postgres pg_connect pg_exec pg_num_rows
+string substr strpos strlen
+file fopen fclose fputs fgets</pre>
+<p>Trzeba podać ścieżkę do tego pliku ustawiając opcję <tt>thesaurus</tt> i teraz po napisaniu postgres i wciśnięciu kombinacji <tt>Ctrl-X Ctrl-T</tt> VIM będzie przewijał po funkcjach obsługi postgresa.</p>
+</dd>
+<dt>bieżący plik i pliki dołączone</dt>
+<dd>VIM w poszukiwaniu słów kluczowych przeszukuje aktualnie edytowany oraz pliki dołączone przez dyrektyw dołączających inne pliki (w PHP to na przykład include, require). Rozpoznanie jaka instrukcja dołącza plik zależy od opcji <tt>include</tt>. Zawiera ona wyrażenie regularne, które określa string, który identyfikuje linię dołączającą plik. Standardowo działa ona prawidłowo dla C i C++. W przypadku PHP trzeba ją zmienić w następujący sposób:<p></p>
+<pre>:se include=(require|include)(_once)?</pre>
+<p>Oczywiście tą opcję także warto podpiąć pod rozszerzenia używane przez PHP, ponieważ tylko dla tego języka ustawienie to będzie miało sens.<br>
+Przeszukiwanie pliku z uwzględnieniem include jest inicjowane przez kombinację <tt>Ctrl-X Ctrl-I</tt>.</p>
+</dd>
+<dt>tagi</dt>
+<dd>To przeszukiwanie korzysta z tagów stworzonych przez program <tt>ctags</tt>. Jest to bardzo przydatne, ponieważ dopełnia nazwy funkcji i klas zdefiniowanych w danym projekcie. Ten typ dopełniania jest uruchamiany kombinacją <tt>Ctrl-X Ctrl-]</tt>.</dd>
+<dt>nazwy plików</dt>
+<dd>Przydatne jeśli nie pamięta się nazwy pliku który trzeba podać jako parametr do wywołania funkcji. Dopełnianie nazw pliku wywołuje się kombinacją <tt>Ctrl-X Ctrl-F</tt>.</dd>
+<dt>definicje i makra</dt>
+<dd>Podobnie jak w przypadku dopełniania z przeszukiwaniem plików dołączonych, tu także zachowanie jest definiowane przez odpowiednią opcję aby definicje te można było wyciągnąć niezależnie od języka programowania. Domyślnie opcja <tt>define</tt> jest ustawiona tak, aby wyszukiwać definicje z kodów źródłowych języków C i C++ (format “#define _nazwa_ _wartość_”). Do współpracy z PHP<br>
+niezbędne jest takie ustawienie:<p></p>
+<pre>:se define=define</pre>
+<p>Dopełnianie zdefiniowanych stałych także szuka definicji w plikach dołączonych, więc także tutaj potrzebne jest prawidłowe ustawienie opcji <tt>include</tt><br>
+Po takim ustawieniu kombinacja <tt>Ctrl-X Ctrl-D</tt> dokończy rozpoczętą nazwę zdefiniowanej stałej.</p>
+</dd>
+<dt>polecenia VIM</dt>
+<dd>Kombinacja <tt>Ctrl-X Ctrl-V</tt> dopełni nazwę polecenia VIM – tak jak w trybie wpisywania poleceń. Nie jest to zbyt przydatne przy programowaniu w PHP, ale jak opisywać wszystko to wszystko. </dd>
+<dt>słowa z listy opisanej przez opcję <tt>complete</tt></dt>
+<dd>To jest połączenie wszystkich powyższych możliwości. Opcja <tt>complete</tt> określa zestaw słów, które będą używane do dopełniania. Opcja ta zawiera odseparowaną przecinkami listę, której elementami mogą być:<p></p>
+<ul>
+<li>. – szuka słów w bieżącym buforze</li>
+<li>w – szuka słów w innych oknach</li>
+<li>b – szuka w innych załadowanych buforach, które są na liście buforów</li>
+<li>u – szuka w niezaładowanych buforach, które są na liście buforów</li>
+<li>U – szuka w buforach, które nie są na liście buforów</li>
+<li>k – szuka w słowniku, który został określony w opcji <tt>dictionary</tt></li>
+<li>k{słownik} – szuka w słowniku, którego nazwa została podana w tym parametrze; można podać kilka takich parametrów a także używać wzorców, np. <tt>:se complete=k/usr/dict/*,k~/.phpfunc</tt></li>
+<li>s – szuka pliku w słowniku synonimów określonym w opcji <tt>thesaurus</tt></li>
+<li>s{słownik} – szuka w słowniku synonimów, którego nazwa została podana w tym parametrze</li>
+<li>i – szuka w pliku bieżącym i dołączonych</li>
+<li>d – szuka definicji i makr w pliku bieżącym i dołączonych</li>
+<li>] – szuka tagów</li>
+<li>t – to samo co ]</li>
+</ul>
+<p>Jak widać jest to najuniwersalniejsza opcja – pozwala skorzystać z dowolnie wybranych źródeł słów kluczowych. Pozostaje tylko kwestia wyboru które zestawy słów są potrzebne. Ja zmienną <tt>complete</tt> ustawiłem tak:</p>
+<pre>:se complete=k,d,t</pre>
+<p>Słowa ze słownika (czyli funkcje wbudowane w PHP), stałe  oraz tagi (funkcje i klasy zdefiniowane przeze mnie) całkowicie mi wystarczają.<br>
+Dopełnianie tego typu jest wywoływane przez kombinację <tt>Ctrl-N</tt> (jedyna opcja która nie jest wywoływana z pod-trybu Ctrl-X).</p>
+</dd>
+</dl>
+<p> W dokumentacji do VIMa zamieszczony został ciekawy przykład – funkcja, która modyfikuje działanie klawisza Tab w taki sposób, że jeśli linia składa się z samych “białych znaków”, to wstawiany jest normalny znak tabulacji (albo spacje, zależnie od konfiguracji VIMa), a jeśli w danej linii są już jakieś inne znaki, to wywoływane jest dopełnianie z tego ostatniego trybu – połączonego. Wystarczy wpisać taki kod do .vimrc:</p>
+<pre>function! CleverTab()
+   if strpart( getline('.'), 0, col('.')-1 ) =~ '^s*$'
+      return "&lt;Tab&gt;"
+   else
+      return "&lt;C-N&gt;"
+endfunction
+inoremap &lt;Tab&gt; &lt;C-R&gt;=CleverTab()&lt;CR&gt;</pre>
+<h3>Automatyczne przechodzenie do dokumentacji</h3>
+<p>Czasem, zwłaszcza w początkowym stadium nauki programowania w PHP, trzeba sięgać do podręcznika. VIM bardzo w tym pomaga. Wystarczy wskazać kursorem odpowiednie słowo kluczowe – nazwę funkcji – i wcisnąć klawisz K. Wtedy uruchomiony zostanie program określony w opcji <tt>keywordprg</tt>. Wystarczy<br>
+teraz napisać prosty skrypt, który będzie otwierał przeglądarkę tekstową na odpowiedniej stronie – napisałem taki prosty skrypt powłoki; można go znaleźć pod adresem <a href="http://www.leon.w-wa.pl/texts/manual.sh"><br>
+http://www.leon.w-wa.pl/texts/manual.sh</a>. Wystarczy wyedytować ten plik aby ustawić odpowiednią ścieżkę do manuala (w tej wersji skryptu trzeba mieć podręcznik na dysku, ponieważ sprawdzane jest czy taka funkcja istnieje), przeglądarkę i ustawić w VIMie odpowiednio zmienną <tt>keywordprg</tt> na przykład tak:</p>
+<pre>:se keywordprg=/home/users/leon/manual.sh</pre>
+<p>VIM automatycznie przekazuje nazwę słowa kluczowego jako parametr tego programu.</p>
+<h3>Edycja wielu plików</h3>
+<p>Jak każdy porządny edytor, VIM umożliwia pracę z wieloma plikami na raz. Oprócz pracy z podziałem okien (które opisane są niżej) można przełączać się pomiędzy plikami edytowanymi w trybie pełnoekranowym.</p>
+<p>Kilka buforów otwieranych jest automatycznie jeśli przy wywołaniu VIMa podany został więcej niż jeden plik. Aby otworzyć do edycji nowy plik już po uruchomieniu edytora, wystarczy wydać polecenie <tt>:bad _nazwa_pliku_</tt> (bad to skrót od buffer add). Do przełączania się między nimi służą polecenia <tt>:bn</tt> (następny bufor) i <tt>:bp</tt> (poprzedni bufor). Można sobie ułatwić używanie tych poleceń przez zamapowanie ich pod jakąś kombinację, np. tak:</p>
+<pre>map &lt;F2&gt; :bn!&lt;CR&gt;
+imap &lt;F2&gt; &lt;ESC&gt;:bn!&lt;CR&gt;
+map &lt;F3&gt; :bp!&lt;CR&gt;
+imap &lt;F3&gt; &lt;ESC&gt;:bp!&lt;CR&gt;</pre>
+<p>Listę buforów wyświetla polecenie <tt>:ls</tt></p>
+<p>Warto zaznaczyć, że wszystkie bufory mają wspólny schowek, tak więc można kopiować fragmenty kodu między nimi.</p>
+<h3>Dzielenie okien</h3>
+<p>Bardzo przydatna rzecz przy pracy na kilku plikach, albo nawet jeśli trzeba pisać w jednym miejscu kodu podglądając jednocześnie inny fragment. VIM umie dzielić okna w poziomie i w pionie. Do podziału poziomego służy polecenie <tt>:split</tt> (lub kombinacja <tt>Ctrl-W s</tt>) a do pionowego <tt>:vsplit</tt><br>
+(kombinacja <tt>Ctrl-W v</tt>). Jeśli polecenie to będzie wywołane bez żadnego parametru, otwarte okno będzie zawierało aktualnie edytowany plik. Można podać parametr, który będzie oznaczał nazwę pliku który będzie otwarty w nowo utworzonym oknie. Jeśli pomiędzy dwukropkiem a split/vsplit będzie liczba,<br>
+to nowe okno będzie miało wysokość tylu linii ile podano tej liczbie. Pomiędzy oknami można się przemieszczać kombinacją <tt>Ctrl-W W</tt> (działa także kombinacja <tt>Ctrl-W Ctrl-W</tt> – to dla tych “prędkich” którzy nie zdążą zdjąć palca z Ctrl). Okno zamyka się poleceniem <tt>:close</tt> lub kombinacją <tt>Ctrl-W c</tt>. Każde okno można dzielić wielokrotnie a także przesuwać (<tt>Ctrl-W r</tt> obraca okna zgodnie z ruchem wskazówek zegara a <tt>Ctrl-W R</tt> przeciwnie, <tt>Ctrl-W K</tt> przesuwa okno na samą górę a <tt>Ctrl-W J</tt><br>
+na sam dół używając całej szerokości ekranu itp – polecam dokumentację VIMa: <tt>:he windows</tt>), zmieniać rozmiar (<tt>Ctrl-W =</tt> wyrównuje wielkość wszystkich okien, <tt>Ctrl-W -</tt> zmniejsza a <tt>Ctrl-W +</tt> zwiększa wysokość bieżącego okna – podobnie działają polecenia <tt>:resize -N</tt> i <tt>:resize<br>
++N</tt>, gdzie N to liczba wierszy o jakie zmieni się rozmiar okna, domyślnie 1; <tt>Ctrl-W &lt;</tt> zmniejsza a <tt>Ctrl-W &gt;</tt> zwiększa szerokość bieżącego okna) – rozmiar okna można także zmieniać korzystając z myszy – po prostu przeciągając krawędź (wymaga to ustawienia opcji <tt>mouse</tt>).</p>
+<h3>Tryb diff</h3>
+<p>Czasem bardzo przydaje się możliwość podglądania różnic między plikami. W takich sytuacjach bardzo pomocny jest tzw. <em>tryb diff</em> – ekran zostaje podzielony pionowo na pół, w oknach pokazane są porównywane pliki a kolorami podkreślone są różnice między nimi.</p>
+<p>Aby pracować w trybie diff wystarczy przy uruchomieniu VIMa podać parametr <tt>-d</tt> a po nim nazwy przynajmniej 2 plików, na przykład:</p>
+<pre>vim -d index.php index.old.php</pre>
+<h3>Praca z CVSem</h3>
+<p>Pod adresem  <a href="http://vim.sourceforge.net/scripts/script.php?script_id=58">http://vim.sourceforge.net/scripts/script.php?script_id=58</a> znajduje się plik dodający do gvim’a menu, zawierające wszystkie opcje niezbędne przy pracy z CVSem.</p>
+<h3>Uruchamianie skryptów z poziomu VIMa</h3>
+<p>Istnieje możliwość uruchomienia aktualnie edytowanego pliku za pomocą polecenia <tt>:make</tt>. Trzeba jednak odpowiednio poprawić działanie tej komendy. W katalogu <tt>.vim/compiler/</tt> stworzyć plik <tt>php.vim</tt> o następującej treści:</p>
+<pre>if exists("current_compiler")
+   finish
+endif
+let current_compiler = "php"
+let s:cpo_save = &amp;cpo
+set cpo&amp;vim
+set makeprg=export QUERY_STRING=$*;php $* | grep '&lt;/b&gt; on line &lt;b&gt;'
+set errorformat=&lt;b&gt;%*[^&lt;]&lt;/b&gt;:  %m in &lt;b&gt;%f&lt;/b&gt; on line &lt;b&gt;%l&lt;/b&gt;&lt;br&gt;
+let &amp;cpo = s:cpo_save
+unlet s:cpo_save</pre>
+<p>Teraz program uruchamia się poleceniem <tt>:make % zmienna=wartość</tt>. Jeśli kompilator zwrócił jakieś błędy, VIM automatycznie przejdzie do linii w której był pierwszy z nich. Jeśli było ich więcej (raczej się nie zdarza w przypadku PHP), to do następnego przechodzi się poleceniem <tt>:cn</tt> a do poprzedniego<br>
+<tt>:cp</tt>.</p>
+<h3>Uwagi dotyczące innych języków programowania</h3>
+<ul>
+<li>ctags obsługuje także następujące języki programowania: assembler, asp, awk, C, C++, BETA, COBOL, Eiffel, Fortran, Java, Lisp, Makefile, Pascal, Perl, Python, REXX, Ruby, Scheme, skrypty powłoki, S-Lang, tcl, vim.</li>
+<li>Przy pracy z językami programowania które wymagają kompilacji, VIM umożliwia automatyczne przechodzenie do linii, która wywołała błąd kompilatora. Wystarczy stworzyć plik Makefile (ręcznie albo przy pomocy mojego programu <a href="http://www.leon.w-wa.pl/projects/makegen">Makegen</a>), wywołać<br>
+kompilację za pomocą polecenia <tt>:make</tt> i przechodzić po kolejnych błędach za pomocą poleceń <tt>:cn</tt> (następny błąd) <tt>:cp</tt> (poprzedni błąd).</li>
+</ul>
+<h3>Od autora</h3>
+<p>VIM posiada bardzo rozbudowaną dokumentację – wszystkie z opisywanych przeze mnie poleceń i opcji jest szeroko opisana. Wystarczy wydać polecenie <tt>:he _nazwa_</tt> aby dowiedzieć się czegoś więcej, niż jest napisane w tym artykule.</p>
+<p>Mam nadzieję, że wszyscy, którzy ten artykuł przeczytali, nauczyli się<br>
+przynajmniej tyle, ile ja pisząc ten tekst <img src="./ViM i PHP » aspiryna.net_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+</div>
+				
+<h3>Zobacz też</h3><ul class="related_post"><li><a href="http://aspiryna.net/programowanie/php/optymalizacja-skryptow-php/" title="Optymalizacja skryptów PHP">Optymalizacja skryptów PHP</a></li><li><a href="http://aspiryna.net/programowanie/php/php-systemy-szablonow/" title="PHP: Systemy szablonów">PHP: Systemy szablonów</a></li><li><a href="http://aspiryna.net/programy/linux/vim-7/" title="ViM 7">ViM 7</a></li></ul>
+<p class="post-footer align-right">
+<img src="./ViM i PHP » aspiryna.net_files/tag_blue.png"> Tagi: <a href="http://aspiryna.net/tag/completion/" rel="tag">completion</a>, <a href="http://aspiryna.net/tag/dopelnianie/" rel="tag">dopełnianie</a>, <a href="http://aspiryna.net/tag/omni-complete/" rel="tag">omni-complete</a>, <a href="http://aspiryna.net/tag/php/" rel="tag">PHP</a>, <a href="http://aspiryna.net/tag/syntax/" rel="tag">syntax</a>, <a href="http://aspiryna.net/tag/vim/" rel="tag">vim</a>, <a href="http://aspiryna.net/tag/wciecia/" rel="tag">wcięcia</a>.
+
+</p>
+
+
+
+<br>
+
+<br>
+
+<div class="commentsblock">
+
+<!-- You can start editing here. -->
+
+<br>
+	<h4 id="comments">Komentarzy: 2 do “ViM i PHP”</h4> 
+    <div class="metalinks">
+        <span class="commentsrsslink"><a href="http://aspiryna.net/programowanie/php/vim-i-php/feed/">Feed for this Entry</a></span>
+        <span class="trackbacklink"><a href="http://aspiryna.net/programowanie/php/vim-i-php/trackback/" title="Copy this URI to trackback this entry.">Trackback Address</a></span>    </div>
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-14">
+			<cite><a href="http://blog.4zal.net/" rel="external nofollow" class="url">Karol Zalewski</a></cite>, <small class="commentmetadata"><a href="http://aspiryna.net/programowanie/php/vim-i-php/#comment-14" title="">20.01.2008, 14:19</a> </small>
+						<p>Duża ilość informacji przydatnych nie tylko programistom PHP w formie pigułki. Dziękować! <img src="./ViM i PHP » aspiryna.net_files/icon_wink.gif" alt=";-)" class="wp-smiley"> </p>
+
+		</li>
+
+	
+	
+		<li class="" id="comment-15">
+			<cite>spiral</cite>, <small class="commentmetadata"><a href="http://aspiryna.net/programowanie/php/vim-i-php/#comment-15" title="">22.01.2008, 03:04</a> </small>
+						<p>Porządny artykuł!<br>
+Sporo skorzystałem,</p>
+<p>również dziękuję<br>
+!</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+
+
+<h4 id="respond">Zostaw komentarz</h4>
+
+
+<form action="http://aspiryna.net/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1">
+<label for="author"><small>Podpis (wymagany)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2">
+<label for="email"><small>E-mail (nie bedzie pokazywany) (wymagany)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3">
+<label for="url"><small>Strona WWW</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+<p>			</p><div style="display:block;" id="secureimgdiv">
+				<p><label for="securitycode">Security code (Required)</label><span style="color:#FF0000;">*</span><br>
+				<small>To prove that you're not a bot, enter this code</small><br>
+				<input type="text" name="securitycode" id="securitycode" size="30" tabindex="4">
+				<img src="./ViM i PHP » aspiryna.net_files/cryptographp.php" alt="Anti-Spam Image" style="vertical-align:top;height:40;width:130;"></p>
+			</div>
+			<p></p>
+
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment">
+<input type="hidden" name="comment_post_ID" value="5">
+</p>
+
+</form>
+
+
+</div>
+	
+		
+
+<!-- end loop -->
+</div>
+<!-- content-wrap ends here -->	
+</div>
+
+<!-- begin footer -->
+
+<!-- Do not deleting the credits, 
+
+This theme is released for free under a dual license. The CSS (stylesheet) and images of this theme are released under a <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 License</a>, while the rest of the theme files are released under a <a href="http://www.gnu.org/licenses/gpl.html">GNU GPL License</a>. 
+
+If you use our themes, it will be assumed that you have read and accepted the following terms and conditions, included in the License Document. 
+  	
+You may get the designer links removed for a small fee by contacting us. Failing to do so is illegal. Pls read the License Document, included in the Zip File of this theme for "Terms and conditions".
+
+I'd appreciate the designer credits being left in unmodified, thanks in advance. Feel free to contact us at Headsetoptions.org for theme support, theme customization, premium templates, suggestions, or other queries, etc. Thanks for your interest, and happy blogging! -->
+
+
+<!--footer starts here-->
+		<div id="footer">
+			
+			<p>
+			
+Copyright © aspiryna.net by <a href="http://www.krupinski.waw.pl/">Leafnode</a> | Logo &amp; design hints by <a href="http://pshm.pl/">Pshem</a> | <a href="http://www.styleshout.com/">Envision</a> Theme<br>
+
+   		</p>
+				
+		</div>	
+
+<!-- wrap ends here -->
+</div>
+
+
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2502773-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+
+
+
+
+
+<div id="overlay" style="display: none; "></div><div id="lightbox" style="display: none; "><div id="outerImageContainer" style="width: 250px; height: 250px; "><div id="imageContainer"><img id="lightboxImage"><div id="hoverNav"><a id="prevLink" href="http://aspiryna.net/programowanie/php/vim-i-php/#"></a><a id="nextLink" href="http://aspiryna.net/programowanie/php/vim-i-php/#"></a></div><div id="loading"><a id="loadingLink" href="http://aspiryna.net/programowanie/php/vim-i-php/#"><img src="./ViM i PHP » aspiryna.net_files/loading.gif"></a></div></div></div><div id="imageDataContainer"><div id="imageData"><div id="imageDetails"><span id="caption"></span><span id="numberDisplay"></span></div><div id="bottomNav"><a id="bottomNavClose" href="http://aspiryna.net/programowanie/php/vim-i-php/#"><img src="./ViM i PHP » aspiryna.net_files/closelabel.gif"></a></div></div></div></div></body></html>

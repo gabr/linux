@@ -1,0 +1,181 @@
+//;/
+
+if (typeof(nslog_akon) === 'undefined') nslog_akon = {s:''};
+nslog_akon.s += ' XGI';
+
+
+
+if (typeof(quadIx_akon) === 'undefined') {
+  quadIx_akon = {
+    undefined: ({}).ns_undefined,
+    Utils: null,
+    Parser: null,
+    AutoOrder: null,
+    IxWriter: null,
+    params: {},
+    spliter: {},
+    static: {},
+    conf: {},
+    utils: {},
+    syso: null,
+    trace: null
+  };
+}
+
+with (quadIx_akon) {
+  spliter.ver = 65;
+  spliter.rev = '1304208430962';
+  spliter.static_url = 'http://adsearch.adkontekst.pl/_/intext_static/?nc='+spliter.rev;
+  spliter.dbgUrl = 'http://adsearch.adkontekst.pl/_/dbgIx_utils/?nc='+spliter.rev;
+  spliter.rqh = 'adsearch.adkontekst.pl';
+  spliter.ref = '//ubuntu.pl/forum/viewtopic.php?t=124697';
+  spliter.prid = '4729';
+  spliter.caid = '88888';
+  spliter.form = '-1:4:I;';
+  spliter.encoding = 'UTF-8';
+  spliter.pserver_id = 14;
+  
+
+  syso = function(str, color) {
+    
+  }
+  
+  trace = function(str) {
+    if (' __=7893c2f18fbeff50166551205bd18249 '.split('adc_trace').length <= 1) return;
+    syso(str, 'gray'); 
+  }
+
+  if (typeof(nsix_params) != 'undefined') params = nsix_params;
+  if (typeof(nsix_params_akon) != 'undefined') params = nsix_params_akon;
+  if (params === undefined) params = {empty: true};
+  
+  spliter.events = {
+    oninit: [],
+    onstaticloaded: [],
+    onbeforeparse: [],
+    onafterparse: [],
+    onbeforewrite: [],
+    onafterwrite: [],
+    onbeforeshowix: [],
+    onIxAElementAdded: [],
+    onbeforemainaction: [],
+    updateimgs: []
+  }
+
+  spliter.initEv = function() {
+    if (typeof(eventsIx_akon) != 'object') return;
+    syso('extra events found');
+    for (var ev in eventsIx_akon) {
+      spliter.events[ev] = eventsIx_akon[ev];
+    }
+  }
+
+  spliter.fire = function(attr, par1, par2, par3, par4, par5) {
+    var ev = spliter.events[attr];
+    if (!ev) return;
+    if (typeof(ev) === 'function') ev = [ev];
+    for (var i=0; i<ev.length; i++) {
+      try {
+        ev[i](par1, par2, par3, par4, par5);
+      } catch(e) {
+        syso('event failed: ' + attr);
+        if (utils.exc) utils.exc('event failed', e);
+      }
+    }
+  }
+
+  spliter.cookie_params = function(str) {
+    
+    return false;
+  }
+  
+  spliter.loadsc = function(href) {
+    try {
+      if (spliter.cookie_params('no_cache')) href += '&noc=' + new Date().getTime();
+      var sc = document.createElement('SCRIPT');
+      sc.src = href;
+      sc.type = 'text/javascript';
+      sc.defer = false;
+      sc.charset = spliter.encoding;
+      var adc_head = document.getElementsByTagName('head');
+      adc_head[0].appendChild(sc);
+    } catch(e) {
+      syso('Unable to load script: '+ href);
+    }
+  }
+
+  spliter.notReady = function(write) {
+    var rs = document.readyState;
+    var waitfor = false;
+    if (spliter.dbg_lock) waitfor = 'debug utils';
+    if (!static.initialized) waitfor = 'static';
+    if (write && (rs === 'interactive' || rs === 'loading')) {
+      waitfor = 'readyState';
+    }
+    if (waitfor) syso('waiting for ' + waitfor);
+    return waitfor;
+  }
+
+  spliter.go0 = function() {
+    
+      if ((params.disable === true) || (params.disabled === true)) return;
+    
+    if (spliter.cookie_params('no_ix')) return;
+    if (spliter.started) return;
+    spliter.started = true;
+    spliter.initEv();
+    try {
+      
+with(quadIx_akon) {
+  spliter.events.oninit.push(function() {
+    spliter.events.onbeforeparse.push(function() {
+      syso('starting plugin: forum ubuntu');
+      if (typeof(adc_skip_tags) != 'undefined') {
+        conf.adc_skip_tags = static.parser.adc_skip_tags = adc_skip_tags;
+      }
+    });
+  });
+}
+
+    } catch(e) {
+      spliter.exc('Error in plugin', e);
+    }
+    if (spliter.stop) return;
+    syso('starting intertext...');
+    static.writeIx = function(x) {
+      setTimeout(function() {
+        static.writeIx(x);
+      }, 200);
+    }
+    spliter.fire('oninit');
+    
+    spliter.loadsc(spliter.static_url);
+    spliter.go1 = function() {
+      if (spliter.notReady(false)) return setTimeout(spliter.go1, 200);
+      static.go2();
+    }
+    spliter.go1();
+  }
+  
+  spliter.go0();
+}
+
+
+
+
+  quadIx_akon.spliter.go3_ready = true;
+
+
+
+
+/*
+ #src_type js_assembler
+  adc_f asm_macro:
+  0x01 #aa04fb0cs%ss2do
+  0xDA #auff28po93pp680
+  0xF0 #b0cs%ss2d6to8po
+
+  #javascript:
+     adc_f(document.body);
+
+ */

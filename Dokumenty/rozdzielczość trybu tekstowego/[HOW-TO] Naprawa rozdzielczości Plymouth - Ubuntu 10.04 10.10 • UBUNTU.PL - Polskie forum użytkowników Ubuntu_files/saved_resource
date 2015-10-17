@@ -1,0 +1,4504 @@
+if (!quad_akon .static.initialized) with (quad_akon) {
+  trace('initializing static');
+  static.fstarts = [];
+
+static.evlog = nslog_akon;
+static.evlog.s += ' BS';
+
+try {x.x.x} catch(e) {static.fstarts.push(['conf', e.lineNumber, 0])};
+conf.prefix = 'akon';
+conf.placementPrefix = 'QAPS_AKPL';
+conf.version = '65';
+conf.enableRaports = true;
+conf.raportLimit = 10;
+conf.maxContent = 600;
+conf.defaultTimeout = 400;
+conf.coile = 100;
+conf.mod100 = 55;
+conf.doneStats = 100;
+conf.pscript_prefix = 'x___x';
+conf.pscript_ecdef = 'extra_content';
+conf.retries = 1000;
+conf.write_form_retries = 20;
+conf.enableOneLineForms = true;
+conf.allowForceEx = false;
+conf.tag_boost = {h1: 2, h2: 2, h3: 2, h4: 2, h5: 2, h6: 2, bold: 2, strong: 2, em: 2, i: 2, u: 2};
+conf.whiteChars_str = '!@#$$%^&*()_+-=[]{};\':",/?\\|<>\n\t\r ';
+conf.adc_skip_tags = ['SCRIPT', 'STYLE', 'SELECT', 'A', 'NOSCRIPT'];
+conf.trim_chars = '.';
+conf.defaultSysoColor = 'gray';
+conf.subframeSysoColor = 'brown';
+conf.enableLandingPageParams = false;
+conf.ads_limit = 14;
+conf.defaultFont = 'Arial';
+conf.allowedFonts = '#Arial#';
+conf.allowSamePlacementIds = true;
+conf.ignoreSamePlacementIds = false;
+conf.longTimeout = 15000;
+conf.enableAKPlacements = true;
+conf.localDbg = false;
+conf.allowOnlyMeta = 1;
+conf.minFS = 9;
+conf.maxFS = 14;
+conf.labelsCnt = 12;
+conf.minWordLength = 4;
+conf.enableC2a = false;
+conf.c2aText = unescape('sprawd%u017A%20%3E%3E');
+conf.c2aShortText = unescape('wi%u0119cej%20%3E%3E');
+conf.c2aColor = '#0000FF'; //deprecated
+conf.c2aFS = 10;
+conf.c2aWidth = 85;
+conf.c2aShortWidth = 45;
+conf.encoding = 'UTF-8';
+conf.enableCopyAds = true;
+conf.enders = [/ami$/,/zie$/,/ego$/,/cie$/,/em$/,/ie$/,/ym$/,/sc$/,/ow$/];
+conf.enders_no = [/owy$/,/owa$/,/owe$/,/owym$/];
+conf.enders_ne = [/e$/,/y$/,/i$/,/a$/,/u$/,/o$/];
+conf.emptyBoxes = false;
+conf.noClickurlTrash = false;
+
+conf.ad_warn_function = function(form) {//TODO
+  if (form.showHeader === 'f') return null;
+  if (form.showHeader != 't' && !conf.default_show_header) return null;
+  return {height: 0, text: ''};
+};
+conf.twoLetterWords = '';
+conf.textLabelWidth = 65;
+conf.labelText = 'Adkontekst';
+conf.labelSizes = function() {return {vx: 15, vy: 60, hx: 64, hy: 15}};
+conf.adc_akon_url = 'http://www.adkontekst.pl/autozamowienie_cpc/';
+conf.adc_akon_href = 'http://ad.hit.gemius.pl/hitredir/id=.WqVhm_brTxgwVaRdbrcZZbffQrsJu7_ZbngHvx5yVv.57/stparam=wgrmiuknxi/url=http%3A//www.adkontekst.pl/autozamowienie_cpc/%3Futm_source%3DAdkontekst%26utm_medium%3Dmetka%26utm_term%3D_EREF_%26utm_campaign%3Dkontekst';
+conf.imgBottomColors = '#000000#7777FF#FF7700#444444#';
+conf.img_text_label_width = 100;
+conf.img_text_label = 'Reklama AdKontekst';
+conf.enableAZ = true;
+conf.az_width = 110; //deprecated
+conf.az_text = unescape('Kup%20reklam%u0119%20tutaj');
+conf.az_shortText = unescape('Kup%20reklam%u0119');
+conf.az_longText = unescape('Kup%26nbsp%3Breklam%u0119%26nbsp%3Bna%26nbsp%3B_WHERE_') + '&nbsp;';
+conf.azAlign = 'left';
+conf.azFS = 11;
+conf.azCB = 1;
+conf.azBB = 0.2;
+conf.azBold = true;
+conf.azUnderline = true;
+conf.flashLabelWidth = 129;
+conf.flashLabelHeight = 17;
+conf.flashLabelSmall = 23;
+conf.az_ifheight = 720;
+conf.azbgimgs = ['buttons/160x150.PNG', 'buttons/234x60.PNG', 'buttons/300x100.PNG', 'buttons/468x60.PNG'];
+conf.cssOptions = 0;
+
+//*****************************************************************************
+conf.ctr_url = '_U_';
+conf.vimgurl = 'http://adsearch.adkontekst.pl/_/static/akon/script_gen/labels/pion**.png?no_cache=1304212027370_49a88a9164044a24b7030e8fff25fa8029e369c7';
+conf.himgurl = 'http://adsearch.adkontekst.pl/_/static/akon/script_gen/labels/poziom**.png?no_cache=1304212027370_49a88a9164044a24b7030e8fff25fa8029e369c7';
+conf.adtesterUrl = 'http://mandie2.netsprint.net/secure/tomek/';
+conf.spliter2Url = 'http://adsearch.adkontekst.pl/quad/spliter/?prid=_PRID_&caid=_CAID_&nc=_NC_&cc=_CC_&form=_FORM_&iid=_IID_&content=_CONTENT_&extra=_EXTRA_';
+conf.spliter3Url = 'http://adsearch.adkontekst.pl/quad/spliter/?prid=_PRID_&caid=_CAID_&nc=_NC_&cc=_CC_&form=_FORM_&iid=_IID_&content=_CONTENT_&qnr=_QN_&without=_WO_&extra=_EXTRA_';
+conf.adFrameUrl = 'http://adsearch.adkontekst.pl/quad/spliter/?prid=_PRID_&caid=_CAID_&nc=_NC_&cc=_CC_&form=_FORM_&iid=_IID_&jsdata=_FDEF_&bts=_IDS_&ref=_REF_';
+conf.azUrls = [
+  'http://panel.netsprint.pl/autoOrder/index?domain=_DOM_&cid=_CAID_&pid=_PRID_&utm_source=Adkontekst&utm_medium=kupreklame&utm_term=_EREF_&utm_campaign=layer&nc=_NC_',
+  'http://adsearch.adkontekst.pl/autoOrder/index?domain=_DOM_&cid=_CAID_&pid=_PRID_&nc=_NC_'
+];
+conf.azPrefix = 'http://adsearch.adkontekst.pl/_/static/akon/autozamowienie/';
+conf.raportUrl = 'http://adsearch.adkontekst.pl/_/raport/?ft=box&';
+conf.tp_url = unescape('http%3A//mandie2.netsprint.net/secure/tomek/QAE.html');
+
+conf.getParamsUrl = 'http://adsearch.adkontekst.pl/_/pb/?prid=_PRID_&caid=_CAID_&p=_PLIDS_&prefix=_PREFIX_&no_cache=1304212027370_49a88a9164044a24b7030e8fff25fa8029e369c7';
+
+//w innym parametrze --- TODO
+if(typeof(spliter) != "undefined"){
+    conf.getParamsUrl+='&no_cache_chan='+spliter.lastChangeForChannel;
+}
+
+conf.imager_url_template = 'http://adsearch.adkontekst.pl/_/getImage?vid=_ID_&typ=_TYP_&element=_ELEMENT_&nc=_TS_';
+conf.flash_label_url = 'http://adsearch.adkontekst.pl/_/static/akon/script_gen/labels/metka_08.png?no_cache=1304212027370_49a88a9164044a24b7030e8fff25fa8029e369c7';
+conf.azgaurl = 'http://ad.hit.gemius.pl/hitredir/id=.WqVhm_brTxgwVaRdbrcZZbffQrsJu7_ZbngHvx5yVv.57/stparam=wgrmiuknxi/%3F&url=_AZU_';
+conf.azHelpUrl = 'http://www.adkontekst.pl/help/LayerHelp';
+
+conf.adTypes = {
+T: {name: 'box', imagers: {}},
+F: {name: 'flash', imagers: {image: 'http://adsearch.adkontekst.pl/_/getImage/?vid=_ID_&typ=flash&element=image&nc=_TS_', flash: 'http://adsearch.adkontekst.pl/_/getImage/?vid=_ID_&typ=flash&element=flash&nc=_TS_'}},
+L: {name: 'largeFlash', imagers: {image: 'http://adsearch.adkontekst.pl/_/getImage/?vid=_ID_&typ=largeFlash&element=image&nc=_TS_', flash: 'http://adsearch.adkontekst.pl/_/getImage/?vid=_ID_&typ=largeFlash&element=flash&nc=_TS_'}},
+A: {name: 'awatar', imagers: {image: 'http://adsearch.adkontekst.pl/_/getImage/?vid=_ID_&typ=awatar&element=image&nc=_TS_'}},
+E: {name: 'exclusive_normal', imagers: {image: 'http://adsearch.adkontekst.pl/_/getImage/?vid=_ID_&typ=exclusive_normal&element=image&nc=_TS_'}},
+S: {name: 'exclusive_sky', imagers: {image: 'http://adsearch.adkontekst.pl/_/getImage/?vid=_ID_&typ=exclusive_sky&element=image&nc=_TS_'}},
+Z: {name: 'imgK', imagers: {image: 'http://adsearch.adkontekst.pl/_/getImage/?vid=_ID_&typ=imgK&element=image&nc=_TS_'}},
+Y: {name: 'imgSP', imagers: {image: 'http://adsearch.adkontekst.pl/_/getImage/?vid=_ID_&typ=imgSP&element=image&nc=_TS_'}},
+X: {name: 'imgDP', imagers: {image: 'http://adsearch.adkontekst.pl/_/getImage/?vid=_ID_&typ=imgDP&element=image&nc=_TS_'}},
+W: {name: 'imgDB', imagers: {image: 'http://adsearch.adkontekst.pl/_/getImage/?vid=_ID_&typ=imgDB&element=image&nc=_TS_'}},
+V: {name: 'imgSW', imagers: {image: 'http://adsearch.adkontekst.pl/_/getImage/?vid=_ID_&typ=imgSW&element=image&nc=_TS_'}},
+D: {name: 'csAvatar', imagers: {image: 'http://adsearch.adkontekst.pl/_/getImage/?vid=_ID_&typ=csAvatar&element=image&nc=_TS_'}},
+C: {name: 'csFavico', imagers: {}},
+N: {name: 'nkbox', imagers: {image: 'http://adsearch.adkontekst.pl/_/getImage/?vid=_ID_&typ=nkbox&element=image&nc=_TS_'}}
+};
+
+  
+try {x.x.x} catch(e) {static.fstarts.push(['utils', e.lineNumber, 0])};
+Utils = function(conf, options) {
+  var that = this;
+  this.options = options;
+  if (!options) this.options = function() {return false};
+  
+  conf.get = function(str, def) {
+    if (conf[str] != undefined) return conf[str];
+    if (def != undefined) return def;
+    if (that.busy) return;
+    that.busy = true;
+    that.raport('J3', 'No required configuration paramerer', str);
+    that.busy = false;
+    throw str;
+  }
+  
+  this.duzo = 1000000000;
+  this.sendstatlimit = 100;
+  this.errors = [];
+  this.raportLimit = conf.get('raportLimit', 5);
+  this.version = conf.get('version');
+  this.rndId = Math.floor(this.duzo * Math.random());
+  this.errcnt = 0;
+  this.stageNo = 0;
+  this.notDone = true;
+  this.timeArr = {};
+  this.lastTime = 0;
+  this.currTask = null;
+  this._dbg_ = {};
+  this._dbgc_ = {};
+  this.trash = [];
+  this.fstarts = [];
+  this.excList = [];
+  this.tmp_state = {};
+  this.busy_f = {};
+  this.s1cache = {};
+  this.reportsByType = {};
+  this.todo = [];
+  this.evlog = {s:'0'};
+  this.ie = navigator.appVersion.indexOf('MSIE') >= 0;
+  this.ie6 = navigator.appVersion.indexOf('MSIE 6') >= 0;
+  this.adTypes = {
+    text: 'T',
+    box: 'T',
+    skyscraper: 'S',
+    exclusive_sky: 'S',
+    rectangle: 'E',
+    billboard: 'E',
+    exclusive: 'G',
+    exclusive_normal: 'E',
+    flash: 'F',
+    avatar: 'A',
+    awatar: 'A',
+    imgK: 'Z',
+    imgSP: 'Y',
+    imgsp: 'Y',
+    imgDP: 'X',
+    imgDB: 'W',
+    imgSW: 'V',
+    imgMP: 'U',
+    imgMF: 'M',
+    csAvatar: 'D',
+    csFavico: 'C',
+    csavatar: 'D',
+    csfavico: 'C',
+    nkbox: 'N',
+    largeflash: 'L'
+  };
+
+  var ats = conf.get('adTypes');
+  for (var at in ats) {
+    this.adTypes[ats[at].name] = at;
+  }
+  
+  this.show_rect = function() {};
+  this.show_point = function() {};
+  this.printRect = function() {};
+  this.show_tmp_state = function() {};
+  this.insert_ix_dbg = function() {};
+  this.printTimes = function() {};
+  this.dbgAlterForms = function() {};
+  this.addBoxDbg1 = function() {};
+  this.replaceAds = function() {};
+
+  this.getImager = function(box, ktory) {
+    ktory = that.ifnull(ktory, 'image');
+    if (box[ktory]) return box[ktory].replace('_MOD3_', Math.floor(Math.random() * 3));
+    var typ = that.ifnull(that.adTypes[box.typ], box.typ);
+    typ = conf.get('adTypes')[typ];
+    if (!typ || !typ.imagers[ktory]) {
+      that.raport('S1-', 'unknown imager', box.typ + '.' + ktory);
+      return null;
+    }
+    return typ.imagers[ktory]
+      .replace(/_ID_/g, box.id)
+      .replace(/_TYP_/g, box.typ)
+      .replace(/_ELEMENT_/g, ktory)
+      .replace(/_TS_/g, box.timestamp)
+      + (options('no_cache') ? '&nc2=' + that.now() : '');
+  }
+
+  this.emptyAd = function() {
+    return {title: '', desc: '', url: '', opis1: '', opis2: ''};
+  }
+
+  this.co100 = function(coile) {
+    var sto = that.ifnull(coile, conf.get('coile'));
+    return that.rndId % sto === conf.get('mod100') % sto;
+  }
+  
+  this.syso1 = function(str) {
+    if (that.s1cache[str]) return trace(str);
+    that.s1cache[str] = true;
+    syso(str);
+  }
+  
+  this.now = function() {
+    return (new Date()).getTime();
+  }
+  
+  this.byId = function(id) {
+    return document.getElementById(id);
+  }
+  
+  this.cel = function(par, tag) {
+    var el = document.createElement(tag);
+    if (par) par.appendChild(el);
+    return el;
+  }
+  
+  this.cel_back = function(par, tag) {
+    if (!par.firstChild) return that.cel(par, tag);
+    var el = document.createElement(tag);
+    par.insertBefore(el, par.firstChild);
+    return el;
+  }
+  
+  this.ctn = function(par, txt) {
+    par.appendChild(document.createTextNode(txt));
+  }
+  
+  this.rm = function(node) {
+    node.parentNode.removeChild(node);
+  }
+  
+  this.clr = function(node) {
+    while (node.firstChild) node.removeChild(node.firstChild);
+  }
+  
+  this.createIframe = function(node, x, y, src) {
+    if (that.ie && src) {
+      for (var i=0; i<utils.now() % 20; i++) {
+        that.cel(node, 'span');
+      }
+    }
+    var ifr = document.createElement('iframe');
+    ifr.marginWidth='0';
+    ifr.marginHeight='0';
+    ifr.scrolling='no';
+    ifr.style.display='block';
+    ifr.frameBorder='0';
+    ifr.style.width = x + 'px';
+    ifr.style.height = y + 'px';
+    ifr.style.maxWidth = x + 'px';
+    ifr.style.maxHeight = y + 'px';
+    ifr.style.overflow = 'hidden';
+    ifr.style.padding = ifr.style.margin = ifr.style.border = '0px';
+    ifr.id = 'rnd' + that.now();
+    ifr.name = 'rnd_name' + that.now();
+    if (src != undefined) ifr.src = src;
+    try {
+      ifr.allowTransparency = 'true';
+    } catch(e){}
+    node.appendChild(ifr);
+    return ifr;
+  }
+  
+  this.ifnull = function(x, onnull) {
+    if ((x === undefined)
+      || (x === null)
+      || (typeof(x) === 'number' && isNaN(x))
+      || (x === '')) {
+        return onnull;
+    }
+    return x;
+  }
+  
+  this.foreach = function(obj, f) {
+    for (var i in obj) {
+      if ({}[i] != undefined) continue;
+      if ([][i] != undefined) continue;
+      f(i, obj[i]);
+    }
+  }
+  
+  this.apply = function(f, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) {
+    return function() {
+      return f(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+    }
+  }
+
+  this.apply1 = function(f, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) {
+    return function(e) {
+      if (e === undefined && typeof(event) === 'object') e = event;
+      return f(e, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+    }
+  }
+
+  this.shallowCopy = function(obj) {
+    var ret = {};
+    for (var i in obj) ret[i] = obj[i];
+    return ret;
+  }
+
+  this.getLno = function(e) {
+    if (typeof(e) != 'object') return '?';
+    var lno = e.lineNumber;
+    if (isNaN(lno)) return '-';
+    try {
+      if (e.fileName.indexOf('dbg_utils') >= 0) return 'dbg_utils ' + lno;
+    } catch(e) {}
+    try {
+      if (that.fstarts_closed === undefined) {
+        that.fstarts_closed = true;
+        that.fstarts.push('end', 100000, 0);
+        syso('no line number table');
+        return '-';
+      }
+      for (var i=0; i<that.fstarts.length; i++) {
+        if (that.fstarts[i][1] - that.fstarts[i][2] <= lno) continue;
+        return that.fstarts[i-1][0] + ' ' + (lno + that.fstarts[i-1][2] - that.fstarts[i-1][1]);
+      }
+    } catch(e) {};
+    syso('unknown line number');
+    return '--';
+  }
+  
+  this.ftry = function(str, f, def) {
+    return function(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) {
+      try {
+        return f(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+      } catch(e) {
+        that.errors.push(e);
+        that.exc(str, e);
+        return def;
+      }
+    }
+  }
+
+  this.retry = function(str, f, retries, oncomplete, to) {
+    if (oncomplete === undefined) oncomplete = function() {};
+    if (retries === undefined) retries = 1000000000;
+    var ret = function(rt, a, b, c, d, e, firsttry) {
+      try {
+        f(a, b, c, d, e);
+        that.ftry(str + '_done', that.apply(oncomplete, true, a, b, c, d, e))();
+      } catch(exc) {
+        if (exc === 'stop') {
+          return;
+        } else if ((rt > 0) && (exc === 'retry')) {
+          return setTimeout(function() {
+            that.syso1('retrying: ' + str);
+            ret(rt - 1, a, b, c, d, e, false);
+          }, firsttry ? 0 : utils.ifnull(to, conf.get('defaultTimeout')));
+        } else if (rt > 0) {
+          that.ftry(str + '_failed', that.apply(oncomplete, false, a, b, c, d, e))();
+          that.errors.push(exc);
+          that.exc(str, exc);
+        } else {
+          that.ftry(str + '_timeout', that.apply(oncomplete, null, a, b, c, d, e))();
+          that.raport('J1-', 'all tries failed', str);
+        }
+      }
+    }
+    return function(a, b, c, d, e) {
+      return ret(retries, a, b, c, d, e, true);
+    };
+  }
+  
+  this.onlyOnce = function(f, name, uniqParams) {
+    if (name === undefined) name = f+'';
+    return function(p1, p2, p3, p4, p5) {
+      if (uniqParams) name += ' - ' + p1 + ',' + p2 + ',' + p3 + ',' + p4 + ',' + p5;
+      if (that.busy_f[name]) return trace('not invoking: ' + name);
+      that.busy_f[name] = true;
+      setTimeout(function() {
+        that.busy_f[name] = false;
+      }, 0);
+      f(p1, p2, p3, p4, p5);
+    }
+  }
+  
+  this.sendstat = function(str) {
+    if (that.sendstatlimit-- < 0) return syso('reporting failed: ' + str, 'pink');
+    if (conf.get('enableRaports') === false) return syso('not reporting: ' + str);
+    if (document.readyState === 'loading' || document.readyState === 'interactive') {
+      return setTimeout(that.apply(that.sendstat, str), conf.get('defaultTimeout'));
+    }
+    if (that.raportLimit < 0) return syso('raport limit exceeded: ' + str);
+    var logImage = that.byId('nsc_log_img_'+conf.get('prefix')+'_'+that.rndId+'_'+that.sendstatlimit);
+    if (logImage === null) {
+      logImage = new Image(1, 1);
+      logImage.id = 'nsc_log_img_'+conf.get('prefix');
+      logImage.style.position = 'absolute';
+      logImage.style.left = '0px';
+      logImage.style.top = '0px';
+      document.body.appendChild(logImage);
+    } else if (!logImage.complete) {
+      syso('cannot happen', 'red');
+      return setTimeout(that.apply(that.sendstat, str), conf.get('defaultTimeout'));
+    }
+    that.raportLimit--;
+    str = str.replace(/\s/g, '_').replace(/\{.*\}/g, '[...]').substring(0, 200);
+    var resolution = 'unknown';
+    try {
+      resolution = screen.width + 'x' + screen.height;
+    } catch(e) {}
+    logImage.src = conf.get('raportUrl')
+      + 'version=' + that.version
+      + '&rnd=' + that.rndId
+      + (that.prid ? ('&prid='+that.prid) : '')
+      + (that.caid ? ('&caid='+that.caid) : '')
+      + (that.plid ? ('&plid='+that.plid) : '')
+      + '&ie=' + (that.ie ? (that.ie6 ? '6' : 'T') : 'F')
+      + '&evlog=' + (that.evlog.s.length <= 100 ? that.evlog.s.replace(/ /g, '_') : '-')
+      + '&res=' + resolution
+      + str;
+    syso('reporting: ' + str.substring(1), 'white');
+  }
+  
+  this.exc = function(fname, exc, param) {
+    try {
+      if (that.fstarts.length > 0) {
+        syso('reporting exception at: ' + that.getLno(exc)
+          + ' (' + exc.lineNumber + ')', 'red');
+      }
+      that.excList.push(exc);
+      if (param === undefined) param = '-';
+      that.sendstat('&type=exception'
+        + '&c=' + that.errcnt++
+        + '&fname=' + fname
+        + '&e=' + that.ifnull(exc.message, '-')
+        + '&lno=' + that.getLno(exc)
+        + '&param=' + param
+      );
+    } catch(e) {
+      syso('raporting failed: ' + e.lineNumber);
+    }
+  }
+  
+  this.raportParams = function(all, msg, param) {
+    all = all.toLowerCase();
+    var ret = {msg: msg, param: param};
+    if (all.indexOf('s') >= 0) ret.cause = 'server';
+    if (all.indexOf('j') >= 0) ret.cause = 'js';
+    if (all.indexOf('p') >= 0) ret.cause = 'placement';
+    if (all.indexOf('1') >= 0) ret.sev = 1;
+    if (all.indexOf('2') >= 0) ret.sev = 2;
+    if (all.indexOf('3') >= 0) ret.sev = 3;
+    if (all.indexOf('4') >= 0) ret.sev = 4;
+    if (all.indexOf('o') >= 0) ret.old = true;
+    if (all.indexOf('-') >= 0) ret.co100 = true;
+    if (all.indexOf('f') >= 0) ret.c0 = true;
+    return ret;
+  }
+  
+  this.report_prv = function(all, msg, param, stray) {
+    try {
+      if (stray != undefined) {
+        syso('stray params: ' + msg);
+        that.later('stray', function() {
+          that.raport('J1', 'stray raport params', msg);
+        });
+      }
+      if (typeof(all) === 'string') all = that.raportParams(all, msg, param);
+      if (all.msg === undefined) all.msg = '-';
+      if (all.param === undefined) all.param = '-';
+      if (all.old === undefined) all.old = false;
+      if (all.co100 === undefined) all.co100 = false;
+      if (all.sev === undefined) all.sev = 0;
+      if (all.cause === undefined) all.cause = 'unknown';
+      if (that.reportsByType[all.msg]) return trace(all.msg + ' - again');
+      that.reportsByType[all.msg] = all.param;
+      var sysostr = all.msg + ': ' + all.param;
+      var sysocolor = all.co100 ? 'navy' : ['yellow', 'gold', '#f50', 'red', '#70f'][all.sev];
+      if (all.co100 && !that.co100()) {
+        return syso('not reporting - ' + sysostr, sysocolor);
+      }
+      syso('reporting - ' + sysostr, sysocolor);
+      that.sendstat('&type=msg'
+        + '&sev=' + all.sev
+        + '&cause=' + all.cause
+        + '&coile=' + (all.co100 ? conf.get('coile') : 1)
+        + '&e=' + all.msg
+        + '&param=' + all.param
+        + '&old=' + all.old
+        + '&c=' + (all.c0 ? 0 : that.errcnt)
+      );
+      if (all.sev > 0) that.errcnt++;
+    } catch(e) {
+      syso('reporting failed! ' + e.lineNumber, 'pink');
+      try {
+        console.error(e);
+      } catch(e1) {};
+    }
+  }
+  
+  this.raport = this.report = this.report_prv;
+  
+  this.error = function(msg, param, old, co100) {//deprecated
+    that.report_prv({sev: 2, msg: msg, param: param, old: old, co100: co100});
+  }
+  
+  this.warning = function(msg, param, old, co100) {//deprecated
+    that.report_prv({sev: 1, msg: msg, param: param, old: old, co100: co100});
+  }
+  
+  this.placement = function(msg, param, old, co100) {//deprecated
+    if (co100 === undefined) co100 = true;
+    that.report_prv({sev: 2, msg: msg, param: param, old: old, co100: co100});
+  }
+  
+  this.info = function(msg, param, old, co100) {//deprecated
+    that.report_prv({sev: 0, msg: msg, param: param, old: old, co100: co100});
+  }
+  
+  this.unknown = function(msg, param) {//deprecated
+    that.report_prv({sev: 2, msg: msg, param: param});
+  }
+
+  this.noAds = this.noAds0 = function(co100) {
+    that.raport(co100 ? 'S3-o' : 'S3o', 'no ads');
+    that.stageNo = -1;
+  }
+  
+  this.loadsc = function(href, nohead, enc) {
+    if (!href) return that.raport('J2', 'no href');
+    if (that.options('no_cache')) href += '&noc=' + that.now();
+    syso('loading: ' + href.split('?')[0]);
+    trace('params: ' + href);
+    var sc = document.createElement('SCRIPT');
+    sc.src = href;
+    sc.type = 'text/javascript';
+    sc.defer = false;
+    sc.charset = that.ifnull(enc, conf.get('encoding'));
+    var adc_head = document.getElementsByTagName('head');
+    if (adc_head[0] && !nohead) {
+      adc_head[0].appendChild(sc);
+    } else {
+      that.raport('J1-', 'No head for document');
+      var where = document.body;
+      if (typeof(nohead) === 'object') {
+        if (nohead.parentNode) {
+          where = nohead;
+        }
+      }
+      where.appendChild(sc);
+    }
+  }
+  
+  this.start = function(taskName, nr) {
+    var now = that.now();
+    if (that.currTask) {
+      that.timeArr[that.currTask] += now - that.lastTime;
+    }
+    that.lastTime = now;
+    that.currTask = taskName;
+    if (taskName != null && that.timeArr[taskName] === undefined) {
+      that.timeArr[taskName] = 0;
+    }
+    if (that.notDone && (nr === undefined || nr === 0)) {
+      that.stageNo++;
+      trace('stage ' + that.stageNo + ': ' + taskName);
+    }
+  }
+
+  this.done = function(stats, type, coile) {
+    if (coile === undefined) coile = conf.get('coile');
+    that.notDone = false;
+    that.start(null);
+    that.printTimes();
+    var msg = '&type=' + that.ifnull(type, 'done');
+    var total = 0;
+    for (var i in that.timeArr) {
+      if (i === 'null') continue;
+      msg += '&'+i+'='+that.timeArr[i];
+      total += that.timeArr[i];
+    }
+    for (var i in stats) {
+      msg += '&'+i+'='+stats[i];
+    }
+    if (that.co100(coile)) that.sendstat('&coile=' + coile + msg + '&total=' + total);
+  }
+
+  this.stages = function(n) {
+    that.start('spliter1');
+    setTimeout(function() {
+      if (that.evlog.s.split('BGI').length > 2) return that.raport('J2-', 'stray spliter call');
+      if (that.stageNo === n || that.stageNo === -1) return;
+      if (that.stageNo > n) return syso('skipping script timeout check');
+      that.raport('S3-o', 'script died at stage', that.stageNo);
+    }, conf.get('longTimeout'));
+    if (!that.co100()) return;
+    var to = Math.floor(that.rndId / that.duzo * conf.get('longTimeout'));
+    setTimeout(function() {
+      that.sendstat('&type=ok&t=' + to + '&max=' + conf.get('longTimeout'));
+      syso('ok');
+    }, to);
+  }
+
+  this.checkVersion = function(co, v) {
+    if (that.version+'' === v+'') return;
+    if (that.version === '_' || v === '_' || options('betaIx') || options('static_src')) {
+      return syso(co + ': skipping version chcek');
+    }
+    that.raport('S1-', co + ' version mismatch', v);
+  }
+  
+  this.later = function(name, f) {
+    if (that.todo.length === 0) {
+      setTimeout(that.ftry('later - ' + name, function() {
+        syso('invoking ' + that.todo.length + ' delayed functions');
+        var todo = [];
+        for (var i=0; i<that.todo.length; i++) todo[i] = that.todo[i];
+        that.todo = [];
+        for (var i=0; i<todo.length; i++) {
+          todo[i]();
+        }
+      }), 0);
+    }
+    that.todo.push(f);
+  }
+
+  this.detached = that.ftry('checkDetached', function(node) {
+    for (var i=0; i<100; i++) {
+      if (!node) return true;
+      if (node == document.body) return false;
+      node = node.parentNode;
+    }
+    that.raport('J1', 'checkDetached - max. depth exceeded');
+    return null;
+  });
+
+  this.getSize = function() {
+    var w = 0;
+    var h = 0;
+    var d = document;
+    var b = document.body;
+    if(typeof(window.innerWidth) === 'number') {
+      w = window.innerWidth;
+      h = window.innerHeight;
+    } else if(d.documentElement && (d.documentElement.clientWidth || d.documentElement.clientHeight)) {
+      w = d.documentElement.clientWidth;
+      h = d.documentElement.clientHeight;
+    } else if(b && (b.clientWidth || b.clientHeight)) {
+      w = b.clientWidth;
+      h = b.clientHeight;
+    }
+    return {w: w, h: h};
+  }
+
+  this.getScroll = function() {
+    var sx = 0;
+    var sy = 0;
+    var de = document.documentElement;
+    var b = document.body;
+    if(typeof(window.pageYOffset) === 'number') {
+      sy = window.pageYOffset;
+      sx = window.pageXOffset;
+    } else if(b && (b.scrollLeft || b.scrollTop)) {
+      sy = b.scrollTop;
+      sx = b.scrollLeft;
+    } else if(de && (de.scrollLeft || de.scrollTop)) {
+      sy = de.scrollTop;
+      sx = de.scrollLeft;
+    }
+    return {x: sx, y: sy};
+  }
+
+  this.mouseCoords = function(ev){
+    if (ev.pageX || ev.pageY) return {x: ev.pageX, y: ev.pageY};
+    var sc = that.getScroll();
+    return {
+      x: ev.clientX + sc.x,
+      y: ev.clientY + sc.y
+    };
+  }
+
+  this.offset = function(cont) {
+    var ret = {x: 0, y: 0, w: cont.offsetWidth, h: cont.offsetHeight};
+    while (cont.offsetParent != null) {
+      ret.x += cont.offsetLeft - utils.ifnull(cont.scrollLeft, 0);
+      ret.y += cont.offsetTop - utils.ifnull(cont.scrollTop, 0);
+      cont = cont.offsetParent;
+    }
+    return ret;
+  }
+
+  this.preloadImage = function(url, oncomplete) {
+    oncomplete = that.ifnull(oncomplete, function() {});
+    var newimg = new Image();
+    newimg.src = url;
+    newimg.onload = newimg.onerror = function() {
+      trace(url + ' - img size: ' + this.width + ', ' + this.height);
+      newimg.ok = true;
+      if (this.width + this.height > 2) return oncomplete(false);
+      utils.raport('J1-o', 'preloading failed', escape(url));
+      new Image().src = url + '&nc2=' + that.now();
+      oncomplete(true);
+    }
+    setTimeout(function() {
+      if (newimg.complete && newimg.ok) return;
+      utils.raport('J1-o', 'preloading timed out', escape(url));
+      oncomplete(null);
+    }, 2000);
+  }
+
+  this.getValue = function(x) {
+    if (typeof(x) === 'string' && x.indexOf(',') > 0) {
+      var arr = x.split(',');
+      var ret = [];
+      for (var i=0; i<arr.length; i++) ret[i] = getValue(arr[i]);
+      return ret;
+    }
+    if (x === 'true') return true;
+    if (x === 'false') return false;
+    return utils.ifnull(1 * x, x);
+  }
+  
+  this.getDomain = that.ftry('getDomain', function(url) {
+    if (url === undefined) url = window.location + '';
+    if (url.substring(0, 4) != 'http') url = 'http://' + url;
+    return escape((url + '&').split('//')[1].split(/[\?\&\#\:\/]/g)[0]);
+  });
+
+  this.wloc = function() {
+    try {
+      return '' + window.location;
+    } catch(e) {
+      that.raport('J1-', 'cannot read window.location');
+      return '-';
+    }
+  }
+  
+  this.setClickable = function(node, set) {
+    if (that.ie6) return;
+    try {
+      node.style.cursor = set ? 'pointer' : '';
+    } catch(e) {
+      that.raport('J1-', 'unable to set css cursor property');
+    }
+  }
+  
+  /*  SWFObject v2.2 <http://code.google.com/p/swfobject/> 
+  is released under the MIT License <http://www.opensource.org/licenses/mit-license.php> 
+*/
+this.swfobject=function(){var D="undefined",r="object",S="Shockwave Flash",W="ShockwaveFlash.ShockwaveFlash",q="application/x-shockwave-flash",R="SWFObjectExprInst",x="onreadystatechange",O=window,j=document,t=navigator,T=false,U=[h],o=[],N=[],I=[],l,Q,E,B,J=false,a=false,n,G,m=true,M=function(){var aa=typeof j.getElementById!=D&&typeof j.getElementsByTagName!=D&&typeof j.createElement!=D,ah=t.userAgent.toLowerCase(),Y=t.platform.toLowerCase(),ae=Y?/win/.test(Y):/win/.test(ah),ac=Y?/mac/.test(Y):/mac/.test(ah),af=/webkit/.test(ah)?parseFloat(ah.replace(/^.*webkit\/(\d+(\.\d+)?).*$/,"$1")):false,X=!+"\v1",ag=[0,0,0],ab=null;if(typeof t.plugins!=D&&typeof t.plugins[S]==r){ab=t.plugins[S].description;if(ab&&!(typeof t.mimeTypes!=D&&t.mimeTypes[q]&&!t.mimeTypes[q].enabledPlugin)){T=true;X=false;ab=ab.replace(/^.*\s+(\S+\s+\S+$)/,"$1");ag[0]=parseInt(ab.replace(/^(.*)\..*$/,"$1"),10);ag[1]=parseInt(ab.replace(/^.*\.(.*)\s.*$/,"$1"),10);ag[2]=/[a-zA-Z]/.test(ab)?parseInt(ab.replace(/^.*[a-zA-Z]+(.*)$/,"$1"),10):0}}else{if(typeof O.ActiveXObject!=D){try{var ad=new ActiveXObject(W);if(ad){ab=ad.GetVariable("unknown: adContext.http.scripts.SWFO@5c6a9e79(  No field version (or public geter) in class adContext.http.scripts.SWFO)");if(ab){X=true;ab=ab.split(" ")[1].split(",");ag=[parseInt(ab[0],10),parseInt(ab[1],10),parseInt(ab[2],10)]}}}catch(Z){
+ag=[10,0,1]; for (var iii=3; iii<10; ++iii) try {new window.ActiveXObject('ShockwaveFlash.ShockwaveFlash.' + iii)} catch(e) {syso("iii=" + iii); ag=[0,0,0]; break;}
+}}}return{w3:aa,pv:ag,wk:af,ie:X,win:ae,mac:ac}}(),k=function(){if(!M.w3){return}if((typeof j.readyState!=D&&j.readyState=="complete")||(typeof j.readyState==D&&(j.getElementsByTagName("body")[0]||j.body))){f()}if(!J){if(typeof j.addEventListener!=D){j.addEventListener("DOMContentLoaded",f,false)}if(M.ie&&M.win){j.attachEvent(x,function(){if(j.readyState=="complete"){j.detachEvent(x,arguments.callee);f()}});if(O==top){(function(){if(J){return}try{j.documentElement.doScroll("left")}catch(X){setTimeout(arguments.callee,0);return}f()})()}}if(M.wk){(function(){if(J){return}if(!/loaded|complete/.test(j.readyState)){setTimeout(arguments.callee,0);return}f()})()}s(f)}}();function f(){if(J){return}try{var Z=j.getElementsByTagName("body")[0].appendChild(C("span"));Z.parentNode.removeChild(Z)}catch(aa){return}J=true;var X=U.length;for(var Y=0;Y<X;Y++){U[Y]()}}function K(X){if(J){X()}else{U[U.length]=X}}function s(Y){if(typeof O.addEventListener!=D){O.addEventListener("load",Y,false)}else{if(typeof j.addEventListener!=D){j.addEventListener("load",Y,false)}else{if(typeof O.attachEvent!=D){i(O,"onload",Y)}else{if(typeof O.onload=="function"){var X=O.onload;O.onload=function(){X();Y()}}else{O.onload=Y}}}}}function h(){if(T){V()}else{H()}}function V(){var X=j.getElementsByTagName("body")[0];var aa=C(r);aa.setAttribute("type",q);var Z=X.appendChild(aa);if(Z){var Y=0;(function(){if(typeof Z.GetVariable!=D){var ab=Z.GetVariable("unknown: adContext.http.scripts.SWFO@5c6a9e79(  No field version (or public geter) in class adContext.http.scripts.SWFO)");if(ab){ab=ab.split(" ")[1].split(",");M.pv=[parseInt(ab[0],10),parseInt(ab[1],10),parseInt(ab[2],10)]}}else{if(Y<10){Y++;setTimeout(arguments.callee,10);return}}X.removeChild(aa);Z=null;H()})()}else{H()}}function H(){var ag=o.length;if(ag>0){for(var af=0;af<ag;af++){var Y=o[af].id;var ab=o[af].callbackFn;var aa={success:false,id:Y};if(M.pv[0]>0){var ae=c(Y);if(ae){if(F(o[af].swfVersion)&&!(M.wk&&M.wk<312)){w(Y,true);if(ab){aa.success=true;aa.ref=z(Y);ab(aa)}}else{if(o[af].expressInstall&&A()){var ai={};ai.data=o[af].expressInstall;ai.width=ae.getAttribute("width")||"0";ai.height=ae.getAttribute("height")||"0";if(ae.getAttribute("class")){ai.styleclass=ae.getAttribute("class")}if(ae.getAttribute("align")){ai.align=ae.getAttribute("align")}var ah={};var X=ae.getElementsByTagName("param");var ac=X.length;for(var ad=0;ad<ac;ad++){if(X[ad].getAttribute("name").toLowerCase()!="movie"){ah[X[ad].getAttribute("name")]=X[ad].getAttribute("value")}}P(ai,ah,Y,ab)}else{p(ae);if(ab){ab(aa)}}}}}else{w(Y,true);if(ab){var Z=z(Y);if(Z&&typeof Z.SetVariable!=D){aa.success=true;aa.ref=Z}ab(aa)}}}}}function z(aa){var X=null;var Y=c(aa);if(Y&&Y.nodeName=="OBJECT"){if(typeof Y.SetVariable!=D){X=Y}else{var Z=Y.getElementsByTagName(r)[0];if(Z){X=Z}}}return X}function A(){return !a&&F("6.0.65")&&(M.win||M.mac)&&!(M.wk&&M.wk<312)}function P(aa,ab,X,Z){a=true;E=Z||null;B={success:false,id:X};var ae=c(X);if(ae){if(ae.nodeName=="OBJECT"){l=g(ae);Q=null}else{l=ae;Q=X}aa.id=R;if(typeof aa.width==D||(!/%$/.test(aa.width)&&parseInt(aa.width,10)<310)){aa.width="310"}if(typeof aa.height==D||(!/%$/.test(aa.height)&&parseInt(aa.height,10)<137)){aa.height="137"}j.title=j.title.slice(0,47)+" - Flash Player Installation";var ad=M.ie&&M.win?"ActiveX":"PlugIn",ac="MMredirectURL="+O.location.toString().replace(/&/g,"%26")+"&MMplayerType="+ad+"&MMdoctitle="+j.title;if(typeof ab.flashvars!=D){ab.flashvars+="&"+ac}else{ab.flashvars=ac}if(M.ie&&M.win&&ae.readyState!=4){var Y=C("div");X+="SWFObjectNew";Y.setAttribute("id",X);ae.parentNode.insertBefore(Y,ae);ae.style.display="none";(function(){if(ae.readyState==4){ae.parentNode.removeChild(ae)}else{setTimeout(arguments.callee,10)}})()}u(aa,ab,X)}}function p(Y){if(M.ie&&M.win&&Y.readyState!=4){var X=C("div");Y.parentNode.insertBefore(X,Y);X.parentNode.replaceChild(g(Y),X);Y.style.display="none";(function(){if(Y.readyState==4){Y.parentNode.removeChild(Y)}else{setTimeout(arguments.callee,10)}})()}else{Y.parentNode.replaceChild(g(Y),Y)}}function g(ab){var aa=C("div");if(M.win&&M.ie){aa.innerHTML=ab.innerHTML}else{var Y=ab.getElementsByTagName(r)[0];if(Y){var ad=Y.childNodes;if(ad){var X=ad.length;for(var Z=0;Z<X;Z++){if(!(ad[Z].nodeType==1&&ad[Z].nodeName=="PARAM")&&!(ad[Z].nodeType==8)){aa.appendChild(ad[Z].cloneNode(true))}}}}}return aa}function u(ai,ag,Y){var X,aa=c(Y);if(M.wk&&M.wk<312){return X}if(aa){if(typeof ai.id==D){ai.id=Y}if(M.ie&&M.win){var ah="";for(var ae in ai){if(ai[ae]!=Object.prototype[ae]){if(ae.toLowerCase()=="data"){ag.movie=ai[ae]}else{if(ae.toLowerCase()=="styleclass"){ah+=' class="'+ai[ae]+'"'}else{if(ae.toLowerCase()!="classid"){ah+=" "+ae+'="'+ai[ae]+'"'}}}}}var af="";for(var ad in ag){if(ag[ad]!=Object.prototype[ad]){af+='<param name="'+ad+'" value="'+ag[ad]+'" />'}}aa.outerHTML='<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"'+ah+">"+af+"</object>";N[N.length]=ai.id;X=c(ai.id)}else{var Z=C(r);Z.setAttribute("type",q);for(var ac in ai){if(ai[ac]!=Object.prototype[ac]){if(ac.toLowerCase()=="styleclass"){Z.setAttribute("class",ai[ac])}else{if(ac.toLowerCase()!="classid"){Z.setAttribute(ac,ai[ac])}}}}for(var ab in ag){if(ag[ab]!=Object.prototype[ab]&&ab.toLowerCase()!="movie"){e(Z,ab,ag[ab])}}aa.parentNode.replaceChild(Z,aa);X=Z}}return X}function e(Z,X,Y){var aa=C("param");aa.setAttribute("name",X);aa.setAttribute("value",Y);Z.appendChild(aa)}function y(Y){var X=c(Y);if(X&&X.nodeName=="OBJECT"){if(M.ie&&M.win){X.style.display="none";(function(){if(X.readyState==4){b(Y)}else{setTimeout(arguments.callee,10)}})()}else{X.parentNode.removeChild(X)}}}function b(Z){var Y=c(Z);if(Y){for(var X in Y){if(typeof Y[X]=="function"){Y[X]=null}}Y.parentNode.removeChild(Y)}}function c(Z){var X=null;try{X=j.getElementById(Z)}catch(Y){}return X}function C(X){return j.createElement(X)}function i(Z,X,Y){Z.attachEvent(X,Y);I[I.length]=[Z,X,Y]}function F(Z){var Y=M.pv,X=Z.split(".");X[0]=parseInt(X[0],10);X[1]=parseInt(X[1],10)||0;X[2]=parseInt(X[2],10)||0;return(Y[0]>X[0]||(Y[0]==X[0]&&Y[1]>X[1])||(Y[0]==X[0]&&Y[1]==X[1]&&Y[2]>=X[2]))?true:false}function v(ac,Y,ad,ab){if(M.ie&&M.mac){return}var aa=j.getElementsByTagName("head")[0];if(!aa){return}var X=(ad&&typeof ad=="string")?ad:"screen";if(ab){n=null;G=null}if(!n||G!=X){var Z=C("style");Z.setAttribute("type","text/css");Z.setAttribute("media",X);n=aa.appendChild(Z);if(M.ie&&M.win&&typeof j.styleSheets!=D&&j.styleSheets.length>0){n=j.styleSheets[j.styleSheets.length-1]}G=X}if(M.ie&&M.win){if(n&&typeof n.addRule==r){n.addRule(ac,Y)}}else{if(n&&typeof j.createTextNode!=D){n.appendChild(j.createTextNode(ac+" {"+Y+"}"))}}}function w(Z,X){if(!m){return}var Y=X?"visible":"hidden";if(J&&c(Z)){c(Z).style.visibility=Y}else{v("#"+Z,"visibility:"+Y)}}function L(Y){var Z=/[\\\"<>\.;]/;var X=Z.exec(Y)!=null;return X&&typeof encodeURIComponent!=D?encodeURIComponent(Y):Y}var d=function(){/*broken*/}();return{registerObject:function(ab,X,aa,Z){if(M.w3&&ab&&X){var Y={};Y.id=ab;Y.swfVersion=X;Y.expressInstall=aa;Y.callbackFn=Z;o[o.length]=Y;w(ab,false)}else{if(Z){Z({success:false,id:ab})}}},getObjectById:function(X){if(M.w3){return z(X)}},embedSWF:function(ab,ah,ae,ag,Y,aa,Z,ad,af,ac){var X={success:false,id:ah};if(M.w3&&!(M.wk&&M.wk<312)&&ab&&ah&&ae&&ag&&Y){w(ah,false);K(function(){ae+="";ag+="";var aj={};if(af&&typeof af===r){for(var al in af){aj[al]=af[al]}}aj.data=ab;aj.width=ae;aj.height=ag;var am={};if(ad&&typeof ad===r){for(var ak in ad){am[ak]=ad[ak]}}if(Z&&typeof Z===r){for(var ai in Z){if(typeof am.flashvars!=D){am.flashvars+="&"+ai+"="+Z[ai]}else{am.flashvars=ai+"="+Z[ai]}}}if(F(Y)){var an=u(aj,am,ah);if(aj.id==ah){w(ah,true)}X.success=true;X.ref=an}else{if(aa&&A()){aj.data=aa;P(aj,am,ah,ac);return}else{w(ah,true)}}if(ac){ac(X)}})}else{if(ac){ac(X)}}},switchOffAutoHideShow:function(){m=false},ua:M,getFlashPlayerVersion:function(){return{major:M.pv[0],minor:M.pv[1],release:M.pv[2]}},hasFlashPlayerVersion:F,createSWF:function(Z,Y,X){if(M.w3){return u(Z,Y,X)}else{return undefined}},showExpressInstall:function(Z,aa,X,Y){if(M.w3&&A()){P(Z,aa,X,Y)}},removeSWF:function(X){if(M.w3){y(X)}},createCSS:function(aa,Z,Y,X){if(M.w3){v(aa,Z,Y,X)}},addDomLoadEvent:K,addLoadEvent:s,getQueryParamValue:function(aa){var Z=j.location.search||j.location.hash;if(Z){if(/\?/.test(Z)){Z=Z.split("?")[1]}if(aa==null){return L(Z)}var Y=Z.split("&");for(var X=0;X<Y.length;X++){if(Y[X].substring(0,Y[X].indexOf("="))==aa){return L(Y[X].substring((Y[X].indexOf("=")+1)))}}}return""},expressInstallCallback:function(){if(a){var X=c(R);if(X&&l){X.parentNode.replaceChild(l,X);if(Q){w(Q,true);if(M.ie&&M.win){l.style.display="block"}}if(E){E(B)}}a=false}}}}();
+
+  
+  this.swfo = function(node, w, h, src, params, attributes, flashvars) {
+    params = that.ifnull(params, {});
+    attributes = that.ifnull(attributes, {});
+    flashvars = that.ifnull(flashvars, {});
+    that.flashCnt = that.ifnull(that.flashCnt, 0);
+    node = that.cel(node, 'div');
+    var name = node.id = 'flashBox_' + that.flashCnt++;
+    return that.swfobject.embedSWF(src, name, w, h, "10.0.0", null, flashvars, params, attributes, function(e) {
+      utils.later('swfo_quickfix', function() {
+        e.ref.movie = src;
+      });
+    });
+  }
+  
+  this.getFlashPlayerVersion = function() {
+    try {
+      return new ActiveXObject('ShockwaveFlash.ShockwaveFlash').GetVariable('unknown: adContext.http.scripts.JsUtils@5bca4955(  No field version (or public geter) in class adContext.http.scripts.JsUtils)').replace(/\D+/g, ',').match(/^,?(.+),?$/)[1]
+    } catch(e) {
+      try {
+        if(navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin){
+          return (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]).description.replace(/\D+/g, ",").match(/^,?(.+),?$/)[1];
+        }    
+      } catch(e) {}
+    }
+    return null;
+  }
+}
+
+  
+try {x.x.x} catch(e) {static.fstarts.push(['placementUtils', e.lineNumber, 0])};
+PlacementUtils = function(conf, utils, options) {
+  var that = this;
+  this.abc = '0123456789abcdef';
+  this.param_map = {};
+  if (options === undefined) options = function() {return false};
+
+  this.getSrc = function(scr, i) {
+    try {
+      return scr.src + '';
+    } catch(e) {
+      utils.raport('J1-o', 'cannot access script src', i);
+      return '';
+    }
+  }
+
+  this.parseScripts = utils.ftry('parseScripts', function(forms, global, events, host, placement_map, etag, prefix, encoding, oc) {
+    if (oc === undefined) oc = function() {};
+    var oncomplete = utils.retry('waitForAkPlacements', function() {
+      for (var i=0; i<forms.length; i++) {
+        if (!forms[i].notReady) continue;
+        forms[i].notReady(forms[i]);
+        throw 'retry';
+      }
+      oc();
+    });
+    that.parseQ1Scripts(forms, global, host);
+    that.parseAkScripts(forms, global.prid0, global.caid0);
+    that.parseQ3Scripts(forms, global);
+    that.parseQ4Scripts(forms, global, placement_map);
+    that.getExtraScripts(forms, events.extraForms);
+    global.extraContent = utils.ifnull(events.extraContent, global.extraContent);
+    if (typeof(extra_content) === 'string') {
+      global.extraContent = utils.ifnull(global.extraContent, extra_content);
+    }
+    var ids = '';
+    var ida = {};
+    var caid = '_';
+    var prid = '_';
+    if (that.formLimit != undefined) {
+      syso('skipping ' + (forms.length - that.formLimit) + ' forms - formLimit');
+      while (forms.length > 0 && forms.length > that.formLimit) forms.pop();
+    }
+    for (var i=0; i<forms.length; i++) {
+      var form = forms[i];
+      if (form.caid) {
+        trace('found caid: ' + form.caid, 'aqua');
+        if (caid != '_' && caid != form.caid) {
+          return utils.raport('P3-', 'different caids on page', caid + ' ' + form.caid);
+        }
+        caid = form.caid;
+        prid = form.prid;
+      }
+      if (form.noContent === false) {
+        utils.raport('P0-', 'content ignored', i);
+        global.ignoreContent = true;
+      }
+      if (form.script.painted) continue;
+      form.script.painted = true;
+      if (!form.needUpdate) continue;
+      ids += ',' + form.placementId;
+      ida['#'+form.placementId] = form;
+    }
+    syso('formc = ' + forms.length);
+    if (ids === '') return oncomplete();
+    that.resume = utils.retry('pb - callback', function() {
+      syso('callback');
+      static.evlog.s += ' BP'
+      static.global.extraContent = that.extra_content;
+      for (var plid in ida) {
+        if (that.param_map[plid] === undefined) {
+          utils.raport('S2', 'no up-to-date params for placement');
+          syso(plid + ' ' + ida[plid].line);
+          continue;
+        }
+        for (var j=0; j<forms.length; j++) {
+          var form = forms[j];
+          if (form.painted) continue;
+          if (!form.needUpdate) continue;
+          if ('#' + form.placementId != plid) continue;
+          forms[j] = that.readForm(form.node, that.param_map[plid].split('-')[4], form.script);
+          for (var attr in form) {//copying unchanged parameters
+            if (forms[j][attr] != undefined) continue;
+            forms[j][attr] = form[attr];
+          }
+          forms[j].needUpdate = false;
+          syso('updated form ' + plid);
+        }
+      }
+      oncomplete();
+    });
+    utils.loadsc(conf.get('getParamsUrl')
+        .replace(/_HOST_/g, host)
+        .replace(/_PRID_/g, prid)
+        .replace(/_CAID_/g, caid)
+        .replace(/_ETAG_/g, etag)
+        .replace(/_PLIDS_/g, ids.substring(1))
+        .replace(/_PREFIX_/g, prefix),
+      false, encoding
+    );
+    syso('waiting for placement params update...');
+  });
+
+  this.getExtraScripts = function(forms, extra) {
+    if (extra != undefined && extra.length <= 0) return;
+    for (var ei=0; ei<extra.length; ei++) {
+      if (ei > conf.get('ads_limit')) break;
+      var e = extra[ei];
+      if (typeof(e) === 'function') {
+        var fa = utils.ftry('extra1', e)();
+        syso('generated ' + fa.length + ' extra forms');
+        for (var i=0; i<fa.length; i++) {
+          extra.push(fa[i]);
+        }
+        continue;
+      }
+      var form = that.readForm(e[0], e[1], {});
+      forms.push(form);
+      syso('found Extra form: ' + e[1]);
+    }
+  }
+
+  this.parseQ4Scripts = function(forms, global, map) {
+    if (map === undefined) return;
+    var scarr = document.getElementsByTagName('script');
+    for (var i=0; i<scarr.length; i++) {
+      var sc = scarr[i];
+      if (sc.painted) continue;
+      var params = that.getSrc(sc, i)+'&';
+      if (params.indexOf(conf.get('placementPrefix')) < 0) continue;
+      if (params.indexOf('--') >= 0) continue;
+      try {
+        var line = params.split('=')[1].split('&')[0];
+        if (map[line] === undefined) {
+          utils.raport('S2', 'no such entry in placement map', line);
+          continue;
+        }
+        var node = utils.cel(null, 'div');
+        sc.parentNode.insertBefore(node, sc);
+        var form = that.readForm(node, map[line].split('-')[4], sc);
+        form.needUpdate = true;
+        form.prid = map[line].split('-')[2];
+        form.caid = map[line].split('-')[3];
+        forms.push(form)
+        syso('found Quad-4 placement: ' + line);
+      } catch(e) {
+        utils.exc('parseQ4Scripts - unable to parse params', e, params);
+      }
+    }
+  }
+
+  this.parseQ3Scripts = function(forms, global) {
+    var scarr = document.getElementsByTagName('script');
+    for (var i=0; i<scarr.length; i++) {
+      var sc = scarr[i];
+      if (sc.painted) continue;
+      var params = that.getSrc(sc, i);
+      if (params.indexOf(conf.get('placementPrefix')) < 0) continue;
+      if (params.indexOf('--') < 0) continue;
+      try {
+        var line = params.split('--')[1].split('-')[2];
+        var node = utils.cel(null, 'div');
+        sc.parentNode.insertBefore(node, sc);
+        forms.push(that.readForm(node, line, sc, params.split('--')[1].split('-')[1]));
+        syso('found Quad-3 placement: ' + line);
+      } catch(e) {
+        utils.exc('parseQ3Scripts - unable to parse params', e, params);
+      }
+    }
+  }
+
+  this.parseAkScripts = function(forms, prid, caid) {
+    if (!conf.get('enableAKPlacements')) return;
+    if (typeof(adKontekst_pola) === 'undefined') return;
+    for (var i=0; i<adKontekst_pola.length; i++) {
+      var pole = adKontekst_pola[i];
+      if (pole.done) continue;
+      syso('found AK placement: adKontekst_pola[' + i + ']');
+      if (!pole.paleta) pole.paleta = adKontekst_paleta;
+      if (!pole.paleta) {
+        utils.raport('P2-', 'no palette for form');
+        continue;
+      }
+      if (!pole.paleta.kolor_tlo) pole.paleta.kolor_tlo = '#FFFFFF';
+      if (!pole.paleta.kolor_tlo_naglowka) pole.paleta.kolor_tlo_naglowka=pole.paleta.kolor_tlo;
+      if (!pole.paleta.kolor_ramki_naglowka) pole.paleta.kolor_ramki_naglowka=pole.paleta.kolor_naglowek;
+      var form = {
+        script: {},
+        nazwa: pole.nazwa,
+        node: document.getElementById(pole.nazwa),
+        notReady: function(f) {
+          if (f.node = utils.byId(f.nazwa)) {
+            f.notReady = false;
+          }
+        },
+        caid: caid,
+        line: 'N/A',
+        colors: {
+          title: pole.paleta.kolor_tytul.replace(/#/g, ''),
+          bg: pole.paleta.kolor_tlo.replace(/#/g, ''),
+          desc: pole.paleta.kolor_opis.replace(/#/g, ''),
+          url: pole.paleta.kolor_url.replace(/#/g, ''),
+          frame: pole.paleta.kolor_naglowek.replace(/#/g, ''),
+          headerBg: pole.paleta.kolor_tlo_naglowka.replace(/#/g, ''),
+          headerFrame: pole.paleta.kolor_ramki_naglowka.replace(/#/g, '')
+        },
+        x: pole.x,
+        y: pole.y,
+        r: pole.r,
+        c: pole.c,
+        corners: {
+          tl: pole.naroznik_lewy_gorny,
+          tr: pole.naroznik_prawy_gorny,
+          bl: pole.naroznik_lewy_dolny,
+          br: pole.naroznik_prawy_dolny
+        },
+        withUrl: pole.czy_url,
+        labelId: pole.id_koloru_metki,
+        labelType: [0, 0, 3, 3, 1, 2]['@@0@text@right@bottom@'.split('@'+pole.metka+'@')[0].split('@').length],
+        merging: pole.scalenie,
+        spacing: pole.spacing,
+        placementId: pole.nform,
+        imgBottomColor: pole.imgBottomColor,
+        noContent: pole.noContent ? false : undefined
+      };
+      for (var a in pole) {
+        if (a.substring(0, 2) != '__') continue;
+        form[a.substring(2)] = pole[a];
+      }
+      form = that.fixForm(form);
+      form.line = that.getScriptParams(form);
+      forms.push(form);
+      adKontekst_pola[i].done = true;
+    }
+  }
+
+  this.parseQ1Scripts = function(forms, global, host) {
+    var scarr = document.getElementsByTagName('script');
+    trace('script count: ' + scarr.length);
+    for (var i=0; i<scarr.length; i++) {
+      var src = that.getSrc(scarr[i], i);
+      if ((src.indexOf('quad/spliter') >= 0) && (src.indexOf(host) < 0) && (src.indexOf('intext') < 0)) {
+        return syso('alien QUAD-1 placement found; skipping old placements');
+      }
+    }
+    for (var i=0; i<scarr.length; i++) {
+      try {
+        var node = scarr[i];
+        if (node.innerHTML.indexOf(conf.get('pscript_prefix')) < 0) continue;
+        var line = '';
+        if (node.innerHTML.match(/^[\w=\s]*'[a-zA-Z0-9,.&=]*'/) || node.innerHTML.match(/^[\w=\s]*"[a-zA-Z0-9,.&=]*"/)) {
+          line = node.innerHTML.split(conf.get('pscript_prefix'))[1].split(/'|"/g)[1];
+        } else {
+          continue;
+        }
+        if (node.painted) continue;
+        try {
+          global.extraContent = node.innerHTML.split(conf.get('pscript_ecdef'))[1].split(/'|"/g)[1];
+          syso('found extra content: ' + quad_static.extraContent);
+        } catch(e) {};
+        var newnode = utils.cel(null, 'div');
+        node.parentNode.insertBefore(newnode, node);
+        var f = that.readForm(newnode, line, node);
+        forms.push(f);
+        syso('found Quad-1 placement: ' + line);
+      } catch(e) {
+        utils.exc('parseQ1Scripts - unable to parse params', e);
+      }
+    }
+  }
+
+  this.checkInt = function(form, errors, str, minv, maxv, def) {
+    if (form[str] === undefined) form[str] = def;
+    var i = parseInt(form[str]);
+    if (isNaN(i) || (i < minv) || (i > maxv)) {
+      errors.push(['invalid int value', str + ' = ' + form[str]]);
+    }
+    form[str] = Math.min(maxv, Math.max(minv, utils.ifnull(i, def)));
+  }
+  
+  this.fixColor = function(c) {
+    if (c.charAt(0) === '#') c = c.substring(1);
+    var cc = '#white|fff#aqua|0ff#magneta|f0f#yellow|ff0#red|f00#green|0f0#blue|00f#black|000#gray|777#silver|ddd#';
+    var ci = cc.indexOf('#'+c+'|');
+    if (ci >= 0) c = cc.substring(ci).split('|')[1].split('#')[0];
+    if (c.length === 3) c = c.charAt(0) + c.charAt(0) + c.charAt(1) + c.charAt(1) + c.charAt(2) + c.charAt(2);
+    return c;
+  }
+  
+  this.checkCol = function(form, errors, str, def) {
+    if (form.colors[str] === undefined) form.colors[str] = def;
+    if (form.colors[str] === "") form.colors[str] = def;
+    form.colors[str] = that.fixColor(form.colors[str]);
+    var strv = form.colors[str].toLowerCase();
+    if (strv.length != 6) {
+      form.colors[str] = def;
+      errors.push(['invalid color', strv]);
+      return syso('restored default color: ' + form.colors[str]);
+    }
+    for (var i=0; i<6; i++) {
+      if (that.abc.indexOf(strv.charAt(i)) < 0) {
+        form.colors[str] = def;
+        errors.push(['invalid color', strv]);
+        return syso('restored default color: ' + form.colors[str]);
+      }
+    }
+  }
+  
+  this.fixColors = function(form, errors, s1, s2, warn, change) {
+    var c1 = form.colors[s1].toLowerCase();
+    var c2 = form.colors[s2].toLowerCase();
+    var diff = 0;
+    for (var i=0; i<6; i+=2) {
+      var ch1 = that.abc.indexOf(c1.charAt(i));
+      var ch2 = that.abc.indexOf(c2.charAt(i));
+      diff += Math.abs(ch1 - ch2);
+    }
+    trace('diff='+diff);
+    if (diff > warn) return;
+    if (form.warnings === undefined) form.warnings = [];
+    form.warnings.push(['ugly colors', diff + ' (' + s1 + ', ' + s2 + ')']);
+    form.colors['old'+s1] = form.colors[s1];
+    if (diff > change) return;
+    var n1 = '';
+    var n2 = '';
+    for (var i=0; i<6; i+=2) {
+      var ch1 = that.abc.indexOf(c1.charAt(i));
+      var ch2 = that.abc.indexOf(c2.charAt(i));
+      var d = Math.abs(ch1 - ch2);
+      if (d > change / 3) {
+        n1 += c1.charAt(i) + c1.charAt(i+1);
+        n2 += c2.charAt(i) + c2.charAt(i+1);
+        continue;
+      }
+      var ch = Math.floor((ch1 + ch2) / 2);
+      var nh1 = that.abc.charAt(Math.max(0, Math.min(15, ch > 7 ? ch - 3 : ch + 3)));
+      n1 += nh1 + nh1;
+    }
+    syso('fixed colors: ' + c1 + ', ' + c2 + ' --> ' + n1);
+    form.colors[s1] = n1;
+  }
+
+  this.validateForm = function(form, errors) {
+    if (form.colors === undefined) form.colors = {};
+    if (form.labelType === 0) form.labelType = 3;
+    var checkInt = function(prop, minv, maxv, def, noWarn) {
+      return that.checkInt(form, noWarn ? [] : errors, prop, minv, maxv, def);
+    }
+    var checkCol = function(prop, def) {
+      if (form.colors[prop] === 'transparent') return true;
+      return that.checkCol(form, errors, prop, def);
+    }
+    if (typeof(form.corners) != 'object') {
+      form.errors.push(['no corners', '']);
+      form.corners = {};
+    }
+    checkInt('merging', 1, 6, 2);
+    checkInt('spacing', 0, 20, 1);
+    checkInt('labelType', 1, 4, 3);
+    checkInt('labelId', 1, conf.get('labelsCnt'), 1);
+    that.checkInt(form.corners, errors, 'tl', 0, 4, 3);
+    that.checkInt(form.corners, errors, 'tr', 0, 4, 3);
+    that.checkInt(form.corners, errors, 'bl', 0, 4, 3);
+    that.checkInt(form.corners, errors, 'br', 0, 4, 3);
+    checkInt('x', 40, 1600, 300);
+    checkInt('y', 20, 1200, 100, true);
+    checkInt('fontSize', 9, 12, NaN, true);
+    checkInt('cornerSizeX', 3, 20, 7, true);
+    checkInt('cornerSizeY', 3, 20, 7, true);
+    checkInt('borderSize', 0, 4, 1, true);
+    checkInt('placementId', 0, 1000000, 0, true);
+    checkCol('title', '0000FF');
+    checkCol('bg', 'FFFFFF');
+    checkCol('desc', '000000');
+    checkCol('url', '0000FF');
+    checkCol('frame', 'B9B9B9');
+    checkCol('headerBg', 'FFFFFF');
+    checkCol('headerFrame', 'B9B9B9');
+    checkCol('labelTxt', form.colors.title);
+    that.fixColors(form, errors, 'title', 'headerBg', 5, 3);
+    that.fixColors(form, errors, 'desc', 'bg', 5, 3);
+    that.fixColors(form, errors, 'url', 'bg', 5, 3);
+    that.fixColors(form, [], 'labelTxt', 'bg', 5, 3);
+    if (form.imgBottomColor && conf.get('imgBottomColors').indexOf('#'+form.imgBottomColor+'#') < 0) {
+      errors.push(['disallowed image bottom color', form.imgBottomColor]);
+      form.imgBottomColor = null;
+    }
+    if ((form.labelType < 1) || (form.labelType > 4)) form.labelType = 3;        
+    form.font = utils.ifnull(form.font, conf.get('defaultFont'));
+    if (conf.get('allowedFonts').indexOf('#' + form.font + '#') < 0) {
+      errors.push(['disallowed font', form.font]);
+      form.font = 'Arial';
+    }
+    form.x = form.x - 0;
+    form.y = form.y - 0;
+    return errors;
+  }
+  
+  this.exclusiveIsEnabled = function(form) {
+    if (options('noex')) return '';
+    if ((form.noEx === 'b') && conf.get('allowForceEx')) return 'E';
+    if ((form.noEx === 'w') && conf.get('allowForceEx')) return 'W';
+    if (form.forbidden && form.forbidden.search(/:exclusive:/i)) return '';
+    if (form.noEx) return '';
+    if (form.x >= 580 && form.y >= 100) return 'e';
+    if (form.x >= 540 && form.y >= 170) return 'E';
+    if (form.x >= 380 && form.y >= 190) return 'E';
+    if (form.x >= 240 && form.y >= 250) return 'E';
+    if (form.x >= 160 && form.y >= 400) return 'W';
+    return '';
+  }
+  
+  this.fixForm = function(form) {
+    if (form.fixed) return form;
+    var errors = that.validateForm(form, []);
+    if (errors.length > 0) {
+      form.errors = errors;
+      utils.raport('P1-', 'form contains errors',
+        errors.length + ' ' + errors[0][0] + ': ' + errors[0][1]);
+    }
+    form.fixed = true;
+    form.cc = form.r * form.c;
+    form.ee = that.exclusiveIsEnabled(form);
+    return form;
+  }
+  
+  this.readForm = function(node, str, script, caid) {
+    if (typeof(str) != 'string') syso(str);
+    var arr = str.split(',');
+    var ret = {
+      script: script,
+      node: node,
+      caid: caid,
+      line: str,
+      colors: {
+        title: arr[0],
+        bg: arr[1],
+        desc: arr[2],
+        url: arr[3],
+        frame: arr[4],
+        headerBg: arr[5],
+        headerFrame: arr[6]
+      },
+      x: arr[7],
+      y: arr[8],
+      r: arr[9],
+      c: arr[10],
+      corners: {
+        tl: arr[11],
+        tr: arr[12],
+        bl: arr[13],
+        br: arr[14]
+      },
+      withUrl: arr[15] === 't',
+      labelId: arr[16],
+      labelType: arr[17],
+      merging: arr[19],
+      spacing: arr[20],
+      noContent: arr[21] === 't' ? true : arr[21] === 'f' ? false : null,
+      placementId: arr[22],
+      noEx: arr[23] === 't',
+      showHeader: arr[24],
+      font: arr[25],
+      fontSize: arr[26],
+      cornerSizeX: arr[27],
+      cornerSizeY: arr[28],
+      borderSize: arr[29],
+      imgBottomColor: arr[30],
+      adartType: arr[31] * 1,
+      aaImgX: arr[32] * 1,
+      aaImgY: arr[33] * 1,
+      showDescs: arr[34] === 't'
+    }
+    return that.fixForm(ret);
+  }
+
+  this.getScriptParams = function(form) {
+    var ret = "";
+    ret += form.colors.title + ',';
+    ret += form.colors.bg + ',';
+    ret += form.colors.desc + ',';
+    ret += form.colors.url + ',';
+    ret += form.colors.frame + ',';
+    ret += form.colors.headerBg + ',';
+    ret += form.colors.headerFrame + ',';
+    ret += form.x + ',';
+    ret += form.y + ',';
+    ret += form.r + ',';
+    ret += form.c + ',';
+    ret += form.corners.tl + ',';
+    ret += form.corners.tr + ',';
+    ret += form.corners.bl + ',';
+    ret += form.corners.br + ',';
+    ret += (form.withUrl ? 't' : 'f') + ',';
+    ret += form.labelId + ',';
+    ret += form.labelType + ',';
+    ret += '1,';
+    ret += form.merging + ',';
+    ret += form.spacing + ',';
+    ret += form.noContent ? 't' : 'f';
+    ret += ',' + form.placementId;
+    ret += ',' + (form.noEx ? 't' : 'f');
+    ret += ',' + form.showHeader;
+    ret += ',' + utils.ifnull(form.font, '');
+    ret += ',' + utils.ifnull(form.fontSize, '');
+    ret += ',' + utils.ifnull(form.cornerSizeX, '');
+    ret += ',' + utils.ifnull(form.cornerSizeY, '');
+    ret += ',' + utils.ifnull(form.borderSize, '');
+    ret += ',' + utils.ifnull(form.imgBottomColor, '');
+    ret += ',' + utils.ifnull(form.adartType, '');
+    ret += ',' + utils.ifnull(form.aaImgX, '');
+    ret += ',' + utils.ifnull(form.aaImgY, '');
+    ret += ',' + (form.showDescs ? 't' : 'f');
+    return ret;
+  }
+
+}
+
+  
+try {x.x.x} catch(e) {static.fstarts.push(['parser', e.lineNumber, 0])};
+Parser = function(conf, utils, options) {
+    this.minSpanLength = conf.get('minSpanLength', 12);
+    this.minWordLength = conf.get('minWordLength', 2);
+    this.maxWordLength = conf.get('maxWordLength', 24);
+    this.input_boost = conf.get('input_boost', 1);
+    this.desc_boost = conf.get('desc_boost', 1);
+    this.kw_boost = conf.get('kw_boost', 1);
+    this.title_boost = conf.get('title_boost', 1);
+    this.tag_boost = conf.get('tag_boost');
+    this.important_word_bust = conf.get('important_word_bust', 2);
+    this.ix_boost = conf.get('ix_boost', 1);
+    this.allowOnlyMeta = conf.get('allowOnlyMeta');//0 or 1
+    this.minTitleLength = conf.get('minTitleLength', 3);
+    this.timeout = conf.get('timeout', 10000);
+    this.trim_chars = conf.get('trim_chars', '');
+    this.whiteChars_str = conf.get('whiteChars_str');
+    this.max_url = conf.get('max_url', 1900);
+    this.adc_skip_tags = conf.get('adc_skip_tags');
+    this.ha_prefix = conf.get('ha_prefix', '_-_');
+    this.enders = [];
+    this.enders_no = [];
+    this.enders_ne = [];
+    this.eplc_dict = {};
+    this.twoLetterWordsArr = conf.get('twoLetterWords');
+    var that = this;
+
+        this.eplc_dict[unescape('%u0142')]='l'; /* ł */
+        this.eplc_dict[unescape('%u0104')]='A'; /* Ą */
+        this.eplc_dict[unescape('%u0119')]='e'; /* ę */
+        this.eplc_dict[unescape('%u0143')]='N'; /* Ń */
+        this.eplc_dict[unescape('%u0179')]='Z'; /* Ź */
+        this.eplc_dict[unescape('%u017a')]='z'; /* ź */
+        this.eplc_dict[unescape('%u0106')]='C'; /* Ć */
+        this.eplc_dict[unescape('%u017b')]='Z'; /* Ż */
+        this.eplc_dict[unescape('%u0144')]='n'; /* ń */
+        this.eplc_dict[unescape('%u0105')]='a'; /* ą */
+        this.eplc_dict[unescape('%u017c')]='z'; /* ż */
+        this.eplc_dict[unescape('%u015a')]='S'; /* Ś */
+        this.eplc_dict[unescape('%u0118')]='E'; /* Ę */
+        this.eplc_dict[unescape('%u0107')]='c'; /* ć */
+        this.eplc_dict[unescape('%u00f3')]='o'; /* ó */
+        this.eplc_dict[unescape('%u00d3')]='O'; /* Ó */
+        this.eplc_dict[unescape('%u0141')]='L'; /* Ł */
+        this.eplc_dict[unescape('%u015b')]='s'; /* ś */
+    
+    this.word_sort_val = function(a) {
+        return a.so = a.bust*a.count*a.count*(1+a.count)*(8+a.word.length);
+    }
+
+    this.nonImportantWordArr = '';
+    this.importantWordsArr = '';
+
+    this.makeArray = function(str) {
+        var ret = {};
+        for (var i=0; i<str.length; i++) {
+            ret[str.charAt(i)] = true;
+        }
+        return ret;
+    }
+
+    this.init = function() {
+        for (var p in that) {//TODO check and rm
+            if ({}[p] === undefined) {
+                if (conf[p] != undefined) that[p] = conf[p];
+                if (that[p] === null) {
+                    syso('Warning: missing required configuration parameter - ' + p);
+                }
+            }
+        }
+        if (options('parsingTimeout')) {
+            that.timeout = 30000;
+            syso('overriding timeout to 30 ms');
+        }
+        that.trimArr = that.makeArray(that.trim_chars);
+        that.reject_chars = that.makeArray(that.whiteChars_str);
+        that.impWords = {};
+        that.twoLetterWords = {};
+        var indexAll = function(to, from, val) {
+            var arr = from.split(',');
+            for (var i = 0; i < arr.length; ++i) {
+               to[arr[i].toLowerCase()] = val;
+            }
+        }
+        indexAll(that.impWords, that.importantWordsArr, that.important_word_bust);
+        indexAll(that.impWords, that.nonImportantWordArr, 0);
+        indexAll(that.twoLetterWords, that.twoLetterWordsArr, 0);
+    }
+    this.init();
+
+    this.getBaseForm = function(w) {
+        var ret = {};
+        w = w.toLowerCase();
+        ret.word=w;
+        for(var key=0; key<that.enders.length; key++) {
+            if (w.match(that.enders[key])!=null) {
+                ret.bform = that.ha_prefix+w.replace(that.enders[key],'');
+                ret.bust = 1;
+                return ret;
+            }
+        }
+        for(var key=0; key<that.enders_no.length; key++) {
+            if (w.match(that.enders_no[key])!=null) return null;
+        }
+        for(var key=0; key<that.enders_ne; key++) {
+            if (w.match(that.enders_ne[key])!=null) {
+                ret.bform = that.ha_prefix+w.replace(that.enders_ne[key],'');
+                ret.bust = 1;
+                return ret;
+            }
+        }
+        ret.bform = that.ha_prefix+w;
+        ret.bust = 1;
+        return ret ;
+    }
+
+    this.ecapeNationalLowerCase = function(text) {
+        var ret = '';
+        for(var p = 0; p < text.length; p++) {
+            var ch = text.charAt(p);
+            var a = that.eplc_dict[ch];
+            ret += a ? a : ch;
+        }
+        return ret;
+    }
+
+    this.nsSplit = function(text, noTags) {
+        var array = [];
+        var word = '';
+        var tag = false;
+        var quotes = false;
+        var apostrof = false;
+        text += ' ';
+        for(var p=0; p<text.length; p++) {
+            var ch = text.charAt(p);
+            if(!tag) {
+                if(!that.reject_chars[ch]) {
+                    word+=ch;
+                } else {
+                    var o = {};
+                    o.begin = p - word.length;
+                    while (word.length > 0) {
+                        if (that.trimArr[word.charAt(0)]) {
+                            word = word.substring(1);
+                            o.begin++;
+                        } else if (that.trimArr[word.charAt(word.length - 1)]) {
+                            word = word.substring(0, word.length - 1);
+                        } else {
+                            break;
+                        }
+                    }
+                    var ok = true;
+                    for (var ch in that.trimArr) if (word.indexOf(ch) >= 0) ok = false;
+                    if (!ok) {
+                        trace('skipping word: ' + word);
+                        word = '';
+                        continue;
+                    }
+                    if(ch === '<' && noTags !== true) tag = true;
+                    o.orgin=word;
+                    o.content=that.ecapeNationalLowerCase(word);
+                    o.set=0;
+                    if (word.length > 1) array.push(o);
+                    word = '';
+                }
+            } else {
+                if(ch === '>' && !quotes && !apostrof) {
+                    tag=false;
+                } else if(ch === '"' && !apostrof) {
+                    quotes=!quotes;
+                } else if(ch === "'" && !quotes) {
+                    apostrof=!apostrof;
+                }
+            }
+        }
+        return array;
+    }
+
+    this.copy = function(obj) {
+        var ret = {};
+        for (var i in obj) ret[i] = obj[i];
+        return ret;
+    }
+
+    this.printObj = function(obj) {
+        var ret = '';
+        for (var i in obj) ret += ', ' + i + '=' + obj[i];
+        return ret.substring(2);
+    }
+
+    this.walk = function(node, state, onTextNode, onEnter, onExit, onLeaf) {
+        if ((node.nodeType === 3) && (node.nodeValue) && (node.nodeValue.length > 2) && (node.nodeValue[0] != '<')) {
+            return onTextNode(node, state);
+        }
+        var ch = node.childNodes;
+        var tag = 'unknown tag';
+        if (node.tagName != undefined) tag = node.tagName.toLowerCase();
+        if ((ch.length === 0) && onLeaf) return onLeaf(tag, node, state);
+        if (onEnter) {
+            try {
+                state = onEnter(tag, node, state);
+            } catch(e) {
+                if (typeof(e) === 'object') utils.exc('walk', e);
+                return;
+            }
+        }
+        for (var i=0; i<ch.length; i++) {
+            that.walk(ch[i], that.copy(state), onTextNode, onEnter, onExit, onLeaf);
+        }
+        if (onExit) onExit(tag, node, state);
+    }
+
+    this.mark = function(node, fg, bg, msg, ret) {
+        if (ret === undefined) ret = msg;
+        if (options('markIxTags')) {
+            var div = document.createElement('div');
+            div.style.display = node.style ? node.style.display : 'inline';
+            if (node === document.body) div = node;
+            div.style.backgroundColor = bg;
+            div.style.margin = 0;
+            div.style.padding = 0;
+            if (node === document.body) return ret;
+            node.parentNode.replaceChild(div, node);
+            div.appendChild(node);
+            if (msg != '') {
+                div.onclick = function() {
+                    alert(msg);
+                }
+            }
+        }
+        return ret;
+    }
+
+    this.getSpansAndTexts = function(hashArr, params) {
+        that.spans = [];
+        if (params.adareas === undefined) params.adareas = [];
+        if (params.adareas.length === 0) params.adareas = ['"body'];
+        if (params.positive === undefined) params.positive = [];
+        if (params.cutoff === undefined) params.cutoff = [];
+        var map = {};
+        for (var i=0; i<params.positive.length; i++) {
+            map[params.positive[i]] = '+';
+        }
+        for (var i=0; i<params.cutoff.length; i++) {
+            map[params.cutoff[i]] = '!';
+        }
+        for (var i=0; i<params.adareas.length; i++) {
+            var span = params.adareas[i];
+            if (typeof(span) === 'string') span = utils.byId(span);
+            if (params.adareas[i] === '"body') span = document.body;
+            if (span === null) {
+                utils.raport('P3-o', 'no adareas defined', params.adareas[i]);
+                continue;
+            }
+            var init_state = {
+                    on: params.positive.length === 0,
+                    tb: 1
+            }
+            if (init_state.on) {
+                that.mark(span, '#af0', '#cf7', 'ads enabled by default');
+            }
+            that.walk(span, init_state, function(node, state) {
+                if (!state.on) return;
+                var s = {};
+                s.dom = node;
+                s.oarea = span;
+                s.HTML = node.nodeValue;
+                s.text = that.nsSplit(s.HTML, true);
+                s.contextBust = state.tb;
+                if (s.text.length < 1) return;
+                if ((s.text.length < that.minSpanLength) && (state.tb <= 1) || (s.text.length < that.minTitleLength)) {
+                    return that.mark(node, '#f33', '#f88', 'text node too short');
+                }
+                var color = ['#0ff', '#7ff'];
+                if (state.tb > 1) color = ['#00a', '#22f'];
+                that.mark(node, color[0], color[1], 'text node');
+                that.spans.push(s);
+            }, function(tag, node, state) {
+                if ((new Date()).getTime() > that.timeEnd) {
+                    throw that.mark(node, '#000', '#222', 'timeout');
+                }
+                for (var t=0; t<that.adc_skip_tags.length; t++) {
+                    if (that.adc_skip_tags[t].toLowerCase() === tag.toLowerCase()) {
+                        throw that.mark(node, '#333', '#999', 'def cutoff: ' + tag.toLowerCase());
+                    }
+                }
+                if (node.style && node.style.display === 'none') {
+                    throw that.mark(node, '#d60', '#f90', 'display: none');
+                }
+                var props = [tag];
+                if (node.id) props.push('#'+node.id);
+                if (node.className) {
+                    var cn = node.className.split(' ');
+                    for (var c=0; c<cn.length; c++) {
+                        props.push('.'+cn[c]);
+                    }
+                }
+                for (var p=0; p<props.length; p++) {
+                    if (map[props[p]] === '!') {
+                        throw that.mark(node, '#700', '#f44', 'user-defined cutoff on ' + props[p]);
+                    }
+                }
+                if (that.tag_boost[tag.toLowerCase()]) {
+                    state.tb = that.tag_boost[tag.toLowerCase()];
+                    that.mark(node, '#00a', '#22f', 'bust=' + state.tb + ' for tag: ' + tag.toLowerCase());
+                }
+                for (var p=0; p<props.length; p++)
+                    if (map[props[p]] === '+') {
+                        state.on = true;
+                        return that.mark(node, '#0f0', '#7f7', 'user-defined positive area: ' + props[p], state);
+                    }
+                return state;
+            });
+        }
+        for(var t = 0; t < that.spans.length; t++) {
+            var arr = that.spans[t].text;
+            for(var p = 0; p < arr.length; p++) {
+              var content = arr[p].content.toLowerCase();
+              if(content.length < that.minWordLength && that.twoLetterWords[content] === undefined) continue;
+              if(content.length > that.maxWordLength) continue;
+              that.addWord(hashArr, content, that.spans[t].contextBust, 1, arr.length);
+            }
+        }
+    }
+
+    this.addWord = function(hashArr, word, bust, only, msl) {    	
+        word = word.toLowerCase();
+        if (word.length === 2 && that.twoLetterWords[word] === undefined) return;
+        if (bust === undefined) bust = 1;
+        var o = that.getBaseForm(word);
+        if (o === null) return;
+        if (hashArr[o.bform]) {
+            hashArr[o.bform].only |= only;
+            hashArr[o.bform].msl = Math.max(hashArr[o.bform].msl, msl);
+            hashArr[o.bform].count++;
+            hashArr[o.bform].words += ',' + word;
+            hashArr[o.bform].totalbust += bust;
+            hashArr[o.bform].bust = hashArr[o.bform].totalbust * hashArr[o.bform].origBust / hashArr[o.bform].count;
+            hashArr[o.bform].busts.push(bust);
+            return;
+        }
+        o.only = only;//przynajmniej jedno wystapienie w kontencie dla Ix
+        o.msl = msl;//max. span length
+        o.count = 1;
+        o.words = word;
+        if (that.impWords[word] !== undefined) {
+            o.important = that.impWords[word];//dbg
+            o.bust *= that.impWords[word];
+        }
+        o.origBust = o.bust;
+        o.busts = [o.bust];//dbg
+        o.bust = o.bust * bust;
+        o.totalbust = bust;
+        hashArr[o.bform] = o;
+    }
+
+    this.getReturnStr = function(hashArr) {
+        var array_tmp = [];
+        for(var key in hashArr) {
+            if ({}[key] === undefined) {
+                var val = hashArr[key];
+                if (typeof(val) != 'object') continue;
+                if ((!val.only) || (val.so <= 0)) continue;
+                array_tmp.push(val);
+            }
+        }
+        if (array_tmp.length === 0) {
+            utils.raport('P1-o', 'no content', undefined);
+            return '';
+        } else if (array_tmp.length < 30) {
+            utils.raport('P0-o', 'low content', array_tmp.length);
+        }
+        for (var i=0; i<array_tmp.length; i++) {
+            array_tmp[i].val = that.word_sort_val(array_tmp[i]);
+        }
+        array_tmp.sort(function(a,b){return (a.val < b.val)?1:-1;});
+        var c_val=512;
+        var content = '_' + c_val + '+';
+        var val=array_tmp[0].val/2;
+        for(var p=0;p<array_tmp.length;p++) {
+            if (array_tmp[p].val < val){
+                c_val = c_val/2;
+                val = array_tmp[p].val / 2;
+                if (c_val < 1) break;
+                content +='_' + c_val + '+';
+            }
+            if (array_tmp[p].val <= 0) break;
+            if (content.length+array_tmp[p].word.length>that.max_url) break;
+            content += escape(array_tmp[p].word);
+            content += '+';
+            array_tmp[p].normal_val = c_val;
+            trace(c_val + ' ---> ' + array_tmp[p].word + ' (' + array_tmp[p].bform + ', ' + hashArr[array_tmp[p].bform].val + ')');
+        }
+        return content;
+    }
+
+    this.addWords = function(hashArr, words, bust, only) {
+        var arr = that.nsSplit(words);
+        for (var i=0; i<arr.length; i++) {
+        	var content = arr[i].content;
+            if (content.length >= that.minWordLength && content.length <= that.maxWordLength) {
+            	that.addWord(hashArr, arr[i].content, bust, only, arr.length);
+            }
+        }
+    }
+
+    this.getInputContent = function(hashArr) {
+        var m = document.getElementsByTagName('input');
+        for (var i=0;i<m.length;i++){
+            var d = m[i].type.toLowerCase();
+            if ((d.match('text')) || (d.length === 0)) {
+                that.addWords(hashArr, m[i].value, that.input_boost, that.allowOnlyMeta);
+            }
+        }
+    }
+
+    this.getMetaContent = function(hashArr) {
+        var m=document.getElementsByTagName('meta');
+        for (var i=0;i<m.length;i++){
+            var d=m[i].name.toLowerCase();
+            if (d.indexOf('description') >= 0) {
+                that.addWords(hashArr, m[i].content, that.desc_boost, that.allowOnlyMeta);
+            } else if (d.indexOf('keywords') >= 0) {
+                that.addWords(hashArr, m[i].content, that.kw_boost, that.allowOnlyMeta);
+            }
+        }
+        var t = document.getElementsByTagName('title');
+        for (var i=0; i<t.length; i++) {
+            that.addWords(hashArr, t[i].innerHTML, that.title_boost, that.allowOnlyMeta);
+        }
+    }
+
+    this.content = null;
+
+    this.parseAll = function(co, params) {
+        syso('parsing started');
+        that.timeEnd = (new Date()).getTime() + that.timeout;
+        if (params === undefined) params = {};
+        that.content = {};
+        if (co.indexOf('M') >= 0) that.getMetaContent(that.content);
+        if (co.indexOf('I') >= 0) that.getInputContent(that.content);
+        if (co.indexOf('C') >= 0) that.getSpansAndTexts(that.content, params);
+        var ret = that.getReturnStr(that.content);
+        var exceeded = (new Date()).getTime() - that.timeEnd;
+        trace('parsing time='+(exceeded+that.timeout));
+        if (exceeded >= 0) utils.raport('P1-o', 'timeout exceeded', exceeded);
+        syso('parsing completed');
+        return ret;
+    }
+
+}
+
+
+try {x.x.x} catch(e) {static.fstarts.push(['nstables', e.lineNumber, 0])};
+NSTables = function(utils, conf, options, font) {
+  var that_nst = this;
+  this.dbg = options('dbg_div');
+  this.font = font;
+  
+  var getDiv = function(doc) {
+    return doc.createElement('div');
+  }
+  
+  if (this.dbg) {
+    getDiv = function(doc, dbg) {
+      var ret = doc.createElement('div');
+      ret.style.overflow = 'hidden';
+      ret.id = 'Q' + utils.trash.length;
+      ret.dbg = dbg;
+      utils.trash.push(ret);
+      return ret;
+    }
+  }
+
+  this.getImgDiv = function(url, minx, miny, fc, bc) {
+    var obj = that_nst.emptyDiv(minx, miny, fc, bc);
+    obj.css.backgroundImage = 'url('+url+')';
+    if (!utils.ie) {
+      obj.css.backgroundPosition = 'center';
+    }
+    obj.css.backgroundRepeat = 'no-repeat';
+    obj.img = true;
+    return obj;
+  }
+
+  this.busy = false;
+  this.over = [];
+  var adda = function(dom, a) {
+    if (a.click) {
+      dom.onclick = a.click;
+      if (a.mousedown) dom.onmousedown = a.mousedown;
+    } else if (a.href) {
+      dom.onclick = utils.ftry('click', utils.onlyOnce(function() {
+        syso('click: ' + a.href);
+        window.open(a.href, '_blank');
+      }, 'mainClick'));
+    }
+    var pri = a.pri === 1;
+    var show_ws = function() {
+      var desc = '';
+      var max = -1;
+      for (var i=0; i<that_nst.over.length; i++) {
+        if (that_nst.over[i].pri > max) {
+          max = that_nst.over[i].pri;
+          desc = that_nst.over[i].url;
+        }
+      }
+      try {
+        window.status = desc;
+      } catch(e) {
+        if (!that_nst.wsw_sent) {
+          that_nst.wsw_sent = true;
+          utils.raport('J1-', 'cannot change window status');
+        }
+      };
+    }
+    dom.onmouseout = utils.ftry('onmouseover', function() {
+      for (var i=0; i<that_nst.over.length; i++) {
+        if (a.url === that_nst.over[i].url) {
+          that_nst.over[i] = that_nst.over.pop();
+          if (i === that_nst.over.length - 1) that_nst.over.pop();
+        }
+      }
+      show_ws();
+    });
+    dom.onmouseover = utils.ftry('onmouseout', function() {
+      that_nst.over.push(a);
+      show_ws();
+    });
+    dom.style.cursor = 'pointer';
+  }
+
+  this.emptyDiv = function(w, h, fc, bc) {
+    var obj = {};
+    if (!w) w = 0;
+    if (!h) h = 0;
+    obj.minSize = {x: w, y: h};
+    obj.realSize = {x: w, y: h};
+    obj.fc = fc;
+    obj.bc = bc;
+    obj.leaf = true;
+    obj.css = {};
+    
+    obj.go1 = function(doc, checkNodes, textNodes, smallDOM) {
+      obj.checkSize = false;
+      return obj.minSize;
+    }
+    
+    obj.setFullSize = function(dim, size) {
+      obj.realSize[dim] = size;
+    }
+    
+    obj.getRealHeights = function(h_in, h_out) {
+      if (obj.realSize.y < h_in[obj.type]) obj.realSize.y = h_in[obj.type];
+      if (h_out[obj.type] === undefined) h_out[obj.type] = 0;
+      if (obj.realSize.y > h_out[obj.type]) h_out[obj.type] = obj.realSize.y;
+      return obj.realSize.y;
+    }
+
+    obj.getFinalDOM = function(doc, par, x, y) {
+      var rs = obj.realSize;
+      if (obj.sizeFrom === undefined) {
+        if ((rs.x <= 0) || (rs.y <= 0)) return;
+        if (!obj.bc && !obj.img) return;
+      }
+      if (!obj.bc && !obj.img) return;
+      obj.dom = doc.createElement('div');
+      if (that_nst.dbg) obj.dom = getDiv(doc, obj);
+      var ods = obj.dom.style;
+      for (var i in obj.css) {
+        try {
+          ods[i] = obj.css[i];
+        } catch(e) {
+          utils.raport('J1-', 'unsupported css value', i + ' ' + obj.css[i]);
+        }
+      }
+      if (obj.bc) ods.backgroundColor = obj.bc;
+      ods.width = rs.x + 'px';
+      ods.height = rs.y + 'px';
+      ods.left = x + 'px';
+      ods.top = y + 'px';
+      if (obj.a) adda(obj.dom, obj.a);
+      par.appendChild(obj.dom);
+      if (obj.oncomplete) {
+        obj.oncomplete(obj.dom);
+      }
+    }
+    
+    return obj;
+  }
+  
+  this.textDiv = function(fc, bc, tc, txt, sfs, type) {
+    var obj = that_nst.emptyDiv(0, 0, fc, bc);
+    obj.tc = tc;
+    obj.txt = txt;
+    obj.sfs = sfs;
+    obj.type = type;
+    
+    obj.go1 = function(doc, checkNodes, textNodes, smallDOM) {
+      obj.checkSize = true;
+      if (obj.type) checkNodes.push(obj);
+      if (!obj.fixed) textNodes.push(obj);
+      obj.dom = getDiv(doc, obj);
+      var ds = obj.dom.style;
+      for (var i in obj.css) ds[i] = obj.css[i];
+      if (obj.tc) ds.color = obj.tc;
+      if (obj.bc) ds.backgroundColor = obj.bc;
+      ds.width = '';
+      ds.height = '';
+      obj.span = doc.createElement('span');
+      obj.span.innerHTML = obj.txt;
+      obj.dom.appendChild(obj.span);
+      smallDOM.appendChild(obj.dom);
+      return obj.minSize;
+    }
+    
+    obj.setFullSize = function(dim, size) {
+      if (size < 0) utils.raport('J2', 'negative full size: ' + dim, size);
+      if (size === 0 && obj.txt) utils.raport('J2', 'no full size: ' + dim, size);
+      obj.realSize[dim] = size;
+      obj.dom.style.width = obj.realSize[dim] + 'px';
+    }
+
+    obj.setFontSize = function(fs) {
+      var cs = obj.sfs(fs);
+      obj.dom.style.fontSize = cs.fs + 'px';
+      obj.dom.style.lineHeight = cs.fs + cs.lh + 'px';
+    }
+    
+    obj.getRealSize = function() {
+      obj.realSize.y = obj.dom.offsetHeight;
+      if (obj.txt && (obj.realSize.y < 5)) {
+        obj.realSize.y = (parseInt(obj.dom.style.fontSize) + 4)
+          * Math.floor(obj.txt.length * 10 / obj.realSize.x + 1);
+        if (obj.txt.length > 1 && !conf.get('force_write', false)) {
+          utils.raport('J1', 'no height info available', obj.realSize.y + ', ' + obj.dom.style.fontSize);
+        }
+      }
+      obj.exceedsWidth = obj.span.offsetWidth > obj.realSize.x + 3;
+      obj.lastSizes = {x: obj.span.offsetWidth, y: obj.span.offsetHeight};
+      if (obj.exceedsWidth && obj.onWidthExceeded) {
+        obj.onWidthExceeded(obj.span.offsetWidth - (obj.realSize.x + 3));
+      }
+    }
+
+    obj.getFinalDOM = function(doc, par, x, y) {
+      if (obj.oncomplete) {
+        obj.oncomplete();
+        obj.span.innerHTML = obj.txt;
+      }
+      var ds = obj.dom.style;
+      ds.width = obj.realSize.x + 'px';
+      ds.height = obj.realSize.y + 'px';
+      ds.fontFamily = that_nst.font;
+      ds.left = x + 'px';
+      ds.top = y + 'px';
+      if (obj.a) adda(obj.dom, obj.a);
+      par.appendChild(obj.dom);
+      utils.later('ckech span width', function() {
+        if (obj.skipWidthChangeTest) return;
+        if (obj.txt != '' && obj.span.offsetWidth != obj.lastSizes.x) {
+          syso('width changed: ' + obj.txt);
+          utils.raport('J1', 'span width changed', obj.lastSizes.x + ' != ' + obj.span.offsetWidth);
+        }
+      });
+    }
+    
+    return obj;
+  }
+  
+  this.table = function(c, r, wx, wy, sx, sy) {
+    var obj = {};
+    obj.colc = c;
+    obj.rowc = r;
+    obj.cellc = {x: c, y: r};
+    if (wx === undefined) wx = [];
+    if (wy === undefined) wy = [];
+    if (sx === undefined) sx = [];
+    if (sy === undefined) sy = [];
+    obj.weights = {x: wx, y: wy};
+    obj.minSizes = {x: sx, y: sy};
+    obj.cells = [];
+    for (var x=0; x<c; x++) {
+      obj.cells[x] = [];
+      for (var y=0; y<r; y++) {
+        obj.cells[x][y] = that_nst.emptyDiv();
+      }
+    }
+    
+    
+    obj.go1 = function(doc, checkNodes, textNodes, smallDOM) {
+      if (obj.type) checkNodes.push(obj);
+      obj.all = [];
+      for (var y=0; y<obj.rowc; y++) {
+        if (obj.weights.y[y] === undefined) obj.weights.y[y] = 0;
+        if (obj.minSizes.y[y] === undefined) obj.minSizes.y[y] = 0;
+      }
+      for (var x=0; x<obj.colc; x++) {
+        if (obj.weights.x[x] === undefined) obj.weights.x[x] = 0;
+        if (obj.minSizes.x[x] === undefined) obj.minSizes.x[x] = 0;
+        for (var y=0; y<obj.rowc; y++) {
+          var cell = obj.cells[x][y];
+          obj.all.push(cell);
+          cell.x = x;
+          cell.y = y;
+          cell.parentNode = obj;
+          if (!cell.bc) cell.bc = obj.bc;
+          if (!cell.fc) cell.fc = obj.fc;
+          if (!cell.tc) cell.tc = obj.tc;
+        }
+      }
+      obj.checkSize = false;
+      for (var i=0; i<obj.all.length; i++) {
+        var ch = obj.all[i];
+        var size = ch.go1(doc, checkNodes, textNodes, smallDOM);
+        if (obj.minSizes.x[ch.x] < size.x) obj.minSizes.x[ch.x] = size.x;
+        if (obj.minSizes.y[ch.y] < size.y) obj.minSizes.y[ch.y] = size.y;
+        if (ch.checkSize) obj.checkSize = true;
+      }
+      obj.realSizes = {x: obj.minSizes.x, y: []};
+      for (var y=0; y<obj.rowc; y++) obj.realSizes.y[y] = obj.minSizes.y[y];
+      var ret = {x: 0, y: 0};
+      for (var x=0; x<obj.colc; x++) ret.x += obj.minSizes.x[x];
+      for (var y=0; y<obj.rowc; y++) ret.y += obj.minSizes.y[y];
+      obj.fullSize = ret;
+      return ret;
+    }
+    
+    obj.setFullSize = function(dim, size) {
+      obj.fullSize[dim] = size;
+      var totalW = 0;
+      var heavy = [];
+      var wg = obj.weights[dim];
+      for (var i=0; i<obj.cellc[dim]; i++) {
+        if (wg[i] > 0) {
+          totalW += wg[i];
+          heavy.push(i);
+          size -= obj.realSizes[dim][i];
+        } else {
+          size -= obj.realSizes[dim][i];
+        }
+      }
+      var w0 = size % totalW;
+      var w1 = (size - w0) / totalW;
+      var hn = heavy.length;
+      for (var i=0; i<heavy.length; i++) {
+        var e = (w0 - (w0 % hn)) / hn;
+        obj.realSizes[dim][heavy[i]] += w1 * wg[heavy[i]] + e;
+        w0 -= e;
+        hn--;
+      }
+      for (var i=0; i<obj.all.length; i++) {
+        var ch = obj.all[i];
+        ch.setFullSize(dim, obj.realSizes[dim][ch[dim]]);
+      }
+    }
+    
+    obj.getRealHeights = function(h_in, h_out) {
+      var t = obj.type;
+      for (var y=0; y<obj.rowc; y++) {
+        obj.realSizes.y[y] = obj.minSizes.y[y];
+      }
+      obj.exceedsWidth = false;
+      for (var i=0; i<obj.all.length; i++) {
+        var ch = obj.all[i];
+        var s1 = null;
+        if (ch.maxY) {
+          s1 = ch.maxY;
+        } else if (ch.leaf && !ch.type) {
+          s1 = ch.realSize.y;
+        } else {
+          s1 = ch.getRealHeights(h_in, h_out);
+        }
+        if (!ch.checkSize) ch.maxY = s1;
+        if (h_in[ch.type] > s1) s1 = h_in[ch.type];
+        if (s1 > obj.realSizes.y[ch.y]) obj.realSizes.y[ch.y] = s1;
+        if (ch.exceedsWidth) obj.exceedsWidth = true;
+      }
+      var size = 0;
+      for (var y=0; y<obj.rowc; y++) size += obj.realSizes.y[y];
+      if (t) {
+        if (h_out[t] === undefined) h_out[t] = 0;
+        if (h_out[t] < size) h_out[t] = size;
+      }
+      return size;
+    }
+    
+    obj.getFinalDOM = function(doc, par, x, y) {
+      obj.dom = getDiv(doc, obj);
+      var ds = obj.dom.style;
+      ds.width = obj.fullSize.x + 'px';
+      ds.height = obj.fullSize.y + 'px';
+      ds.left = x + 'px';
+      ds.top = y + 'px';
+      par.appendChild(obj.dom);
+      var lefts = [0];
+      var tops = [0];
+      for (var x=0; x<obj.colc; x++) lefts.push(lefts[lefts.length - 1] + obj.minSizes.x[x]);
+      for (var y=0; y<obj.rowc; y++) tops.push(tops[tops.length - 1] + obj.realSizes.y[y]);
+      for (var i=0; i<obj.all.length; i++) {
+        var ch = obj.all[i];
+        ch.getFinalDOM(doc, obj.dom, lefts[ch.x], tops[ch.y]);
+      }
+      if (obj.a) adda(obj.dom, obj.a);
+    }
+    
+    return obj;
+  }
+  
+  this.scrollPanel = function(minY, maxY, fc, bc) {
+    var obj = that_nst.table(1, 1, [1], [1]);
+    obj.overflow = 'auto';
+    obj.scrollW = 20;
+    obj.fc = fc;
+    obj.bc = bc;
+
+    obj.oldSetFullSize = obj.setFullSize;
+    obj.oldGetFinalDOM = obj.getFinalDOM;
+    obj.oldGetRealHeights = obj.getRealHeights;
+    
+    obj.setFullSize = function(dim, size) {
+      if (dim === 'x') {
+        obj.startX = size;
+        return obj.oldSetFullSize(dim, size);
+      }
+      var only = obj.all[0];
+      obj.realH = 0;
+      for (var i=0; i<only.realSizes.y.length; i++) {
+        obj.realH += only.realSizes.y[i];
+      }
+      if (obj.realH <= size) {
+        only.setFullSize('x', obj.startX);
+        return obj.oldSetFullSize(dim, size);
+      }
+      only.setFullSize('x', obj.startX - obj.scrollW);//FIXME!
+      obj.needScroll = true;
+      only.setFullSize('y', obj.realH);
+      obj.fullSize.y = size;
+    }
+
+    obj.getRealHeights = function(h_in, h_out) {
+      var ret = obj.oldGetRealHeights(h_in, h_out);
+      return Math.max(minY, Math.min(maxY, ret));
+    }
+
+    obj.getFinalDOM = function(doc, par, x, y) {
+      obj.getFinalDOM1(doc, par, x, y);
+      if (obj.bc) {
+        obj.dom.style.backgroundColor = obj.bc;
+      }
+    }
+
+    obj.getFinalDOM1 = function(doc, par, x, y) {
+      if (!obj.needScroll) return obj.oldGetFinalDOM(doc, par, x, y);
+      var out = getDiv(doc, obj);
+      var ds = out.style;
+      ds.width = obj.fullSize.x + 'px';
+      ds.height = obj.fullSize.y + 'px';
+      ds.left = x + 'px';
+      ds.top = y + 'px';
+      ds.overflowY = obj.overflow;
+      par.appendChild(out);
+      obj.oldGetFinalDOM(doc, out, 0, 0);
+      obj.dom.style.height = obj.realH + 'px';
+    }
+
+    return obj;
+  }
+  
+  this.limitedTextNode = function(minY, maxY, fc, bc, tc, txt, fsf) {
+    var obj = that_nst.scrollPanel(minY, maxY, fc, bc);
+
+    var oldgo1 = obj.go1;
+    obj.overflow = 'hidden';
+    obj.scrollW = 0;
+    var tt = obj.cells[0][0] = that_nst.table(1, 1, [1], [1]);
+    var tn = tt.cells[0][0] = that_nst.textDiv(null, null, tc, txt, fsf);
+    tn.skipWidthChangeTest = true;
+    var f = utils.retry('sety', function() {
+      if (tn.dom.offsetHeight <= 0) throw 'retry';
+      tn.txtPrefix = utils.ifnull(tn.txtPrefix, tn.span.innerHTML);
+      if (tn.span.offsetHeight > maxY) {
+        tn.txtPrefix = tn.txtPrefix.substring(0, tn.txtPrefix.lastIndexOf(' '));
+        tn.span.innerHTML = tn.txtPrefix + ' ...';
+        throw 'retry';
+      }
+    }, undefined, undefined, 0);
+    tn.oncomplete = function() {
+      tn.dom.style.height = '';
+      utils.later('sety1', f);
+    };
+
+    obj.css = {};
+    obj.go1 = function(doc, checkNodes, textNodes, smallDOM) {
+      tn.css = obj.css;
+      return oldgo1(doc, checkNodes, textNodes, smallDOM);
+    }
+
+    return obj;
+  }
+  
+  this.hiddenTable = function(top, bottom, cache, id, tfc, tbc, tfsf, canShow) {
+    var obj = that_nst.table(1, 2, [1], [1, 0]);
+    var showAll = cache[id];
+    if (canShow) {
+      obj.top = obj.cells[0][0] = that_nst.table(2, 1, [0, 1], [1], [10, 0]);
+      var switcher = obj.top.cells[0][0] = that_nst.textDiv(tfc, tbc, 'black', showAll ? '-' : '+', tfsf);
+      switcher.oncomplete = function() {
+        switcher.dom.onclick = utils.onlyOnce(function() {
+          syso('switcher clicked');
+          cache[id] = !showAll;
+          cache.redraw();
+        }, 'mainClick');
+      }
+      obj.top.cells[1][0] = top;
+      bottom.skipWidthChangeTest = true;
+      if (showAll) obj.cells[0][1] = bottom;
+    } else {
+      obj.cells[0][0] = top;
+    }
+    return obj;
+  }
+  
+  this.root = function(tab) {
+    var obj = {};
+    obj.tab = tab;
+    obj.checkNodes = [];
+    obj.textNodes = [];
+    obj.exceedsWidth = false;
+    
+    obj.close = function(doc, root, width) {
+      obj.root = root;
+      obj.root.style.fontFamily = that_nst.font;
+      obj.smallDOM = getDiv(doc, obj);
+      obj.tab.go1(doc, obj.checkNodes, obj.textNodes, obj.smallDOM);
+      obj.tab.setFullSize('x', width);
+    }
+    
+    obj.getHeight = function(fs) {
+      var heights = {};
+      for (var i=0; i<obj.textNodes.length; i++) obj.textNodes[i].setFontSize(fs);
+      obj.root.appendChild(obj.smallDOM);
+      for (var i=0; i<obj.textNodes.length; i++) obj.textNodes[i].getRealSize();
+      obj.root.removeChild(obj.smallDOM);
+      obj.tab.getRealHeights({}, heights);
+      var ret = obj.tab.getRealHeights(heights, {});
+      obj.exceedsWidth = obj.tab.exceedsWidth;
+      obj.realHeight = ret;
+      return ret;
+    }
+    
+    obj.write = function(doc, height) {
+      obj.tab.setFullSize('y', options('nofullsize') ? obj.realHeight : height);
+      obj.finalDOM = getDiv(doc, obj);
+      obj.finalDOM.style.width = obj.tab.fullSize.x + 'px';
+      obj.finalDOM.style.height = obj.tab.fullSize.y + 'px';
+      obj.tab.getFinalDOM(doc, obj.finalDOM, 0, 0);
+      obj.root.appendChild(obj.finalDOM);
+    }
+    
+    return obj;
+  }
+}
+
+
+try {x.x.x} catch(e) {static.fstarts.push(['writer', e.lineNumber, 0])};
+Writer = function(conf, utils, options, features, ref) {
+  this.conf = conf;
+  this.labelSpace = 10;
+  this.initFS = 1 * conf.get('minFS');//deprecated
+  this.maxFS = 1 * conf.get('maxFS');//deprecated
+  this.todo = [];
+  this.todo1 = [];
+  this.corners = {};
+  this.a_label = {
+    href: conf.get('adc_akon_href').replace(/_EREF_/g, escape(escape(ref))),
+    url: conf.get('adc_akon_url'),
+    pri: 1
+  };
+  
+  var nst = this.nst = new NSTables(utils, conf, options);
+  features.setBottom(this, nst, ref);
+  var that = this;
+
+  this.getIframe = function(div, x, y) {
+    var cd = null;
+    var ifr = null;
+    try {
+      ifr = utils.createIframe(div, x, y);
+      if (ifr.contentDocument) {
+        cd = ifr.contentDocument;
+      } else if (ifr.contentWindow) {
+        cd = ifr.contentWindow.document;
+      }
+      cd.open();
+      cd.write('<html><head><style>body div {overflow: hidden; font: 0px; position: absolute;}'
+        + '</style></head><body style="background-color:transparent;padding:0px;"></body></html>');
+      cd.close();
+      div = cd.body;
+    } catch(e) {
+      utils.raport('P1-o', 'getIframe', e.message);
+      cd = document;
+      try {
+        div.removeChild(ifr);
+      } catch(e1){}
+      return null;
+    }
+    return {cd: cd, div: div};
+  }
+  
+  this.fixfs = function(n, fs) {
+    return {fs: fs, lh: 2};
+  }
+  
+  this.fsf = {
+    title       : function(n) {return that.fixfs(n, Math.min(n+1, 13))},
+    desc        : function(n) {return that.fixfs(n, Math.min(n, 12))},
+    url         : function(n) {return that.fixfs(n, Math.max(Math.min(n-1, 11), 9))},
+    label       : function(n) {return that.fixfs(n, 10)},
+    small_title : function(n) {return that.fixfs(n, Math.min(n+1, 13))},
+    small_desc  : function(n) {return that.fixfs(n, Math.min(n, 12))},
+    small_label : function(n) {return that.fixfs(n, 10)},
+    ex_title    : function(n) {return that.fixfs(n, n+10)},
+    ex_desc     : function(n) {return that.fixfs(n, n+3)},
+    ex_url      : function(n) {return that.fixfs(n, n-1)},
+    ex_label    : function(n) {return that.fixfs(n, 10)},
+    image       : function(n) {return {fs: n, lh: 1}},
+    fixed       : function(f) {
+      return function() {
+        return {fs: f, lh: 1};
+      }
+    }
+  }
+
+  this.writeAll = function(forms, redraw, oncomplete) {
+    utils.start('iframes');
+    var limit = conf.get('ads_limit');
+    for (var i=0; i<forms.length; i++) {
+      var form = forms[i];
+      if (redraw) form.painted = false;
+      if (form.ads === undefined) form.painted = true;
+      if (form.painted) continue;
+      if (!options('noLimit')) limit -= form.r * form.c;
+      if (limit < 0) {
+        if (conf.get('emptyBoxes')) {
+          for (var j=form.cc + limit; j<form.cc; j++) {
+            form.ads[j] = utils.emptyAd();
+          }
+        } else {
+          form.painted = true;
+          continue;
+        }
+      }
+      if (form.ads.length === 0) {
+        form.painted = true;
+        utils.raport('J2', 'ads array is empty', i);
+        continue;
+      }
+      features.onBeforeIframes(form);
+      form.node.width = '5px';
+      form.node.height = '5px';
+      form.font = utils.ifnull(form.font, conf.get('defaultFont'));
+      if (form.noIframe) {
+        forms[i].doc = document;
+        forms[i].body = document.body;
+        continue;
+      }
+      var ifr = that.getIframe(form.node, form.x, form.y);
+      if (ifr === null) {
+        form.noIframe = true;
+        continue;
+      }
+      forms[i].doc = ifr.cd;
+      forms[i].body = ifr.div;
+    }
+    if (limit < 0) utils.raport('J2', 'ads limit exceeded (old)', -limit);
+    that.write2(forms, redraw, oncomplete);
+  }
+
+  this.validatePos = function(form) {
+    var ok = form.node.offsetWidth > 0;
+    if (conf.get('force_write', false)) ok = true;
+    if (!ok) {
+      var n = form.node;
+      var why = '';
+      for (var j=0; j<100; j++) {
+        if (!n) {
+          why = 'detached';
+          break;
+        }
+        if (n.tagName === 'HEAD') {
+          why = 'head';
+          break;
+        }
+        if (n.style.display === 'none') why = 'none';
+        if (options('reveal')) {
+          if (n.style.display != 'inline') n.style.display = 'block';
+          n.style.overflow = 'visible';
+        }
+        if (n === document.body) break;
+        n = n.parentNode;
+      }
+      if (why === 'none') {
+        utils.raport('P2-o', 'display none');
+      } else if (why === 'detached') {
+        utils.raport('P2-', 'form detached');
+      } else if (why === 'head') {
+        utils.raport('P2-', 'form in head section');
+      } else {
+        setTimeout(function() {
+          if (that.formVisible) return;
+          utils.raport('P2-o', 'no size info available');
+        }, conf.get('hiddenFormReportTimeout', 3000));
+      }
+    }
+    return ok;
+  }
+
+  this.maxFeatures = 4;
+
+  this.cutoff = function(stage) {
+    return {
+      cutAvatars: stage <= 0,
+      smallAzButton: stage <= 1,
+      noC2a: stage <= 2,
+      extraC2a: stage >= 4
+    };
+  }
+
+  this.writeF = function(form, stage) {
+    form.cutoff = that.cutoff(stage);
+    var dom = form.write(form, form.ads);
+    dom = that.addLabel(form, dom);
+    dom = features.fixForm(form, dom);
+    var root = nst.root(dom);
+    root.close(form.doc, form.body, form.x);
+    root.fs = that.getFontSizes(root, form, stage === 0);
+    return root;
+  }
+
+  this.write2 = function(forms, redraw, oncomplete) {
+    utils.start('rendering');
+    var anyerr = false;
+    for (var i=0; i<forms.length; i++) {
+      var form = forms[i];
+      if (form.painted) continue;
+      if (!form.body) continue;
+      if (form != document) utils.clr(form.body);
+      if (!that.validatePos(form)) anyerr = true;
+      form.retries = -1;
+      utils.retry('write1form', function(form, i) {
+        form.node.style.display = '';
+        form.retries++;
+        if (!conf.get('force_write', false) && form.node.offsetWidth <= 0) throw 'retry';
+        for (var j=0; j<form.ads.length; j++) {
+          form.ads[j].durl = unescape(form.ads[j].url);
+        }
+        nst.font = form.font;
+        that.writeF(form, stage).getHeight(that.maxFS);
+        var root = null;
+        var finalStageNo = 0;
+        var finalStage = false;
+        for (var stage=0; stage<=that.maxFeatures; stage++) {
+          trace('stage='+stage);
+          finalStageNo = stage;
+          root = that.writeF(form, stage);
+          if (root.getHeight(root.fs) > form.y || root.exceedsWidth) {
+            syso('will not fit');
+            if (finalStage || stage === 0) break;
+            stage -= 2;
+            finalStage = true;
+            continue;
+          }
+          if (finalStage) break;
+        }
+        if (options('incfs') || options('moref') || options('lessf')) {
+          if (options('moref')) finalStageNo++;
+          if (options('lessf')) finalStageNo--;
+          root = that.writeF(form, finalStageNo);
+          if (options('incfs')) utils._dbg_.fontSize = root.fs++;
+          root.getHeight(root.fs);
+        }
+        utils._dbg_.features = finalStageNo;
+        root.write(form.doc, form.y);
+        that.fixStrips(root);
+        if (anyerr && form.retries > 0) {
+          that.formVisible = true;
+          utils.raport('P0-o', 'form appeared ' + (form.retries < 10 ? 'soon' : 'late'), form.retries);
+        }
+        form.painted = true;
+        form.created = utils.now();
+        if (!conf.get('silentWriter', false)) {
+          syso('written form #' + i + ' (' + form.placementId + ')');
+        }
+      }, conf.get('retries'))(form, i);
+    }
+    utils.start('sync');
+    utils._dbg_.totalTime = utils.timeArr.rendering + 'ms';
+    utils.retry('waitForAll', function(forms) {
+      for (var i=0; i<forms.length; i++) {
+        if (!forms[i].body) continue;
+        if (!forms[i].painted) throw 'retry';
+      }
+      for (var i=9; i<forms.length; ++i) {
+        forms[i].created2 = utils.now();
+      }
+    }, conf.get('write_form_retries', 10), oncomplete)(forms);
+  }
+  
+  this.center = function(node) {
+    if (options('incfs')) return;
+    node.oncomplete = function() {
+      utils.later('center', function() {
+        var ile = (node.dom.offsetHeight - node.span.offsetHeight) / 2;
+        node.dom.style.paddingTop = ile + 'px';
+      });
+    }
+  }
+
+  this.writeBoxFormType2 = function(form, box1, exh) {
+    var csx = form.cornerSizeX;
+    var csy = form.cornerSizeY;
+    var ret = nst.table(form.c, form.r);
+    var b=0;
+    for (var x=0; x<ret.colc; x++) {
+      for (var y=0; y<ret.rowc; y++) {
+        var extend = {t: csy, b: csy, l: csx, r: csx};
+        if (x === 0) extend.l = 0;
+        if (x === ret.colc - 1) extend.r = 0;
+        if (y === 0) extend.t = 0;
+        extend.b = 0;
+        extend.l += exh;
+        extend.r += exh;
+        ret.weights.x[x] = 1;
+        ret.weights.y[y] = 1;
+        var box = form.ads[b++];
+        box.x = x;
+        box.y = y;
+        ret.cells[x][y] = box1(box, y === ret.rowc - 1, x === ret.colc - 1, extend);
+      }
+    }
+    return ret;
+  }
+
+  this.writeBoxFormType6 = function(form, box1) {
+    var frc = form.colors.frame;
+    var ret = nst.table(3, 7, [0, 1, 0], [0, 0, 0, 1, 0, 0, 0], [2, 0, 2], [2, 0, 2, 0, 2, 0, 2]);
+    ret.fc = ret.bc = form.colors.bg;
+    ret.cells[1][1] = nst.textDiv(null, null, frc, conf.get('txt_reklama', 'R E K L A M A'), that.fsf.fixed(8));
+    ret.cells[1][1].css.textAlign = 'center';
+    ret.cells[1][5] = nst.textDiv(null, null, frc, conf.get('txt_nkao', '&raquo; stwórz własną reklamę'), that.fsf.fixed(12));
+    ret.cells[1][5].css.textAlign = 'right';
+    var zera = [];
+    for (var i=0; i<2*form.c + form.r; ++i) {
+      zera[i] = 0;
+    }
+    var tab = nst.table(2 * form.c - 1, 2 * form.r - 1, zera, zera);
+    tab.fc = form.colors.frame;
+    tab.bc = 'FFFFFF';
+    var b = 0;
+    for (var x=0; x<tab.colc; ++x) {
+      for (var y=0; y<tab.rowc; ++y) {
+        if ((x % 2 === 0) && (y % 2 === 0)) {
+          var box = form.ads[b++];
+          box.x = x;
+          box.y = y;
+          tab.cells[x][y] = box1(box, y === ret.rowc - 1, x === ret.colc - 1, {t: 8, b: 8, l: 8, r: 8});
+          tab.weights.x[x] = Math.max(tab.weights.x[x], box.extra === 'img' ? 2 : 1);
+          tab.weights.y[y] = Math.max(tab.weights.x[x], box.extra === 'img' ? 2 : 1);
+        } else if (x % 2 === 0) {
+          var lt = tab.cells[x][y] = nst.table(3, 1, [0, 1, 0], [0], [10, 0, 10], [1]);
+          lt.cells[1][0].css.borderTop = '1px #' + frc + ' dotted';
+        } else if (y % 2 === 0) {
+          var lt = tab.cells[x][y] = nst.table(1, 3, [1], [0, 1, 0], [1], [10, 0, 10]);
+          lt.cells[0][1].css.borderLeft = '1px #' + frc + ' dotted';
+        }
+      }
+    }
+    ret.cells[1][3] = that.addCorners(tab, form);
+    return ret;
+  }
+
+  this.writeBoxForm = function(form, box1) {
+    if (form.merging === 2) return that.addCorners(that.writeBoxFormType2(form, box1, 0), form);
+    if (form.merging === 6) return that.addCorners(that.writeBoxFormType6(form, box1), form);
+    if (form.merging === 4 || form.merging === 5) {
+      var ret = nst.table(1, 3, [1], [0, 1, 0], [0], [form.borderSize, 0, form.borderSize]);
+      if (form.merging === 4) ret.minSizes.y[2] = 0;
+      ret.cells[0][0] = nst.emptyDiv(0, 0, form.colors.headerFrame, form.colors.headerFrame);
+      ret.cells[0][2] = nst.emptyDiv(0, 0, form.colors.headerFrame, form.colors.frame);
+      ret.cells[0][1] = that.writeBoxFormType2(form, box1, form.cornerSizeX);
+      return ret;
+    }
+    var spacing = form.spacing;
+    var ret = nst.table(2 * form.c - 1, 2 * form.r - 1);
+    for (var dim in {x:0, y:0}) {
+      for (var i=0; i<ret.cellc[dim]; i++) {
+        ret.weights[dim][i] = i % 2 ? 0 : 1;
+        ret.minSizes[dim][i] = i % 2 ? spacing : 0;
+      }
+    }
+    var i=0;
+    form.lastLine = [];
+    for (var x=0; x<ret.colc; x++) {
+      for (var y=0; y<ret.rowc; y++) {
+        if ((x | y) & 1) continue;
+        var box = form.ads[i++];
+        box.x = x;
+        box.y = y;
+        var ch = box1(box, y === ret.rowc - 1, x === ret.colc - 1, {t: 0, b: 0, l: 0, r: 0});
+        var corners = {tl: 2, tr: 2, bl: 2, br: 2};
+        if ((x === 0) && (y === 0)) corners.tl = form.corners.tl;
+        if ((x === 0) && (y === ret.rowc - 1)) corners.bl = form.corners.bl;
+        if ((x === ret.colc - 1) && (y === 0)) corners.tr = form.corners.tr;
+        if ((x === ret.colc - 1) && (y === ret.rowc - 1)) corners.br = form.corners.br;
+        if (form.merging === 1) corners = form.corners;
+        ch = that.addCorners(ch, form, corners);
+        ret.cells[x][y] = ch;
+      }
+    }
+    return ret;
+  }
+
+  this.exTextLabel = function(node, x, y, form, col) {
+    if (form.labelType >= 3) {
+      node.cells[x][y] = nst.textDiv(null, null, col.title, conf.get('labelText'), that.fsf.ex_label);
+      node.cells[x][y].css = {textAlign: 'right', textDecoration: 'underline'};
+      node.cells[x][y].a = that.a_label;
+    }
+  }
+  
+  this.exForm = function(tab) {
+    tab.type = 'A';
+    tab.bc = 'FFFFFF';
+    tab.fc = '777777';
+  }
+
+  this.exColors = function(colors) {
+    colors.bg = colors.headerBg = 'FFFFFF';
+    colors.frame = colors.headerFrame = '777777';
+    var check = function(col) {
+      if ('0123456789'.indexOf(col.charAt(0)) >= 0) return true;
+      if ('0123456789'.indexOf(col.charAt(2)) >= 0) return true;
+      return false;
+    }
+    if (check(colors.title) && check(colors.desc) && check(colors.url)) return colors;
+    colors.title = colors.desc = colors.labelTxt = '737486';
+    colors.url = '5368B8';
+    return colors;
+  }
+
+  this.addLabel = function(form, dom) {
+    var ls = conf.get('labelSizes')(form.labelId);
+    if (form.labelType === 1) {
+      var ret = nst.table(2, 1, [1, 0], [1]);
+      ret.cells[0][0] = dom;
+      var labT = nst.table(1, 3, [1], [1, 0, 0]);
+      ret.cells[1][0] = labT;
+      labT.cells[0][0] = nst.emptyDiv(0, 0);
+      labT.cells[0][2] = nst.emptyDiv(0, Math.min(10, (form.y - ls.vy) / 2));
+      labT.cells[0][1] = nst.getImgDiv(conf.get('vimgurl').replace('**', form.labelId), ls.vx, ls.vy);//FIXME
+      labT.cells[0][1].a = that.a_label;
+      return ret;
+    } else if (form.labelType === 2) {
+      var ret = nst.table(1, 2, [1], [1, 0]);
+      ret.cells[0][0] = dom;
+      var labT = nst.table(3, 1, [1, 0, 0], [0]);
+      ret.cells[0][1] = labT;
+      labT.cells[0][0] = nst.emptyDiv(0, 0);
+      labT.cells[2][0] = nst.emptyDiv(ls.hy, 0);
+      labT.cells[1][0] = nst.getImgDiv(conf.get('himgurl').replace('**', form.labelId), ls.hx, ls.hy);//FIXME
+      labT.cells[1][0].css.backgroundPosition = 'right';
+      labT.cells[1][0].a = that.a_label;
+      return ret;
+    }
+    return dom;
+  }
+  
+  this.getFontSizes = function(dom, form, mustFit) {
+    var mins = 1 * conf.get('minFS') - 1;
+    var maxs = 1 * conf.get('maxFS');
+    var fixed = parseInt(form.fontSize);
+    if (!isNaN(fixed)) {
+      dom.getHeight(fixed);
+      return fixed;
+    }
+    var ok = null;
+    var maxiter = 100;
+    var ile;
+    while (mins < maxs) {
+      if (maxiter--<0) break;
+      var check = Math.floor((mins + maxs + 1) / 2);
+      ile = dom.getHeight(check);
+      ok = ile <= form.y && !dom.exceedsWidth;
+      trace(mins+' '+maxs+' '+ile+' '+(dom.exceedsWidth ? '<-->' : ''));
+      if (ok) {
+        mins = check;
+      } else {
+        maxs = check - 1;
+      }
+    }
+    if (mustFit && (mins < 1 * conf.get('minFS'))) {
+      if (ile - form.y > 0) {
+        utils.raport('P1-o', 'not enought space in form', 'missing: '
+          + (ile - form.y) + ', current=' + form.y + ', required=' + ile);
+      }
+      if (dom.exceedsWidth) {
+        utils.raport('P1-o', 'form width exceeded',
+          'x='+form.x+', y='+form.y+', c='+form.c+', r='+form.r);
+      }
+    }
+    utils._dbgc_.fontSize = mins < 1 * conf.get('minFS') ? 'maroon' : 'green';
+    mins = Math.max(mins, 1 * conf.get('minFS'));
+    ile = dom.getHeight(mins);
+    utils._dbgc_.height = form.y < ile ? 'maroon' : 'green';
+    utils._dbg_.fontSize = mins;
+    utils._dbg_.height = ile + ' px';
+    if (!ok) dom.getHeight(mins);
+    trace('font size: ' + mins);
+    return mins;
+  }
+
+  this.getBorder = function(tab) {
+    var gb = function(tab, top, bottom, left, right, fc, bc) {
+      if (tab.fc) fc = tab.fc;
+      if (tab.bc) bc = tab.bc;
+      if (tab.leaf || tab.fc) {
+        if (top) top.push({fg: fc, bg: bc, node: tab});
+        if (bottom) bottom.push({fg: fc, bg: bc, node: tab});
+        if (left) left.push({fg: fc, bg: bc, node: tab});
+        if (right) right.push({fg: fc, bg: bc, node: tab});
+      } else {
+        if (top) for (var x=0; x<tab.colc; x++) gb(tab.cells[x][0], top, null, null, null, fc, bc);
+        if (bottom) for (var x=0; x<tab.colc; x++) gb(tab.cells[x][tab.rowc-1], null, bottom, null, null, fc, bc);
+        if (left) for (var y=0; y<tab.rowc; y++) gb(tab.cells[0][y], null, null, left, null, fc, bc);
+        if (right) for (var y=0; y<tab.rowc; y++) gb(tab.cells[tab.colc-1][y], null, null, null, right, fc, bc);
+      }
+    }
+    var ret = {t: [], b: [], l: [], r: []};
+    gb(tab, ret.t, ret.b, ret.l, ret.r);
+    return ret;
+  }
+  
+  this.addCorners = function(dom, form, corners) {
+    if (corners === undefined) corners = form.corners;
+    var csy = form.cornerSizeY;
+    var csx = form.cornerSizeX;
+    var bs = form.borderSize;
+    var border = that.getBorder(dom);
+    var ret = nst.table(3, 1, [0, 1, 0], [1]);
+    var ltab = nst.table(1, 3, [1], [0, 1, 0]);
+    var ctab = nst.table(1, 3, [1], [0, 1, 0]);
+    var rtab = nst.table(1, 3, [1], [0, 1, 0]);
+    ret.cells[0][0] = ltab;
+    ret.cells[1][0] = ctab;
+    ret.cells[2][0] = rtab;
+    ltab.cells[0][0] = that.drawCorner(form, corners.tl, border.l[0], true, true);
+    ltab.cells[0][2] = that.drawCorner(form, corners.bl, border.b[0], true, false);
+    rtab.cells[0][0] = that.drawCorner(form, corners.tr, border.r[0], false, true);
+    rtab.cells[0][2] = that.drawCorner(form, corners.br, border.b[border.b.length - 1], false, false);
+    ltab.cells[0][1] = that.drawStrip(border.l, true, true, csy-bs, csy-bs, bs, csx-bs);
+    rtab.cells[0][1] = that.drawStrip(border.r, true, false, csy-bs, csy-bs, bs, csx-bs);
+    ctab.cells[0][0] = that.drawStrip(border.t, false, true, 0, 0, bs, 0);
+    ctab.cells[0][2] = that.drawStrip(border.b, false, false, 0, 0, bs, 0);
+    ctab.cells[0][1] = dom;
+    return ret;
+  }
+  
+  this.drawStrip = function(border, vert, lefttop, start, end, w1, w2) {
+    var td = {start: start, end: end, vert: vert, arr: []};
+    var ret = nst.table(vert ? 2 : border.length, vert ? border.length : 2);
+    ret.minSizes[vert ? 'x' : 'y'] = lefttop ? [w1, w2] : [w2, w1];
+    for (var i=0; i<border.length; i++) {
+      var b = border[i];
+      var cell1 = ret.cells[vert ? 0 : i][vert ? i : 0];
+      var cell2 = ret.cells[vert ? 1 : i][vert ? i : 1];
+      cell1.bc = lefttop ? b.fg : b.bg;
+      cell2.bc = lefttop ? b.bg : b.fg;
+      ret.minSizes[vert ? 'y' : 'x'][i] = 1;
+      td.arr.push({from: b.node, to1: cell1, to2: cell2});
+    }
+    that.todo.push(td);
+    return ret;
+  }
+  
+  this.getHeightLater = function(from, to) {
+    to.sizeFrom = from;
+    that.todo1.push(to);
+  }
+  
+  this.fixStrips = function(root) {//XXX ugly
+    for (var i=0; i<that.todo1.length; i++) {
+      that.todo1[i].dom.style.height = that.todo1[i].sizeFrom.dom.offsetHeight;
+      that.todo1[i].dom.style.top = that.todo1[i].sizeFrom.dom.offsetTop;
+    }
+    for (var i=0; i<that.todo.length; i++) {
+      var t = that.todo[i];
+      var arr = t.arr;
+      for (var j=0; j<arr.length; j++) {
+        var size = arr[j].from.realSize;
+        if (size === undefined) size = arr[j].from.fullSize;
+        if (t.vert) {
+          arr[j].size = size.y;
+        } else {
+          arr[j].size = size.x;
+        }
+      }
+      for (var j=0; j<arr.length; j++) {
+        var sub = Math.min(arr[j].size, t.start);
+        arr[j].size -= sub;
+        t.start -= sub;
+      }
+      for (var j=arr.length-1; j>=0; j--) {
+        var sub = Math.min(arr[j].size, t.end);
+        arr[j].size -= sub;
+        t.end -= sub;
+      }
+    }
+    root.tab.dom.style.display = 'none';
+    for (var i=0; i<that.todo.length; i++) {
+      var t = that.todo[i];
+      var arr = t.arr;
+      var total = 0;
+      for (var j=0; j<arr.length; j++) {
+        var tpx = total + 'px';
+        var size = arr[j].size + 'px';
+        if (arr[j].to1.dom) {
+          var st1 = arr[j].to1.dom.style;
+          if (t.vert) {
+            st1.top = tpx;
+            st1.height = size;
+          } else {
+            st1.left = tpx;
+            st1.width = size;
+          }
+        }
+        if (arr[j].to2.dom) {
+        var st2 = arr[j].to2.dom.style;
+          if (t.vert) {
+            st2.top = tpx;
+            st2.height = size;
+          } else {
+            st2.left = tpx;
+            st2.width = size;
+          }
+        }
+        total += arr[j].size;
+        arr[j].total = total;
+      }
+    }
+    root.tab.dom.style.display = '';
+    that.todo = [];
+  }
+  
+  this.cornerFunctions = [
+    function(x, y, n) {
+      var s = 0.4/n;
+      return n*((1-x+s)*(1-x+s)+(1-y+s)*(1-y+s)-1)/1.8;
+    }, function(x, y, n) {
+      return n*(1-x-y)/1.4;
+    }, function(x, y, n) {
+      return (x+1/n > 1) || (y+1/n > 1) ? 0 : 1;
+    }, function(x, y, n) {
+      var s = 0.4/n;
+      return n*(1-(x+s)*(x+s)-(y+s)*(y+s))/2.0;
+    }, function(x, y, n) {
+      return (x<1/n) || (y<1/n) ? 0 : n*(1-x-y)/1.4;
+    }
+  ];
+  
+  this.mergeColors = function(c1, c2, w) {
+    var ret = '';
+    var digits = '0123456789abcdef';
+    var getc = function(c) {
+      return digits.indexOf(c.toLowerCase())
+    }
+    for (var i=0; i<3; i++) {
+      var val1 = 16 * getc(c1.charAt(2*i)) + getc(c1.charAt(2*i+1));
+      var val2 = 16 * getc(c2.charAt(2*i)) + getc(c2.charAt(2*i+1));
+      var val = Math.max(0, Math.min(255, val1 * (1-w) + val2 * w));
+      ret += digits.charAt(Math.floor(val / 16));
+      ret += digits.charAt(val % 16);
+    }
+    return ret;
+  }
+
+  this.opa = function(ch, op) {
+    try {ch.css.filter='alpha(opacity='+(op*100)+')'} catch(e) {};
+    try {ch.css.MozOpacity = op} catch(e) {};
+    try {ch.css.opacity = op} catch(e) {};
+  }
+  
+  this.setColor = function(ch, val, colors) {
+    ch.bc = val >= 0.999 ? colors.bg : (val >= -1.001 ? colors.fg : null);
+    if (val < 0) {
+      var op = Math.min(1, val+1);
+      if (op <= 0) {
+        ch.bc = null;
+      } else if (val < -0.01) {
+    	that.opa(ch, op);
+      }
+    } else {
+      if ((colors.fg === undefined) || (colors.bg === undefined)) {
+        utils.raport('J2', 'color definition is missing');
+        ch.bc = 'FF0000';
+      } else {
+    	if (colors.bg === 'transparent') {
+    		ch.bc = colors.fg;
+    		that.opa(ch, 1 - val);
+    	} else if (colors.fg === 'transparent') {
+    		ch.bc = colors.bg;
+    		that.opa(ch, val);
+    	} else {
+    		ch.bc = that.mergeColors(colors.fg, colors.bg, Math.max(0.0, Math.min(1.0, val)));
+    	}
+      }
+    }
+  }
+
+  this.drawCorner = function(form, corner, colors, hswap, vswap) {
+    var cs1y = form.cornerSizeY;
+    var cs1x = form.cornerSizeX;
+    var bs = form.borderSize;
+    var cdef = corner + '-' + cs1x + '-' + cs1y + '-' + bs;
+    if (!that.corners[cdef]) {
+      var c = [];
+      for (var x=0; x<cs1x; x++) {
+        var cx = c[x] = [];
+        var last = null;
+        var posy = -1;
+        for (var y=0; y<cs1y; y++) {
+          var v = that.cornerFunctions[corner]((x+0.5)/cs1x, (y+0.5)/cs1y, (cs1x+cs1y)/(2*bs));
+          if (v < -1.001) v = -1.001;
+          if (v > 0.999) v = 0.999;
+          if (v != last) {
+            if (posy >= 0) cx.push({v: last, r: y - posy});
+            posy = y;
+            last = v;
+          }
+        }
+        cx.push({v: last, r: cs1y - posy});
+      }
+      var cc = that.corners[cdef] = [];
+      var last1 = [];
+      var posx = -1;
+      for (var x=0; x<c.length; x++) {
+        var v = c[x];
+        var differ = v.length != last1.length;
+        if (!differ) {
+          for (var y=0; y<v.length; y++) {
+            if (v[y].v + 10 * v[y].r != last1[y].v + 10 * last1[y].r) {
+              differ = true;
+              break;
+            }
+          }
+        }
+        if (differ) {
+          if (posx >= 0) cc.push({v: last1, r: x - posx});
+          posx = x;
+          last1 = v;
+        }
+      }
+      cc.push({v: last1, r: c.length - posx});
+    }
+    var csa = that.corners[cdef];
+    var tx = nst.table(csa.length, 1);
+    tx.minSizes.y[0] = cs1y;
+    for (var x=0; x<csa.length; x++) {
+      var csax = csa[x];
+      var x1 = hswap ? csa.length - x - 1 : x;
+      tx.minSizes.x[x1] = csax.r;
+      if (csax.v.length === 1) {
+        that.setColor(tx.cells[x1][0], csax.v[0].v, colors);
+        continue;
+      }
+      var ty = tx.cells[x1][0] = nst.table(1, csax.v.length);
+      ty.minSizes.x[0] = csax.r;
+      for (var y=0; y<csax.v.length; y++) {
+        var y1 = vswap ? csax.v.length - y - 1 : y;
+        ty.minSizes.y[y1] = csax.v[y].r;
+        that.setColor(ty.cells[0][y1], csax.v[y].v, colors);
+      }
+    }
+    return tx;
+  }
+  
+  this.clearCache = function() {
+    that.corners = {};
+    that.todo = [];
+    that.todo1 = [];
+  }
+
+}
+
+
+try {x.x.x} catch(e) {static.fstarts.push(['autoOrder', e.lineNumber, 0])};
+AutoOrder = function(conf, utils, options) {
+
+  var that = this;
+
+  this.preload = function() {
+    if (!conf.get('enableAZ')) return;
+    var prefix = conf.get('azPrefix');
+    utils.preloadImage(prefix + 'bgx.jpg');
+    utils.preloadImage(prefix + 'close.gif');
+    utils.preloadImage(prefix + 'mark.gif');
+  }
+
+  this.aznavbar = function(node) {
+    var prefix = conf.get('azPrefix');
+    node.style.background = 'url(' + prefix + 'bgx.jpg) repeat-x #EFF3F4';
+    node.style.border = '1px solid #eee';
+    node.style.borderRadius = '15px';
+    node.style.webkitBorderRadius = '15px';
+    node.style.MozBorderRadius = '15px';
+    node.style.MozBoxShadow = '1px 1px 20px #9c9c9c';
+    node.style.BoxShadow = '1px 1px 20px #9c9c9c';
+    node.style.WebkitBoxShadow = '1px 1px 20px #9c9c9c';
+    var top = utils.cel(node, 'div');
+    top.style.width = '290px';
+    top.style.height = '20px';
+    top.style.marginLeft = '11px';
+    top.style.backgroundColor = '#d5dfe1';
+    var msp = utils.cel(top, 'div');
+    msp.innerHTML = unescape(conf.get('moveTxt', ''));
+    msp.style.color = 'green';
+    msp.style.fontSize = '10px';
+    msp.style.padding = '3px';
+    msp.style.cursor = 'pointer';
+    msp.style.textAlign = 'center';
+    var m2 = {};
+    if (!utils.ie && options && options('moveAz')) {
+      m2 = utils.cel(msp, 'div');
+      m2.style.width = '300px';
+      m2.style.height = '250px';
+      m2.style.position = 'relative';
+      m2.style.top = '-150px';
+    }
+    var makeBtn = function(url, right) {
+      var csp = utils.cel(top, 'div');
+      csp.style.background = 'transparent url('
+        + prefix + url + ') no-repeat scroll 0 0';
+      csp.style.width = '16px';
+      csp.style.height = '16px';
+      csp.style.display = 'block';
+      csp.style.position = 'absolute';
+      csp.style.right = right + 'px';
+      csp.style.top = '2px';
+      csp.style.cursor = 'pointer';
+      csp.style.zIndex = 2147483647;
+      csp.innerHTML = '&nbsp;';
+      return csp;
+    }
+    return {
+      csp: makeBtn('close.gif', 15),
+      hsp: makeBtn('mark.gif', 35),
+      msp: msp, m2: m2
+    };
+  }
+
+  this.show = utils.ftry('autozamowienie', function(prid, caid, ref, aoUrl) {
+    syso('layer popup');
+    var blocker = utils.cel(document.body, 'div');
+    blocker.style.position = 'absolute';
+    blocker.style.width = '100%';
+    blocker.style.height = Math.max(1000, document.body.offsetHeight) + 'px';
+    blocker.style.zIndex = 2147483646;
+    blocker.style.left = 0;
+    blocker.style.top = 0;
+    if (utils.ie) {
+      blocker.style.background = 'transparent url('+conf.get('azPrefix')+'1px.png) repeat';
+    }
+    var size = {x: 310, y: conf.get('az_ifheight')};
+    var d = utils.cel(document.body, 'div');
+    that.closeAzNow = function() {
+      if (!confirm("Czy chcesz przerwac tworzenie kampanii?")) return;
+      if (utils.ie) ev = event;
+      utils.rm(utils.byId('nsLayerPopup'));
+      utils.rm(blocker);
+      syso('popup closed');
+    }
+    blocker.onclick = that.closeAzNow;
+    d.id = 'nsLayerPopup';
+    d.style.position = 'absolute';
+    d.style.left = Math.floor(Math.max(0, document.body.offsetWidth / 2 - 160)) + 'px';
+    d.style.top = Math.floor(Math.max(0, utils.getScroll().y + 5)) + 'px';
+    d.style.width = size.x + 'px';
+    d.style.height = size.y + 20 + 'px';
+    d.style.zIndex = 2147483647;
+    var nb = that.aznavbar(d);
+    nb.hsp.onclick = function() {
+      window.open(conf.get('azHelpUrl'), '_blank');
+    }
+    nb.csp.onclick = that.closeAzNow;
+    nb.msp.onmouseup = nb.msp.onmousedown = function(ev) {
+      if (utils.ie) {
+        ev = event;
+      } else {
+        ev.preventDefault();
+      }
+      nb.moving = !nb.moving;
+      nb.nsInitPos = utils.mouseCoords(ev);
+      nb.nsDivPos = {x: parseInt(d.style.left), y : parseInt(d.style.top)};
+    }
+    nb.msp.onmousemove = nb.m2.onmousemove = function(ev) {
+      if (!nb.moving) return;
+      if (utils.ie) ev = event;
+      cp = utils.mouseCoords(ev);
+      ip = nb.nsInitPos;
+      dp = nb.nsDivPos;
+      d.style.left = Math.floor(dp.x + cp.x - ip.x) + 'px';
+      d.style.top = Math.floor(dp.y + cp.y - ip.y) + 'px';
+    }
+    var nc = utils.now();
+    var url = '';
+    var href = utils.ifnull(aoUrl, conf.get('azUrls')[0])
+      .replace(/_PRID_/g, prid)
+      .replace(/_CAID_/g, caid)
+      .replace(/_DOM_/g, utils.getDomain())
+      .replace(/_EREF_/g, escape(escape(utils.getDomain(ref))))
+      .replace(/_NC_/g, nc);
+    href = conf.get('azgaurl')
+      .replace(/_AZU_/g, escape(href))
+      .replace(/_EREF_/g, escape(escape(ref)));
+    syso(href);
+    utils.createIframe(d, size.x, size.y, href);
+  });
+
+}
+
+  
+try {x.x.x} catch(e) {static.fstarts.push(['features', e.lineNumber, 0])};
+Features = function(conf, utils, options, autoOrder) {
+  var that = this;
+  var writer = null;
+  var nst = null;
+
+  var oddo = function(form, minx, maxx, miny, maxy, cc) {
+    if (form.x < minx || form.x > maxx) return false;
+    if (form.y < miny || form.y > maxy) return false;
+    return utils.ifnull(cc, 1);
+  }
+
+  var avdim = function(form, minx, maxx, miny, maxy, cc) {
+    form.avSize = {x: 72, y: 60};
+    return oddo(form, minx, maxx, miny, maxy, cc);
+  }
+
+  this.featureConf = function() {return [
+    [that.adarts, utils.adTypes.text, function(form) {
+      return (form.adartType > 0) && form.cc;
+    }], [that.adart1, utils.adTypes.csAvatar, function(form) {
+      return (form.adartType & 1) > 0 && form.cc;
+    }], [that.adart2, utils.adTypes.csFavico, function(form) {
+      return (form.adartType & 2) > 0 && form.cc;
+    }], [that.billboard, utils.adTypes.billboard, function(form) {
+      return form.ee === 'e' ? 1 : false;
+    }], [that.rectangle, utils.adTypes.billboard, function(form) {
+      return form.ee === 'E' ? 1 : false;
+    }], [that.skyscraper, utils.adTypes.skyscraper, function(form) {
+      return form.ee === 'W' ? 1 : false;
+    }], [that.billboard, utils.adTypes.exclusive, function(form) {
+      return form.ee === 'e' ? 1 : false;
+    }], [that.rectangle, utils.adTypes.exclusive, function(form) {
+      return form.ee === 'E' ? 1 : false;
+    }], [that.skyscraper, utils.adTypes.exclusive, function(form) {
+      return form.ee === 'W' ? 1 : false;
+    }], [that.nkform, utils.adTypes.nkbox, function(form) {
+      return form.cc;
+    }], [that.imageAd(false, 250, 250), utils.adTypes.imgK, function(form) {
+      return oddo(form, 250, 299, 250, 300);
+    }], [that.imageAd(false, 300, 250), utils.adTypes.imgSP, function(form) {
+      return oddo(form, 300, 335, 250, 300);
+    }], [that.imageAd(false, 336, 280), utils.adTypes.imgDP, function(form) {
+      return oddo(form, 336, 474, 280, 300);
+    }], [that.imageAd(false, 728, 90), utils.adTypes.imgDB, function(form) {
+      return oddo(form, 724, 1025, 90, 130);
+    }], [that.imageAd(true, 160, 600), utils.adTypes.imgSW, function(form) {
+      return oddo(form, 160, 220, 600, 1000);
+    }], [that.imageAd(false, 468, 60), utils.adTypes.imgMP, function(form) {
+      return form.x >= 468 && form.x <= 727 && form.y >= 60 && form.y <= 200 ? 1 : false;
+    }], [that.stdFlashAd, utils.adTypes.flash, function(form) {
+      return form.x === 300 && form.y === 250 ? 1 : false;
+    }], [that.smallFlashAd(468, 60), utils.adTypes.imgMF, function(form) {
+      return form.x >= 468 && form.x <= 727 && form.y >= 60 && form.y <= 200 ? 1 : false;
+    }], [that.avatarBilb, utils.adTypes.avatar, function(form) {
+      return avdim(form, 580, 649, 100, 130, 2);
+    }], [that.avatarBilb, utils.adTypes.avatar, function(form) {
+      return avdim(form, 650, 900, 100, 130, 3);
+    }], [that.avatarBilb, utils.adTypes.avatar, function(form) {
+      return avdim(form, 901, 1300, 100, 130, 4);
+    }], [that.avatarRect, utils.adTypes.avatar, function(form) {
+      return avdim(form, 250, 500, 200, 300, 3);
+    }], [that.avatarTop, utils.adTypes.avatar, function(form) {
+      return avdim(form, 160, 180, 400, 500, 2);
+    }], [that.avatarTop, utils.adTypes.avatar, function(form) {
+      return avdim(form, 160, 180, 500, 800, 3);
+    }], [that.avatarTop, utils.adTypes.avatar, function(form) {
+      return avdim(form, 160, 200, 180, 200, 1);
+    }], [that.oneLineForm, utils.adTypes.text, function(form) {
+      form.oneLine = form.labelType === 'right'
+        ? (Math.round((form.y - form.spacing * form.r) / form.r) < 58)
+          && (Math.round((form.x - 16 - form.spacing * form.c) / form.c) >= 480)
+        : (Math.round((form.y - 16 - form.spacing * form.r) / form.r) < 58)
+          && (Math.round((form.x - form.spacing * form.c) / form.c) >= 480);
+      return conf.get('enableOneLineForms')
+        && form.oneLine ? form.r * form.c : false;
+    }], [that.wideForm, utils.adTypes.text, function(form) {
+      if (form.labelType === 4) return form.cc;
+      if (form.y / form.r > 63) return false;
+      if (form.x * form.r / (form.y * form.c) >= conf.get('labelXY', 6)) {
+        return form.cc;
+      }
+      return false;
+    }], [that.textForm, utils.adTypes.text, function(form) {
+      return form.r * form.c;
+    }]
+  ]};
+
+  this.setBottom = function(_writer, _nst, ref) {
+    writer = _writer;
+    nst = _nst;
+    that.ref = ref;
+  }
+
+  this.onBeforeIframes = function(form) {
+    if (form.fixedSizes) return;
+    form.fixedSizes = true;
+    var adWarn = conf.get('ad_warn_function')(form);
+    if (!adWarn) return;
+    form.y += adWarn.height;
+  }
+
+  this.fixForm = function(form, dom) {
+    var adWarn = conf.get('ad_warn_function')(form);
+    if (adWarn) {
+      var ret = nst.table(1, 2, [1], [0, 1], [0], [adWarn.height, 0]);
+      ret.cells[0][0] = nst.textDiv(null, null, '000', adWarn.text, function() {
+        return {fs: adWarn.height - 2, lh: 2};
+      });
+      ret.cells[0][1] = dom;
+      dom = ret;
+    }
+    return dom;
+  }
+
+  this.fixurl = function(box, form) {
+    var ret = box.aa;
+    if (!ret) {
+      syso('no click-url');
+      return null;
+    }
+    if (conf.get('noClickurlTrash')) return ret;
+    try {
+      var cs = that.clickStats(box, form);
+      for (var i in cs) {
+        if (!([][i] === undefined)) continue;
+        if (!({}[i] === undefined)) continue;
+        ret += '&'+i+'='+cs[i];
+      }
+      if (typeof(quad_events) != 'undefined') {//bc
+        if (quad_events.ctr_param) ret += '&ctr_param=' + escape(quad_events.ctr_param);
+      }
+      syso('click url: ' + ret);
+    } catch(e) {
+      utils.exc('click_stats', e);
+    }
+    return ret;
+  }
+
+  this.a_box = function(box, form, ifnoflash) {
+    return {
+      click: utils.ftry('mainClick', utils.onlyOnce(function() {
+        if (that.dontclick) return syso('don\'t click');
+        if (ifnoflash) {
+          if (form.doc.body.innerHTML.indexOf('flashblock') < 0) return syso('flash bg click');
+          syso('flashblock detected');
+        }
+        form.clicked = utils.now();
+        var url = that.fixurl(box, form);
+        if (url) window.open(url, '_blank');
+      }, 'mainClick')),
+      mousedown: function() {
+        setTimeout(function() {
+          if (form.clicked) return;
+          form.clicked = utils.now();
+          utils.raport('J1o', 'no click', utils.now());
+        }, conf.get('dontClickTimeout', 3000))
+      },
+      url: box.durl,
+      pri: 0
+    }
+  }
+  
+  this.clickStats = function(box, form) {
+    var now = utils.now();
+    return {
+      prid: form.prid,
+      caid: form.caid,
+      formx: form.x,
+      formy: form.y,
+      time1: now - form.created,
+      time2: now - form.created,
+      forme: 'ex_' + form.ee
+    };
+  }
+  
+  this.goC2a = function(form) {
+    if (form.y <= 120) return false;
+    if (form.cutoff.noC2a) return false;
+    return conf.get('enableC2a') != options('noC2a');
+  }
+  
+  this.goAZ = function(form) {
+    if (!conf.get('enableAZ')) return false;
+    if (!that.enableAZ) return false;
+    if (form.cutoff.noAZ) return false;
+    if (form.labelType != 3) return false;
+    if (form.x < 160) return false;
+    if (form.y < 60) return false;
+    if (form.noIframe) return false;
+    return true;
+  }
+  
+  this.c2a = function(node, x, y, align, text, color, form) {
+    if (!that.goC2a(form)) return;
+    var cta = node.cells[x][y] = nst.textDiv(null, null,
+      color, text, function() {
+        return {fs: conf.get('c2aFS'), lh: 2};
+      });
+    cta.css.textAlign = align;
+  }
+  
+  this.bright = function(color) {
+    return '01234567'.indexOf(color.charAt(0)) < 0
+      || '01234567'.indexOf(color.charAt(2)) < 0
+      || '0123456789AB'.indexOf(color.charAt(4)) < 0;
+  }
+  
+  this.az = function(node, x, y, align, form) {
+    if (!that.goAZ(form)) return;
+    var col = writer.mergeColors(form.colors.bg, form.colors.title, conf.get('azCB'));
+    col = writer.mergeColors(col, that.bright(col) ? '000000' : 'FFFFFF', conf.get('azBB'));
+    var txt = conf.get(form.ee === 'W' ? 'az_shortText' : 'az_text').replace(/ /g, '&nbsp;');
+    if (!form.aoWontFit) {
+      txt = conf.get('az_longText').replace(/_WHERE_/g, utils.getDomain());
+    }
+    var az = node.cells[x][y] = nst.textDiv(null, null, col, txt, function() {
+      return {fs: conf.get('azFS'), lh: 2};
+    });
+    az.onWidthExceeded = function(oile) {
+      trace('ao width exceeded by ' + oile);
+      form.aoWontFit = true;
+    }
+    az.css.textAlign = align;
+    if (conf.get('azBold')) az.css.fontWeight = 'bold';
+    if (conf.get('azUnderline')) az.css.textDecoration = 'underline';
+    az.a = {click: utils.onlyOnce(utils.apply(autoOrder.show, form.prid, form.caid, that.ref), 'mainClick'),
+      url: conf.get('az_text'), pri: 2};
+    autoOrder.preload();
+  }
+
+  this.setCss = function(node, shift) {
+    var opts = conf.get('cssOptions') >> shift;
+    if (opts & 1) node.css.fontWeight = 'bold';
+    if (opts & 8) node.css.textDecoration = 'underline';
+  }
+  
+  this.getDurl = function(form, box) {
+    if (!form.withUrl) return '';
+    var durl = box.durl;
+    var chars = ['.', '/', '?', '=', '&'];
+    for (var i=0; i<chars.length; ++i) {
+      durl = durl.split(chars[i]).join(chars[i] + '<wbr>');
+    }
+    return durl;
+  }
+
+  this.alignForm = function(form, node, minX, minY) {
+    if (form.x <= minX && form.y <= minY) return node;
+    var ex = form.x - minX;
+    var ey = (form.y - minY) / 2;
+    syso('transparent align required: ' + minX + ' ' + minY);
+    var ret = nst.table(2, 3, [0, 1], [1, 0, 1], [minX, ex], [ey, minY, ey]);
+    ret.cells[0][1] = node;
+    return ret;
+  }
+
+  this.smallFlashAd = function(minX, minY) { 
+    return function(form) {
+      return that.flashAd(form, minX, minY);
+    } 
+  }
+
+  this.stdFlashAd = function(form) {
+    return that.flashAd(form);
+  }
+
+  this.flashAd = function(form, minX, minY) {
+    minX = utils.ifnull(minX, form.x);
+    minY = utils.ifnull(minY, form.y);
+    form.labelType = 3;
+    var box = form.ads[0];
+    utils.raport('S0-o', 'flash box', box.type);
+    var fpv = utils.getFlashPlayerVersion();
+    syso('flash player version: ' + fpv);
+    var ret = nst.table(1, 1, [1], [1]);
+    var main = ret.cells[0][0] = nst.getImgDiv(utils.getImager(box), minX, minY);
+    main.a = that.a_box(box, form, fpv);
+    main.a.mousedown = function() {};
+    main.oncomplete = function(node) {
+      var aa = that.fixurl(box, form);
+        if (fpv != null) {
+        var obj = node;
+        var emb = form.doc.createElement('embed');
+        if (!utils.ie) {
+          obj = form.doc.createElement('object');
+          var param = form.doc.createElement('param');
+          obj.appendChild(param);
+          param.name = 'wmode';
+          param.value = 'opaque';
+          obj.setAttribute('wmode', 'opaque');
+          emb.setAttribute('wmode', 'opaque');
+        }
+        emb.width = minX + 'px';
+        emb.height = minY + 'px';
+        emb.type = 'application/x-shockwave-flash';
+          if (aa) emb.setAttribute('flashvars', 'click='+escape(aa)+'&clickTag='+escape(aa));
+        emb.src = utils.ifnull(box.fimg, utils.getImager(box, 'flash'));
+        emb.wmode = 'opaque';
+        obj.appendChild(emb);
+        obj.style.zIndex = 100;
+        emb.style.zIndex = 200;
+        if (!utils.ie) node.appendChild(obj);
+      }
+      var a = form.doc.createElement('a');
+      node.appendChild(a);
+      var d = form.doc.createElement('div');
+      a.appendChild(d);
+      d.style.width = conf.get('flashLabelWidth') + 'px';
+      d.style.height = conf.get('flashLabelHeight') + 'px';
+      d.style.position = 'absolute';
+      d.style.left = minX - conf.get('flashLabelSmall') + 'px';
+      d.style.bottom = '0px';
+      d.style.zIndex = 10000;
+      d.style.opacity = 1;
+      var lurl = conf.get('flash_label_url')
+        .replace(/_MOD3_/g, Math.floor(Math.random() * 6))
+        .replace(/_TS_/g, box.timestamp);
+      d.style.backgroundImage = 'url('+lurl+')';
+      d.onmouseover = function() {
+      d.style.left = minX - conf.get('flashLabelWidth') + 'px';
+        that.dontclick = true;
+      };
+      d.onmouseout = function() {
+      d.style.left = minX - conf.get('flashLabelSmall') + 'px';
+        that.dontclick = false;
+      };
+      a.href = writer.a_label.href;
+      a.target = '_blank';
+    }
+    return that.alignForm(form, ret, minX, minY);
+  }
+
+  this.imgBottomLabel = function(form) {
+    var box = form.ads[0];
+    var belka = nst.table(4, 1, [0, 1, 0, 0], [1], [3, 0, conf.get('img_text_label_width'), 3]);
+    belka.cells[1][0] = nst.textDiv(null, null, 'FFFFFF', box.url, writer.fsf.image);
+    belka.cells[1][0].a = that.a_box(box, form);
+    belka.cells[2][0] = nst.textDiv(null, null, 'FFFFFF', conf.get('img_text_label'), writer.fsf.image);
+    belka.cells[2][0].a = writer.a_label;
+    belka.cells[2][0].css.textAlign = 'right';
+    return belka;
+  }
+
+  this.nkform = function(form) {
+    form.labelType = 3;
+    var col = form.colors;
+    return writer.writeBoxForm(form, function (box, lastLine, lastBox, ext) {
+      if (form.x / form.c > form.y / form.r && form.x / form.c > 290) {//pozioma
+        var ret = nst.table(5, 3, [1, 0, 0, 0, 1], [1, 0, 1], [ext.l, 0, 10, 140, ext.r], [ext.t, 0, ext.b]);
+        if (box.extra === 'img') {
+          ret.cells[1][1] = nst.getImgDiv(utils.getImager(box), 113, 75);
+        }
+        var right = ret.cells[3][1] = nst.table(1, 5, [1], [0, 1, 0, 1, 0], [0], [0, 5, 0, 5, 0]);
+        var titleDiv = right.cells[0][0] = nst.textDiv(null, null, col.title, box.title, writer.fsf.title);
+        right.cells[0][2] = nst.textDiv(null, null, col.desc, box.opis1, writer.fsf.desc);
+        var urlDiv = right.cells[0][4] = nst.textDiv(null, null, col.url, box.durl, writer.fsf.url);
+      } else {//pionowa
+        var ret = nst.table(3, 9, [0, 1, 0], [0, 0, 0, 0, 0, 0, 0, 0, 1],
+          [ext.l, 0, ext.r], [ext.t, 0, 3, 0, 3, 0, 3, 0, ext.b]);
+        var titleDiv = ret.cells[1][1] = nst.textDiv(null, null, col.title, box.title, writer.fsf.title);
+        if (box.extra === 'img') {
+          var it = ret.cells[1][3] = nst.table(2, 1, [0, 1], [1]);
+          it.cells[0][0] = nst.getImgDiv(utils.getImager(box), 113, 75);
+        }
+        ret.cells[1][5] = nst.textDiv(null, null, col.desc, box.opis1, writer.fsf.desc);
+        var urlDiv = ret.cells[1][7] = nst.textDiv(null, null, col.url, box.durl, writer.fsf.url);
+      }
+      titleDiv.css.fontWeight = 'bold';
+      urlDiv.css.textDecoration = 'underline';
+      if (!form.withUrl) {
+        urlDiv.css.display = 'none';
+      }
+      ret.fc = col.frame;
+      ret.bc = 'FFFFFF';
+      ret.a = that.a_box(box, form);
+      return ret;
+    });
+  }
+
+  this.imageAd = function(sky, minX, minY) {
+    utils._dbg_.formType = 'graphics';
+    return function(form) {
+      minX = utils.ifnull(minX, form.x);
+      minY = utils.ifnull(minY, form.y);
+      form.labelType = 3;
+      var box = form.ads[0];
+      var lh = sky ? 22 : 11;
+      var ret = nst.table(1, 2, [1], [1, 0], [0], [0, lh]);
+      ret.cells[0][0] = nst.getImgDiv(utils.getImager(form.ads[0]), minX, minY - lh);
+      ret.cells[0][0].a = that.a_box(box, form);
+      if (sky) {
+        var belka = ret.cells[0][1] = nst.table(1, 2, [1], [1, 1]);
+        belka.cells[0][0] = nst.textDiv(null, null, 'FFFFFF', box.url, writer.fsf.image);
+        belka.cells[0][0].a = that.a_box(box, form);
+        belka.cells[0][0].css.textAlign = 'center';
+        belka.cells[0][1] = nst.textDiv(null, null, 'FFFFFF', conf.get('img_text_label'), writer.fsf.image);
+        belka.cells[0][1].a = writer.a_label;
+        belka.cells[0][1].css.textAlign = 'center';
+      } else {
+        ret.cells[0][1] = that.imgBottomLabel(form);
+      }
+      ret.cells[0][1].bc = utils.ifnull(form.imgBottomColor, '000000');
+      return that.alignForm(form, ret, minX, minY);
+    }
+  }
+  
+  this.avImgTab = function(form, box, margin, color, ci) {
+    var ret = nst.table(3, 3, [0, 0, 0], [0, 0, 0],
+      [margin, 0, margin], [margin, 0, margin]);
+    ret.cells[1][1] = nst.getImgDiv(utils.getImager(box), form.avSize.x, form.avSize.y - ci);
+    ret.bc = form.colors.bg;
+    return ret;
+  }
+
+  this.avColors = function(form) {
+    form.origColors = utils.shallowCopy(form.colors);
+    form.colors = writer.exColors(form.colors);
+    form.colors.labelTxt = form.colors.title;
+    form.colors.bg = 'FFFFFF';
+    form.colors.headerBg = 'FFFFFF';
+    form.colors.frame = '777777';
+    form.colors.headerFrame = '777777';
+  }
+  
+  this.avatarBilb = function(form) {
+    utils._dbg_.formType = 'avatar-bilb';
+    return that.avatarLeft(form, 1, form.ads.length);
+  }
+
+  this.avatarRect = function(form) {
+    utils._dbg_.formType = 'avatar-rect';
+    return that.avatarLeft(form, form.ads.length, 1);
+  }
+
+  this.avatarLeft = function(form, r, c) {
+    var sp = form.cutoff.cutAvatars ? 1 : 4;
+    var ci = form.cutoff.cutAvatars ? 4 : 0;
+    form.r = r;
+    form.c = c;
+    that.avColors(form);
+    return writer.writeBoxForm(form, function (box, lastLine, lastBox, ext) {
+      var ret = nst.table(4, 3, [0, 0, 1], [0, 1, 0], [sp + ext.l, form.avSize.x, 0], [sp, form.avSize.y - ci, sp]);
+      var itab = ret.cells[1][1] = nst.table(3, 3, [1, 0, 1], [options('centerAvY') ? 1 : 0, 0, 1]);
+      itab.cells[1][1] = that.avImgTab(form, box, 0, '000077', ci);
+      ret.cells[2][1] = that.singleBox(form, box, lastLine, lastBox, {l: 6, t: 0, b: 0, r: ext.r}, true);
+      ret.a = that.a_box(box, form);
+      ret.bc = form.colors.bg;
+      ret.fc = form.colors.frame;
+      if (lastLine) return that.addLabelBar(ret, form, box.x === 0, lastBox, ext);
+      return ret;
+    });
+  }
+  
+  this.avatarTop = function(form) {
+    utils._dbg_.formType = 'avatar-top';
+    var sp = 6;
+    form.r = form.ads.length;
+    form.c = 1;
+    that.avColors(form);
+    return writer.writeBoxForm(form, function (box, lastLine, lastBox, ext) {
+      var es = form.ads.length === 2 ? 6 : 0;
+      var ret = nst.table(3, 3, [0, 1, 0], [0, 0, 1], [sp, 0, sp], [sp + es, 0, sp]);
+      var itab = ret.cells[1][1] = nst.table(3, 3, [options('centerAvX') ? 0 : 1, 0, 1], [1, 0, 1]);
+      itab.cells[1][1] = that.avImgTab(form, box, 0, '000077', 0);
+      ret.cells[1][2] = that.singleBox(form, box, lastLine, lastBox, {l: 0, t: sp, b: 0, r: 0}, true);
+      ret.bc = 'FFFFFF';
+      ret.fc = '777777';
+      ret.a = that.a_box(box, form);
+      if (lastLine) return that.addLabelBar(ret, form, true, true, ext);
+      return ret;
+    });
+  }
+  
+  this.billboard = function(form) {
+    utils._dbg_.formType = 'billboard';
+    var box1 = form.ads[0];
+    var col = writer.exColors(form.colors);
+    var ret = nst.table(5, 3, [0, 0, 0, 1, 0], [1, 0, 1], [10, 0, 30, 0, 10], [6, 0, 0]);
+    writer.exForm(ret);
+    var tImg = ret.cells[1][1] = nst.table(1, 3, [1], [0, 0, 1], [200], [50, 5, 0]);
+    tImg.cells[0][0] = nst.getImgDiv(utils.getImager(box1), 200, 50);
+    tImg.cells[0][2] = nst.textDiv(null, null, col.url, box1.durl, writer.fsf.ex_url);
+    tImg.cells[0][2].css.textAlign = 'center';
+    var tDesc = ret.cells[3][1] = nst.table(1, 5, [1], [0, 0, 0, 0, 1], [0], [0, 8, 20, 0, 0]);
+    tDesc.cells[0][0] = nst.textDiv(null, null, col.title, box1.title, writer.fsf.ex_title);
+    tDesc.cells[0][0].css = {fontWeight: 'bold', textDecoration: 'underline'};
+    tDesc.cells[0][2] = nst.textDiv(null, null, col.desc, box1.opis1, writer.fsf.ex_desc);
+    tDesc.cells[0][2].css = {fontWeight: 'bold'};
+    ret.a = that.a_box(box1, form);
+    ret = that.addLabelBar(ret, form, true, true, {exColors: col, bm: 4});
+    ret = writer.addCorners(ret, form, {tl: 3, tr: 3, bl: 3, br: 3});
+    return ret;
+  }
+
+  this.rectangle = function(form) {
+    utils._dbg_.formType = 'rectangle';
+    var box1 = form.ads[0];
+    var col = writer.exColors(form.colors);
+    var ret = nst.table(1, 12, [1], [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0], [0], [8, 50, 10, 0, 16, 0, 10, 0, 10, 0, 0, 8]);
+    writer.exForm(ret);
+    ret.cells[0][1] = nst.getImgDiv(utils.getImager(box1), 200, 50);
+    ret.cells[0][3] = nst.textDiv(null, null, col.url, box1.url, writer.fsf.ex_url);
+    ret.cells[0][3].css.textAlign = 'center';
+    ret.cells[0][5] = nst.textDiv(null, null, col.title, box1.title, writer.fsf.ex_title);
+    ret.cells[0][5].css = {textAlign: 'center', fontWeight: 'bold', textDecoration: 'underline'};
+    ret.cells[0][7] = nst.textDiv(null, null, col.desc, box1.opis1, writer.fsf.ex_desc);
+    ret.cells[0][7].css = {textAlign: 'center', fontWeight: 'bold'};
+    that.c2a(ret, 0, 9, 'center', conf.get('c2aText'), col.title, form);
+    ret.a = that.a_box(box1, form);
+    ret = that.addLabelBar(ret, form, true, true, {exColors: col, bm: 10});
+    ret = writer.addCorners(ret, form, {tl: 3, tr: 3, bl: 3, br: 3});
+    return ret;
+  }
+
+  this.skyscraper = function(form) {
+    utils._dbg_.formType = 'skyscraper';
+    var box1 = form.ads[0];
+    var col = writer.exColors(form.colors);
+    var ret = nst.table(1, 12, [1], [0, 0, 2, 0, 0, 0, 0, 3, 0, 0], [0], [20, 50, 10, 0, 20, 0, 10, 0, 0, 10, 0, 10]);
+    writer.exForm(ret);
+    ret.cells[0][1] = nst.getImgDiv(utils.getImager(box1), 140, 120);
+    ret.cells[0][3] = nst.textDiv(null, null, col.title, box1.title, writer.fsf.ex_title);
+    ret.cells[0][3].css.textAlign = 'center';
+    ret.cells[0][3].css.textDecoration = 'underline';
+    ret.cells[0][5] = nst.textDiv(null, null, col.desc, box1.opis1, writer.fsf.ex_desc);
+    ret.cells[0][5].css.textAlign = 'center';
+    ret.cells[0][5].css.fontWeight = 'bold';
+    that.c2a(ret, 0, 7, 'right', conf.get('c2aText'), col.title, form);
+    ret.cells[0][8] = nst.textDiv(null, null, col.url, box1.url, writer.fsf.ex_url);
+    ret.cells[0][8].css.textAlign = 'center';
+    ret.a = that.a_box(box1, form);
+    ret = that.addLabelBar(ret, form, true, true, {exColors: col, bm: 10});
+    ret = writer.addCorners(ret, form, {tl: 3, tr: 3, bl: 3, br: 3});
+    return ret;
+  }
+
+  this.wideForm = function(form) {
+    utils._dbg_.formType = 'wide';
+    form.labelType = 4;
+    var lw = conf.get('textLabelWidth');
+    if (that.goC2a(form)) {
+      lw = Math.max(lw, conf.get('c2aWidth'));
+    }
+    return writer.writeBoxForm(form, function(box, lastLine, lastBox, ext) {
+      var col = form.colors;
+      var ret = nst.table(5, 5, [0, 5, 0, 0, 0], [0, 0, 0, 1, 0], [ext.l, 0, 0, lw, ext.r], [0, 0, 0, 0, 0]);
+      ret.cells[1][1] = nst.textDiv(col.headerFrame, col.headerBg, col.title, box.title, writer.fsf.small_title, 'T');
+      ret.cells[1][1].css.fontWeight = 'bold';
+      ret.cells[1][3] = nst.textDiv(col.frame, col.bg, col.desc, box.opis1, writer.fsf.small_desc, 'D');
+      if (lastBox && lastLine) {
+        var ltab = ret.cells[3][3] = nst.table(1, 3, [1], [1, 1, 0]);
+        ltab.cells[0][2] = nst.textDiv(col.frame, col.bg, col.url, conf.get('labelText'), writer.fsf.small_label);
+        ltab.cells[0][2].css.textAlign = 'right';
+        ltab.a = writer.a_label;
+      } else {
+        var ltab = ret.cells[3][3] = nst.table(1, 2, [1], [1, 1]);
+        that.c2a(ltab, 0, 1, 'right', conf.get('c2aText'), col.title, form);
+      }
+      for (var x=0; x<ret.colc; x++) {
+        for (var y=0; y<2; y++) {
+          ret.cells[x][y].fc = col.headerFrame;
+          ret.cells[x][y].bc = col.headerBg;
+        }
+        for (var y=2; y<ret.rowc; y++) {
+          ret.cells[x][y].fc = col.frame;
+          ret.cells[x][y].bc = col.bg;
+        }
+      }
+      ret.a = that.a_box(box, form);
+      return ret;
+    });
+  }
+
+  this.oneLineForm = function(form) {
+    utils._dbg_.formType = 'oneLine';
+    var lw = conf.get('textLabelWidth');
+    if (form.labelType < 3) lw = 0;
+    if (that.goAZ(form)) lw = 0;
+    if (that.goC2a(form)) {
+      form.withUrl = false;
+      lw = Math.max(lw, conf.get('c2aShortWidth'));
+    }
+    return writer.writeBoxForm(form, function(box, lastLine, lastBox, ext) {
+      var last = lastLine && lastBox && form.labelType > 2;
+      var col = form.colors;
+      var ret = nst.table(2, 3, [1, 0], [1, 0, 1], [0, lw], [0, 0, 0]);
+      var html = ('<span style="color: _CT_; text-decoration: underline; font-weight: bold">_T_</span>&nbsp'
+        + '<span style="color: _CD_; padding-left: 3px; padding-right: 3px;">_D_</span>&nbsp'
+        + '<span style="color: _CU_">_U_</span>')
+        .replace(/_CT_/g, col.title)
+        .replace(/_T_/g, box.title)
+        .replace(/_CD_/g, col.desc)
+        .replace(/_D_/g, box.opis1)
+        .replace(/_CU_/g, col.url)
+        .replace(/_U_/g, form.withUrl ? box.durl : '');
+      ret.cells[0][1] = nst.textDiv(null, null, null, html, writer.fsf.small_desc, 'O');
+      ret.cells[0][1].a = that.a_box(box, form);
+      if (last && !that.goAZ(form)) {
+        var ltab = ret.cells[1][1] = nst.table(1, 2, [1], [0, 1]);
+        if (form.cutoff.extraC2a) {
+          ltab.weights.y[0] = 1;
+          that.c2a(ltab, 0, 0, 'right', conf.get('c2aShortText'), col.title, form);
+          ltab.cells[0][0].a = that.a_box(box, form);
+        }
+        ltab.cells[0][1] = nst.textDiv(null, null, col.labelTxt, conf.get('labelText'), writer.fsf.small_label, 'O');
+        ltab.cells[0][1].css.textDecoration = 'underline';
+        ltab.cells[0][1].css.verticalAlign = 'middle';
+        ltab.cells[0][1].css.textAlign = 'right';
+        ltab.cells[0][1].a = writer.a_label;
+        writer.center(ltab.cells[0][1]);
+      } else {
+        that.c2a(ret, 1, 1, 'right', conf.get('c2aShortText'), col.title, form);
+        ret.cells[1][1].a = that.a_box(box, form);
+      }
+      var ret1 = nst.table(3, 3, [0, 1, 0], [0, 1, 0], [ext.l, 0, ext.r],
+        [Math.floor(ext.t / 2), 0, Math.floor(ext.b / 2)]);
+      ret1.cells[1][1] = ret;
+      ret1.type = 'O';
+      ret1.fc = col.frame;
+      ret1.bc = col.bg;
+      if (lastLine && that.goAZ(form) && form.labelType > 2) {
+        return that.addLabelBar(ret1, form, box.x === 0, lastBox, ext);
+      }
+      return ret1;
+    });
+  }
+
+  this.textForm = function(form) {
+    utils._dbg_.formType = 'text';
+    return writer.writeBoxForm(form, function (box, lastLine, lastBox, ext) {
+      return that.singleBox(form, box, lastLine, lastBox, ext);
+    });
+  }
+
+  this.singleBox = function(form, box, lastLine, lastBox, ext, forAvatars) {
+    var col = form.colors;
+    var canAddAZ = box.x === 0 && lastLine && !forAvatars;
+    var textLabel = form.labelType === 3 && lastLine;
+    var ret = nst.table(1, 2, [1], [0, 1]);
+    var top = ret.cells[0][0] = nst.table(3, 3, [0, 1, 0], [1, 0, 1],
+      [ext.l, 0, ext.r], [ext.t, 0, 3]);
+    var bottom = ret.cells[0][1] = nst.table(3, 5, [0, 1, 0],
+      [0, 0, 1, 0, lastLine && lastBox && form.labelType >= 3 || !that.goC2a(form) ? 0 : 1],
+      [ext.l, 0, ext.r], [0, 0, 0, 0, ext.b]);
+    if (!forAvatars) {
+      top.type = 'T';
+      bottom.type = 'D';
+    }
+    top.fc = col.headerFrame;
+    top.bc = col.headerBg;
+    top.tc = col.title;
+    bottom.fc = col.frame;
+    bottom.bc = col.bg;
+    var title = top.cells[1][1] = nst.textDiv(null, null, null, box.title, writer.fsf.title);
+    title.css.fontWeight = 'bold';
+    title.css.textDecoration = 'underline';
+    var desc = bottom.cells[1][0] = nst.textDiv(null, null, col.desc, box.opis1, writer.fsf.desc);
+    var url = bottom.cells[1][1] = nst.textDiv(null, null, col.url, that.getDurl(form, box), writer.fsf.url);
+    url.css.textDecoration = 'underline';
+    var labelTab = bottom.cells[1][3] = nst.table(2, 1, [1, 0], [1], [0, conf.get('c2aWidth')]);
+    if (!textLabel || !lastBox ||  form.cutoff.extraC2a) {
+      that.c2a(labelTab, 1, 0, 'right', conf.get('c2aText'), col.title, form);
+    }
+    ret.a = that.a_box(box, form);
+    if (textLabel && !forAvatars) return that.addLabelBar(ret, form, box.x === 0, lastBox, ext);
+    return ret;
+  }
+  
+  this.addLabelBar = function(node, form, left, right, flags) {
+    flags = utils.ifnull(flags, {});
+    var col = utils.ifnull(flags.exColors, form.colors);
+    var ret = nst.table(1, 2, [1], [1, 0]);
+    ret.cells[0][0] = node;
+    var bar = ret.cells[0][1] = nst.table(5, 3, [0, 1, 0, 0, 0], [0, 1, 0],
+      [utils.ifnull(flags.l, 0), 0, 0, right ? conf.get('textLabelWidth') : 0, utils.ifnull(flags.r, 0)],
+      [utils.ifnull(flags.tm, 0), 1, utils.ifnull(flags.bm, 0)]);
+    bar.fc = col.frame;
+    bar.bc = col.bg;
+    if (left) {
+      var bl = bar.cells[1][0] = nst.table(2, 1, [1, 0], [1]);
+      that.az(bl, 0, 0, conf.get('azAlign'), form);
+      bar.oncomplete = utils.later('aoboc', function() {
+        if (!bl.cells[0][0].span) return trace('autoOrder button - no dom');
+        if (!bl.cells[0][0].dom.parentNode) return trace('autoOrder button - no parent node');
+        bl.cells[0][0].dom.style.width = bl.cells[0][0].span.offsetWidth + 3 + 'px';
+        bl.cells[0][0].dom.parentNode.style.backgroundColor = bl.cells[0][0].dom.style.backgroundColor;
+      });
+    }
+    if (right && form.labelType === 3) {
+      var label = bar.cells[3][0] = nst.textDiv(
+        null, null, col.labelTxt,
+        conf.get('labelText'), writer.fsf.label);
+      label.css.textAlign = 'right';
+      label.css.textDecoration = 'underline';
+      label.a = writer.a_label;
+    }
+    return ret;
+  }
+
+  /**** ADART FORMS ****/
+
+  this.adarts = function(form) {
+    if (form.adartType === 2) return that.adart2(form);
+    return that.adart1(form);
+  }
+  
+  this.ago = function(when) {//XXX localization!
+    if (when <= 0) return 'kiedyś';
+    var t = (utils.now() - when) / 1000;
+    if (t <= 1) return 'teraz';
+    var d = [
+      {n: 60, d:['sekundę', 'sekundy', 'sekund']},
+      {n: 60, d:['minutę', 'minuty', 'minut']},
+      {n: 24, d:['godzinę', 'godziny', 'godzin']},
+      {n: 30, d:['dzień', 'dni', 'dni']}
+    ];
+    for (var i=0; i<d.length; i++) {
+      var t1 = 0;
+      if (d[i].n > 0) t1 = 1;
+      if (d[i].n > 4) t1 = 2;
+      if (t < d[i].n) return Math.floor(t) + ' ' + d[i].d[t1] + ' temu';
+      t /= d[i].n;
+    }
+    return 'dawno temu';
+  }
+
+  this.fsfaa_title = function(n) {return {fs: 14, lh: 2}};
+  this.fsfaa_url = function(n) {return {fs: 10, lh: 2}};
+  this.fsfaa_when = function(n) {return {fs: 9, lh: 2}};
+  this.fsfaa_desc = function(n) {return {fs: 9, lh: 2}};
+
+  this.createCache = function(form) {
+    if (form.cache) return;
+    var cache = {};
+    cache.redraw = function() {
+      utils.clr(form.node);
+      utils.later('redrawWithDesc', utils.apply(writer.writeAll, [form], true));
+    }
+    form.cache = cache;
+  }
+
+  this.adart1 = function(form) {
+    utils._dbg_.formType = 'adart1';
+    form.withUrl = true;
+    var ret = nst.scrollPanel(30, 2000);
+    var sp = form.cutoff.cutAvatars ? 1 : 4;
+    var ci = form.cutoff.cutAvatars ? 4 : 0;
+    var col = form.colors;
+    form.avSize = {x: utils.ifnull(form.aaImgX, 72), y: utils.ifnull(form.aaImgY, 60)};
+    form.colors.headerBg = form.colors.bg;
+    form.colors.headerFrame = form.colors.frame;
+    var canShow = options('showDescs') || form.showDescs;
+    var bid = 0;
+    that.createCache(form);
+    var inn = ret.cells[0][0] = writer.writeBoxForm(form, function (box, lastLine, lastBox, ext) {
+      box.vis_id = box.id * 1;
+      var ret = nst.table(4, 3, [0, 0, 1], [0, 1, 0], [sp + ext.l, form.avSize.x, 0], [sp, form.avSize.y - ci, sp]);
+      var itab = ret.cells[1][1] = nst.table(3, 3, [1, 0, 1], [options('centerAvY') ? 1 : 0, 0, 1]);
+      itab.cells[1][1] = that.avImgTab(form, box, 0, '000077', ci);
+      var right = ret.cells[2][1] = nst.table(2, 2, [0, 1], [0, 1], [5, 0]);
+      var top = nst.limitedTextNode(16, 32, col.headerFrame, col.headerBg, col.title, box.title, that.fsfaa_title);
+      var descDiv = nst.textDiv(col.frame, col.bg, col.desc, box.opis1, that.fsfaa_desc);
+      right.cells[1][0] = nst.hiddenTable(top, descDiv, form.cache, bid++, col.headerFrame, col.headerBg, that.fsfaa_title, canShow);
+      that.setCss(top, 0);
+      var bottom = right.cells[1][1] = nst.table(3, 1, [2, 0, 0], [1], [0, 5, 65]);
+      bottom.cells[0][0] = nst.textDiv(col.frame, col.bg, col.url, that.getDurl(form, box), that.fsfaa_url);
+      that.setCss(bottom.cells[0][0], 2);
+      bottom.cells[2][0] = nst.textDiv(col.frame, col.bg, col.desc, that.ago(box.timestamp), that.fsfaa_when);
+      bottom.cells[2][0].css.textAlign = 'right';
+      that.setCss(bottom.cells[2][0], 1);
+      ret.a = that.a_box(box, form);
+      ret.bc = form.colors.bg;
+      ret.fc = form.colors.frame;
+      if (lastLine) return that.addLabelBar(ret, form, box.x === 0, lastBox);
+      return ret;
+    });
+    return ret;
+  }
+  
+  this.adart2 = function(form) {
+    utils._dbg_.formType = 'adart2';
+    form.withUrl = true;
+    var col = form.colors;
+    var ret = nst.scrollPanel(30, 2000);
+    var canShow = options('showDescs') || form.showDescs;
+    var bid = 0;
+    that.createCache(form);
+    var inn = ret.cells[0][0] = writer.writeBoxForm(form, function (box, lastLine, lastBox, ext) {
+      var ret = nst.table(1, 2, [1], [0, 1]);
+      var top = nst.limitedTextNode(16, 32, col.headerFrame, col.headerBg, col.title, box.title, that.fsfaa_title);
+      that.setCss(top, 0);
+      var descDiv = nst.textDiv(col.frame, col.bg, col.desc, box.opis1, that.fsfaa_desc);
+      ret.cells[0][0] = nst.hiddenTable(top, descDiv, form.cache, bid++, col.headerFrame, col.headerBg, that.fsfaa_title, canShow);
+      var bottom = ret.cells[0][1] = nst.table(4, 3, [0, 2, 0, 1], [1], [20, 0, 10, 0]);
+      bottom.fc = col.frame;
+      bottom.bc = col.bg;
+      var favico = bottom.cells[0][0] = nst.table(3, 3, [1, 0, 1], [0, 0, 1], [0, 16, 0], [0, 16, 0]);
+      favico.cells[1][1] = nst.getImgDiv('http://' + utils.getDomain(box.durl) + '/favicon.ico', 16, 16);
+      bottom.cells[1][0] = nst.textDiv(col.frame, col.bg, col.url, that.getDurl(form, box), that.fsfaa_url);
+      that.setCss(bottom.cells[1][0], 2);
+      bottom.cells[3][0] = nst.textDiv(col.frame, col.bg, col.desc, that.ago(box.timestamp), that.fsfaa_when);
+      bottom.cells[3][0].css.textAlign = 'right';
+      that.setCss(bottom.cells[3][0], 1);
+      ret.a = that.a_box(box, form);
+      if (lastLine) return that.addLabelBar(ret, form, box.x === 0, lastBox);
+      return ret;
+    });
+    return ret;
+  }
+
+// Empty custom forms stub
+
+
+}
+
+  
+try {x.x.x} catch(e) {static.fstarts.push(['cusom', e.lineNumber, 0])};
+//cusom box features
+
+  
+try {x.x.x} catch(e) {static.fstarts.push(['boxStatic', e.lineNumber, 35])};
+  utils = new Utils(conf, spliter.cookie_params);
+  try {
+    utils.checkVersion('ads1', ads1_version);
+  } catch(e) {
+    utils.raport('S2', 'old ads1 script');
+  }
+  utils.checkVersion('spliter', spliter.ver);
+  utils.fstarts = static.fstarts;
+  utils.evlog = static.evlog;
+  utils.prid = spliter.prid;
+  utils.caid = spliter.caid;
+  static.placementUtils = new PlacementUtils(conf, utils, spliter.cookie_params);
+  static.parser = new Parser(conf, utils, spliter.cookie_params);
+  static.autoOrder = new AutoOrder(conf, utils);
+  static.features = new Features(conf, utils, spliter.cookie_params, static.autoOrder);
+  static.featureConf = static.features.featureConf();
+  static.features.enableAZ = spliter.enableAZ;
+  static.writer = new Writer(conf, utils, spliter.cookie_params, static.features, (spliter.ref+'').substring(2));
+  static.lock = true;
+  static.forms = [];
+  static.global = {
+    ignoreContent: false,
+    extraContent: ''
+  };
+  static.cache = {};
+  static.without = [];
+  static.withoutMap = {};
+
+  static.checkAdsLimit = function() {
+    if (conf.get('emptyBoxes')) return;
+    if (spliter.cookie_params('noLimit')) return syso('skipping ads limit check');
+    var cc = 0;
+    for (var i=0; i<static.forms.length; i++) {
+      cc += static.forms[i].cc;
+      if (cc <= conf.get('ads_limit')) continue;
+      static.forms[i].painted = true;
+      static.forms[i].exceeded = true;
+      utils.raport('P2-o', 'ads limit exceeded', 'form nr ' + i);
+      nextPlacement = function() {
+        return syso('skipping next placement - ads limit exceeded');
+      }
+    }
+  }
+
+  static.denyAdType = function() {
+    return false;
+  }
+
+  static.placementTypes = function(forms) {
+    var ret = '';
+    for (var fi=0; fi<forms.length; fi++) {
+      var form = forms[fi];
+      ret += utils.ifnull(form.placementId, '_');
+      ret += ':' + form.cc;
+      var adt = {};
+      for (var c=0; c<static.featureConf.length; c++) {
+        var fc = static.featureConf[c];
+        if (fc[0] === undefined) continue;
+        var n = fc[2](form);
+        if (n === false) continue;
+        if ((spliter.cookie_params('noex') || form.noEx) && fc[1] != utils.adTypes.text) continue;
+        if (adt[fc[1]]) continue;
+        adt[fc[1]] = n;
+        if (fc[1] != utils.adTypes.text && fc[1] != utils.adTypes.exclusive) {
+          if (static.denyAdType(fc[1])) {
+            syso('blocking type: ' + fc[1]);
+          } else {
+            ret += ':' + fc[1] + n;
+          }
+        }
+        if (!form.ads) continue;
+        if (form.write) continue;
+        if (form.ads.length === 0) {
+          if (conf.get('emptyBoxes')) {
+            form.write = static.featureConf[static.featureConf.length - 1][0];
+            form.prid = spliter.prid;
+            form.caid = spliter.caid;
+            for (var i=0; i<form.cc; i++) form.ads[i] = utils.emptyAd();
+          } else {
+            form.painted = true;
+          }
+          utils.raport('S2-o', 'no ads for form', spliter.allads.length);
+        } else if (utils.adTypes[form.ads[0].typ] === fc[1]) {
+          form.write = fc[0];
+          form.prid = spliter.prid;
+          form.caid = spliter.caid;
+          var ac = form.ads.length;
+          if (ac < n) {
+            for (var i=0; i<n; i++) form.ads[i] = form.ads[i % ac];
+            if (conf.get('emptyBoxes')) {
+              for (var i=ac; i<n; i++) {
+                form.ads[i] = utils.emptyAd();
+              }
+            } else if (!conf.get('enableCopyAds')) {
+              form.painted = true;
+            }
+            utils.raport('S1-o', 'not enought ads for form', ac + '!=' + n);
+          } else if (ac > n) {
+            utils.raport('S2-o', 'too much ads for form', ac);
+          }
+          break;
+        }
+      }
+      ret += ';';
+    }
+    syso('fdef='+ret);
+    return ret;
+  }
+
+  static.esc1 = function(str) {
+    return str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  static.validateAds = function(ads) {
+    for (var i=0; i<ads.length; i++) {
+      var ad = ads[i];
+      if (ad.url) ad.ddomain = utils.getDomain(ad.url);
+      ad.title = static.esc1(ad.title);//?
+      ad.opis1 = static.esc1(ad.opis1);
+      ad.url = static.esc1(ad.url);
+    }
+    for (var i=0; i<ads.length; i++) {
+      for (var j=0; j<ads.length; j++) {
+        if (i === j) continue;
+        if ((ads[i].placement_index < 0) || (ads[j].placement_index < 0)) continue;
+        if (ads[i].id === ads[j].id) utils.raport('S1o-', 'same box ids', ads[i].id);
+        if (ads[i].ddomain === ads[j].ddomain) {
+          if (ads[i].placement_index === ads[j].placement_index) {
+            utils.raport('S1o-', 'same box display urls in form', ads[i].ddomain);
+          } else {
+            utils.raport('S1o-', 'same box display urls', ads[i].ddomain);
+          }
+        }
+      }
+    }
+  }
+
+  static.chooseAds = function(forms, ads) {
+    syso('fl='+forms.length+', al='+ads.length);
+    static.checkAdsLimit();
+    if (forms.length === 1) {
+      forms[0].ads = [];
+      for (var b=0; b<ads.length; b++) {
+          if (ads[b].placement_index < 0) continue;
+          forms[0].ads.push(ads[b]);
+      }
+    } else {
+      for (var i=0; i<forms.length; i++) forms[i].ads = [];
+      for (var b=0; b<ads.length; b++) try {
+        if (ads[b].placement_index < 0) continue;
+        forms[ads[b].placement_index].ads.push(ads[b]);
+      } catch(e) {
+        utils.raport('S2', 'invalid placement index', ads[b].placement_index);
+      }
+    }
+    utils.replaceAds(forms);
+    static.validateAds(ads);
+    static.placementTypes(forms);
+  }
+
+  static.fixContent = function(content) {
+    if (spliter.no_content != '0') return '_1';
+    if (static.global.ignoreContent) {
+      syso('page content ignored');
+      if (static.global.extraContent.length === 0) return '_1';
+      content = '';
+    }
+    static.content = content;
+    spliter.fire('alterContent');
+    content = escape(static.content);
+    content = content.replace(/\n/g,'+');
+    content = content.replace(/%20/g,'+');
+    if (content.length > conf.get('maxContent')) {
+      content = content.substring(0, conf.get('maxContent')).replace(/\+[^+]*$/g, '');
+      for (var a=content.length-7; a<content.length; a++) {
+        if (content[a] === '%') {
+          content=content.substring(0, a);
+          break;
+        }
+      }
+    }
+    return content;
+  }
+  
+  static.getAds = function(host, prid, caid, forms, iid, content) {
+    static.cc = 0;
+    for (var i=0; i<forms.length; i++) {
+      static.cc += forms[i].cc;
+    }
+    static.cache = {
+      host: host,
+      prid: prid,
+      caid: caid,
+      iid: iid,
+      qno: 0,
+      content: content,
+      getAdsLock: false
+    };
+    var scsrc = conf.get('spliter2Url')
+      .replace(/_HOST_/g, host)
+      .replace(/_PRID_/g, prid)
+      .replace(/_CAID_/g, caid)
+      .replace(/_CC_/g, static.cc)
+      .replace(/_FORM_/g, static.placementTypes(forms))
+      .replace(/_CONTENT_/g, content)
+      .replace(/_EXTRA_/g, static.global.extraContent)
+      .replace(/_IID_/g, iid)
+      .replace(/_NC_/g, utils.now());
+    utils.start('server');
+    utils.loadsc(scsrc, false, spliter.encoding);
+  }
+  
+  static.getExtraAds = utils.retry('getExtraAds', function(form, callback) {
+    var sc = static.cache;
+    if (sc.getAdsLock) throw 'retry';
+    sc.getAdsLock = true;
+    static.callback = utils.ftry('extra ads - callback', function(ads) {
+      static.blockIds(ads, form.cc);
+      callback(form, ads);
+      sc.getAdsLock = false;
+    });
+    sc.qno++;
+    var scsrc = conf.get('spliter3Url')
+      .replace(/_HOST_/g, sc.host)
+      .replace(/_PRID_/g, sc.prid)
+      .replace(/_CAID_/g, sc.caid)
+      .replace(/_IID_/g, sc.iid)
+      .replace(/_CC_/g, form.cc)
+      .replace(/_CONTENT_/g, sc.content)
+      .replace(/_EXTRA_/g, static.global.extraContent)
+      .replace(/_WO_/g, static.without.join(','))
+      .replace(/_FORM_/g, static.placementTypes([form]))
+      .replace(/_QN_/g, sc.qno)
+      .replace(/_NC_/g, utils.now());
+    utils.loadsc(scsrc, false, spliter.encoding);
+  });
+  
+  static.setLock = function(set) {
+    if (set != static.lock) syso('set lock: ' + static.lock + ' --> ' + set);
+    if (static.lock === set) return false;
+    static.lock = set;
+    if (typeof(adp_forms) === 'object') adp_forms = null;
+    return true;
+  }
+  
+  static.adc_go1 = utils.ftry('go1', function() {
+    syso('go1');
+    utils.start('other');
+    static.evlog.s += ' B1';
+    var er = spliter.earlyRaports;
+    for (var i=0; i<er.length; i++) {
+      utils.exc(er[i][0], er[i][1]);
+    }
+    spliter.earlyRaports = [];
+    if (spliter.cookie_params('pprev') && !static.betaPluginReady) {
+      return utils.waitForBetaPlugin(static.adc_go2);
+    }
+    static.adc_go2();
+  });
+
+  static.adc_go2 = utils.ftry('go2', function() {
+    syso('go2');
+    if (typeof(wfa) != 'undefined') return wfa = static.adc_go3;
+    if (typeof(wfa_akon) != 'undefined') return wfa_akon = static.adc_go3;
+    if (typeof(akon_wfa) != 'undefined') return akon_wfa = static.adc_go3;
+    static.adc_go3();
+  });
+  
+  static.adc_go3 = utils.ftry('go3', function() {
+    syso('go3');
+    static.evlog.s += ' B2';
+    spliter.fire('onbeforeparse');
+    conf.default_show_header = spliter.ad_warn_show_header === true;
+    nextPlacement = static.extraForm;
+    adp_forms = null;//bc
+    if (spliter.safemode) utils.raport('P1-', 'safemode');
+    utils.start('placements');
+    static.prefix = 'quad_' + conf.get('prefix') + 'XstaticXplacementUtils';
+    if (spliter.events.formLimit) nextPlacement();
+    static.placementUtils.formLimit = spliter.events.formLimit;
+    static.global.prid0 = spliter.prid;
+    static.global.caid0 = spliter.caid;
+    static.placementUtils.parseScripts(static.forms, static.global, spliter.events, spliter.rqh,
+      placement_map, spliter.lastChangeForChannel, static.prefix, spliter.encoding, utils.ftry('go4', function() {
+      syso('go4');
+      utils.start('other');
+      trace('forms count: ' + static.forms.length);
+      spliter.fire('onafterformsparsed', static.forms, static.global);
+      static.placementUtils.formLimit = undefined;
+      var ids = {};
+      for (var i=0; i<static.forms.length; i++) {
+        var id = static.forms[i].placementId;
+        if (ids['#'+id] && !conf.get('ignoreSamePlacementIds')) {
+          utils.raport('P0-o', 'same placement ids', id);
+          if (!conf.get('allowSamePlacementIds')) return;
+        }
+        ids['#'+id] = true;
+      }
+      utils.dbgAlterForms(static.forms, spliter.cookie_params);
+      static.go1_done = true;
+      if (spliter.go_parse_content === undefined) utils.raport('J1', 'parsing status undefined');
+      if (spliter.go_parse_content === false) return utils.raport('P1-', 'parsing stage skipped');
+      utils.start('parsing');
+      static.parsedContent = static.parser.parseAll('C,I,M');
+      utils.start('other');
+      static.content = static.fixContent(static.parsedContent);
+      spliter.fire('onaftergo2');
+      static.getAds(spliter.rqh, spliter.prid, spliter.caid, static.forms, spliter.impressionId, static.content);
+    }));
+  });
+  
+  static.fixCtrUrls = function(ads) {
+    for (var i=0; i<ads.length; i++) {
+      var b = ads[i];
+      if (spliter.u_params != '' && spliter.u_params != undefined) {
+        var ch = '?';
+        if (unescape(b.a).indexOf('?') >= 0) ch = '&';
+        b.a += escape(ch) + spliter.u_params;
+      }      
+      if (conf.get('enableLandingPageParams')) {
+    	 
+      b.a=b.a.replace(new RegExp('\\$'+conf.get('prefix'),'g'), '%24'+conf.get('prefix'))
+        .replace('%24'+conf.get('prefix')+'visid', escape(b.id))
+        .replace('%24'+conf.get('prefix')+'adid', escape(b.aid))
+        .replace('%24'+conf.get('prefix')+'campid', escape(b.cid))
+        .replace('%24'+conf.get('prefix')+'pubdomain', escape(b._d));
+      }
+      b.aa = conf.get('ctr_url')
+        .replace(/_D_/g, b._d)
+        .replace(/_U_/g, b.a)
+        .replace(/_UE_/g, escape(b.a))
+        .replace(/_K_/g, b._k)
+        .replace(/_E_/g, b._e);
+      if (spliter.events.ctr_param != undefined) {
+        b.aa = b.aa+'&ctr_param='+spliter.events.ctr_param;
+      }
+      if (b._t != '') {
+        b.aa += '&tag=' + b._t;
+      }
+      if (b._qpc != '') {
+        b.aa = b._qpc.replace('quad_ctr', escape(b.aa));
+      }
+	  b.aa = b.aa.replace('?', '?p='+spliter.pserver_id+'&');
+    }
+    spliter.fire('onbeforewrite');
+    return ads;
+  }
+  
+  static.removeOldAds = utils.retry('removeOldAds', function() {
+    var todorm = document.getElementById('todo_rm_'+conf.get('prefix'));
+    if (todorm) {
+      syso('removed empty space');
+      todorm.parentNode.removeChild(todorm);
+      throw 'retry';
+    }
+  });
+
+  static.extraForm = utils.retry('extraForm', function() {
+    if (!static.setLock(true)) throw 'retry';
+    static.evlog.s += ' BE';
+    utils.raport('P0-o', 'delayed form found');
+    static.placementUtils.parseScripts(static.forms, static.global, spliter.events, spliter.rqh,
+        placement_map, spliter.lastChangeForChannel, static.prefix, spliter.encoding, utils.ftry('go4', function() {
+      spliter.fire('onafterformsparsed', static.forms, static.global, true);
+      for (var i=0; i<static.forms.length; i++) {
+        var form = static.forms[i];
+        if (form.painted) continue;
+        static.getExtraAds(form, static.write1Form);
+      }
+      static.setLock(false);
+    }));
+  });
+  
+  static.write1Form = function(form, ads) {
+    if (ads.length === 0) return utils.raport('S2', 'no extra ads');
+    static.fixCtrUrls(ads);
+    static.removeOldAds();
+    static.chooseAds([form], ads);
+    if (form.painted) return;
+    if (spliter.safemode) {
+      static.adFrame(form, true);
+    } else {
+      static.writer.writeAll([form], false, utils.apply(static.adFrame, form));
+    }
+    utils.addBoxDbg1(form);
+  }
+
+  static.blockIds = function(ads, cc) {
+    for (var i=0; i<ads.length; i++) {
+      if (i > cc) break;
+      if (static.withoutMap['#'+ads[i].id]) utils.syso1('got repeated ads');
+      static.withoutMap['#'+ads[i].id] = true;
+      static.without.push(ads[i].id);
+    }
+  }
+  
+  static.checkLateAKPlacements = utils.retry('checkLateAKPlacements', function() {
+    if (typeof(adKontekst_pola) === 'undefined') return;
+    var ile = 0;
+    for (var i=0; i<adKontekst_pola.length; i++) {
+      if (!adKontekst_pola[i].done) ile++;
+    }
+    if (ile > 0) nextPlacement();
+    throw 'retry';
+  }, utils.duzo);
+
+  static.writeBoxes = utils.ftry('writeBoxes', function(allads) {
+    utils.start('other');
+    if (allads.length === 0) return utils.noAds();
+    syso('got ' + allads.length + ' ads.');
+    static.fixCtrUrls(allads);
+    quad_spliter.boxes = spliter.allads;
+    static.blockIds(allads, static.cc);
+    static.removeOldAds();
+    static.chooseAds(static.forms, allads);
+    static.checkLateAKPlacements();
+    if (spliter.safemode) {
+      for (var i=0; i<static.forms.length; i++) {
+        static.adFrame(static.forms[i], true);
+      }
+      static.setLock(false);
+      return;
+    }
+    static.writer.writeAll(static.forms, false, utils.ftry('oncomplete', function() {
+      static.evlog.s += ' BD';
+      spliter.fire('onafterwrite');
+      var rndForm = static.forms[Math.floor(Math.random() * static.forms.length)];
+      utils.done({
+        formc: static.forms.length,
+        formx: rndForm.x,
+        formy: rndForm.y,
+        formLt: rndForm.labelType,
+        forme: 'ex_' + rndForm.ee
+      }, 'done', conf.get('doneStats'));
+      for (var i=0; i<static.forms.length; i++) {
+        static.adFrame(static.forms[i]);
+      }
+      setTimeout(utils.ftry('checkLatePlacements', function() {//deprecated
+        if (typeof(adKontekst_pola) === 'undefined') return;
+        var ile = 0;
+        for (var i=0; i<adKontekst_pola.length; i++) {
+          if (!adKontekst_pola[i].done) ile++;
+        }
+        if (ile > 0) utils.raport('P2-o', 'late AK placements found', ile);
+      }), conf.get('longTimeout'));
+      static.setLock(false);
+    }));
+  });
+
+  static.callback = static.writeBoxes; //changes after 1st call
+
+  static.writeSingleForm = function(line, getAds) {
+    utils.defaultColor = conf.get('subframeSysoColor');
+    syso('writing single form');
+    var ads = getAds();
+    if (ads.length === 0) return utils.raport('S2', 'no ads dd');
+    var form = static.placementUtils.readForm(document.body, line);
+    static.forms.push(form);
+    static.chooseAds([form], static.fixCtrUrls(ads));
+    form.noIframe = true;
+    static.writer.writeAll([form], false, function() {
+      syso('done.');
+    });
+  }
+
+  static.adFrame = function(form, noIframe) {
+    form.noIframe |= noIframe;
+    if (form.painted) return;
+    if (!form.noIframe) return;
+    form.painted = true;
+    syso('adFrame');
+    if (form.ads.length === 0) return utils.raport('J2', 'adFrame - no ads');//?
+    static.features.onBeforeIframes(form);
+    var ids = '';
+    for (var i=0; i<form.ads.length; i++) {
+      if (form.ads[i].placement_index < 0) continue;
+      syso('typ: ' + form.ads[i].typ);
+      ids += ',' + form.ads[i].id;
+    }
+    syso(ids.substring(1));
+    var src = conf.get('adFrameUrl')
+        .replace(/_PRID_/g, spliter.prid)
+        .replace(/_CAID_/g, spliter.caid)
+        .replace(/_CC_/g, form.cc)
+        .replace(/_FORM_/g, static.placementTypes([form]))
+        .replace(/_CONTENT_/g, static.content)
+        .replace(/_IID_/g, spliter.impressionId)
+        .replace(/_FDEF_/g, form.line)
+        .replace(/_IDS_/g, ids.substring(1))
+        .replace(/_REF_/g, spliter.rqh)
+        .replace(/_NC_/g, utils.now());
+    var ifr = utils.createIframe(form.node, form.x, form.y, src);
+  }
+
+  static.init = utils.ftry('toolkit initialization', function() {
+    if (spliter.cookie_params('co100')) utils.rndId -= utils.rndId % conf.get('coile') - conf.get('mod100');
+    utils.stages(11);
+    syso('loaded js toolkit v.' + utils.version);
+    static.initialized = true;
+    utils.fstarts_closed = true;
+  });
+  
+  try {x.x.x} catch(e) {static.fstarts.push(['end', e.lineNumber, -3])};
+  static.init();
+}

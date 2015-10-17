@@ -1,0 +1,8 @@
+run
+backtrace
+x 0xaddres
+break <line number | function name>
+condition <break point number> <condition statement>
+step
+help
+quit

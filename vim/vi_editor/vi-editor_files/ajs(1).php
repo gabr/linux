@@ -1,0 +1,13 @@
+var OX_4735da42 = '';
+OX_4735da42 += "<"+"script type=\"text/javascript\"><"+"!--\n";
+OX_4735da42 += "google_ad_client = \"pub-7337037207785440\";\n";
+OX_4735da42 += "/* 728x90, utworzono 08-11-15 */\n";
+OX_4735da42 += "google_ad_slot = \"3858203277\";\n";
+OX_4735da42 += "google_ad_width = 728;\n";
+OX_4735da42 += "google_ad_height = 90;\n";
+OX_4735da42 += "//-->\n";
+OX_4735da42 += "<"+"/script>\n";
+OX_4735da42 += "<"+"script type=\"text/javascript\"\n";
+OX_4735da42 += "src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">\n";
+OX_4735da42 += "<"+"/script><"+"div id=\'beacon_3e82a7e541\' style=\'position: absolute; left: 0px; top: 0px; visibility: hidden;\'><"+"img src=\'http://www.linux.pl/img/www/delivery/lg.php?bannerid=10&amp;campaignid=7&amp;zoneid=6&amp;loc=1&amp;referer=http%3A%2F%2Fnewbie.linux.pl%2F%3Fid%3Darticle%26show%3D208&amp;cb=3e82a7e541\' width=\'0\' height=\'0\' alt=\'\' style=\'width: 0px; height: 0px;\' /><"+"/div>\n";
+document.write(OX_4735da42);

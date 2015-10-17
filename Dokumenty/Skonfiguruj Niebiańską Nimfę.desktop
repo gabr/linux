@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon[pl_PL]=/opt/pisklak/src/pisklak.svg
+Name[pl_PL]=Skonfiguruj Niebiańską Nimfę
+Exec=/opt/pisklak/pisklak.sh
+Name=Skonfiguruj Niebiańską Nimfę
+Icon=/opt/pisklak/src/pisklak.svg

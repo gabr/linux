@@ -1,0 +1,3 @@
+mplayer <plik wideo> -sub <plik z napisami> -subcp cp1250
+
+cp1250 - kodowanie Win

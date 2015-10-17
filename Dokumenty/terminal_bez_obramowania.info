@@ -1,0 +1,39 @@
+Tworzymy terminal bez obramowania.
+Autor: rafaloo, 09:00, niedziela, 1 czerwca 2008
+
+
+Przezroczystość terminala to bardzo fajny efekt, który możemy uzyskać na wiele różnych sposobów. Służy do tego między innymi Tylda (bardzo fajny i zgrabny programik, któremu poświecę jednak osobny artykuł). Nie maja z tym efektem problemu osoby korzystające z Compiz - Fuzion. Co jednak maja począć osoby którzy nie lubią Tyldy czy Compiza?
+Otóż odpowiedz jest prosta. Przeczytać ten artykuł, wykazać trochę inwencji twórczej. Naprawdę niczego więcej nie potrzeba.
+Zaczynamy od zainstalowania program devilspie, który będzie nam niezbędny:
+sudo apt-get install devilspie
+następnie tworzymy plik konfiguracyjny, przykładowy sposób:
+mkdir ~/.devilspie
+gedit ~/.devilspie/terminal.ds
+w którym należy umieścić:
+
+(if
+(matches (window_name) "Terminal")
+(begin
+(undecorate)
+     (geometry "800x600")
+(geometry "-100-100")
+)
+)
+
+Przy czym:
+- geometry "800x600" oznacza rozmiar okna,
+- geometry "-100-100" położenie okna
+- undecorate - tego chyba nie trzeba tłumaczyć
+Więcej opcji można znaleźć tu.
+
+To by było już wszystko :-)
+
+Od tej pory, gdy uruchomimy program:
+devilspie
+każde okno terminala, które będzie miało tytuł "Terminal" (domyślnie w gnome-terminal), będzie uruchamiało się bez obramowania.
+Istnieje możliwość dodania do autostartu, wtedy będziemy mieli efekt podobny do Tyldy.
+Aby to uczynić wchodzimy oczywiście w system->preferencje->sesje.
+Sposób przedstawiony powyżej daje nam jeszcze jedną możliwość, gdy stworzymy dodatkowy profil w gnome-terminal z inną nawą niż "Terminal" i skorzystamy z
+gnome-terminal --window-with-profile='nazwa profilu'
+
+będziemy mogli uruchamiać terminal bez obramowania w zależności od naszego upodobania.

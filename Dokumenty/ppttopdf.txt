@@ -1,0 +1,2 @@
+libreoffice -norestore -nologo -headless -pt Cups-PDF *.ppt
+pliki zapisują się do ~/PDF/*.pdf

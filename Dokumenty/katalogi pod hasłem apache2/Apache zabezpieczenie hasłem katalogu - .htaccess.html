@@ -1,0 +1,1365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0086)http://debian.linux.pl/threads/21-Apache-zabezpieczenie-has%C5%82em-katalogu-.htaccess -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="pl" id="vbulletin_html"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+<meta id="e_vb_meta_bburl" name="vb_meta_bburl" content="http://debian.linux.pl">
+<!--<base href="http://debian.linux.pl/">--><base href="."><!--[if IE]></base><![endif]-->
+<meta name="generator" content="vBulletin 4.1.3">
+
+
+
+
+
+
+
+<script type="text/javascript" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/yuiloader-dom-event.js"></script>
+<script type="text/javascript" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/connection-min.js"></script>
+<script type="text/javascript">
+<!--
+	var SESSIONURL = "s=a05dcc0321401fb6d0e08bfcf96ec968&";
+	var SECURITYTOKEN = "guest";
+	var IMGDIR_MISC = "images/misc";
+	var IMGDIR_BUTTON = "images/buttons";
+	var vb_disable_ajax = parseInt("0", 10);
+	var SIMPLEVERSION = "413";
+	var BBURL = "http://debian.linux.pl";
+	var LOGGEDIN = 0 > 0 ? true : false;
+	var THIS_SCRIPT = "showthread";
+        var RELPATH = "threads/21-Apache-zabezpieczenie-hasłem-katalogu-.htaccess";
+        var PATHS = {forum : ""}
+// -->
+</script>
+<script type="text/javascript" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/vbulletin-core.js"></script>
+
+
+
+	<link rel="alternate" type="application/rss+xml" title="Polskie Forum Użytkowników Debiana RSS Feed" href="http://debian.linux.pl/external.php?type=RSS2">
+	
+		<link rel="alternate" type="application/rss+xml" title="Polskie Forum Użytkowników Debiana - Serwer - RSS Feed" href="http://debian.linux.pl/external.php?type=RSS2&forumids=8">
+	
+
+
+
+	<link rel="stylesheet" type="text/css" href="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/main-rollup.css">
+        
+
+	<!--[if lt IE 8]>
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00002l/popupmenu-ie.css?d=1302249799" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00002l/vbulletin-ie.css?d=1302249799" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00002l/vbulletin-chrome-ie.css?d=1302249799" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00002l/vbulletin-formcontrols-ie.css?d=1302249799" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00002l/editor-ie.css?d=1302249799" />
+	<![endif]-->
+
+ 
+	<meta name="keywords" content="katalog,sobie,.htaccess,taki,jest,hasłem,przeglądać,oraz,dodałem,wpisy,użytkownika,umieściłem,stworzyłem,zawartość,plik,zrobiłem,niestety,odpowiednie,http://mojadresip/luksus,authname,dobry,byłbym,wdzięczny,pozdrawiam,pomoc,wpis,hasła,podania,jego,jestem,pewien,tylko,można,hasło,.deb,pakietu,debian,wersji,etch,testowej,apache2,serwer,katalogu,zabezpieczenie,witam,zainstalowany,konfig,oryginalny,trzeba,było">
+	<meta name="description" content="Witam! 
+Mam zainstalowany serwer apache2 z pakietu .deb (Debian w wersji testowej Etch) konfig oryginalny, w konfigu włączona jest możliwość zabezpieczania strony hasłem, chciałbym sobie stworzyć jeden katalog tak by trzeba było podać hasło żeby móc przeglądać jego zawartość. Stworzyłem sobie taki katalog, umieściłem w nim plik .htaccess i zrobiłem odpowiednie wpisy oraz dodałem użytkownika ale niestety katalog można przeglądać bez podania hasła, nie jestem tylko pewien, czy taki wpis jest">
+
+	<title> Apache zabezpieczenie hasłem katalogu -  .htaccess</title>
+	<link rel="canonical" href="http://debian.linux.pl/threads/21-Apache-zabezpieczenie-has%C5%82em-katalogu-.htaccess?s=a05dcc0321401fb6d0e08bfcf96ec968">
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+		<link rel="stylesheet" type="text/css" href="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/showthread-rollup.css">
+	
+	<!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00002l/toolsmenu-ie.css?d=1302249799" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00002l/postlist-ie.css?d=1302249799" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00002l/showthread-ie.css?d=1302249799" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00002l/postbit-ie.css?d=1302249799" />
+	<link rel="stylesheet" type="text/css" href="clientscript/vbulletin_css/style00002l/poll-ie.css?d=1302249799" /><![endif]-->
+<link rel="stylesheet" type="text/css" href="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/additional.css">
+ 
+</head>
+
+<body>
+
+<div class="above_body"> <!-- closing tag is in template navbar -->
+<div id="header" class="floatcontainer doc_header">
+	<div><a name="top" href="http://debian.linux.pl/forum.php?s=a05dcc0321401fb6d0e08bfcf96ec968" class="logo-image"><img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/dlp_logo.png" alt="Polskie Forum Użytkowników Debiana" title="Polskie Forum Użytkowników Debiana"></a></div>
+	<div id="toplinks" class="toplinks">
+		
+			<ul class="nouser">
+			
+				<li><a href="http://debian.linux.pl/register.php?s=a05dcc0321401fb6d0e08bfcf96ec968" rel="nofollow">Rejestracja</a></li>
+			
+				<li><a rel="help" href="http://debian.linux.pl/faq.php?s=a05dcc0321401fb6d0e08bfcf96ec968">Help</a></li>
+				<li>
+			<script type="text/javascript" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/vbulletin_md5.js"></script>
+			<form id="navbar_loginform" action="http://debian.linux.pl/login.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=login" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)">
+				<fieldset id="logindetails" class="logindetails">
+					<div>
+						<div>
+					<input type="text" class="textbox default-value" name="vb_login_username" id="navbar_username" size="10" accesskey="u" tabindex="101" value="Nazwa użytkownika">
+					<input type="password" class="textbox" tabindex="102" name="vb_login_password" id="navbar_password" size="10" style="display: none; ">
+					<input type="text" class="textbox default-value" tabindex="102" name="vb_login_password_hint" id="navbar_password_hint" size="10" value="Hasło" style="display: inline; ">
+					<input type="submit" class="loginbutton" tabindex="104" value="Zaloguj się" title="Podaj swoją nazwę użytkownika i hasło w przeznaczonych do tego polach i kliknij przycisk &#39;Zarejestruj&#39; by stworzyć swój profil" accesskey="s">
+						</div>
+					</div>
+				</fieldset>
+				<div id="remember" class="remember">
+					<label for="cb_cookieuser_navbar"><input type="checkbox" name="cookieuser" value="1" id="cb_cookieuser_navbar" class="cb_cookieuser_navbar" accesskey="c" tabindex="103"> Zapamiętaj mnie</label>
+				</div>
+
+				<input type="hidden" name="s" value="a05dcc0321401fb6d0e08bfcf96ec968">
+				<input type="hidden" name="securitytoken" value="guest">
+				<input type="hidden" name="do" value="login">
+				<input type="hidden" name="vb_login_md5password">
+				<input type="hidden" name="vb_login_md5password_utf">
+			</form>
+			<script type="text/javascript">
+			YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "inline");
+			YAHOO.util.Dom.setStyle('navbar_password', "display", "none");
+			vB_XHTML_Ready.subscribe(function()
+			{
+			//
+				YAHOO.util.Event.on('navbar_username', "focus", navbar_username_focus);
+				YAHOO.util.Event.on('navbar_username', "blur", navbar_username_blur);
+				YAHOO.util.Event.on('navbar_password_hint', "focus", navbar_password_hint);
+				YAHOO.util.Event.on('navbar_password', "blur", navbar_password);
+			});
+			
+			function navbar_username_focus(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				if (textbox.value == 'Nazwa użytkownika')
+				{
+				//
+					textbox.value='';
+					textbox.style.color='#303030';
+				}
+			}
+
+			function navbar_username_blur(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				if (textbox.value == '')
+				{
+				//
+					textbox.value='Nazwa użytkownika';
+					textbox.style.color='#828282';
+				}
+			}
+			
+			function navbar_password_hint(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				
+				YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "none");
+				YAHOO.util.Dom.setStyle('navbar_password', "display", "inline");
+				YAHOO.util.Dom.get('navbar_password').focus();
+			}
+
+			function navbar_password(e)
+			{
+			//
+				var textbox = YAHOO.util.Event.getTarget(e);
+				
+				if (textbox.value == '')
+				{
+					YAHOO.util.Dom.setStyle('navbar_password_hint', "display", "inline");
+					YAHOO.util.Dom.setStyle('navbar_password', "display", "none");
+				}
+			}
+			</script>
+				</li>
+				
+			</ul>
+		
+	</div>
+	<div class="ad_global_header">
+		 
+		 
+	</div>
+	<hr>
+</div> 
+<div id="navbar" class="navbar">
+
+	<ul id="navtabs" class="navtabs floatcontainer">
+		
+	<li>
+	
+		<a class="navtab" href="http://debian.linux.pl/content/?s=a05dcc0321401fb6d0e08bfcf96ec968">Strona Główna</a>
+	
+	</li>
+ 
+		
+			<li class="selected"><a class="navtab" href="http://debian.linux.pl/forum.php?s=a05dcc0321401fb6d0e08bfcf96ec968">Forum</a>
+				<ul class="floatcontainer">
+					
+					
+						
+						<li><a href="http://debian.linux.pl/search.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=getdaily&contenttype=vBForum_Post">Dzisiejsze posty</a></li>
+						
+					
+					
+					
+					
+					<li><a rel="help" href="http://debian.linux.pl/faq.php?s=a05dcc0321401fb6d0e08bfcf96ec968" accesskey="5">FAQ</a></li>
+					
+					<li><a href="http://debian.linux.pl/calendar.php?s=a05dcc0321401fb6d0e08bfcf96ec968">Kalendarz</a></li>
+					
+
+					
+					<li class="popupmenu" id="yui-gen0">
+						<a href="javascript://" class="popupctrl" accesskey="6" id="yui-gen2">Społeczeństwo</a>
+						<ul class="popupbody" id="yui-gen1">
+							
+							
+								<li><a href="http://debian.linux.pl/group.php?s=a05dcc0321401fb6d0e08bfcf96ec968">Grupy społecznościowe</a></li>
+							
+							
+							
+							
+								<li><a href="http://debian.linux.pl/memberlist.php?s=a05dcc0321401fb6d0e08bfcf96ec968">Lista użytkowników</a></li>
+							
+							
+						</ul>
+					</li>
+					
+					
+					<li class="popupmenu" id="yui-gen3">
+						<a href="javascript://" class="popupctrl" id="yui-gen5">Operacje</a>
+						<ul class="popupbody" id="yui-gen4">
+							<li>
+								<a href="http://debian.linux.pl/forumdisplay.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=markread&markreadhash=guest" onclick="return confirm(&#39;Are you sure you want to mark all forums as being read? This cannot be undone.&#39;)">Zaznacz jako przeczytane</a>
+							</li>
+                                                        
+						</ul>
+					</li>
+					<li class="popupmenu" id="yui-gen6">
+						<a href="javascript://" class="popupctrl" accesskey="3" id="yui-gen8">Szybkie menu</a>
+						<ul class="popupbody" id="yui-gen7">
+							
+							
+							<li><a href="http://debian.linux.pl/showgroups.php?s=a05dcc0321401fb6d0e08bfcf96ec968" rel="nofollow">
+		
+			Zobacz załogę forum
+		
+	</a></li>
+							
+							
+							
+							
+							
+							
+						</ul>
+					</li>
+					<li><a href="http://debian.linux.pl/misc.php?do=cchatbox">ChatBox Full</a></li>
+				</ul>
+
+			</li>
+		
+		
+	<li><a class="navtab" href="http://debian.linux.pl/blog.php?s=a05dcc0321401fb6d0e08bfcf96ec968">Blogi</a></li>
+ 
+		
+			<li><a class="navtab" href="http://debian.linux.pl/search.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=getdaily&contenttype=vBForum_Post" accesskey="2">Co nowego?</a></li>
+		
+		<li><a class="navtab" href="http://debian.linux.pl/group.php" target="_self">Grupy</a></li><li><a class="navtab" href="http://debian.linux.pl/content/310-Profesjonalne-wsparcie-System%C3%B3w-Linux-Unix-dla-Klient%C3%B3w-Biznesowych" target="_self">Wsparcie</a></li>
+	</ul>
+
+	
+	<div id="globalsearch" class="globalsearch">
+		<form action="http://debian.linux.pl/search.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=process" method="post" id="navbar_search" class="navbar_search">
+			
+			<input type="hidden" name="securitytoken" value="guest">
+			<input type="hidden" name="do" value="process">
+			<span class="textboxcontainer"><span><input type="text" value="" name="query" class="textbox" tabindex="99"></span></span>
+			<span class="buttoncontainer"><span><input type="image" class="searchbutton" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/search.png" name="submit" onclick="document.getElementById(&#39;navbar_search&#39;).submit;" tabindex="100"></span></span>
+		</form>
+		<ul class="navbar_advanced_search">
+			<li><a href="http://debian.linux.pl/search.php?s=a05dcc0321401fb6d0e08bfcf96ec968" accesskey="4">Zaawansowane wyszukiwanie</a></li>
+		</ul>
+	</div>
+	
+</div>
+</div><!-- closing div for above_body -->
+
+<div class="body_wrapper">
+<div id="breadcrumb" class="breadcrumb">
+	<ul class="floatcontainer">
+		<li class="navbithome"><a href="http://debian.linux.pl/index.php?s=a05dcc0321401fb6d0e08bfcf96ec968" accesskey="1"><img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/navbit-home.png" alt="Strona Główna" title="Strona Główna"></a></li>
+
+		
+	<li class="navbit"><a href="http://debian.linux.pl/forum.php?s=a05dcc0321401fb6d0e08bfcf96ec968">Forum</a></li>
+ 
+	<li class="navbit"><a href="http://debian.linux.pl/forums/1-Pomoc?s=a05dcc0321401fb6d0e08bfcf96ec968">Pomoc</a></li>
+ 
+	<li class="navbit"><a href="http://debian.linux.pl/forums/8-Serwer?s=a05dcc0321401fb6d0e08bfcf96ec968">Serwer</a></li>
+ 
+		
+	<li class="navbit lastnavbit"><span> Apache zabezpieczenie hasłem katalogu -  .htaccess</span></li>
+ 
+	</ul>
+	<hr>
+</div>
+
+ 
+<div id="ad_global_below_navbar"><center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-3418029165102776";
+/* 1g */
+google_ad_slot = "3018948010";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><iframe allowtransparency="true" frameborder="0" height="90" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+=&#39;.call&#39;;setTimeout(h,0)}else if(h.match){i+=&#39;.nav&#39;;w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" scrolling="no" vspace="0" width="728" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins></center></div> 
+
+
+	<form action="http://debian.linux.pl/profile.php?do=dismissnotice" method="post" id="notices" class="notices">
+		<input type="hidden" name="do" value="dismissnotice">
+		<input type="hidden" name="s" value="s=a05dcc0321401fb6d0e08bfcf96ec968&amp;">
+		<input type="hidden" name="securitytoken" value="guest">
+		<input type="hidden" id="dismiss_notice_hidden" name="dismiss_noticeid" value="">
+		<input type="hidden" name="url" value="">
+		<ol>
+			<li class="restore" id="navbar_notice_2">
+	
+	<a href="http://debian.linux.pl/content/310-Profesjonalne-wsparcie-System%C3%B3w-Linux-Unix-dla-Klient%C3%B3w-Biznesowych" target="_blank"><b>Profesjonalne wsparcie Systemów Linux/Unix dla Klientów Biznesowych</b></a>
+</li> 
+		</ol>
+	</form>
+ 
+
+
+
+	<div id="above_postlist" class="above_postlist">
+		
+			<a href="http://debian.linux.pl/newreply.php?s=a05dcc0321401fb6d0e08bfcf96ec968&p=79&noquote=1" class="newcontent_textcontrol" id="newreplylink_top"><span>+</span> Odpowiedz na ten temat</a>
+			<img style="display:none" id="progress_newreplylink_top" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/progress.gif" alt="">
+		
+
+		<div id="pagination_top" class="pagination_top">
+		
+			<div id="postpagestats_above" class="postpagestats">
+				Pokaż wyniki od 1 do 3 z 3
+			</div>
+		</div>
+	</div>
+<div id="pagetitle" class="pagetitle">
+	<h1>
+		Temat: <span class="threadtitle"><a href="http://debian.linux.pl/threads/21-Apache-zabezpieczenie-has%C5%82em-katalogu-.htaccess?s=a05dcc0321401fb6d0e08bfcf96ec968" title="Przeładuj stronę">Apache zabezpieczenie hasłem katalogu -  .htaccess</a></span>
+		
+	</h1>
+</div>
+	<div id="thread_controls" class="thread_controls toolsmenu">
+		<div>
+		<ul id="postlist_popups" class="postlist_popups popupgroup">
+			
+			
+			<li class="popupmenu" id="threadtools">
+				<h6><a class="popupctrl" href="javascript://" id="yui-gen10">Narzędzia wątku</a></h6>
+				<ul class="popupbody" id="yui-gen9">
+					<li><a href="http://debian.linux.pl/printthread.php?s=a05dcc0321401fb6d0e08bfcf96ec968&t=21&pp=10&page=1" accesskey="3" rel="nofollow">Wersja do druku</a></li>
+					<li><a href="http://debian.linux.pl/sendmessage.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=sendtofriend&t=21" rel="nofollow">Wyślij na email…</a></li>
+					<li>
+						
+							<a href="http://debian.linux.pl/subscription.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=addsubscription&t=21" rel="nofollow">Subskrybuj ten temat…</a>
+											
+					</li>
+					
+				</ul>
+			</li>
+
+			
+
+			
+
+			
+
+			
+				<li class="popupmenu" id="displaymodes">
+					<h6><a class="popupctrl" href="javascript://" id="yui-gen12">Typ wyświetlania</a></h6>
+					<ul class="popupbody" id="yui-gen11">
+						<li><label>Wygląd liniowy</label></li>
+						<li><a href="http://debian.linux.pl/threads/21-Apache-zabezpieczenie-has%C5%82em-katalogu-.htaccess?s=a05dcc0321401fb6d0e08bfcf96ec968&mode=hybrid"> Wygląd mieszany</a></li>
+						<li><a href="http://debian.linux.pl/threads/21-Apache-zabezpieczenie-has%C5%82em-katalogu-.htaccess?s=a05dcc0321401fb6d0e08bfcf96ec968&p=77&mode=threaded#post77"> Wygląd wątkowy</a></li>
+					</ul>
+				</li>
+			
+
+			
+		</ul>
+		</div>
+	</div>
+
+<div id="postlist" class="postlist restrain">
+	
+
+	
+		<ol id="posts" class="posts" start="1">
+			
+<li class="postbitlegacy postbitim postcontainer" id="post_77">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">31-05-2006&nbsp;<span class="time">11:38</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+				
+					<a name="post77" href="http://debian.linux.pl/threads/21-Apache-zabezpieczenie-has%C5%82em-katalogu-.htaccess?s=a05dcc0321401fb6d0e08bfcf96ec968&p=77&viewfull=1#post77" class="postcounter">#1</a><a id="postcount77" name="1"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<div class="popupmenu memberaction" id="yui-gen13">
+	<a class="username offline popupctrl" href="http://debian.linux.pl/members/32-luksus?s=a05dcc0321401fb6d0e08bfcf96ec968" title="luksus jest nieaktywny" id="yui-gen15"><strong>luksus</strong></a>
+	<ul class="popupbody memberaction_body" id="yui-gen14">
+		<li class="left">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/profile.png" alt="">
+			<a href="http://debian.linux.pl/members/32-luksus?s=a05dcc0321401fb6d0e08bfcf96ec968">
+				Odwiedź profil
+			</a>
+		</li>
+		
+		<li class="right">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/forum.png" alt="">
+			<a href="http://debian.linux.pl/search.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=finduser&userid=32&contenttype=vBForum_Post&showposts=1" rel="nofollow">
+				Zobacz posty
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/message.png" alt="">
+			<a href="http://debian.linux.pl/private.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=newpm&u=32" rel="nofollow">
+				Prywatna wiadomość
+			</a>
+		</li>
+		
+		
+		
+		<li class="right">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/blog.png" alt="">
+			<a href="http://debian.linux.pl/blog.php?s=a05dcc0321401fb6d0e08bfcf96ec968&u=32" rel="nofollow">
+				Odwiedź blog
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		<li class="right">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/article.png" alt="">
+			<a href="http://debian.linux.pl/list.php/author/32-luksus" rel="nofollow">
+				Zobacz artykuły
+			</a>
+		</li>
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+ 
+				<img class="inlineimg onlinestatus" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/user-offline.png" alt="luksus jest nieaktywny" border="0" title="luksus jest nieaktywny">
+
+ 
+			
+			</div>
+			<span class="usertitle">
+				Junior Member
+			</span>
+			
+			
+			
+			 
+			
+				<hr>
+				<dl class="userinfo_extra">
+					<dt>Na Forum od</dt> <dd>May 2006</dd>
+					
+					
+					<dt>Postów</dt> <dd>16</dd>	
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow has_after_content">
+				
+				
+				<h2 class="title icon">
+					Apache zabezpieczenie hasłem katalogu -  .htaccess
+				</h2>
+				
+
+
+						
+							
+							
+						
+						
+				<div class="content">
+					<div id="post_message_77">
+						<blockquote class="postcontent restore ">
+							Witam!<br>
+Mam zainstalowany serwer apache2 z pakietu .deb (Debian w wersji testowej Etch) konfig oryginalny, w konfigu włączona jest możliwość zabezpieczania strony hasłem, chciałbym sobie stworzyć jeden katalog tak by trzeba było podać hasło żeby móc przeglądać jego zawartość. Stworzyłem sobie taki katalog, umieściłem w nim plik .htaccess i zrobiłem odpowiednie wpisy oraz dodałem użytkownika ale niestety katalog można przeglądać bez podania hasła, nie jestem tylko pewien, czy taki wpis jest dobry:<div class="bbcode_container">
+	<div class="bbcode_description">Kod:</div>
+	<pre class="bbcode_code" style="height:36px;"> AuthName "http://mojadresIP/luksus/"</pre>
+</div>  byłbym wdzięczny za pomoc!<br>
+<br>
+Pozdrawiam!
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="after_content">
+				
+				<!-- edit note -->
+				<blockquote class="postcontent lastedited">
+<!--					<img src="images/buttons/edit_40b.png" class="inlineimg" alt="" /> -->
+					
+						Ostatnio edytowane przez fnmirk ; 15-03-2010 o  <span class="time">21:24</span>
+					
+					
+				</blockquote>
+				<!-- / edit note -->
+				
+                                       
+                                 
+				
+                                        
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols floatcontainer">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_77" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/progress.gif" alt="">
+					
+					
+					
+						<a id="qrwq_77" class="newreply" href="http://debian.linux.pl/newreply.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=newreply&p=77" rel="nofollow"><img id="quoteimg_77" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/clear.gif" alt="Cytuj" title="Cytuj">  Cytuj</a> 
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr>
+</li>
+  
+<li class="postbitlegacy postbitim postcontainer" id="post_78">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">31-05-2006&nbsp;<span class="time">12:14</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+				
+					<a name="post78" href="http://debian.linux.pl/threads/21-Apache-zabezpieczenie-has%C5%82em-katalogu-.htaccess?s=a05dcc0321401fb6d0e08bfcf96ec968&p=78&viewfull=1#post78" class="postcounter">#2</a><a id="postcount78" name="2"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<div class="popupmenu memberaction" id="yui-gen16">
+	<a class="username offline popupctrl" href="http://debian.linux.pl/members/21-korek?s=a05dcc0321401fb6d0e08bfcf96ec968" title="korek jest nieaktywny" id="yui-gen18"><strong>korek</strong></a>
+	<ul class="popupbody memberaction_body" id="yui-gen17">
+		<li class="left">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/profile.png" alt="">
+			<a href="http://debian.linux.pl/members/21-korek?s=a05dcc0321401fb6d0e08bfcf96ec968">
+				Odwiedź profil
+			</a>
+		</li>
+		
+		<li class="right">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/forum.png" alt="">
+			<a href="http://debian.linux.pl/search.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=finduser&userid=21&contenttype=vBForum_Post&showposts=1" rel="nofollow">
+				Zobacz posty
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/message.png" alt="">
+			<a href="http://debian.linux.pl/private.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=newpm&u=21" rel="nofollow">
+				Prywatna wiadomość
+			</a>
+		</li>
+		
+		
+		
+		<li class="right">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/blog.png" alt="">
+			<a href="http://debian.linux.pl/blog.php?s=a05dcc0321401fb6d0e08bfcf96ec968&u=21" rel="nofollow">
+				Odwiedź blog
+			</a>
+		</li>
+		
+		
+		
+		
+		
+		<li class="right">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/article.png" alt="">
+			<a href="http://debian.linux.pl/list.php/author/21-korek" rel="nofollow">
+				Zobacz artykuły
+			</a>
+		</li>
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+ 
+				<img class="inlineimg onlinestatus" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/user-offline.png" alt="korek jest nieaktywny" border="0" title="korek jest nieaktywny">
+
+ 
+			
+			</div>
+			<span class="usertitle">
+				Junior Member
+			</span>
+			
+			
+			
+			 
+			
+				<hr>
+				<dl class="userinfo_extra">
+					<dt>Na Forum od</dt> <dd>May 2006</dd>
+					<dt>Skąd</dt> <dd>Staszów</dd>
+					
+					<dt>Postów</dt> <dd>8</dd>	
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					 <a href="gg:682286"><img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/status.asp" alt="gg:682286" border="0" title="gg:682286"></a>    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow has_after_content">
+				
+				
+
+
+						
+						
+				<div class="content">
+					<div id="post_message_78">
+						<blockquote class="postcontent restore ">
+							W katalogu, do którego dostęp ma być na hasło tworzymy plik .htaccess a w nim zapisujemy poniższy tekst:<div class="bbcode_container">
+	<div class="bbcode_description">Kod:</div>
+	<pre class="bbcode_code" style="height:72px;">AuthUserFile /etc/apache2/htaccess
+AuthName login
+AuthType Basic
+require valid-user</pre>
+</div> Generujemy hasło:<div class="bbcode_container">
+	<div class="bbcode_description">Kod:</div>
+	<pre class="bbcode_code" style="height:36px;">htpasswd -c -b /etc/apache2/htaccess login haslo</pre>
+</div> W pliku /etc/apache2.conf dodajemy jeszcze wpis:<div class="bbcode_container">
+	<div class="bbcode_description">Kod:</div>
+	<pre class="bbcode_code" style="height:108px;">&lt;Directory "/var/www/mojastrona"&gt;                                 
+        Options Indexes FollowSymLinks Multiviews
+                AuthType Basic
+                AuthName "Zaloguj sie."
+                AuthUserFile /etc/apache2/htaccess
+                Require valid-user
+&lt;/Directory&gt;</pre>
+</div> Restart apache i powinno działać.
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="after_content">
+				
+				<!-- edit note -->
+				<blockquote class="postcontent lastedited">
+<!--					<img src="images/buttons/edit_40b.png" class="inlineimg" alt="" /> -->
+					
+						Ostatnio edytowane przez fnmirk ; 15-03-2010 o  <span class="time">21:21</span>
+					
+					
+				</blockquote>
+				<!-- / edit note -->
+				
+                                       
+                                 
+				
+                                        
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols floatcontainer">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_78" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/progress.gif" alt="">
+					
+					
+					
+						<a id="qrwq_78" class="newreply" href="http://debian.linux.pl/newreply.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=newreply&p=78" rel="nofollow"><img id="quoteimg_78" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/clear.gif" alt="Cytuj" title="Cytuj">  Cytuj</a> 
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr>
+</li>
+  
+<li class="postbitlegacy postbitim postcontainer" id="post_79">
+<!-- see bottom of postbit.css for .userinfo .popupmenu styles -->
+
+	<div class="posthead">
+		
+			<span class="postdate old">
+				
+					<span class="date">01-06-2006&nbsp;<span class="time">17:50</span></span>
+				
+			</span>
+			<span class="nodecontrols">
+				
+					<a name="post79" href="http://debian.linux.pl/threads/21-Apache-zabezpieczenie-has%C5%82em-katalogu-.htaccess?s=a05dcc0321401fb6d0e08bfcf96ec968&p=79&viewfull=1#post79" class="postcounter">#3</a><a id="postcount79" name="3"></a>
+				
+				
+				
+			</span>
+		
+	</div>
+	<div class="postdetails">
+		<div class="userinfo">
+			<div class="username_container">
+			
+				<div class="popupmenu memberaction" id="yui-gen19">
+	<a class="username offline popupctrl" href="http://debian.linux.pl/members/23-dodi?s=a05dcc0321401fb6d0e08bfcf96ec968" title="dodi jest nieaktywny" id="yui-gen21"><strong>dodi</strong></a>
+	<ul class="popupbody memberaction_body" id="yui-gen20">
+		<li class="left">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/profile.png" alt="">
+			<a href="http://debian.linux.pl/members/23-dodi?s=a05dcc0321401fb6d0e08bfcf96ec968">
+				Odwiedź profil
+			</a>
+		</li>
+		
+		<li class="right">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/forum.png" alt="">
+			<a href="http://debian.linux.pl/search.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=finduser&userid=23&contenttype=vBForum_Post&showposts=1" rel="nofollow">
+				Zobacz posty
+			</a>
+		</li>
+		
+		
+		<li class="left">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/message.png" alt="">
+			<a href="http://debian.linux.pl/private.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=newpm&u=23" rel="nofollow">
+				Prywatna wiadomość
+			</a>
+		</li>
+		
+		
+		
+		<li class="right">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/blog.png" alt="">
+			<a href="http://debian.linux.pl/blog.php?s=a05dcc0321401fb6d0e08bfcf96ec968&u=23" rel="nofollow">
+				Odwiedź blog
+			</a>
+		</li>
+		
+		
+		
+		<li class="left">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/homepage.png" alt="">
+			<a href="http://chriss195.wrzuta.pl/" rel="nofollow">
+				Visit Homepage
+			</a>
+		</li>
+		
+		
+		
+		<li class="right">
+			<img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/article.png" alt="">
+			<a href="http://debian.linux.pl/list.php/author/23-dodi" rel="nofollow">
+				Zobacz artykuły
+			</a>
+		</li>
+		
+
+		
+
+		
+		
+	</ul>
+</div>
+ 
+				<img class="inlineimg onlinestatus" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/user-offline.png" alt="dodi jest nieaktywny" border="0" title="dodi jest nieaktywny">
+
+ 
+			
+			</div>
+			<span class="usertitle">
+				Junior Member
+			</span>
+			
+			
+			
+			 
+			
+				<hr>
+				<dl class="userinfo_extra">
+					<dt>Na Forum od</dt> <dd>May 2006</dd>
+					
+					
+					<dt>Postów</dt> <dd>137</dd>	
+					
+				</dl>
+				
+				
+				<div class="imlinks">
+					    
+				</div>
+			
+		</div>
+		<div class="postbody">
+			<div class="postrow">
+				
+				
+
+
+						
+						
+							
+						
+				<div class="content">
+					<div id="post_message_79">
+						<blockquote class="postcontent restore ">
+							Bardzo dobry opis, dzięki <img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/smile.png" border="0" alt="" title="Smile" class="inlineimg">
+						</blockquote>
+					</div>
+
+					
+				</div>
+			</div>
+			
+			<div class="cleardiv"></div>
+		</div>
+	</div>
+		<div class="postfoot">
+			<!-- <div class="postfoot_container"> -->
+			<div class="textcontrols floatcontainer">
+				<span class="postcontrols">
+					<img style="display:none" id="progress_79" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/progress.gif" alt="">
+					
+					
+					
+						<a id="qrwq_79" class="newreply" href="http://debian.linux.pl/newreply.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=newreply&p=79" rel="nofollow"><img id="quoteimg_79" src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/clear.gif" alt="Cytuj" title="Cytuj">  Cytuj</a> 
+					
+					
+					
+				</span>
+				<span class="postlinking">
+					
+						
+					
+
+					
+					
+					
+					
+
+					
+					
+
+					
+					
+					
+					
+				</span>
+			<!-- </div> -->
+			</div>
+		</div>
+	<hr>
+</li>
+  
+		</ol>
+                <div class="separator"></div>
+		<div class="postlistfoot">
+			
+		</div>
+
+	
+
+</div>
+
+<div id="below_postlist" class="noinlinemod below_postlist">
+	
+		<a href="http://debian.linux.pl/newreply.php?s=a05dcc0321401fb6d0e08bfcf96ec968&p=79&noquote=1" class="newcontent_textcontrol" id="newreplylink_bottom"><span>+</span> Odpowiedz na ten temat</a>
+	
+	<div id="pagination_bottom" class="pagination_bottom">
+	
+		<div class="clear"></div>
+<div class="navpopupmenu popupmenu nohovermenu" id="showthread_navpopup">
+	
+		<span class="shade">Szybka nawigacja</span>
+		<a href="http://debian.linux.pl/threads/21-Apache-zabezpieczenie-has%C5%82em-katalogu-.htaccess?s=a05dcc0321401fb6d0e08bfcf96ec968" class="popupctrl" id="yui-gen23"><span class="ctrlcontainer">Serwer</span></a>
+		<a href="http://debian.linux.pl/threads/21-Apache-zabezpieczenie-has%C5%82em-katalogu-.htaccess#top" class="textcontrol" onclick="document.location.hash=&#39;top&#39;;return false;">Na górę</a>
+	
+	<ul class="navpopupbody popupbody" id="yui-gen22">
+		
+		<li class="optionlabel">Działy</li>
+		<li><a href="http://debian.linux.pl/usercp.php?s=a05dcc0321401fb6d0e08bfcf96ec968">Panel użytkownika</a></li>
+		<li><a href="http://debian.linux.pl/private.php?s=a05dcc0321401fb6d0e08bfcf96ec968">Prywatne wiadomości</a></li>
+		<li><a href="http://debian.linux.pl/subscription.php?s=a05dcc0321401fb6d0e08bfcf96ec968">Subskrybcje</a></li>
+		<li><a href="http://debian.linux.pl/online.php?s=a05dcc0321401fb6d0e08bfcf96ec968">Kto jest online</a></li>
+		<li><a href="http://debian.linux.pl/search.php?s=a05dcc0321401fb6d0e08bfcf96ec968">Przeszukaj forum</a></li>
+		<li><a href="http://debian.linux.pl/forum.php?s=a05dcc0321401fb6d0e08bfcf96ec968">Strona główna forum</a></li>
+		
+			<li class="optionlabel">Forum</li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/3-Lektura-Obowi%C4%85zkowa?s=a05dcc0321401fb6d0e08bfcf96ec968">Lektura Obowiązkowa</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="http://debian.linux.pl/forums/21-Dla-Pocz%C4%85tkuj%C4%85cych?s=a05dcc0321401fb6d0e08bfcf96ec968">Dla Początkujących</a></li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/15-Regulamin?s=a05dcc0321401fb6d0e08bfcf96ec968">Regulamin</a></li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/14-Og%C5%82oszenia?s=a05dcc0321401fb6d0e08bfcf96ec968">Ogłoszenia</a></li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/11-Opisy-FAQ-HowTo?s=a05dcc0321401fb6d0e08bfcf96ec968">Opisy FAQ HowTo</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/1-Pomoc?s=a05dcc0321401fb6d0e08bfcf96ec968">Pomoc</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="http://debian.linux.pl/forums/5-G%C5%82%C3%B3wne-Tematy?s=a05dcc0321401fb6d0e08bfcf96ec968">Główne Tematy</a></li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/6-Instalacja-Systemu?s=a05dcc0321401fb6d0e08bfcf96ec968">Instalacja Systemu</a></li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/7-Desktop?s=a05dcc0321401fb6d0e08bfcf96ec968">Desktop</a></li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/18-Software?s=a05dcc0321401fb6d0e08bfcf96ec968">Software</a></li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/8-Serwer?s=a05dcc0321401fb6d0e08bfcf96ec968">Serwer</a></li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/19-Sieci?s=a05dcc0321401fb6d0e08bfcf96ec968">Sieci</a></li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/9-Hardware?s=a05dcc0321401fb6d0e08bfcf96ec968">Hardware</a></li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/10-Programowanie?s=a05dcc0321401fb6d0e08bfcf96ec968">Programowanie</a></li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/20-Inne-systemy?s=a05dcc0321401fb6d0e08bfcf96ec968">Inne systemy</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/2-Inne?s=a05dcc0321401fb6d0e08bfcf96ec968">Inne</a>
+					<ol class="d1">
+						
+		
+			
+				<li><a href="http://debian.linux.pl/forums/13-Lu%C5%BAne?s=a05dcc0321401fb6d0e08bfcf96ec968">Luźne</a></li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/22-Komentarze-Artyku%C5%82%C3%B3w-i-Nowo%C5%9Bci?s=a05dcc0321401fb6d0e08bfcf96ec968">Komentarze Artykułów i Nowości</a></li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/12-Linki?s=a05dcc0321401fb6d0e08bfcf96ec968">Linki</a></li>
+			
+		
+			
+				<li><a href="http://debian.linux.pl/forums/16-Kosz?s=a05dcc0321401fb6d0e08bfcf96ec968">Kosz</a></li>
+			
+		
+			
+					</ol>
+				</li>
+			
+		
+		
+	</ul>
+</div>
+<div class="clear"></div> 
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- next / previous links -->
+<div class="navlinks">
+	
+	<strong>«</strong>
+	<a href="http://debian.linux.pl/threads/21-Apache-zabezpieczenie-has%C5%82em-katalogu-.htaccess?s=a05dcc0321401fb6d0e08bfcf96ec968&goto=nextoldest" rel="nofollow">Poprzedni temat</a>
+	|
+	<a href="http://debian.linux.pl/threads/21-Apache-zabezpieczenie-has%C5%82em-katalogu-.htaccess?s=a05dcc0321401fb6d0e08bfcf96ec968&goto=nextnewest" rel="nofollow">Następny temat</a>
+
+	<strong>»</strong>
+	
+</div>
+<!-- / next / previous links -->
+
+<div id="thread_info" class="thread_info block">
+	
+	
+	<div id="similar_threads">
+		<h4 class="threadinfohead blockhead">Podobne wątki</h4>
+		<div id="similar_threads_list" class="thread_info_block blockbody formcontrols">
+			<ol class="similar_threads">
+			<li class="floatcontainer">
+  <div class="titleblock">
+    <h6><a href="http://debian.linux.pl/threads/18803-apache-jak-uruchomi%C4%87-.htaccess?s=a05dcc0321401fb6d0e08bfcf96ec968" title="Witam! 
+ 
+Nie potrafię uruchomić obsługi .htaccess na moim serwerze (apache2). 
+Standardowy plik konfiguracyjny: 
+ 
+&lt;VirtualHost *:80&gt; 
+       ...">[+] apache - jak uruchomić .htaccess?</a></h6>
+    <div class="starter_forum">
+       By 1oBuZ in forum Serwer
+    </div>
+  </div>
+  <div class="dateblock">
+    <span class="shade">Odpowiedzi:</span> 3
+      <div class="starter_forum">
+        <span class="shade">Ostatni post / autor:</span> 18-05-2010, <span class="time">13:33</span>
+      </div>
+  </div>
+</li> <li class="floatcontainer">
+  <div class="titleblock">
+    <h6><a href="http://debian.linux.pl/threads/17256-.htaccess-Ubuntu-Apache?s=a05dcc0321401fb6d0e08bfcf96ec968" title="Dodałem do pliku /etc/apache2/apache2.conf następujący kod: 
+&lt;Directory /media/UbuPart/Kacper/projekt/&gt; 
+	Options Indexes FollowSymLinks MultiViews...">.htaccess Ubuntu Apache</a></h6>
+    <div class="starter_forum">
+       By kacpero1094 in forum Inne systemy
+    </div>
+  </div>
+  <div class="dateblock">
+    <span class="shade">Odpowiedzi:</span> 11
+      <div class="starter_forum">
+        <span class="shade">Ostatni post / autor:</span> 19-02-2010, <span class="time">08:44</span>
+      </div>
+  </div>
+</li> <li class="floatcontainer">
+  <div class="titleblock">
+    <h6><a href="http://debian.linux.pl/threads/10546-apache-katalogi-na-has%C5%82o-i-htaccess-na-hostingu?s=a05dcc0321401fb6d0e08bfcf96ec968" title="witam  
+Posiadam hosting shell i potrzebuje tam zrobić 1 katalog na hasło. Nie mam praw roota i z tego co wyczytałem  u wuja Google muszę zrobić to w...">apache, katalogi na hasło i htaccess na hostingu</a></h6>
+    <div class="starter_forum">
+       By warka321 in forum Serwer
+    </div>
+  </div>
+  <div class="dateblock">
+    <span class="shade">Odpowiedzi:</span> 1
+      <div class="starter_forum">
+        <span class="shade">Ostatni post / autor:</span> 16-11-2008, <span class="time">21:41</span>
+      </div>
+  </div>
+</li> <li class="floatcontainer">
+  <div class="titleblock">
+    <h6><a href="http://debian.linux.pl/threads/7037-Apache-pliki-w-katalogu?s=a05dcc0321401fb6d0e08bfcf96ec968" title="Czy moze ktos wie jak zrobic by zamiast strony pokazywala sie zawartosc danego katalogu gdzie bym umieszczal pliki tektowe, ktore bez problemu bym...">Apache - pliki w katalogu</a></h6>
+    <div class="starter_forum">
+       By mik in forum Serwer
+    </div>
+  </div>
+  <div class="dateblock">
+    <span class="shade">Odpowiedzi:</span> 3
+      <div class="starter_forum">
+        <span class="shade">Ostatni post / autor:</span> 20-03-2008, <span class="time">19:29</span>
+      </div>
+  </div>
+</li> 
+			</ol>
+		</div>
+	</div>
+
+ 
+	
+	
+	<div class="options_block_container">
+		
+		<div class="options_block2">
+			<h4 class="blockhead">Bookmarks</h4>
+			<div id="social_bookmarks_list" class="thread_info_block blockbody formcontrols floatcontainer">
+				<h5 class="blocksubhead">Bookmarks</h5>
+				
+				<ul class="icon_list"><li class="smallfont">
+	
+		<a href="http://digg.com/submit?phase=2&url=http%3A%2F%2Fdebian.linux.pl%2Fshowthread.php%3Ft%3D21&title=Apache+zabezpieczenie+has%C5%82em+katalogu+-++.htaccess" target="socialbookmark"><img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/bookmarksite_digg.gif" alt=""></a>
+	
+	<a href="http://digg.com/submit?phase=2&url=http%3A%2F%2Fdebian.linux.pl%2Fshowthread.php%3Ft%3D21&title=Apache+zabezpieczenie+has%C5%82em+katalogu+-++.htaccess" target="socialbookmark">Digg</a>
+</li> <li class="smallfont">
+	
+		<a href="http://del.icio.us/post?url=http%3A%2F%2Fdebian.linux.pl%2Fshowthread.php%3Ft%3D21&title=Apache+zabezpieczenie+has%C5%82em+katalogu+-++.htaccess" target="socialbookmark"><img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/bookmarksite_delicious.gif" alt=""></a>
+	
+	<a href="http://del.icio.us/post?url=http%3A%2F%2Fdebian.linux.pl%2Fshowthread.php%3Ft%3D21&title=Apache+zabezpieczenie+has%C5%82em+katalogu+-++.htaccess" target="socialbookmark">del.icio.us</a>
+</li> <li class="smallfont">
+	
+		<a href="http://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=http%3A%2F%2Fdebian.linux.pl%2Fshowthread.php%3Ft%3D21&title=Apache+zabezpieczenie+has%C5%82em+katalogu+-++.htaccess" target="socialbookmark"><img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/bookmarksite_google.gif" alt=""></a>
+	
+	<a href="http://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=http%3A%2F%2Fdebian.linux.pl%2Fshowthread.php%3Ft%3D21&title=Apache+zabezpieczenie+has%C5%82em+katalogu+-++.htaccess" target="socialbookmark">Google</a>
+</li> <li class="smallfont">
+	
+		<a href="http://www.facebook.com/share.php?u=http%3A%2F%2Fdebian.linux.pl%2Fshowthread.php%3Ft%3D21&title=Apache+zabezpieczenie+has%C5%82em+katalogu+-++.htaccess" target="socialbookmark"><img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/bookmarksite_facebook.gif" alt=""></a>
+	
+	<a href="http://www.facebook.com/share.php?u=http%3A%2F%2Fdebian.linux.pl%2Fshowthread.php%3Ft%3D21&title=Apache+zabezpieczenie+has%C5%82em+katalogu+-++.htaccess" target="socialbookmark">facebook</a>
+</li> <li class="smallfont">
+	
+		<a href="http://www.wykop.pl/dodaj?url=http%3A%2F%2Fdebian.linux.pl%2Fshowthread.php%3Ft%3D21&title=Apache+zabezpieczenie+has%C5%82em+katalogu+-++.htaccess" target="socialbookmark"><img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/wykop.gif" alt=""></a>
+	
+	<a href="http://www.wykop.pl/dodaj?url=http%3A%2F%2Fdebian.linux.pl%2Fshowthread.php%3Ft%3D21&title=Apache+zabezpieczenie+has%C5%82em+katalogu+-++.htaccess" target="socialbookmark">wykop</a>
+</li> </ul>
+			</div>
+		</div>
+		
+		<div class="options_block">
+			<h4 class="collapse blockhead">
+				<a class="collapse" id="collapse_posting_rules" href="http://debian.linux.pl/threads/21-Apache-zabezpieczenie-has%C5%82em-katalogu-.htaccess#top"><img src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/collapse_40b.png" alt=""></a>
+				Uprawnienia
+			</h4>
+			<div id="posting_rules" class="thread_info_block blockbody formcontrols floatcontainer">
+				
+<div id="forumrules" class="info_subblock">
+
+	<ul class="youcandoblock">
+		<li><strong>Nie możesz</strong> zakładać nowych tematów</li>
+		<li><strong>Nie możesz</strong> pisać wiadomości</li>
+		<li><strong>Nie możesz</strong> dodawać załączników</li>
+		<li><strong>Nie możesz</strong> edytować swoich postów</li>
+	</ul>
+	<div class="bbcodeblock">
+		<ul>
+			<li><a href="http://debian.linux.pl/s=a05dcc0321401fb6d0e08bfcf96ec968&" target="_blank">BB Code</a> jest <strong>aktywny(e)</strong></li>
+			<li><a href="http://debian.linux.pl/s=a05dcc0321401fb6d0e08bfcf96ec968&" target="_blank">Emotikony</a> są <strong>aktywny(e)</strong></li>
+			<li><a href="http://debian.linux.pl/s=a05dcc0321401fb6d0e08bfcf96ec968&" target="_blank">[IMG]</a> kod jest <strong>aktywny(e)</strong></li>
+			<li>HTML kod jest <strong>wyłączony</strong></li>
+		</ul>
+	</div>
+	<p class="rules_link"><a href="http://debian.linux.pl/misc.php?s=a05dcc0321401fb6d0e08bfcf96ec968&do=showrules" target="_blank">Zasady na Forum</a></p>
+
+</div>
+ 
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+ 
+<div id="ad_global_above_footer"><!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://debian.linux.pl/piwik/" : "http://debian.linux.pl/piwik/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/piwik.js" type="text/javascript"></script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript>&lt;p&gt;&lt;img src="http://debian.linux.pl/piwik/piwik.php?idsite=1" style="border:0" alt="" /&gt;&lt;/p&gt;</noscript>
+<!-- End Piwik Tag --></div> 
+<div id="footer" class="floatcontainer footer">
+
+	<form action="http://debian.linux.pl/forum.php" method="get" id="footer_select" class="footer_select">
+
+			
+		
+		
+		
+			<select name="langid" onchange="switch_id(this, &#39;lang&#39;)">
+				<optgroup label="Szybki Program wyboru Języka">
+					<option value="1" class="">-- English (US)</option> <option value="9" class="" selected="selected">-- Polski</option> 
+				</optgroup>
+			</select>
+		
+	</form>
+
+	<ul id="footer_links" class="footer_links">
+		<li><a href="http://debian.linux.pl/sendmessage.php?s=a05dcc0321401fb6d0e08bfcf96ec968" rel="nofollow" accesskey="9">Kontakt</a></li>
+		<li><a href="http://debian.linux.pl/">Polski Portal Użytkowników Debiana</a></li>
+		
+		
+		<li><a href="http://debian.linux.pl/archive/index.php?s=a05dcc0321401fb6d0e08bfcf96ec968">Archiwum</a></li>
+		
+		
+		
+		<li><a href="http://debian.linux.pl/threads/21-Apache-zabezpieczenie-has%C5%82em-katalogu-.htaccess#top" onclick="document.location.hash=&#39;top&#39;; return false;">Na górę</a></li>
+	</ul>
+	
+	
+	
+	
+	<script type="text/javascript">
+	<!--
+		// Main vBulletin Javascript Initialization
+		vBulletin_init();
+	//-->
+	</script>
+        
+</div>
+</div> <!-- closing div for body_wrapper -->
+
+<div class="below_body">
+<div id="footer_time" class="shade footer_time">Czasy w strefie  GMT +2. Teraz jest <span class="time">20:41</span>.</div>
+
+<div id="footer_copyright" class="shade footer_copyright">
+	<!-- Do not remove this copyright notice -->
+	Powered by <a href="http://www.vbulletin.com/" id="vbulletinlink">vBulletin™</a> Version 4.1.3 <br>Copyright © 2011 vBulletin Solutions, Inc. All rights reserved.<br>
+	<!-- Do not remove this copyright notice -->	
+</div>
+<div id="footer_morecopyright" class="shade footer_morecopyright">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	<li>Projekt: <a href="http://radziszewski.com/" title="radziszewski">radziszewski.com</a></li>
+</div>
+
+</div> 
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Apache zabezpieczenie hasłem katalogu - .htaccess_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{
+var pageTracker = _gat._getTracker('UA-415562-1');
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+ </body></html>

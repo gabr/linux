@@ -1,0 +1,4 @@
+program konsolowy enca służy do sprawdzania kodowania pliku tekstowego oraz do zmiany tego kodowania
+
+enca plik.txt --> zwraca na standardowe wyjście nazwę strony kodowej
+enca -x kodowanie plik.txt --> zmienia kodawanie plik.txt na podane po parametrze -x

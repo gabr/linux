@@ -1,0 +1,202 @@
+Kolory na terminalach Linux-owych.
+
+Autor: Thorbjørn Ravn Andersen, ravn@dit.ou.dk v1.4, 7 Sierpnia 1997 Wersja polska: Bartosz Maruszewski B.Maruszewski@jtz.org.pl. v1.3, 5 Listopada 1997
+
+Wiêkszośæ dystrybucji Linux-a ma polecenie 'ls' służące do wyświetlania zawartości katalogu, które można znacznie uatrakcyjniæ używając różnych kolorów, ale skonfigurowanie tego zgodnie z własnymi upodobaniami może nie byæ taką łatwą sprawą. Dokument ten opisuje różne aspekty i podejścia ustawiania polecenia 'ls' przez konfigurowanie istniejącego oprogramowania plus lokalizacja alternatywnego oprogramowania nie zawartego w dystrybucjach Slackware czy RedHat, którego można użyæ na wiêkszości systemów unix-owych. Wersja HTML (w oryginale) jest także dostêpna na mojej stronie WWW. Dokument ten został napisany w standardzie ISO-8859-2.
+1. Wprowadzenie.
+
+W ostatnich latach kolorowe monitory stały siê bardzo popularne, i użytkownicy zaczynają to wykorzystywaæ przez używanie programów, które wykorzystują kolory do wizualizacji różnych szczegółów takich jak słowa kluczowe w jêzykach programowania czy podkreślenie słów źle napisanych.
+
+Ponieważ konsola Linux-owa obsługuje kolory, oryginalna wersja GNU ls została szybko zmodyfikowana, aby wyświetlaæ kolorowe informacje i program ten został dołączony do dystrybucji Slackware ok. wersji 2.0. Ulepszone wersje tych łat weszły w skład standardowej dystrybucji GNU ls i dlatego powinny byæ czêścią wszystkich nowych dystrybucji Linux-a.
+
+Wersja ta jest w głównej mierze przepisaną wersją pierwotną zawierającą informacje na temat xterminala i łatania jądra.
+
+Informacja zawarta w tym dokumencie została sprawdzona na dystrybucji RedHat 4.1 i została oryginalnie skompilowana na dystrybucji Slackware 2.0.2 i jądrze w wersi 1.1.54. Informacje na temat łaty zostały uzyskane z Dystrybucji Slackware 2.2.0 z jądrem 1.2.13 i powłoką tcsh jako domyślną oraz później sprawdzona na jądrze 2.0.27. Jeśli używasz jakiejś innej konfiguracji czy wersji unix-a, to bêdê wdziêczny za info na temat systemu operacyjnego i wersji oraz czy kolory są dostêpne jako standardowe.
+
+2. Szybki start dla niecierpliwych.
+
+Jeśli masz nową dystrybucjê Linux-a, to zmodyfikuj pliki w swoim katalogu domowym tak jak to pokazano. Efekt bêdzie widoczny po ponownym zalogowaniu siê.
+
+ ~/.bashrc:
+    alias ls="ls ‐‐color"
+
+~/.cshrc:
+    alias ls 'ls ‐‐color'
+    
+I to wszystko!
+
+Możesz także zrobiæ swój plik .colourrc, żeby mieæ swoje kolory (``dircolors -p >$HOME/.colourrc''). Jest tam dużo komentarzy, wiêc nie powinieneś mieæ problemów z modyfikacjami. Po ustawieniu wszystkich kolorów piszesz ``eval `dircolors $HOME/.colourrc`'' żeby ustawienia zadziałały.
+
+3. Czy ja to w ogóle mam?
+
+Przede wszystkim powinieneś wiedzieæ czy masz wersjê ls, która umie kolorowaæ. Spróbuj wydaæ takie polecenie na konsoli Linux-owej (chociaż na xterm-ie też powinno siê udaæ):
+
+ % ls ‐‐color
+(% jest tu znakiem zachêty systemu).
+
+Jeśli dostaniesz komunikat o błêdzie mówiący, że ls nie rozumie tej opcji, to musisz zainstalowaæ nowszą wersjê pakietu GNU fileutils. Jeśli nie masz odpowiedniego pakietu aktualizacyjnego dla swojej dystrybucji, to ściągnij ostatnią wersjê z najbliższego ci lustra GNU i zainstaluj bezpośrednio ze źródła.
+
+Jeśli nie dostałeś komunikatu o błêdzie, to masz ls, które rozumie to polecenie. Niestety niektóre wcześniejsze wersje zawarte w dystrybucji Slackware (i możliwe, że w innych) miały błêdy. ls zawarte w dystrybucji RedHat 4.1 jest w wersji 3.13, która jest w porządku.
+
+ % ls ‐‐version
+ls - GNU fileutils-3.13
+Jeśli uruchomiłeś polecenie ``ls ‐‐ color'' na konsoli tekstowej Linux-a, to rezultat powienien byæ pokolorowany zgodnie z domyślnymi ustawieniami i możesz teraz zdecydowaæ czy jest coś co chcesz zmieniæ czy nie.
+
+Jeśli uruchomiłeś je w xterm-ie, to mogłeś lub nie - zauważyæ zmianê w kolorach. W przeciwieñstwie do ls, oryginalny program xterm nie obsługiwał kolorów dla programów uruchamianych w nim, ale ostatnie wersjê to robią. Jeśli twój xterm nie obsługuje kolorów, to powinieneś zdobyæ nowszą wersjê tak jak to opisano na koñcu tego dokumentu. W miêdzyczasie przełącz siê na tryb tekstowy i pracuj tam.
+
+4. Z jakich kolorów można wybieraæ ?
+
+Ten skrypt (dziêki dla wielu tych, którzy przysłali mi wersjê bash) pokazuje wszystkie standardowe kombinacje kolorów na bieżącej konsoli. Jeśli żadne kolory sie nie pojawią, oznacza to, iż twoją konsola nie obsługuje ANSI.
+
+   #!/bin/bash
+   # Wyświetl kolory ANSI.
+   #
+   esc="\033["
+   echo -n " _ _ _ _ _40 _ _ _ 41_ _ _ _42 _ _ _ 43" 
+   echo "_ _ _ 44_ _ _ _45 _ _ _ 46_ _ _ _47 _"
+   for fore in 30 31 32 33 34 35 36 37; do
+     line1="$fore  "
+     line2="    "
+     for back in 40 41 42 43 44 45 46 47; do
+       line1="${line1}${esc}${back};${fore}m Normal  ${esc}0m"
+       line2="${line2}${esc}${back};${fore};1m Bold    ${esc}0m"
+     done
+     echo -e "$line1\n$line2"
+   done
+Numer koloru pierwszego planu jest pokazany po lewej stronie, a tła - w prostokącie. Jeśli chcesz znaki jaskrawe dodajesz "1" do parametrów, tak że jasny niebieski na białym to: "37;44;1". Cała sekwencja selekcji to: ESC [ 3 7 ; 4 4 ; 1 m.
+
+Uwaga: Tło w chwili obecnej nie może byæ jaskrawe, wiêc nie możesz mieæ żółtego (jaskrawy brązowy) jako coś innego niż pierwszy plan. Limit ten wynika ze sprzêtu.
+
+The colours are:
+        0 - black    4 - blue           3# is foreground
+        1 - red      5 - magenta        4# is background
+        2 - green    6 - cyan
+        3 - yellow   7 - white          ;1 is bold
+5. Jak skonfigurowaæ kolory dla ls?
+
+Jeśli chcesz zmodyfikowaæ standardowe kolory, to potrzebujesz swojej osobistej kopii w swoim katalogu domowym, co uzyskasz przy pomocy polecenia:
+
+% cd ; dircolors -p > .coloursrc
+Po modyfikacji tego dobrze skomentowanego pliku musisz wczytaæ go do zmiennej środowiskowej LS_COLORS, co można zwykle zrobiæ poleceniem:
+
+     eval `dircolors .colourrc`
+Musisz umieściæ tê liniê w swoim .bashrc (.cshrc, .tcshrc) (w zależności od twojej powłoki), aby robiæ to automatycznie przy każdym logowaniu siê. Wiêcej szczegółów znajdziesz w stronie podrêcznika man dircolors(1).
+
+6. Jak skonfigurowaæ inny standard tekstowy niż białe-na-czarnym ?
+
+Bêdziesz musiał przekazaæ sterownikowi twojego terminala kod, który chcesz mieæ jako domyślny. Nie ma standardowego sposobu, aby to zrobiæ, ale w przypadku Linux-a masz program setterm.
+
+"setterm" używa informacji zawartych w bazie danych o terminalach, aby ustawiæ atrybuty. Tak siê wybiera:
+
+     setterm -foreground black -background white -store
+gdzie -store poza właściwą zmianą powoduje, że ustawienia stają siê także domyślne dla bieżącej konsoli. Wymaga to, aby bieżący terminal (zmienna środowiskowa TERM) był opisany "wystarczająco dobrze" w bazie danych "termcap". Jeśli setterm z jakichś powodów nie działa, to tu jest kilka alternatyw:
+
+6.1 Xterm.
+
+Jeden z tych Xterminali powinien byæ dostêpny i przynajmniej jeden z nich obsługuje kolory.
+
+     xterm -fg white -bg blue4
+     color_xterm -fg white -bg blue4
+     color-xterm -fg white -bg blue4
+     nxterm -fg white -bg blue4
+gdzie 'color_xterm' obsługuje kolorową wersjê 'ls'. Ten konkretny wybór przypomina kolory używane na SGI.
+
+6.2 Konsole wirtualne.
+
+Możesz zmodyfikowaæ jądro raz na zawsze, tak samo jak udostêpniając standard podczas działania dla konsol wirtualnych przez sekwencjê ze znakiem ESC. Jeśli skompilowałeś swoje własne jądro to zalecam modyfikacjê jądra.
+
+Plik ze źródeł jądra, który powinieneś zmodyfikowaæ około linii 1940, to /usr/src/linux/drivers/char/console.c
+
+           def_color       = 0x07;   /* white */
+           ulcolor         = 0x0f;   /* bold white */
+           halfcolor       = 0x08;   /* grey */
+Ja używam białego na niebieskim:
+
+           def_color       = 0x17;   /* white */
+           ulcolor         = 0x1f;   /* bold white */
+           halfcolor       = 0x18;   /* grey */
+Liczby to kody atrybutów w postaci szesnastkowej używane przez kartê graficzną: najbardziej znacząca cyfra ("1" w przykładzie powyżej) jest tłem; najmniej znacząca - pierwszym planem. 0=czarny, 1=niebieski 2=zielony, 3=jasno-niebieski, 4=czerwony, 5=purpurowy, 6=brązowy/żółty, 7=biały. Dodaj 8, aby uzyskaæ kolory jaskrawe. Zauważ, że w wiêkszości przypadków jaskrawe tło = mrugające znaki, matowe tło. (Od sjlam1@mda023.cc.monash.edu.au).
+
+Możesz także dostarczyæ nowy standard podczas działania dla wirtualnych konsol, na bazie na-ekran z niestandardowymi sekwencjami ANSI (znalazłem podczas przglądania źródeł jądra)
+
+     ESC [ 8 ]
+która ustawia domyślne kolory na bieżące tło i pierwszy plan. Wtedy łañcuch resetujący atrybuty (ESC [ m) wybiera te kolory zamiast białego i czarnego.
+
+Właściwie bêdziesz musiał wysłaæ ten łañcuch na konsolê poleceniem echo za każdym razem kiedy restartujesz komputer. Zależnie od tego do czego używasz swojego Linux-a, może byæ kilka odpowiednich miejsc:
+
+/etc/issue
+
+To jest miejsce, gdzie wyświetla siê komunikat "Welcome to Linux xx.yy", i jest to dobry wybór dla komputera, na którym pracujesz tylko ty. (Przypuszczalnie bêdzie zmorą dla użytkowników logujących siê zdalnie przy pomocy telnet-a). Plik ten jest tworzony podczas startu (Slackware w /etc/rc.d/rc.S; RedHat w /etc/rc.d/rc.local), i powinieneś zmodyfikowaæ linie wyglądające mniej wiêcej tak:
+
+     echo ""> /etc/issue
+     echo Welcome to Linux /bin/uname -a | /bin/cut -d\  -f3. >> /etc/issue
+   
+na:
+
+     ESCAPE="<wstaw tu znak escape>"
+     echo "${ESCAPE}[H${ESCAPE}[37;44m${ESCAPE}[8]${ESCAPE}[2J"> /etc/issue
+     echo Welcome to Linux /bin/uname -a | /bin/cut -d\  -f3. >> /etc/issue
+Ten kod spowoduje przesuniêcie kursora na początek strony, ustawienie koloru (tutaj: biały na niebieskim), zapisanie tego wyboru i wyczyszczenie reszty ekranu. Modyfikacja zadziała przy nastêpnym starcie systemu. Zapamiêtaj, aby wpisaæ kod klawisza ESC przy pomocy Ctrl-Q w emacs-ie, Ctrl-V w vi lub `Esc w joe, bo wygląda na to, że powłoka, w której siê uruchamia ten skrypt nie rozumie sekwencji: /033.
+
+/etc/profile lub .profile.
+
+     if [ "$TERM" = "console" ]; then
+         echo "\033[37;44m\033[8]" #
+   # albo użyj setterm
+         setterm -foreground white -background blue -store
+     fi
+/etc/login lub .login
+
+     if ( "$TERM" == "console" ) then
+       echo "\033[37;44m\033[8]"
+   # albo użyj setterm
+         setterm -foreground white -background blue -store
+     endif
+6.3 Logowanie zdalne.
+
+Powinieneś byæ w stanie użyæ setterm tak jak to było pokazane wyżej. Jeszcze raz: wymaga to, aby zdalny komputer wiedział wystarczająco dużo na temat twojego terminala i żeby emulator terminala, przy pomocy którego siê logujesz, obsługiwał kolory. Z moich doświadczeñ wynika, że najlepszymi emulatorami vt100 dostêpnymi obecnie na inne platformy to:
+
+MS-DOS: MS-Kermit (darmowy, nie jest prod. Microsoftu)
+Windows 95/NT: Kermit/95 (shareware)
+OS/2: Kermit/95 (shareware). Zauważ jednak, że standardowy telnet rozumie kolory i można go ustawiæ lokalnie.
+Szczegóły na temat Kermita znajdziesz na http://www.columbia.edu/kermit/
+
+7. Oprogramowanie.
+
+Wszystkie informacje opisane tutaj zakładają instalacjê GNU/Linux-a. Jeśli masz coś innego (jak np. Sun-a z X-ami czy coś takiego), to możesz zdobyæ i samemu sobie skompilowaæ programy.
+
+Kolorowa wersja xterm-a jest oparta na standardowych źródłach xterm-a z łatą dostêpną na każdym serwerze X11R6. Xterm dystrybuowany wraz z R6.3 podobno ma natywną obsługą kolorów, ale nie był przeze mnie testowany.
+
+Na przykład tutaj: color-xterm-R6pl5-patch.gz
+
+Przejrzyj dokumentacjê jeśli używasz starszej wersji X-ów. Uwaga: Nie próbowałem tego samemu !!!
+
+'ls' jest w pakiecie 'fileutils' Można go pobraæ z serwera: ftp.icm.edu.pl. Weź wersjê co najmniej 3.13.
+
+Bêdziesz jeszcze potrzebowaæ łaty, którą możesz pobraæ z tego samego katalogu, a nazywa siê ona "color-ls-3.12.0.3.patch.gz"
+
+Osobiście udało mi siê skompilowaæ color-ls na Solaris-ie, SunOS-ie i Irix-ie.
+
+Byłbym wdziêczny za wszelki odzew na temat tego tekstu. Mój adres pocztowy: ravn@dit.ou.dk
+
+‐‐
+
+Thorbjørn Ravn Andersen
+
+8. Od tłumacza.
+
+Tłumaczenie to jest chronione prawami autorskimi © Bartosza Maruszewskiego. Dozwolone jest rozprowadzanie i dystrybucja na prawach takich samych jak dokument oryginalny.
+
+Jeśli znalazłeś jakieś rażące błêdy ortograficzne, gramatyczne, składniowe, techniczne to pisz do mnie:
+
+B.Maruszewski@jtz.org.pl
+
+Na pewno znajdziesz tu jakieś niejasne i niepolskie konstrukcje. Jeśli wpadniesz na lepszy pomysł daj mi znaæ.
+
+Oficjalną stroną tłumaczeñ HOWTO jest http://www.jtz.org.pl/
+
+Aktualne wersje przetłumaczonych dokumentów znajdują siê na tejże stronie. Dostêpne są także poprzez anonimowe ftp pod adresem ftp.jtz.org.pl w katalogu /HOWTO/.
+
+Przetłumaczone przeze mnie dokumenty znajdują siê także na mojej stronie WWW. Są tam też odwołania do Polskiej Strony Tłumaczeniowej.
+
+Kontakt z naszą grupą, grupą tłumaczy możesz uzyskaæ poprzez listê dyskusyjną jtz@ippt.gov.pl. Jeśli chcesz sie na nią zapisaæ, to wyślij list o treści subscribe jtz Imiê Nazwisko na adres majordomo@ippt.gov.pl

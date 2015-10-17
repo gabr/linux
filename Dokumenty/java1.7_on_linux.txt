@@ -1,0 +1,109 @@
+There is a similar question on how to install JRE 7.
+
+Install the JDK
+Download he 32bit or 64bit Linux "compressed binary file" - it has a ".tar.gz" file extension i.e. "[java-version]-i586.tar.gz" for 32bit and "[java-version]-x64.tar.gz" for 64bit
+Uncompress it
+
+tar -xvf jdk-7u2-linux-i586.tar.gz (32bit)
+
+tar -xvf jdk-7u2-linux-x64.tar.gz (64bit)
+
+JDK 7 package is extracted into ./jdk1.7.0_02 directory. - Now move the JDK 7 directory to /usr/lib
+
+sudo mv ./jdk1.7.0_02 /usr/lib/jvm/jdk1.7.0
+
+Now run
+sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.7.0/bin/java" 1
+sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.7.0/bin/javac" 1
+sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/lib/jvm/jdk1.7.0/bin/javaws" 1
+Run
+sudo update-alternatives --config java
+You will see output similar one below - choose the number of jdk1.7.0 - for example 3 in this list:
+
+$sudo update-alternatives --config java
+There are 3 choices for the alternative java (providing /usr/bin/java).
+
+Selection Path Priority Status
+————————————————————
+* 0 /usr/lib/jvm/java-6-openjdk/jre/bin/java 1061 auto mode
+1 /usr/lib/jvm/java-6-openjdk/jre/bin/java 1061 manual mode
+2 /usr/lib/jvm/java-6-sun/jre/bin/java 63 manual mode
+3 /usr/lib/jvm/jdk1.7.0/jre/bin/java 3 manual mode
+
+Press enter to keep the current choice[*], or type selection number: 3
+update-alternatives: using /usr/lib/jvm/jdk1.7.0/jre/bin/java to provide /usr/bin/java (java) in manual mode.
+Check the version of you new JDK 7 installation:
+
+java -version
+
+java version “1.7.0”
+Java(TM) SE Runtime Environment (build 1.7.0-b147)
+Java HotSpot(TM) Client VM (build 21.0-b17, mixed mode) 
+Repeat the above for:
+
+sudo update-alternatives --config javac
+sudo update-alternatives --config javaws
+Enable mozilla firefox plugin:
+
+32 bit:
+ln -s /usr/lib/jvm/jdk1.7.0/jre/lib/i386/libnpjp2.so ~/.mozilla/plugins/
+
+64 bit:
+ln -s /usr/lib/jvm/jdk1.7.0/jre/lib/amd64/libnpjp2.so ~/.mozilla/plugins/
+Depending on your configuration, you might need to update the apparmor profile for firefox (or other browsers) in /etc/apparmor.d/abstractions/ubuntu-browsers.d/java
+
+# Replace the two lines:
+#  /usr/lib/jvm/java-*-sun-1.*/jre/bin/java{,_vm} cx -> browser_java,
+#  /usr/lib/jvm/java-*-sun-1.*/jre/lib/*/libnp*.so cx -> browser_java,
+# with those (or adapt to your new jdk folder name)
+/usr/lib/jvm/jdk*/jre/bin/java{,_vm} cx -> browser_java,
+/usr/lib/jvm/jdk*/jre/lib/*/libnp*.so cx -> browser_java,
+Then restart apparmor:
+
+sudo /etc/init.d/apparmor restart
+Confirm that the JRE has been successful by using the official oracle website.
+
+For Java 6:
+
+How do I install Oracle JDK 6?
+If you're on a fresh installation of Ubuntu with no previous Java installations, this script automates the process outlined above if you don't want to type all that into a console. Remember, you still need to download Java from Oracle's website -- Oracle's links are not wget friendly.
+
+Before using this make sure that this script is in the same directory as the .tar.gz file extension that you downloaded and there are no files that start with jdk-7 in the same folder -- if there are, please move them out of the folder temporarily. Remember to make the script executable, either by doing chmod +x <script's directory> or right clicking the document, pressing properties, going to the Permissions tab, and checking "Allow executing file as a program."
+
+#!/bin/sh
+
+tar -xvf jdk-7*
+sudo mkdir /usr/lib/jvm
+sudo mv ./jdk1.7* /usr/lib/jvm/jdk1.7.0
+sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.7.0/bin/java" 1
+sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.7.0/bin/javac" 1
+sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/lib/jvm/jdk1.7.0/bin/javaws" 1
+sudo chmod a+x /usr/bin/java
+sudo chmod a+x /usr/bin/javac
+sudo chmod a+x /usr/bin/javaws
+If you want to install the plugin for Firefox then add this to the end of the script
+
+mkdir ~/.mozilla/plugins
+ln -s /usr/lib/jvm/jdk1.7.0/jre/lib/amd64/libnpjp2.so ~/.mozilla/plugins/
+sudo /etc/init.d/apparmor restart
+Confirm if Java has been properly installed.
+
+java -version
+Confirm that the JRE Mozilla plugin has been successful by using the official oracle website.
+
+shareimprove this answer
+edited Aug 28 at 5:30
+
+umop aplsdn
+828	
+answered Aug 5 '11 at 18:57
+
+fossfreedom♦
+66.8k11126177
+This is a real life saver, i sucessfully got sun java working on Firefox. But on Chrome, it just crashes, all the pages i try to see with sun java, they crash like this one: javatester.org. Is it possible to have Sun Java JDK plugin working in Google Chrome? I'm running Ubuntu 12.04 64bits – LnxSlck Apr 29 at 18:27
+It should be the same - perhaps remove the icedtea plugin? Look at the Oracle JDK 6 answer I linked to... – fossfreedom♦ Apr 29 at 19:12
+There are about 47 executable files in $JAVA_HOME/bin and $JAVA_HOME/jre/bin which cries for an script to update all the entries in the alternatives system. See the /usr/lib/jvm/.java*.jinfo files. Here is a blogpost which adresses the jinfo-file issue. – user unknown Jun 5 at 23:30
+2	  
+The folder I downloaded was 'jdk.1.7.0' -- not 'jdk1.7.0' like is mentioned in this answer. Otherwise worked great for me, thanks. – Zachary Schuessler Jul 23 at 13:53
+1	  
+If you're on a new installation of Ubuntu, remember to do sudo chmod a+x /usr/bin/java sudo chmod a+x /usr/bin/javac sudo chmod a+x /usr/bin/javaws – umop aplsdn Aug 26 at 19:07

@@ -1,0 +1,635 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0032)http://pl.wikipedia.org/wiki/Vim -->
+<html lang="pl" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" class="client-chrome client-chrome-1 client-webkit client-win"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Vim – Wikipedia, wolna encyklopedia</title>
+
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="generator" content="MediaWiki 1.17wmf1">
+<link rel="alternate" type="application/x-wiki" title="Edytuj" href="http://pl.wikipedia.org/w/index.php?title=Vim&action=edit">
+<link rel="edit" title="Edytuj" href="http://pl.wikipedia.org/w/index.php?title=Vim&action=edit">
+<link rel="apple-touch-icon" href="http://pl.wikipedia.org/apple-touch-icon.png">
+<link rel="shortcut icon" href="http://pl.wikipedia.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://pl.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (pl)">
+<link rel="EditURI" type="application/rsd+xml" href="http://pl.wikipedia.org/w/api.php?action=rsd">
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="alternate" type="application/atom+xml" title="Kanał Atom Wikipedia" href="http://pl.wikipedia.org/w/index.php?title=Specjalna:Ostatnie_zmiany&feed=atom">
+<link rel="stylesheet" href="./Vim – Wikipedia, wolna encyklopedia_files/load.php" type="text/css" media="all">
+<link rel="stylesheet" href="./Vim – Wikipedia, wolna encyklopedia_files/flaggedrevs.css" type="text/css" media="all"><style type="text/css" media="all">.suggestions{overflow:hidden;position:absolute;top:0px;left:0px;width:0px;border:none;z-index:99;padding:0;margin:-1px -1px 0 0} html > body .suggestions{margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:Window;font-size:0.8em;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;background-color:Window;font-size:0.8em;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;color:WindowText;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left}.suggestions-result-current{background-color:#4C59A6;background-color:Highlight;color:white;color:HighlightText}.suggestions-special .special-label{font-size:0.8em;color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white;color:HighlightText}.autoellipsis-matched,.highlight{font-weight:bold}
+
+/* cache key: plwiki:resourceloader:filter:minify-css:5:8d395f27880b6ffcab73b1c74b0217ea */</style><style type="text/css" media="all">#mw-panel.collapsible-nav div.portal{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAABCAMAAAA7MLYKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAEtQTFRF29vb2tra4ODg6urq5OTk4uLi6+vr7e3t7Ozs8PDw5+fn4+Pj4eHh3d3d39/f6Ojo5eXl6enp8fHx8/Pz8vLy7+/v3Nzc2dnZ2NjYnErj7QAAAD1JREFUeNq0wQUBACAMALDj7hf6JyUFGxzEnYhC9GaNPG1xVffGDErk/iCigLl1XV2xM49lfAxEaSM+AQYA9HMKuv4liFQAAAAASUVORK5CYII=);background-image:url(http://bits.wikimedia.org/w/extensions-1.17/Vector/modules/./images/portal-break.png?2011-02-12T21:25:00Z)!ie;background-position:left top;background-repeat:no-repeat;padding:0.25em 0 !important;margin:-11px 9px 10px 11px}#mw-panel.collapsible-nav div.portal h5{color:#4D4D4D;font-weight:normal;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA9QTFRFeXl53d3dmpqasbGx////GU0iEgAAAAV0Uk5T/////wD7tg5TAAAAK0lEQVQI12NwgQIG0hhCDAwMTCJAhqMCA4MiWEoIJABiOCooQhULi5BqMgB2bh4svs8t+QAAAABJRU5ErkJggg==) left center no-repeat;background:url(http://bits.wikimedia.org/w/extensions-1.17/Vector/modules/./images/open.png?2011-02-12T21:25:00Z) left center no-repeat!ie;padding:4px 0 3px 1.5em;margin-bottom:0px}#mw-panel.collapsible-nav div.collapsed h5{color:#0645AD;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAxQTFRF3d3deXl5////nZ2dQA6SoAAAAAN0Uk5T//8A18oNQQAAADNJREFUeNpiYEIDDMQKMKALMDOgCTDCRWACcBG4AEwEIcDITEAFuhnotmC4g4EEzwEEGAADqgHmQSPJKgAAAABJRU5ErkJggg==) left center no-repeat;background:url(http://bits.wikimedia.org/w/extensions-1.17/Vector/modules/./images/closed-ltr.png?2011-02-12T21:25:00Z) left center no-repeat!ie;margin-bottom:0px}#mw-panel.collapsible-nav div h5:hover{cursor:pointer;text-decoration:none}#mw-panel.collapsible-nav div.collapsed h5:hover{text-decoration:underline}#mw-panel.collapsible-nav div.portal div.body{background:none !important;padding-top:0px;display:none}#mw-panel.collapsible-nav div.persistent div.body{display:block}#mw-panel.collapsible-nav div.first h5{display:none}#mw-panel.collapsible-nav div.persistent h5{background:none !important;padding-left:0.7em;cursor:default}#mw-panel.collapsible-nav div.portal div.body ul li{padding:0.25em 0}#mw-panel.collapsible-nav div.first{background-image:none;margin-top:0px}#mw-panel.collapsible-nav div.persistent div.body{margin-left:0.5em}
+
+/* cache key: plwiki:resourceloader:filter:minify-css:5:c5cca4c308b0b64d12b1147b6871e86e */</style><meta name="ResourceLoaderDynamicStyles" content=""><link rel="stylesheet" href="./Vim – Wikipedia, wolna encyklopedia_files/load(1).php" type="text/css" media="all">
+<style type="text/css" media="all">a.new,#quickbar a.new{color:#ba0000}
+
+/* cache key: plwiki:resourceloader:filter:minify-css:5:f2a9127573a22335c2a9102b208c73e7 */</style>
+<script type="text/javascript">wgNamespaceNumber=0;wgAction="view";wgPageName="Vim";wgMainPageTitle="Strona g\u0142\u00f3wna";wgWikimediaMobileUrl="http:\/\/pl.m.wikipedia.org\/wiki";</script><script src="./Vim – Wikipedia, wolna encyklopedia_files/MobileRedirect.js" type="text/javascript"></script><!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins-1.17/vector/csshover.min.htc")}</style><![endif]--><script src="./Vim – Wikipedia, wolna encyklopedia_files/index.php" type="text/javascript"></script><script src="./Vim – Wikipedia, wolna encyklopedia_files/index(1).php" type="text/javascript"></script><style type="text/css">.nonanon_hide_block{display:none}</style><script src="./Vim – Wikipedia, wolna encyklopedia_files/index(2).php" type="text/javascript"></script><script src="./Vim – Wikipedia, wolna encyklopedia_files/index(3).php" type="text/javascript"></script><script src="./Vim – Wikipedia, wolna encyklopedia_files/index(4).php" type="text/javascript"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-Vim skin-vector">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- sitenotice -->
+			<div id="siteNotice"><div id="centralNotice" class="expanded"><style type="text/css">
+
+#centralNotice.collapsed #WMPL_OPP_01{
+  display: none;
+ }
+
+#WMPL_OPP_01{
+  position: relative;
+  overflow: hidden;
+  background-position: center left;
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-bottom: 0.5em !important;
+  background-color:#FFFFFF;
+  border: solid 1px black; 
+  height: 46px;
+}
+
+#WMPL_OPP_01-logo {
+  background-image: url(http://upload.wikimedia.org/wikimedia/pl/9/96/WMPL_OPP_01.png);
+  height: 46px;
+  width: 70px;
+  background-position: top left;
+  position: relative;
+  overflow: hidden;
+ }
+
+a.cn-full-banner-click {
+ display:block;
+ position:relative;
+ height:100%;
+ width:100%;
+}
+
+/* Bigger bold, blue text */
+#WMPL_OPP_01-text {
+ font-size: 2em;
+ font-weight: bold;
+ font-family: Helvetica, sans-serif;
+ color: #0019e8;
+ padding: 0.5em;
+ position:absolute;
+ left: 215px;
+ top: 0px;
+ line-height: 1em;
+ text-align:center;
+}
+
+#WMPL_OPP_01-text:hover {
+ text-decoration: underline
+}
+
+#WMPL_OPP_01 a {
+ text-decoration: none;
+}
+
+#WMPL_OPP_01 div#cn-toggle-box {
+  position: absolute;
+  z-index: 1000;
+  top: .2em;
+  right: .2em;
+ }
+
+</style>
+
+
+
+<div id="WMPL_OPP_01">
+<a class="variable_lp cn-full-banner-click" href="http://opp.wikimedia.pl/">
+<div id="WMPL_OPP_01-logo"></div>
+<div id="WMPL_OPP_01-text">
+ Twój wybór, Twoja Wikipedia
+</div>
+
+</a>
+<div id="cn-toggle-box">
+<a href="http://pl.wikipedia.org/wiki/Vim#" onclick="toggleNotice();return false"><img border="0" src="./Vim – Wikipedia, wolna encyklopedia_files/closewindow.png" width="13" height="13" alt="Close"></a>
+</div>
+
+</div></div><!-- centralNotice loads here --><script type="text/javascript">
+/* <![CDATA[ */
+document.writeln("\x3cdiv id=\"localNotice\"\x3e\x3cp style=\"display:none;\"\x3e\x3c/p\x3e\n\x3c/div\x3e");
+/* ]]> */
+</script><div id="localNotice"><p style="display:none;"></p>
+</div>
+</div>
+			<!-- /sitenotice -->
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">Vim</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<div id="siteSub">Z Wikipedii, wolnej encyklopedii</div>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Skocz do: <a href="http://pl.wikipedia.org/wiki/Vim#mw-head">nawigacji</a>,
+					<a href="http://pl.wikipedia.org/wiki/Vim#p-search">szukaj</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="infobox" cellpadding="4" style="width:250px">
+<tbody><tr>
+<td colspan="2" style="text-align:center; background-color:#81A2BE; font-size:120%"><b>Vim</b></td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:center; font-size:x-small; background-color:#B0C5D6;"><a href="http://pl.wikipedia.org/wiki/Edytor_tekstu">edytor tekstu</a></td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:center; color:grey; font-size:x-small; background-color:#ffffff;"><a href="http://pl.wikipedia.org/w/index.php?title=Plik:Vimlogo.svg&filetimestamp=20100427190606" class="image"><img alt="Vimlogo.svg" src="./Vim – Wikipedia, wolna encyklopedia_files/120px-Vimlogo.svg.png" width="120" height="170"></a><br>
+Logo programu</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:center; color:grey; font-size:x-small; background-color:#ffffff;"><a href="http://pl.wikipedia.org/w/index.php?title=Plik:GVim-screenshot.png&filetimestamp=20070203200938" class="image"><img alt="GVim-screenshot.png" src="./Vim – Wikipedia, wolna encyklopedia_files/240px-GVim-screenshot.png" width="240" height="173"></a><br>
+Interfejs programu</td>
+</tr>
+<tr>
+<td style="background: #eeeeee; vertical-align: top;">Producent</td>
+<td>Bram Moolenaar i inni <a href="http://pl.wikipedia.org/wiki/Programista" title="Programista">programiści</a></td>
+</tr>
+<tr>
+<td style="background: #eeeeee; vertical-align: top;">System operacyjny</td>
+<td><a href="http://pl.wikipedia.org/wiki/Wieloplatformowo%C5%9B%C4%87" title="Wieloplatformowość">Wieloplatformowy</a></td>
+</tr>
+<tr>
+<td style="background: #eeeeee; vertical-align: top;">Pierwsze wydanie</td>
+<td><span style="display:none">1991-00-<strong class="error">Błąd w wyrażeniu – nieoczekiwany operator &lt;</strong></span> 1991</td>
+</tr>
+<tr>
+<td style="background: #eeeeee; vertical-align: top;">Aktualna wersja stabilna</td>
+<td>7.3 - <span style="white-space:nowrap;"><a href="http://pl.wikipedia.org/wiki/Sierpie%C5%84_2010#15_sierpnia_2010" title="Sierpień 2010">15</a> <a href="http://pl.wikipedia.org/wiki/2010_w_informatyce#sierpie.C5.84" title="2010 w informatyce">sierpnia</a></span> <a href="http://pl.wikipedia.org/wiki/2010_w_informatyce" title="2010 w informatyce">2010</a>; 247 dni temu</td>
+</tr>
+<tr>
+<td style="background: #eeeeee; vertical-align: top;">Licencja</td>
+<td><a href="http://pl.wikipedia.org/wiki/Charityware" class="mw-redirect" title="Charityware">Charityware</a></td>
+</tr>
+<tr>
+<td colspan="2" style="background-color:#B0C5D6; text-align:center;"><a href="http://www.vim.org/" class="external text" rel="nofollow">www.vim.org</a></td>
+</tr>
+</tbody></table>
+<p><br>
+<b>Vim</b> według oficjalnej interpretacji oznacza <b><a href="http://pl.wikipedia.org/wiki/Vi_(program)" title="Vi (program)">vi</a> improved</b>. Jest to wieloplatformowy klon edytora tekstu <i><a href="http://pl.wikipedia.org/wiki/Vi_(program)" title="Vi (program)">vi</a></i>, napisany przez Brama Moolenaara, holenderskiego programistę. Vim należy do grupy <a href="http://pl.wikipedia.org/wiki/Wolne_oprogramowanie" title="Wolne oprogramowanie" class="mw-redirect">wolnego oprogramowania</a> o <a href="http://pl.wikipedia.org/wiki/Open_source" title="Open source" class="mw-redirect">otwartym kodzie źródłowym</a>. Pierwsza wersja została wydana w 1991 roku.</p>
+<p>Vim wydawany jest na własnej licencji typu <a href="http://pl.wikipedia.org/wiki/Careware" title="Careware">charityware</a>, kompatybilnej z <a href="http://pl.wikipedia.org/wiki/GNU_General_Public_License" title="GNU General Public License">GPL</a>. Oznacza to, iż użytkownik Vim-a, otrzymując go nieodpłatnie, jest zachęcany przez autora do dokonywania wpłat na cele charytatywne — tutaj na pomoc ofiarom <a href="http://pl.wikipedia.org/wiki/Zesp%C3%B3%C5%82_nabytego_niedoboru_odporno%C5%9Bci" title="Zespół nabytego niedoboru odporności">AIDS</a> w <a href="http://pl.wikipedia.org/wiki/Uganda" title="Uganda">Ugandzie</a>.</p>
+<p>Vim w ostatnich latach był kilkukrotnie wybierany na najpopularniejszy edytor tekstowy wśród czytelników <i>Linux Journal</i>, wyprzedzając m.in. <a href="http://pl.wikipedia.org/wiki/Emacs" title="Emacs">Emacsa</a>.</p>
+<table id="toc" class="toc">
+<tbody><tr>
+<td>
+<div id="toctitle">
+<h2>Spis treści</h2>
+ <span class="toctoggle">[<a id="togglelink" class="internal" href="http://pl.wikipedia.org/wiki/Vim#">ukryj</a>]</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="http://pl.wikipedia.org/wiki/Vim#Tryby_pracy"><span class="tocnumber">1</span> <span class="toctext">Tryby pracy</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="http://pl.wikipedia.org/wiki/Vim#Zmiana_trybu"><span class="tocnumber">1.1</span> <span class="toctext">Zmiana trybu</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="http://pl.wikipedia.org/wiki/Vim#Wizualna_edycja_w_trybie_REPLACE"><span class="tocnumber">2</span> <span class="toctext">Wizualna edycja w trybie REPLACE</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="http://pl.wikipedia.org/wiki/Vim#Prosty_przyk.C5.82ad_edycji"><span class="tocnumber">2.1</span> <span class="toctext">Prosty przykład edycji</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="http://pl.wikipedia.org/wiki/Vim#Trudniejszy_przyk.C5.82ad_edycji"><span class="tocnumber">2.2</span> <span class="toctext">Trudniejszy przykład edycji</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="http://pl.wikipedia.org/wiki/Vim#Wklejanie_w_wierszu_polece.C5.84"><span class="tocnumber">2.3</span> <span class="toctext">Wklejanie w wierszu poleceń</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="http://pl.wikipedia.org/wiki/Vim#Przyk.C5.82ad_polecenia_w_trybie_Ex"><span class="tocnumber">3</span> <span class="toctext">Przykład polecenia w trybie Ex</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="http://pl.wikipedia.org/wiki/Vim#Konfigurowalno.C5.9B.C4.87"><span class="tocnumber">4</span> <span class="toctext">Konfigurowalność</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="http://pl.wikipedia.org/wiki/Vim#Ograniczenia_edytora"><span class="tocnumber">5</span> <span class="toctext">Ograniczenia edytora</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="http://pl.wikipedia.org/wiki/Vim#Przyk.C5.82ady_polece.C5.84"><span class="tocnumber">6</span> <span class="toctext">Przykłady poleceń</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="http://pl.wikipedia.org/wiki/Vim#Tryb_NORMAL"><span class="tocnumber">6.1</span> <span class="toctext">Tryb NORMAL</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="http://pl.wikipedia.org/wiki/Vim#Tryb_ex"><span class="tocnumber">6.2</span> <span class="toctext">Tryb ex</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="http://pl.wikipedia.org/wiki/Vim#Vim.2C_a_vi"><span class="tocnumber">7</span> <span class="toctext">Vim, a vi</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="http://pl.wikipedia.org/wiki/Vim#Zobacz_te.C5.BC"><span class="tocnumber">8</span> <span class="toctext">Zobacz też</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="http://pl.wikipedia.org/wiki/Vim#Linki_zewn.C4.99trzne"><span class="tocnumber">9</span> <span class="toctext">Linki zewnętrzne</span></a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="mw-headline" id="Tryby_pracy">Tryby pracy</span></h2>
+<p>Vim jest przede wszystkim edytorem modalnym tzn. mającym więcej niż jeden tryb pracy. Zależnie od sposobu liczenia, Vim ma od trzech trybów "elementarnych" (<b>NORMAL</b>, <b>INSERT</b> i <b>COMMAND-LINE/EX</b>) do jedenastu. Według twórcy Vim-a można wyróżnić aż 6 trybów podstawowych (<i>basic modes</i>) i 5 dodatkowych (<i>additional modes</i>). Ich opis znajduje się w bardzo obszernej dokumentacji podręcznej, dostępnej z poziomu Vim-a. Wprowadzenie w terminologię i specyfikę trybów uzyskuje się po wpisaniu <tt><b>:</b>help vim-modes</tt> w tzw. trybie <i>Ex</i>. Przejście w tryb <i>Ex</i> zawsze zaczyna się od dwukropka (poprzedzonego wciśnięciem klawisza <span class="speckey" style="border:1px solid black; padding:2px;">Esc</span> w przypadku trybu wyjściowego innego niż NORMAL).</p>
+<h3><span class="mw-headline" id="Zmiana_trybu">Zmiana trybu</span></h3>
+<p>Dalszy opis skupia się na trybach NORMAL, VISUAL i REPLACE. Tryb INSERT jest dość oczywisty i nie wymaga osobnego opisu jako wspólny wszystkim edytorom pełnoekranowym.</p>
+<p>Domyślnie edytor Vim wita użytkownika trybem NORMAL. Zmiana trybu NORMAL na VISUAL wymaga wpisania małej litery <tt>v</tt> (należy zwracać uwagę na stan klawisza <span class="speckey" style="border:1px solid black; padding:2px;">Caps Lock</span>). Z kolei zmiana na tryb REPLACE możliwa jest z dwóch trybów: z trybu NORMAL przez wpisanie dużego <tt>R</tt> oraz z trybu INSERT po wciśnięciu klawisza <span class="speckey" style="border:1px solid black; padding:2px;"><b>Insert</b></span>.</p>
+<h2><span class="mw-headline" id="Wizualna_edycja_w_trybie_REPLACE">Wizualna edycja w trybie REPLACE</span></h2>
+<h3><span class="mw-headline" id="Prosty_przyk.C5.82ad_edycji">Prosty przykład edycji</span></h3>
+<p>Nietypowe (niespotykane gdzie indziej) zasady edycji w edytorze Vim zostaną zademonstrowane na przykładzie trybu REPLACE, formalnie będącego rozszerzeniem trybu INSERT.</p>
+<p>Najpierw proste zastępowanie (ang. <i>replace</i>) kolejnych, pojedynczych znaków innymi znakami: jest to zadanie stosunkowo intuicyjne, ponieważ po przejściu w tryb REPLACE każdy wpisany znak nadpisuje inny znak. Tak aż do naciśnięcia klawisza <span class="speckey" style="border:1px solid black; padding:2px;"><b>Esc</b></span> czyli opuszczenia trybu.</p>
+<h3><span class="mw-headline" id="Trudniejszy_przyk.C5.82ad_edycji">Trudniejszy przykład edycji</span></h3>
+<p>Szybka podmiana dłuższego fragmentu tekstu bez zmiany liczby znaków w pliku wynikowym jest mniej trywialna. Przynajmniej z punktu widzenia użytkownika przyzwyczajonego do pozornej intuicyjności edytorów nie-modalnych.</p>
+<ol>
+<li>włączyć tryb VISUAL (<tt>v</tt>).</li>
+<li>w dowolny sposób zaznaczyć ciąg znaków do skopiowania, który ma zastąpić ciąg dotychczasowy. Źródło ciągu docelowego nie jest w tym momencie istotne - może to być nawet zewnętrzny plik wyświetlony w innym oknie edytora. W trybie VISUAL, do zaznaczenia można użyć zarówno myszki jak i jednego z czterech klawiszy kierunkowych na klawiaturze. W obu przypadkach skopiowanie zaznaczonego ciągu do pamięci podręcznej edytora (rejestru) następuje po wciśnięciu litery <tt>y</tt> (yank). Uwaga: maksymalnie można zaznaczyć do 26. fragmentów, ale wtedy każdy z nich musi zostać skopiowany do osobnego, nazwanego rejestru sekwencją trzech znaków: cudzysłowu, dowolnie wybranej litery alfabetu oraz - jak poprzednio - litery <tt>y</tt>.</li>
+<li>zmienić tryb na REPLACE (<tt>R</tt>).</li>
+<li>ustawić kursor edytora w miejscu, od którego ma nastąpić podmiana ciągu znaków. Aby uzyskać dostęp do pamięci rejestru należy przytrzymać jednocześnie klawisze <span class="speckey" style="border:1px solid black; padding:2px;"><b>Ctrl</b></span> oraz <span class="speckey" style="border:1px solid black; padding:2px;"><b>r</b></span> (w dokumentacji ta kombinacja oznaczana jest jako <b>CTRL-R</b>). W rezultacie, znak stojący pod kursorem zostanie chwilowo (tylko na ekranie) zastąpiony znakiem podwójnego cudzysłowu. Na kolorowym terminalu będzie on wyróżniony kolorem niebieskim dla podkreślenia jego tymczasowego charakteru.</li>
+<li>ręcznie wpisać znak cudzysłowu (ostatnio skopiowany fragment zawsze trafia do tak oznaczonego, domyślnego rejestru). Ciąg znaków zostanie wklejony, co w trybie REPLACE oznacza jego podmianę. Edycja dobiegła końca.</li>
+</ol>
+<p>Uwaga: w przypadku potrzeby odwołania się do innej pozycji w rejestrze trzeba podać przyporządkowaną tej pozycji literę alfabetu. Lista wszystkich rejestrów pamięci wraz z ich zawartością dostępna jest w 2. identycznych poleceniach trybu <i>Ex</i>: <tt>:registers</tt> (krótko <tt>:reg</tt>) oraz <tt>:display</tt> (<tt>:di</tt>).</p>
+<h3><span class="mw-headline" id="Wklejanie_w_wierszu_polece.C5.84">Wklejanie w wierszu poleceń</span></h3>
+<p>Kombinacja <span class="speckey" style="border:1px solid black; padding:2px;">CTRL-R</span> + litera (a-z) jest pomocna także przy wklejaniu skopiowanego tekstu w wiersz poleceń (COMMAND-LINE/Ex) edytora Vim. Pozwala to skutecznie uniknąć prozaicznych błędów wynikających ze żmudnego przepisywania fraz, a co za tym idzie przyspieszyć i uczynić przyjemniejszą pracę nad tekstem.</p>
+<h2><span class="mw-headline" id="Przyk.C5.82ad_polecenia_w_trybie_Ex">Przykład polecenia w trybie <i>Ex</i></span></h2>
+<p>Typowy przykład najczęściej używanego polecenia trybu <i>Ex</i>:</p>
+<pre><b>:</b>%s<b>/</b><a href="http://pl.wikipedia.org/wiki/Wyra%C5%BCenia_regularne" title="Wyrażenia regularne" class="mw-redirect">wyrażenie regularne</a> lub tekst dotychczasowy<b>/</b>tekst docelowy<b>/</b>gc
+</pre>
+<p>Znak procentu wyznacza cały plik jako zakres działania dla polecenia zamiany tekstu. Ukośniki separują poszczególne części polecenia. Przedostatnie <tt>g</tt> (od <i>global</i>) nakazuje wykonać polecenie maksymalną liczbę razy (domyślnie tylko raz dla każdego z wierszy). Końcowe, opcjonalne <tt>c</tt> wymusza interaktywność - potwierdzanie wykonania polecenia w przypadku odnalezienia ciągu spełniającego podane kryterium.</p>
+<h2><span class="mw-headline" id="Konfigurowalno.C5.9B.C4.87">Konfigurowalność</span></h2>
+<p>Vim jest edytorem dającym się w dużym stopniu konfigurować. W efekcie Vim może być surowy i nieprzyjazny jak jego protoplasta lub przeciwnie: cieszyć intelekt i oko bogactwem funkcji czy kolorów. Informacja o bieżącym trybie pracy wyświetlana jest w ostatniej linii ekranu. Można ją włączyć specjalną zmienną. Odpowiednie polecenie wydaje się w trybie <i>Ex</i> <tt>:set showmode</tt> (lub krócej: <tt>:se smd</tt>) - zobacz <tt>:h smd</tt>). Powyższe polecenie, jak i większość innych, można dopisać do pliku konfiguracyjnego wczytywanego w czasie inicjalizacji. W systemach klasy <a href="http://pl.wikipedia.org/wiki/Linux" title="Linux">GNU/Linux</a> i <a href="http://pl.wikipedia.org/wiki/Unix">Unix</a> plik .vimrc znajduje się w katalogu domowym użytkownika. W systemach MS-<a href="http://pl.wikipedia.org/wiki/DOS">DOS</a> i <a href="http://pl.wikipedia.org/wiki/Microsoft_Windows" title="Microsoft Windows">Win32</a> odpowiada mu _vimrc (zob. <tt>:h vimrc</tt>).</p>
+<h2><span class="mw-headline" id="Ograniczenia_edytora">Ograniczenia edytora</span></h2>
+<p>Mimo swoich imponujących możliwości - zwłaszcza w zakresie automatycznego przetwarzania tekstu - Vim standardowo oferuje dość ograniczone wsparcie dla operacji na pionowych blokach. Przy czym o ile skopiowanie pionowego bloku tekstu nie jest żadnym problemem (w trybie VISUAL BLOCK, włączanym kombinacją <span class="speckey" style="border:1px solid black; padding:2px;">Ctrl-V</span> względnie <span class="speckey" style="border:1px solid black; padding:2px;">Ctrl-Q</span> w trybie symulowania klawiszy edytorów firmy Microsoft), to już <b>zastąpienie</b> takim blokiem w trybie REPLACE innego bloku z reguły nie przynosi spodziewanego rezultatu. Wynika to z faktu, że Vim w swej istocie pozostał edytorem <b>wierszowym</b> - silnym, ale nadającym się głównie do pisania kodu, więc niepraktycznym do zabawy np. grafiką ASCII (gdzie swobodne manipulacje na pionowych blokach tekstu wymagają traktowania ekranu raczej jak matrycy znaków niż zbioru wierszy).</p>
+<p>Z tego samego powodu nie należy do szczególnie wygodnych poruszanie się w pionie po długich, <b>zawiniętych</b> wierszach. Chyba że ustawimy to w pliku konfiguracyjnym. Należy umieścić poniższe linie:</p>
+<pre>map &lt;Down&gt; g&lt;Down&gt;
+map &lt;Up&gt; g&lt;Up&gt;
+nmap j gj
+nmap k gk
+vmap j gj
+vmap k gk
+</pre>
+<p>Jednakże ogromna konfigurowalność edytora i możliwość stworzenia skryptów zwiększających jego funkcjonalność powodują, że powyższe ograniczenia mogą być zlikwidowane.</p>
+<p>W vi klawiszom ruchu w kierunku pionowym odpowiadają litery: <tt>k</tt> (góra) oraz <tt>j</tt> (dół). Tak też jest w Vim-ie, co weteranom trybu tekstowego pozwala zachować np. w <a href="http://pl.wikipedia.org/wiki/Linux" title="Linux">GNU/Linuksie</a> przynajmniej część przyzwyczajeń nabytych przy pracy z vi na systemie <a href="http://pl.wikipedia.org/wiki/Unix">Unix</a>.</p>
+<h2><span class="mw-headline" id="Przyk.C5.82ady_polece.C5.84">Przykłady poleceń</span></h2>
+<p>Podstawowe polecenia są identyczne jak w <a href="http://pl.wikipedia.org/wiki/Vi_(program)" title="Vi (program)">vi</a>. Vim jednak nie byłby tym, czym jest, gdyby nie miał setek nowych. Poniżej przykłady tych najciekawszych i najbardziej użytecznych (w wersjach najkrótszych, co oznacza: najpraktyczniejszych). Ich pełnobrzmiące nazwy można poznać wpisując <tt>:h nazwa_polecenia</tt></p>
+<h3><span class="mw-headline" id="Tryb_NORMAL">Tryb NORMAL</span></h3>
+<ul>
+<li><tt>ga</tt> - wartość kodu ASCII znaku spod kursora (dziesiętnie, szesnastkowo, ósemkowo)</li>
+</ul>
+<ul>
+<li><tt>g8</tt> - wartość kodu znaku spod kursora przy założeniu, że jest to UTF-8</li>
+</ul>
+<ul>
+<li><tt>50%</tt> - skok na połowę pliku</li>
+</ul>
+<ul>
+<li><tt>10000go</tt> - skok do dziesięciotysięcznego bajta pliku</li>
+</ul>
+<ul>
+<li><tt>150G</tt> - skok do 150. wiersza</li>
+</ul>
+<ul>
+<li><tt>g</tt> <span class="speckey" style="border:1px solid black; padding:2px;">Ctrl-g</span> - komplet informacji o pliku i położeniu kursora (kolumna, wiersz, słowo, <b>liczba bajtów</b>)</li>
+</ul>
+<ul>
+<li><tt>q:</tt> - otwarcie okna z historią poleceń trybu Ex</li>
+</ul>
+<h3><span class="mw-headline" id="Tryb_ex">Tryb ex</span></h3>
+<ul>
+<li><tt>:Sex</tt> - otwarcie okna z widokiem zawartości bieżącego katalogu (<i>Split file explore</i>)</li>
+</ul>
+<ul>
+<li><tt>:as</tt> - wartość kodu ASCII znaku spod kursora (dziesiętnie, szesnastkowo, ósemkowo)</li>
+</ul>
+<ul>
+<li><tt>:se wrap | se nolist | se lbr</tt> - zawinięcie długich wierszy z eleganckim łamaniem na granicy słów</li>
+</ul>
+<ul>
+<li><tt>:se noma</tt> - skuteczna blokada pliku (bufora) przed modyfikacją</li>
+</ul>
+<ul>
+<li><tt>:se ff=unix</tt> - wymuszenie uniksowego, pojedynczego znaku końca wierszy (spod dowolnego systemu)</li>
+</ul>
+<ul>
+<li><tt>:se is | se hls</tt> - włączenie <b>przyrostowego</b> podświetlenia wystąpień znaków spełniających kryterium wyszukiwania</li>
+</ul>
+<ul>
+<li><tt>:se vb</tt> - włączenie sygnału optycznego (<i>visual bell</i>) w miejsce akustycznego</li>
+</ul>
+<ul>
+<li><tt>:sp nazwa_pliku</tt> - otwarcie nowego okna (bufora) edycyjnego w poziomie</li>
+</ul>
+<ul>
+<li><tt>:vsp nazwa_pliku</tt> - otwarcie nowego okna (bufora) edycyjnego w pionie</li>
+</ul>
+<ul>
+<li><tt>:%s/&lt;[^&gt;\n]*&gt;//g</tt> - "oczyszczenie" pliku z kodu HTML</li>
+</ul>
+<ul>
+<li><tt>:g/^\s*$/d</tt> - usunięcie wszystkich pustych linii</li>
+</ul>
+<ul>
+<li><tt>:syntax on</tt> - włączenie reguł podświetlania składni (wg rozszerzenia pliku)</li>
+</ul>
+<ul>
+<li><tt>:se syn=css</tt> - wymuszenie podświetlania składni wg reguł "języka" CSS2 (gdy rozszerzenie nie oddaje zawartości - np. .txt zamiast .css)</li>
+</ul>
+<p>A oto para poleceń pomocna przy edycji Wikipedii na konsoli o zestawie znaków innym niż unikod (np. ISO-8859-2):</p>
+<ul>
+<li><tt>:se enc=utf8</tt> - ustawienie w Vim-ie kodowania UTF-8</li>
+<li><tt>:se tenc=iso-8859-2</tt> - poinformowanie Vim-a o obowiązującym kodowaniu na konsoli (<i>terminal encoding</i>)</li>
+</ul>
+<h2><span class="mw-headline" id="Vim.2C_a_vi">Vim, a vi</span></h2>
+<p>Vim został wyposażony w <b>wielokrotne cofanie dokonanych zmian</b> (tzw. undo) - domyślnie aż tysiąckrotne, podczas gdy <i>vi</i> pozostał przy jednokrotnym. Możliwe stało się wreszcie <b>przewijanie ekranu w poziomie</b>, przydatne przy edycji wierszy dłuższych niż szerokość ekranu. Brak też jest obecnie ograniczeń (odczuwalnych) na długość wierszy, ich liczbę czy rozmiar pliku.</p>
+<p>Polecenia Vim-a i ich składnia są w pełni zgodne z <i>vi</i>, więc Vim oprócz tego samego przypisania klawiszy ma również system rejestrów (schowków) przeznaczonych do przechowywania fragmentów tekstu; tekst można kopiować do 26 rejestrów nazwanych dowolną literą alfabetu. Tak jak w <i>vi</i>, "wysoki" zakres A-Z służy do kopiowania tekstu między plikami. W Vim-ie jest to jednak znacznie wygodniejsze dzięki możliwości edycji pliku/plików w osobnych oknach (tzw. buforach). Vim potrafi znacznie więcej, oferując na przykład <a href="http://pl.wikipedia.org/wiki/Pod%C5%9Bwietlanie_sk%C5%82adni">podświetlanie składni</a> (prócz kilkuset "języków" programowania także dla <a href="http://pl.wikipedia.org/wiki/HTML">HTML</a> i <a href="http://pl.wikipedia.org/wiki/Kaskadowe_arkusze_styl%C3%B3w" title="Kaskadowe arkusze stylów">CSS</a>) oraz wsparcie dla narzędzi programistycznych takich jak <a href="http://pl.wikipedia.org/w/index.php?title=Ctags&action=edit&redlink=1" class="new" title="Ctags (strona nie istnieje)">ctags</a>, <a href="http://pl.wikipedia.org/wiki/Make">make</a>, <a href="http://pl.wikipedia.org/wiki/CVS">CVS</a> czy <a href="http://pl.wikipedia.org/wiki/GNU_Compiler_Collection" title="GNU Compiler Collection">GCC</a>.</p>
+<p>Z pozostałych usprawnień wymienić można między innymi: przeglądanie katalogów (w osobnym oknie także na konsoli tekstowej i bez opuszczania edytowanego pliku), dostęp do historii wiersza poleceń trybu <i>Ex</i>, budowanie rozszerzeń, makr, zmianę w przypisaniach klawiszy, zapisywanie/otwieranie pliku w postaci zaszyfrowanej oraz <b>obsługa rozszerzonych <a href="http://pl.wikipedia.org/wiki/Wyra%C5%BCenia_regularne" title="Wyrażenia regularne" class="mw-redirect">wyrażeń regularnych</a></b>. To ostatnie w stopniu zbliżonym do wyspecjalizowanych, uniksowych narzędzi.</p>
+<p>Chociaż Vim jest zasadniczo edytorem konsolowym, to istnieje wersja pod nazwą <b>gvim</b>, działająca w środowisku graficznym (również w <a href="http://pl.wikipedia.org/wiki/System_operacyjny" title="System operacyjny">systemach</a> firmy <a href="http://pl.wikipedia.org/wiki/Microsoft">Microsoft</a>)</p>
+<p>W odróżnieniu od vi, Vim może pracować zarówno w sposób modalny jak i w trybie ciągłej edycji.</p>
+<h2><span class="mw-headline" id="Zobacz_te.C5.BC">Zobacz też</span></h2>
+<ul>
+<li><a href="http://pl.wikipedia.org/wiki/Ed">ed</a></li>
+<li><a href="http://pl.wikipedia.org/wiki/Elvis_(program)" title="Elvis (program)">elvis</a></li>
+<li><a href="http://pl.wikipedia.org/wiki/Ex" class="mw-redirect" title="Ex">ex</a></li>
+<li><a href="http://pl.wikipedia.org/w/index.php?title=Nvi&action=edit&redlink=1" class="new" title="Nvi (strona nie istnieje)">nvi</a></li>
+<li><a href="http://pl.wikipedia.org/wiki/Vi_(program)" title="Vi (program)">vi</a></li>
+</ul>
+<h2><span class="mw-headline" id="Linki_zewn.C4.99trzne">Linki zewnętrzne</span></h2>
+<div class="noprint" style="clear: right; border: solid #aaa 1px; margin: 0 0 1em 1em; font-size: 90%; background: #f9f9f9; width: 250px; padding: 2px; text-align: center; float: right;">
+<div style="float: left;">
+<div class="floatnone"><a href="http://pl.wikipedia.org/w/index.php?title=Plik:Wikibooks-logo.svg&filetimestamp=20090115175128" class="image" title="Wikibooks"><img alt="Wikibooks" src="./Vim – Wikipedia, wolna encyklopedia_files/32px-Wikibooks-logo.svg.png" width="32" height="32"></a></div>
+</div>
+<div style="margin-left: 35px; line-height:normal;">Zobacz publikację na <a href="http://pl.wikibooks.org/wiki/Strona_g%C5%82%C3%B3wna" class="extiw" title="b:Strona główna">Wikibooks</a>:<br>
+<b><a href="http://pl.wikibooks.org/wiki/Vim" class="extiw" title="b:Vim">Vim</a></b></div>
+</div>
+<ul>
+<li><a href="http://vim.sourceforge.net/" class="external text" rel="nofollow">Strona internetowa projektu Vim</a></li>
+<li><a href="http://vim.wikia.com/" class="external text" rel="nofollow">Vim tips&amp;tricks</a></li>
+</ul>
+<p><span id="interwiki-de-fa"></span> <span id="interwiki-fr-fa"></span></p>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 1020/1000000
+Post-expand include size: 7132/2048000 bytes
+Template argument size: 3969/2048000 bytes
+Expensive parser function count: 1/500
+-->
+
+<!-- Saved in stable version parser cache with key plwiki:stable-pcache:idhash:6552-0!1!0!!pl!4 and timestamp 20110419173228 --><div class="printfooter">
+Źródło „<a href="./Vim – Wikipedia, wolna encyklopedia_files/Vim – Wikipedia, wolna encyklopedia.htm">http://pl.wikipedia.org/wiki/Vim</a>”</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://pl.wikipedia.org/wiki/Specjalna:Kategorie" title="Specjalna:Kategorie">Kategorie</a>: <span dir="ltr"><a href="http://pl.wikipedia.org/wiki/Kategoria:Edytory_tekstu" title="Kategoria:Edytory tekstu">Edytory tekstu</a></span> • <span dir="ltr"><a href="http://pl.wikipedia.org/wiki/Kategoria:Wolne_i_Otwarte_Oprogramowanie" title="Kategoria:Wolne i Otwarte Oprogramowanie">Wolne i Otwarte Oprogramowanie</a></span> • <span dir="ltr"><a href="http://pl.wikipedia.org/wiki/Kategoria:Wolne_oprogramowanie_napisane_w_C" title="Kategoria:Wolne oprogramowanie napisane w C">Wolne oprogramowanie napisane w C</a></span></div></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		<div id="mw-head" class="noprint">
+			
+<!-- 0 -->
+<div id="p-personal" class="">
+	<h5>Osobiste</h5>
+	<ul>
+					<li id="pt-vm-switch"><a title="Przełącz się na stary układ stron" id="vm_switch_btn" href="javascript:oVMSwitch.toogleDisablance()">Stary układ stron</a></li><li id="pt-login"><a href="http://pl.wikipedia.org/w/index.php?title=Specjalna:Zaloguj&returnto=Vim" title="Zachęcamy do zalogowania się, choć nie jest to obowiązkowe. [alt-o]" accesskey="o">Logowanie i rejestracja</a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+			<div id="left-navigation">
+				
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Przestrzenie nazw</h5>
+	<ul>
+					<li id="ca-nstab-main" class="selected"><span><a href="./Vim – Wikipedia, wolna encyklopedia_files/Vim – Wikipedia, wolna encyklopedia.htm" title="Zobacz stronę treści [alt-c]" accesskey="c">Artykuł</a></span></li>
+					<li id="ca-talk" class="new"><span><a href="http://pl.wikipedia.org/w/index.php?title=Dyskusja:Vim&action=edit&redlink=1" title="Dyskusja o zawartości tej strony. [alt-t]" accesskey="t">Dyskusja</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+		<h5><span>Warianty</span><a href="http://pl.wikipedia.org/wiki/Vim#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+			</div>
+			<div id="right-navigation">
+				
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Widok</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="./Vim – Wikipedia, wolna encyklopedia_files/Vim – Wikipedia, wolna encyklopedia.htm">Czytaj</a></span></li>
+					<li id="ca-edit"><span><a href="http://pl.wikipedia.org/w/index.php?title=Vim&action=edit" title="Możesz edytować tę stronę. Przed zapisaniem zmian użyj przycisku podgląd. [alt-e]" accesskey="e">Edytuj</a></span></li>
+					<li id="ca-history" class="collapsible "><span><a href="http://pl.wikipedia.org/w/index.php?title=Vim&action=history" title="Starsze wersje tej strony. [alt-h]" accesskey="h">Historia i autorzy</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Działania</span><a href="http://pl.wikipedia.org/wiki/Vim#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search">
+	<h5><label for="searchInput">Szukaj</label></h5>
+	<form action="http://pl.wikipedia.org/w/index.php" id="searchform">
+		<input type="hidden" name="title" value="Specjalna:Szukaj">
+				<div id="simpleSearch">
+						<input id="searchInput" name="search" type="text" title="Przeszukaj Wikipedię [alt-f]" accesskey="f" value="" tabindex="1" placeholder="Szukaj" autocomplete="off">
+						<button id="searchButton" type="submit" name="button" title="Szukaj wprowadzonego tekstu w treści stron"><img src="./Vim – Wikipedia, wolna encyklopedia_files/search-ltr.png" alt="Szukaj"></button>
+					</div>
+			</form>
+</div>
+
+<!-- /2 -->
+			</div>
+		</div>
+		<!-- /header -->
+		<!-- panel -->
+			<div id="mw-panel" class="noprint collapsible-nav">
+				<!-- logo -->
+					<div id="p-logo"><a style="background-image: url(http://upload.wikimedia.org/wikipedia/commons/a/ad/Wikipedia-logo-v2-pl.png);" href="http://pl.wikipedia.org/wiki/Strona_g%C5%82%C3%B3wna" title="Strona główna"></a></div>
+				<!-- /logo -->
+				
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- navigation -->
+<div class="portal first persistent" id="p-navigation">
+	<h5>Nawigacja</h5>
+	<div class="body">
+				<ul>
+					<li id="n-mainpage-description"><a href="http://pl.wikipedia.org/wiki/Strona_g%C5%82%C3%B3wna" title="Przejdź na stronę główną [alt-z]" accesskey="z">Strona główna</a></li>
+					<li id="n-Kategorie"><a href="http://pl.wikipedia.org/wiki/Portal:Kategorie_G%C5%82%C3%B3wne">Kategorie artykułów</a></li>
+					<li id="n-Currentevents"><a href="http://pl.wikipedia.org/wiki/Portal:Aktualno%C5%9Bci">Bieżące wydarzenia</a></li>
+					<li id="n-randompage"><a href="http://pl.wikipedia.org/wiki/Specjalna:Losowa_strona" title="Pokaż stronę wybraną losowo [alt-x]" accesskey="x">Losuj artykuł</a></li>
+				</ul>
+			</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- zmiany -->
+<div class="portal expanded" id="p-zmiany">
+	<h5 tabindex="2">Dla czytelników</h5>
+	<div class="body" style="display: block; ">
+				<ul>
+					<li id="n-bug_in_article"><a href="http://pl.wikipedia.org/wiki/Vim#">Zgłoś błąd</a></li>
+					<li id="n-bad-image"><a href="http://pl.wikipedia.org/wiki/Vim#">Zgłoś błąd w pliku</a></li>
+					<li id="n-FAQ"><a href="http://pl.wikipedia.org/wiki/Pomoc:FAQ">Pytania czytelników</a></li>
+					<li id="n-Disclaimers-short"><a href="http://pl.wikipedia.org/wiki/Wikipedia:Korzystasz_z_Wikipedii_tylko_na_w%C5%82asn%C4%85_odpowiedzialno%C5%9B%C4%87">Wykluczenie odpowiedzialności</a></li>
+					<li id="n-contact"><a href="http://pl.wikipedia.org/wiki/Wikipedia:Kontakt">Kontakt z Wikipedią</a></li>
+					<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Special:Landingcheck?landing_page=WMFJA085&language=pl&utm_source=donate&utm_medium=sidebar&utm_campaign=20101204SB002" title="Pomóż nam">Wspomóż Wikipedię</a></li>
+				</ul>
+			</div>
+</div>
+
+<!-- /zmiany -->
+
+<!-- Dla edytujących -->
+<div class="portal collapsed" id="p-Dla_edytuj.C4.85cych">
+	<h5 tabindex="3">Dla edytujących</h5>
+	<div class="body">
+				<ul>
+					<li id="n-recentchanges"><a href="http://pl.wikipedia.org/wiki/Specjalna:Ostatnie_zmiany" title="Lista ostatnich zmian na Wikipedii. [alt-r]" accesskey="r">Ostatnie zmiany</a></li>
+					<li id="n-Guidelines"><a href="http://pl.wikipedia.org/wiki/Wikipedia:Zasady">Zasady edytowania</a></li>
+					<li id="n-help"><a href="http://pl.wikipedia.org/wiki/Pomoc:Spis_tre%C5%9Bci" title="Tutaj możesz się wielu rzeczy dowiedzieć.">Pomoc</a></li>
+					<li id="n-portal"><a href="http://pl.wikipedia.org/wiki/Wikipedia:Portal_wikipedyst%C3%B3w" title="O projekcie, co możesz zrobić, gdzie możesz znaleźć informacje">Portal wikipedystów</a></li>
+					<li id="n-Noticeboard"><a href="http://pl.wikipedia.org/wiki/Wikipedia:Tablica_og%C5%82osze%C5%84">Ogłoszenia</a></li>
+				</ul>
+			</div>
+</div>
+
+<!-- /Dla edytujących -->
+
+<!-- coll-print_export -->
+<div class="portal collapsed" id="p-coll-print_export">
+	<h5 tabindex="4">Drukuj lub eksportuj</h5>
+	<div class="body">
+				<ul id="collectionPortletList"><li id="coll-create_a_book"><a href="http://pl.wikipedia.org/w/index.php?title=Specjalna:Ksi%C4%85%C5%BCka&bookcmd=book_creator&referer=Vim" title="Tworzenie książki lub kolekcji stron" rel="nofollow">Utwórz książkę</a></li><li id="coll-download-as-rl"><a href="http://pl.wikipedia.org/w/index.php?title=Specjalna:Ksi%C4%85%C5%BCka&bookcmd=render_article&arttitle=Vim&oldid=23515260&writer=rl" title="Pobierz wersję PDF tej strony wiki" rel="nofollow">Pobierz jako PDF</a></li><li id="t-print"><a href="http://pl.wikipedia.org/w/index.php?title=Vim&printable=yes" title="Wersja do wydruku [alt-p]" accesskey="p">Wersja do druku</a></li></ul>			</div>
+</div>
+
+<!-- /coll-print_export -->
+
+<!-- TOOLBOX -->
+<div class="portal collapsed" id="p-tb">
+	<h5 tabindex="5">Narzędzia</h5>
+	<div class="body">
+		<ul>
+					<li id="t-whatlinkshere"><a href="http://pl.wikipedia.org/wiki/Specjalna:Linkuj%C4%85ce/Vim" title="Pokaż listę wszystkich stron linkujących do tej strony [alt-j]" accesskey="j">Linkujące</a></li>
+						<li id="t-recentchangeslinked"><a href="http://pl.wikipedia.org/wiki/Specjalna:Zmiany_w_linkuj%C4%85cych/Vim" title="Ostatnie zmiany w stronach, do których ta strona linkuje [alt-k]" accesskey="k">Zmiany w dolinkowanych</a></li>
+																																										<li id="t-specialpages"><a href="http://pl.wikipedia.org/wiki/Specjalna:Strony_specjalne" title="Lista wszystkich specjalnych stron [alt-q]" accesskey="q">Strony specjalne</a></li>
+											<li id="t-permalink"><a href="http://pl.wikipedia.org/w/index.php?title=Vim&oldid=23515260" title="Stały link do tej wersji strony">Link do tej wersji</a></li>
+				<li id="t-cite"><a href="http://pl.wikipedia.org/w/index.php?title=Specjalna:Cytuj&page=Vim&id=23515260" title="Informacja o tym jak należy cytować tę stronę">Cytowanie tego artykułu</a></li>		</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- LANGUAGES -->
+<div class="portal expanded" id="p-lang">
+	<h5 tabindex="6">W innych językach</h5>
+	<div class="body" style="display: block; ">
+		<ul>
+					<li class="interwiki-af"><a href="http://af.wikipedia.org/wiki/VIM" title="VIM">Afrikaans</a></li>
+					<li class="interwiki-ar"><a href="http://ar.wikipedia.org/wiki/%D9%81%D9%8A%D9%85_(%D9%85%D8%AD%D8%B1%D8%B1_%D9%86%D8%B5%D9%88%D8%B5)" title="فيم (محرر نصوص)">العربية</a></li>
+					<li class="interwiki-bar"><a href="http://bar.wikipedia.org/wiki/Vim" title="Vim">Boarisch</a></li>
+					<li class="interwiki-bs"><a href="http://bs.wikipedia.org/wiki/Vim" title="Vim">Bosanski</a></li>
+					<li class="interwiki-bg"><a href="http://bg.wikipedia.org/wiki/Vim" title="Vim">Български</a></li>
+					<li class="interwiki-ca"><a href="http://ca.wikipedia.org/wiki/Vim" title="Vim">Català</a></li>
+					<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/Vim" title="Vim">Česky</a></li>
+					<li class="interwiki-de FA" title="Artykuł w tym języku jest na medal"><a href="http://de.wikipedia.org/wiki/Vim" title="Vim">Deutsch</a></li>
+					<li class="interwiki-et"><a href="http://et.wikipedia.org/wiki/Vim" title="Vim">Eesti</a></li>
+					<li class="interwiki-el"><a href="http://el.wikipedia.org/wiki/Vim" title="Vim">Ελληνικά</a></li>
+					<li class="interwiki-en"><a href="http://en.wikipedia.org/wiki/Vim_(text_editor)" title="Vim (text editor)">English</a></li>
+					<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Vim" title="Vim">Español</a></li>
+					<li class="interwiki-eo"><a href="http://eo.wikipedia.org/wiki/Vim_(tekstoprilaborilo)" title="Vim (tekstoprilaborilo)">Esperanto</a></li>
+					<li class="interwiki-eu"><a href="http://eu.wikipedia.org/wiki/Vim" title="Vim">Euskara</a></li>
+					<li class="interwiki-fa"><a href="http://fa.wikipedia.org/wiki/%D9%88%DB%8C%D9%85" title="ویم">فارسی</a></li>
+					<li class="interwiki-fr FA" title="Artykuł w tym języku jest na medal"><a href="http://fr.wikipedia.org/wiki/Vim" title="Vim">Français</a></li>
+					<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/Vim" title="Vim">한국어</a></li>
+					<li class="interwiki-hr"><a href="http://hr.wikipedia.org/wiki/Vim" title="Vim">Hrvatski</a></li>
+					<li class="interwiki-ia"><a href="http://ia.wikipedia.org/wiki/Vim" title="Vim">Interlingua</a></li>
+					<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Vim_(editor_di_testo)" title="Vim (editor di testo)">Italiano</a></li>
+					<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/Vim" title="Vim">עברית</a></li>
+					<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/Vim" title="Vim">Lietuvių</a></li>
+					<li class="interwiki-hu"><a href="http://hu.wikipedia.org/wiki/Vim" title="Vim">Magyar</a></li>
+					<li class="interwiki-ms"><a href="http://ms.wikipedia.org/wiki/Vim" title="Vim">Bahasa Melayu</a></li>
+					<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Vim_(teksteditor)" title="Vim (teksteditor)">Nederlands</a></li>
+					<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/Vim" title="Vim">日本語</a></li>
+					<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/Vim" title="Vim">Português</a></li>
+					<li class="interwiki-ro"><a href="http://ro.wikipedia.org/wiki/Vim" title="Vim">Română</a></li>
+					<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/Vim" title="Vim">Русский</a></li>
+					<li class="interwiki-sh"><a href="http://sh.wikipedia.org/wiki/Vim" title="Vim">Srpskohrvatski / Српскохрватски</a></li>
+					<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Vim" title="Vim">Suomi</a></li>
+					<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Vim_(textredigerare)" title="Vim (textredigerare)">Svenska</a></li>
+					<li class="interwiki-ta"><a href="http://ta.wikipedia.org/wiki/%E0%AE%B5%E0%AE%BF%E0%AE%AE%E0%AF%8D" title="விம்">தமிழ்</a></li>
+					<li class="interwiki-th"><a href="http://th.wikipedia.org/wiki/%E0%B8%A7%E0%B8%B4%E0%B8%A1" title="วิม">ไทย</a></li>
+					<li class="interwiki-tr"><a href="http://tr.wikipedia.org/wiki/Vim" title="Vim">Türkçe</a></li>
+					<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/Vim" title="Vim">Українська</a></li>
+					<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/Vim" title="Vim">中文</a></li>
+				</ul>
+	</div>
+</div>
+
+<!-- /LANGUAGES -->
+			</div>
+		<!-- /panel -->
+		<!-- footer -->
+		<div id="footer">
+											<ul id="footer-info">
+																	<li id="footer-info-lastmod"> Tę stronę ostatnio zmodyfikowano 15:56, 10 paź 2010.</li>
+																							<li id="footer-info-copyright">Tekst udostępniany na <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.pl">licencji Creative Commons: uznanie autorstwa, na tych samych warunkach</a>, z możliwością obowiązywania dodatkowych ograniczeń.
+Zobacz szczegółowe informacje o <a href="http://wikimediafoundation.org/wiki/Terms_of_Use">warunkach korzystania</a>.</li>
+															</ul>
+															<ul id="footer-places">
+																	<li id="footer-places-privacy"><a href="http://wikimediafoundation.org/wiki/Zasady_zachowania_poufno%C5%9Bci" title="wikimedia:Zasady zachowania poufności">Zasady zachowania poufności</a></li>
+																							<li id="footer-places-about"><a href="http://pl.wikipedia.org/wiki/Wikipedia:O_Wikipedii" title="Wikipedia:O Wikipedii">O Wikipedii</a></li>
+																							<li id="footer-places-disclaimer"><a href="http://pl.wikipedia.org/wiki/Wikipedia:Korzystasz_z_Wikipedii_tylko_na_w%C5%82asn%C4%85_odpowiedzialno%C5%9B%C4%87" title="Wikipedia:Korzystasz z Wikipedii tylko na własną odpowiedzialność">Korzystasz z Wikipedii tylko na własną odpowiedzialność</a></li>
+															</ul>
+											<ul id="footer-icons" class="noprint">
+					<li id="footer-copyrightico">
+						<a href="http://wikimediafoundation.org/"><img src="./Vim – Wikipedia, wolna encyklopedia_files/wikimedia-button.png" width="88" height="31" alt="Wikimedia Foundation"></a>
+					</li>
+					<li id="footer-poweredbyico">
+						<a href="http://www.mediawiki.org/"><img src="./Vim – Wikipedia, wolna encyklopedia_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31"></a>
+					</li>
+				</ul>
+						<div style="clear:both"></div>
+		</div>
+		<!-- /footer -->
+		
+<script src="./Vim – Wikipedia, wolna encyklopedia_files/load(2).php" type="text/javascript"></script><script src="./Vim – Wikipedia, wolna encyklopedia_files/load(3).php" type="text/javascript"></script>
+<script type="text/javascript">if ( window.mediaWiki ) {
+	mediaWiki.config.set({"wgCanonicalNamespace": "", "wgCanonicalSpecialPageName": false, "wgNamespaceNumber": 0, "wgPageName": "Vim", "wgTitle": "Vim", "wgAction": "view", "wgArticleId": 6552, "wgIsArticle": true, "wgUserName": null, "wgUserGroups": ["*"], "wgCurRevisionId": 23515260, "wgCategories": ["Edytory tekstu", "Wolne i Otwarte Oprogramowanie", "Wolne oprogramowanie napisane w C"], "wgBreakFrames": false, "wgRestrictionEdit": [], "wgRestrictionMove": [], "wgSearchNamespaces": [0], "wgFlaggedRevsParams": {"tags": {"accuracy": {"levels": 1, "quality": 2, "pristine": 4}}}, "wgStableRevisionId": 23515260, "wgRevContents": {"error": "Nie można pobrać zawartości.", "waiting": "Oczekiwanie na zawartość"}, "wgWikimediaMobileUrl": "http://pl.m.wikipedia.org/wiki", "wgVectorEnabledModules": {"collapsiblenav": true, "collapsibletabs": true, "editwarning": true, "expandablesearch": false, "footercleanup": false, "sectioneditlinks": false, "simplesearch": true, "experiments": true}, "wgWikiEditorEnabledModules": {"toolbar": true, "dialogs": true, "templateEditor": false, "templates": false, "addMediaWizard": false, "preview": false, "previewDialog": false, "publish": false, "toc": false}, "Geo": {"city": "", "country": ""}, "wgNoticeProject": "wikipedia"});
+}
+</script>
+<script type="text/javascript">if ( window.mediaWiki ) {
+	mediaWiki.loader.load(["mediawiki.legacy.wikibits", "mediawiki.util", "mediawiki.legacy.ajax", "mediawiki.legacy.mwsuggest", "ext.vector.collapsibleNav", "ext.vector.collapsibleTabs", "ext.vector.editWarning", "ext.vector.simpleSearch"]);
+	mediaWiki.loader.go();
+}
+</script><script type="text/javascript" src="./Vim – Wikipedia, wolna encyklopedia_files/load(4).php"></script><script type="text/javascript" src="./Vim – Wikipedia, wolna encyklopedia_files/load(5).php"></script>
+
+<script src="./Vim – Wikipedia, wolna encyklopedia_files/flaggedrevs.js" type="text/javascript"></script>
+<script type="text/javascript">
+FlaggedRevs.messages = {"diffToggleShow": "pokaż zmiany", "diffToggleHide": "ukryj zmiany", "logToggleShow": "pokaż rejestr konfiguracji strony", "logToggleHide": "ukryj rejestr konfiguracji strony", "logDetailsShow": "pokaż szczegóły", "logDetailsHide": "ukryj szczegóły", "toggleShow": "(+)", "toggleHide": "(-)"};
+</script>
+<script src="./Vim – Wikipedia, wolna encyklopedia_files/index(5).php" type="text/javascript"></script>
+<script src="./Vim – Wikipedia, wolna encyklopedia_files/load(6).php" type="text/javascript"></script>
+<script type="text/javascript">if ( window.mediaWiki ) {
+	mediaWiki.user.options.set({"ccmeonemails":0,"cols":80,"contextchars":50,"contextlines":5,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":1,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":4,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":0,"watchdeletion":0,
+	"watchlistdays":"3","watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"flaggedrevssimpleui":1,"flaggedrevsstable":false,"flaggedrevseditdiffs":true,"flaggedrevsviewdiffs":false,"vector-simplesearch":1,"useeditwarning":1,"vector-collapsiblenav":1,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"variant":"pl","language":"pl","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs100":false,"searchNs101":false,"searchNs102":false,"searchNs103":false});;mediaWiki.loader.state({"user.options":"ready"});
+	
+	/* cache key: plwiki:resourceloader:filter:minify-js:5:1a3f19ae0e80c2fadf0583985ae0bb9b */
+}
+</script><script type="text/javascript" src="./Vim – Wikipedia, wolna encyklopedia_files/saved_resource"></script>		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+		<!-- /fixalpha -->
+		<!-- Served by srv277 in 0.587 secs. -->			
+
+<div style="top: 71px; width: 203px; display: none; left: auto; right: 30px; " class="suggestions"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

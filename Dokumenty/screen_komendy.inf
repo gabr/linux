@@ -1,0 +1,40 @@
+screen -S [screenName]  - uruchamia wirtualny terminal o nazwie [screenName]
+    Następnie wpisując "exit" terminaln zamknie się. W przypadku gdy chcemy
+    wyjść z sesji nie wyłączając sesji używamy skrótów klawiszowych:
+    CTRL + a i szybko CTRL + b.
+
+screen -ls  - wyświetla listę wszystkich utworzonych wirtualnych terminali.
+screen -r [screenName]  - przechodzimy do wcześniej utworzonego, 
+    istniejącego już wirtualnego terminala o nazwie [screenName].
+screen -dmS [screenName] [operationToDo] - uruchamia w wirtualnym terminalu
+    zadane operacje [operationToDo] ale go nie wyświetla - nie przechodzimy
+    do niego.
+
+SKRÓTY KLAWISZOWE:
+Podstawą każdego skrótu jest CTRL+a dalej reprezentowane przez ^a
+
+^a c - new window
+^a n - next window
+^a p - previous window
+^a " - show windows list
+^a ^a - previous window viewed
+
+spliting windows:
+
+^a S - split terminal horizontally into regions (^a c after that to create new window in)
+^a | - split terminal vertically into regions (requires debian/ubuntu patched screen 4.0)
+^a :resize - resize window
+^a :fit or ^a F - fit screen size to new terminal size, do always after resizing xterm
+^a :remove or ^a X - remove region
+^a tab - move to next region
+
+^a d - detach screen from terminal
+^a A - set window title
+^a x - lock session
+^a [ - enter scrollback/copy mode (ENTER start and end copy, ^a ] to leave this mode)
+^a ] - paste buffer (supports pasting between windows)
+^a > - write paste buffer to file
+^a < - read paste buffer from file
+
+^a ? - show key bindings/command names
+^a : - goto screen command prompt

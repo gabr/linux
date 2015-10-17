@@ -1,0 +1,23 @@
+" PLUGINS
+
+" initiate Vundle
+let &runtimepath.=',$HOME/.vim/bundle/Vundle.vim'
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" plugins definition:
+Plugin 'scrooloose/nerdtree'
+Plugin 'itchyny/lightline.vim'
+"Plugin 'Yggdroot/indentLine'
+Plugin 'vim-scripts/L9'
+Plugin 'vim-scripts/FuzzyFinder'
+Plugin 'Lokaltog/vim-easymotion'
+
+" web plugins
+Plugin 'Shutnik/jshint2.vim'
+"Plugin 'mattn/emmet-vim'
+Plugin 'groenewege/vim-less'
+"Plugin 'skammer/vim-css-color'
+"Plugin 'hail2u/vim-css3-syntax'
+"Plugin 'digitaltoad/vim-jade'

@@ -1,0 +1,7 @@
+Do zabijania procesów wykorzystujących dany port stosujemy polecenie: fuser
+
+sudo fuser -k [PORT]/tcp
+
+np.:
+
+sudo fuser -k 80/tcp

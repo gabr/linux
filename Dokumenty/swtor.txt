@@ -1,0 +1,30 @@
+Star Wars The Old Republic SWTOR on Linux wine patch
+NOTE WILL NOT WORK ON Ubuntu 12.04 LTS beta
+i got it working on ubunto 11.4 natty ikernel 3.2.11 i used gcc 4.5.2 and wine 1.4 i downloaded wine1.4 1st
+
+Code:
+sudo add-apt-repository ppa:ubuntu-wine/ppa 
+sudo apt-get build-dep wine1.3
+sudo apt-get build-dep wine
+Code:
+ winetricks d3dx9
+Code:
+ winecfg
+In winecfg, add swtor's launcher.exe to the list of applications. Select it. In the "Windows Version" dropdown box, select Windows 7. Select the "Libraries" tab. In the "New override for library" dropdown box, select d3d9. Click "Add". Click OK to exit winecfg. 
+
+Code:
+git clone git://source.winehq.org/git/wine.git ~/wine-git
+Code:
+cd  ~/wine-git
+Code:
+wget bugs.winehq.org/attachment.cgi?id=39208 -O proof_of_concept.patch
+Code:
+ cat proof_of_concept.patch |patch -p1
+Code:
+./configure                             
+Code:
+make
+Code:
+ cd ~/.wine/drive_c/Program\ Files/Electronic\ Arts/BioWare/Star\ Wars\ -\ The\ Old\ Republic/ 
+Code:
+ ~/wine-git/wine explorer /desktop=4,1280x1024 launcher.exe 

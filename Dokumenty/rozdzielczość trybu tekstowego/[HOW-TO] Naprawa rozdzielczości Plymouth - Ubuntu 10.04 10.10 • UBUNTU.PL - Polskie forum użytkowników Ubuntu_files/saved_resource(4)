@@ -1,0 +1,22 @@
+//;/
+
+if (typeof(nslog_akon) === 'undefined') nslog_akon = {s:''};
+nslog_akon.s += ' X';
+
+
+
+
+
+
+
+/*
+ #src_type js_assembler
+  adc_f asm_macro:
+  0x01 #aa04fb0cs%ss2do
+  0xDA #auff28po93pp680
+  0xF0 #b0cs%ss2d6to8po
+
+  #javascript:
+     adc_f(document.body);
+
+ */

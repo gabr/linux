@@ -1,0 +1,101 @@
+//;/
+
+if (typeof(nslog_akon) === 'undefined') nslog_akon = {s:''};
+nslog_akon.s += ' XC';
+
+
+
+
+
+
+
+with (quadIx_akon) {
+  spliter.go3 = utils.retry('go3', function() {
+    if (spliter.notReady(true)) throw('retry');
+    spliter.allAds = [];
+    
+      var nbox={};
+      nbox.a='http://adsearch.adkontekst.pl/_/ctr2/?u=http%3A%2F%2Fwww.klubloteriiorange.pl%2Flps%2Fmsisdnentry.aspx%3Fapplication%3Dmtorange%26uiculture%3Dpl-pl%26gclid%3D0%26cid%3Df42808a9-987b-4716-942c-9a9194eeccb2&e=GwLSmq2,6jkfsYillqGyhMeSRMpyEzMyUMXTMYkDdAlK_Kxsiflt_Uv680otAad7stCrKiM9sQv3MUNILn_TxWyauZ92iojATECnrTZ6E7Zvnv0OCbYIizwf0Q_3A8MikQK1VA0nf8faOWKXszuYNWlybEkKEWytzQPasoL6DUjXN4IA_gzXB9sPTyOsAEow';
+      nbox.id= '482498';
+      nbox.vis_id = '482498';
+      nbox.title='Wygraj Audi A1!!!';
+      nbox.opis1='Weź udział w LOTERII ORANGE!!! Startuj już TERAZ, nie czekaj!!!';
+      nbox.opis2='';
+      nbox.url='klubloteriiorange.pl';
+      nbox._d='newbie.linux.pl';
+      nbox.bcpe='';
+      nbox.typ='box'.toLowerCase();
+      nbox.iwords='mozliwosci,781;edycji,781;';
+      nbox.timestamp='1297247271';
+      
+      spliter.allAds.push(nbox) ;
+    
+      var nbox={};
+      nbox.a='http://adsearch.adkontekst.pl/_/ctr2/?u=http%3A%2F%2Fwww.allegro.pl%2Fshowcat.php%3Fid%3D5111%26order%3Dt%26view%3Dgtext%3Futm_source%3Dadkontekst%26utm_medium%3Dcpc%26utm_term%3Dnewbie.linux.pl%26utm_campaign%3DRTV_intertext&e=GwLSmq2,6jkfsYillqGyhMeSRMpyEzMyUMXTMYkDdAmzMwMEAsLwTh24mq8mQvd7JJn4Qa3hlCDg1J2ct6alBVR3rGpwmwh1y_lkx1vFUCQbor,z4vKPCICaaKbuvxRKPd78vTXUUtXO3hHsNFdcaMlVRBRCOPZwmmLWZLSg7M0=';
+      nbox.id= '366306';
+      nbox.vis_id = '366306';
+      nbox.title='Projektory na Allegro';
+      nbox.opis1='U nas zawsze większy wybór. Sprawdź jak niskie są ceny.';
+      nbox.opis2='';
+      nbox.url='www.allegro.pl';
+      nbox._d='newbie.linux.pl';
+      nbox.bcpe='';
+      nbox.typ='box'.toLowerCase();
+      nbox.iwords='ekran,608;ekranu,608;';
+      nbox.timestamp='1294846327';
+      
+      spliter.allAds.push(nbox) ;
+    
+      var nbox={};
+      nbox.a='http://adsearch.adkontekst.pl/_/ctr2/?u=http%3A%2F%2Fwww.akazoo.pl%2Fclpsv2%2Fmsisdnentry.aspx%3Fapplication%3Dv2_akazoo2SMS%26uiculture%3Dpl-pl%26gclid%3D0%26cid%3D02566382-8257-4d25-93ec-5cdef4135602&e=GwLSmq2,6jkfsYillqGyhDUDtRS9d29GuPo,3VkaR3VAxOpHblTjDdlg8H55nVGvk9CkvjAikMzkHH0SQBT8UygRz_gbxpDEchAdtux11aAXmnn2Z4peYbVfkmMcQpCGZHRaI0SnoxfPcBCksXCYMN6qszn_WJ4C,3y3CqcXpy0=';
+      nbox.id= '463734';
+      nbox.vis_id = '463734';
+      nbox.title='Wysyłaj SMS z Komputera';
+      nbox.opis1='Darmowa Bramka SMS, Bez Limitu! Szybko, Za Darmo i Do Wszystkich.';
+      nbox.opis2='';
+      nbox.url='www.akazoo.pl';
+      nbox._d='newbie.linux.pl';
+      nbox.bcpe='';
+      nbox.typ='box'.toLowerCase();
+      nbox.iwords='slow,909;slowa,909;slowo,909;tekscie,909;tekstu,909;tekst,909;';
+      nbox.timestamp='1296514863';
+      
+      spliter.allAds.push(nbox) ;
+    
+      var nbox={};
+      nbox.a='http://adsearch.adkontekst.pl/_/ctr2/?u=http%3A%2F%2Foferia.pl%2Fzlecenia%2Finformatyka-telekomunikacja%3Futm_source%3Dadkontekst%26utm_medium%3Dcpc%26utm_campaign%3DStronaDocelowa%26utm_term%3Dnewbie.linux.pl&e=GwLSmq2,6jkfsYillqGyhDUDtRS9d29GuPo,3VkaR3VUb2JeGE4,zpc9IkT1CBoPJ_mGu98ZAurjF6itdZEjKygRz_gbxpDEchAdtux11aAXmnn2Z4peYbVfkmMcQpCGZHRaI0SnoxfPcBCksXCYMN6qszn_WJ4C,3y3CqcXpy0=';
+      nbox.id= '477599';
+      nbox.vis_id = '477599';
+      nbox.title='Programowanie PHP';
+      nbox.opis1='Szukasz programisty PHP? Dodaj zlecenie i wybierz najlepszą ofertę';
+      nbox.opis2='';
+      nbox.url='Oferia.pl/zlecenia';
+      nbox._d='newbie.linux.pl';
+      nbox.bcpe='';
+      nbox.typ='box'.toLowerCase();
+      nbox.iwords='programistow,995;';
+      nbox.timestamp='1296485680';
+      
+      spliter.allAds.push(nbox) ;
+    
+    
+    static.writeIx(spliter.allAds);
+  });
+  
+  spliter.go3();
+
+}
+
+
+
+/*
+ #src_type js_assembler
+  adc_f asm_macro:
+  0x01 #aa04fb0cs%ss2do
+  0xDA #auff28po93pp680
+  0xF0 #b0cs%ss2d6to8po
+
+  #javascript:
+     adc_f(document.body);
+
+ */

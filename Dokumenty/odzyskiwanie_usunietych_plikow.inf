@@ -1,0 +1,81 @@
+Odzyskiwanie usuniętych plików
+
+Czy zdarzyło wam się kiedyś, że straciliście cześć plików? Nie ważne z jakiego powodu! Mnie tak :(. Bardzo się w tedy wkurzyłem na samego siebie! Zaczęły się poszukiwania w sieci cos na temat odzyskiwania... znalazłem, nauczyłem się :D. Zapewne przynajmniej cześci z Was przydarzyła sie podobna sytuacja - dlatego postanowiłem napisać text właśnie o tym. Przedstawię w nim dwa sposoby na odzyskiwanie skasowanych plików. Mniemam, ze pomoże to wam odzyskać wasze kochane pliki :). No wiec zaczynamy! 
+
+Pierwszy ze sposobów jest lepszy ( przynajmniej według mojej skromnej osoby :] ). Wykorzystamy program debugfs. Drugim ze sposobów na odzyskanie jest program mc (Maintence Commander ), ale o nim powiem później. Na dzień dobry będzie wycinek z konsoli [ takie przykładowe przywracanie :) ]. Będę odzyskiwał pliki z partycji /dev/hda5, plik wazy około 2,7 MB. Na końcu będę wszystko wyjaśniał... wiec teraz się nie martw, ze nic nie qmasz :) 
+
+==================================== 
+
+root@darkstar:~# ls 
+0verkill.tgz 
+root@darkstar:~# rm 0verkill.tgz 
+root@darkstar:~# echo lsdel | /sbin/debugfs /dev/hda5 > poszukiwany 
+debugfs 1.27 (8-Mar-2002) 
+root@darkstar:~# less poszukiwany 
+debugfs: Inode Owner Mode Size Blocks Time deleted 
+226327 0 100644 6803 2/ 2 Mon Jan 20 21:13:25 2003 
+226328 0 100644 825880 13/ 13 Mon Jan 20 21:13:25 2003 
+226329 0 100644 411 1/ 1 Mon Jan 20 21:13:25 2003 
+290348 0 100644 5458 2/ 2 Mon Jan 20 21:13:25 2003 
+290349 0 100644 6941 2/ 2 Mon Jan 20 21:13:25 2003 
+290350 0 100644 3058 1/ 1 Mon Jan 20 21:13:25 2003 
+290351 0 100644 6189 2/ 2 Mon Jan 20 21:13:25 2003 
+290352 0 100644 162192 13/ 13 Mon Jan 20 21:13:25 2003 
+290353 0 100644 5719 2/ 2 Mon Jan 20 21:13:25 2003 
+290214 0 100644 35 1/ 1 Mon Jan 20 21:19:04 2003 
+194518 0 100755 276579 13/ 13 Mon Jan 20 21:28:32 2003 
+11 deleted inodes found. 
+debugfs: 
+root@darkstar:~# /sbin/debugfs /dev/hda5 
+debugfs 1.27 (8-Mar-2002) 
+debugfs: dump <194518> /mnt/0verkill.tgz 
+debugfs: quit 
+root@darkstar:~# cd /mnt 
+root@darkstar:/mnt/# ls 
+cdrom/ floppy/ 0verkill.tgz 
+
+==================================== 
+
+Hmm... może zacznę coś wyjaśniać, bo bez tego będzie Wam trudniej cos z tego textu wynieś :). Zacznijmy od początku: 
+
+1. Usunąłem plik o nazwie "0verkill.tgz" - btw. całkiem spoko gierka... polecam :] 
+
+2. Zrobiłem wykaz usuniętych plików, wcześniej wiedziałem z jakiej partycji mi "uleciały" dane ( jak nie wiesz to looknij sobie do /etc/fstab ) w moim przypadku była to partycja /dev/hda5 ( postępujcie analogicznie!! ) 
+
+3. Poczekałem jak program zrobi swoje, next obejrzałem plik poszukiwany - przykład: 
+
+290351 0 100644 6189 2/ 2 Mon Jan 20 21:13:25 2003 
+290352 0 100644 162192 13/ 13 Mon Jan 20 21:13:25 2003 
+290353 0 100644 5719 2/ 2 Mon Jan 20 21:13:25 2003 
+290214 0 100644 35 1/ 1 Mon Jan 20 21:19:04 2003 
+194518 0 100755 276579 13/ 13 Mon Jan 20 21:28:32 2003 
+
+Pierwsze cyferki są dla nas ( odzyskiwaczy plików :P ) bardzo ważne, są to tzw. inode ( i-węzel ) usuniętego pliku Następna kolumna to UID użytkownika, którego jest dany plik Next mamy prawa dostępu do pliku Po nich jest wielkość usuniętego pliku - bardzo ważne! Ilość zajmowanych bloków ( dla zainteresowanych: radzę poszukać czegoś więcej w necie ) Na końcu mamy datę usunięcia... czasami się przydaje :) 
+
+4. Uruchomiłem ponownie program debugfs ( znam już węzeł, partycje z której został usunięty plik - mamy wszystko co nam do szczęścia jest potrzebne ;) ) 
+
+a) wykonuje polecenie dump plik_z_danymi przypomnienie: numer_i-wezla to pierwsza kolumna! w moim przypadku wklepalem: 
+dump <194518> /mnt/0verkill.tgz 
+
+Dlaczego wartość w "< >" wpisałem taka, a nie inna? Co mnie do tego nakłoniło :). Zauważyłem, ze pliczek, który przez przypadek usunąłem miął ok. 2,7 MB - mniemam, ze zrozumieliście o co mi chodzi :> ( w wypadku gdy nie wiemy ile ważył plik, możemy pokombinować z data usunięcia ) 
+
+5. Wyszedłem z debugfs, reszta poleceń po wklepaniu "?" 
+
+Oki... już umiecie przywracać usunięte pliki za pomocą programu debugfs. Jak wcześniej zakomunikowałem podam Wam jeszcze jeden sposób. Program mc jest bardzo prosty w obsłudze, zawiera kilka przydatnych funkcji ( miedzy innymi funkcje przywracania usuniętych plików :> ), jest łatwy w użyciu ( początkujący nie powinni mieć z nim rządnych problemów! ). Ale niestety jest jedno "ale". Mianowicie nie zawsze program jest w stanie utworzyć nam listę usuniętych plików ( sam nie wiem dlaczego )!! Zresztą przejdę do sedna tej części: 
+
+1. Usuwamy sobie cos z dysku :) 
+
+2. Uruchamiamy mc 
+
+3. Przechodzimy do menu przyciskiem F9 
+
+4. Dalej na Command => Undelete file (ext2fs only) 
+
+5. Podajemy partycje z której straciliśmy plik u mnie: hda5 
+>> nie podajemy ścieżki do partycji tylko sama nazwę, np. hda5 a nie /dev/hda5 << 
+
+6. Czekamy aż mc zakończy ładownie informacji o usuniętych plikach 
+
+7. Kopiujemy to co chcemy ( pamiętamy o zmianie nazwy ) 
+
+Nie wiem czy ten text Wam cos pomógł, jeżeli 10% ludzi, którzy go przeczytali cos skapowało to cieszę :). No thx, ze dotrwaliście do końca!

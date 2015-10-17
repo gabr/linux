@@ -1,0 +1,101 @@
+//;/
+
+if (typeof(nslog_akon) === 'undefined') nslog_akon = {s:''};
+nslog_akon.s += ' XC';
+
+
+
+
+
+
+
+with (quadIx_akon) {
+  spliter.go3 = utils.retry('go3', function() {
+    if (spliter.notReady(true)) throw('retry');
+    spliter.allAds = [];
+    
+      var nbox={};
+      nbox.a='http://adsearch.adkontekst.pl/_/ctr2/?u=http%3A%2F%2Fwww.pobierz.szybszykomputer.pl%3Fl%3Dpl%26ac%3D287%26utm_source%3DAdkontekst%26utm_medium%3Dcpc%26utm_campaign%3DPobierz.SzybszyKomputer.pl_kontekst%26utm_referer%3Dubuntu.pl%26utm_content%3Drozrywkaitx&e=3V6E7ztNlmU_mlzSpZJd0D2H18wCeJ1AISNTk,z7pImoYHLSAhNCL86WgU9XVEgO,ntR34aSW9Wv19YTUgAlNDIrxpgEtK,p3mHraExkz7xPYdprF_0X,QJG1fovfNjQrRU1TWcov,uvKG613,Nj8lBHXH,oMW7oLdSL9HkKluW5nXfIND2vzkPyfZ32kobWfb7MQ,8jdykf_furmN_tHw==';
+      nbox.id= '486036';
+      nbox.vis_id = '486036';
+      nbox.title='Graczu! Przyspiesz kompa!';
+      nbox.opis1='Gierki czasem się tną? Mamy dla ciebie program do optymalizacji.';
+      nbox.opis2='';
+      nbox.url='Pobierz.SzybszyKomputer.pl';
+      nbox._d='ubuntu.pl';
+      nbox.bcpe='';
+      nbox.typ='box'.toLowerCase();
+      nbox.iwords='monitor,500;dzialania,500;polecenie,500;ustawienie,500;ustawic,500;instalacji,500;programu,1570;';
+      nbox.timestamp='1303423404';
+      
+      spliter.allAds.push(nbox) ;
+    
+      var nbox={};
+      nbox.a='http://adsearch.adkontekst.pl/_/ctr2/?u=http%3A%2F%2Fwww.allegro.pl%2Fshowcat.php%3Fid%3D68%26order%3Dt%26view%3Dgtext%3Futm_source%3Dadkontekst%26utm_medium%3Dcpc%26utm_term%3Dubuntu.pl%26utm_campaign%3DKomputery_intertext&e=3V6E7ztNlmU_mlzSpZJd0D2H18wCeJ1AISNTk,z7pIk3xuPJXgXLEPqLhRBAEpU8JJn4Qa3hlCDg1J2ct6alBU9h2msX7Rf9AkbV_i982NCtFTVNZyi,_68obrXf82PyUEdcf_gxbugt1Iv0eQqW5bmdd8g0Pa,OQ,J9nfaShtZ9vsxD,yN3KR,5_6uY360f';
+      nbox.id= '361829';
+      nbox.vis_id = '361829';
+      nbox.title='Oprogramowanie';
+      nbox.opis1='U nas zawsze - większy wybór. Sprawdź jak niskie są ceny.';
+      nbox.opis2='';
+      nbox.url='www.allegro.pl';
+      nbox._d='ubuntu.pl';
+      nbox.bcpe='';
+      nbox.typ='box'.toLowerCase();
+      nbox.iwords='ubuntu,2000;programu,2500;';
+      nbox.timestamp='1295864645';
+      
+      spliter.allAds.push(nbox) ;
+    
+      var nbox={};
+      nbox.a='http://adsearch.adkontekst.pl/_/ctr2/?u=http%3A%2F%2Fwww.healthnewsreporter.pl%2F%3Fl%3Dpl%26aid%3D138%26ac%3D274%26utm_source%3DAdkontekst%26utm_medium%3Dcpc%26utm_campaign%3Dworldwidehealth.pl_kontekst%26utm_referer%3Dubuntu.pl%26utm_content%3DOgolneIntekst&e=3V6E7ztNlmU_mlzSpZJd0D2H18wCeJ1AISNTk,z7pIl3vEGtH6oXxxYn86vcE6wbvK7fcTOk1R1p97Oh_Z255ZjweoxzekGWjX5xVPZcl_HKw,P_y3oY2Fb4o_3mziFpFo1jMEfmEMlLS_klb1JHLk,HAifwfRDgQpKn89KHWo0Jst2PzpVqMVqkz5g8WVvp';
+      nbox.id= '487892';
+      nbox.vis_id = '487892';
+      nbox.title='Top diety zza oceanu';
+      nbox.opis1='Najnowsze rozwiązania z USA już dostępne w Polsce. Sprawdź je teraz';
+      nbox.opis2='';
+      nbox.url='www.worldwidehealth.pl';
+      nbox._d='ubuntu.pl';
+      nbox.bcpe='';
+      nbox.typ='box'.toLowerCase();
+      nbox.iwords='poradniku,588;metodach,588;metoda,588;';
+      nbox.timestamp='1303378481';
+      
+      spliter.allAds.push(nbox) ;
+    
+      var nbox={};
+      nbox.a='http://adsearch.adkontekst.pl/_/ctr2/?u=http%3A%2F%2Fwww.otomoto.pl%2Fplymouth%3Futm_source%3Dadkontekst%26utm_medium%3Dcpc%26utm_term%3Dubuntu.pl%26utm_campaign%3Dotomoto_marki_phrase_intertext&e=3V6E7ztNlmU_mlzSpZJd0D2H18wCeJ1AISNTk,z7pInz2XV,SpyhL8g5oqqvVhr5sv3S0jw1kX1maPPIN8v4Bk9h2msX7Rf9AkbV_i982NCtFTVNZyi,_68obrXf82PyUEdcf_gxbugt1Iv0eQqW5bmdd8g0Pa,OQ,J9nfaShtZ9vsxD,yN3KR,5_6uY360f';
+      nbox.id= '368506';
+      nbox.vis_id = '368506';
+      nbox.title='Plymouth w Otomoto';
+      nbox.opis1='Szukasz auta? Dobrze trafiłeś ! Szeroki wybór używanych samochodów.';
+      nbox.opis2='';
+      nbox.url='www.OtoMoto.pl/Plymouth';
+      nbox._d='ubuntu.pl';
+      nbox.bcpe='';
+      nbox.typ='box'.toLowerCase();
+      nbox.iwords='plymouth,2070;';
+      nbox.timestamp='1300700768';
+      
+      spliter.allAds.push(nbox) ;
+    
+    
+    static.writeIx(spliter.allAds);
+  });
+  
+  spliter.go3();
+
+}
+
+
+
+/*
+ #src_type js_assembler
+  adc_f asm_macro:
+  0x01 #aa04fb0cs%ss2do
+  0xDA #auff28po93pp680
+  0xF0 #b0cs%ss2d6to8po
+
+  #javascript:
+     adc_f(document.body);
+
+ */

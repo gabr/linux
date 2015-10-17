@@ -1,0 +1,900 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0054)http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki -->
+<html lang="pl" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" class="client-chrome client-chrome-1 client-webkit client-win"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Vim/Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników</title>
+
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="generator" content="MediaWiki 1.17wmf1">
+<link rel="alternate" type="application/x-wiki" title="Edytuj" href="http://pl.wikibooks.org/w/index.php?title=Vim/Emacsowe_odpowiedniki&action=edit">
+<link rel="edit" title="Edytuj" href="http://pl.wikibooks.org/w/index.php?title=Vim/Emacsowe_odpowiedniki&action=edit">
+<link rel="shortcut icon" href="http://pl.wikibooks.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://pl.wikibooks.org/w/opensearch_desc.php" title="Wikibooks (pl)">
+<link rel="EditURI" type="application/rsd+xml" href="http://pl.wikibooks.org/w/api.php?action=rsd">
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="alternate" type="application/atom+xml" title="Kanał Atom Wikibooks" href="http://pl.wikibooks.org/w/index.php?title=Specjalna:Ostatnie_zmiany&feed=atom">
+<link rel="stylesheet" href="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/load.php" type="text/css" media="all">
+<style type="text/css" media="all">.suggestions{overflow:hidden;position:absolute;top:0px;left:0px;width:0px;border:none;z-index:99;padding:0;margin:-1px -1px 0 0} html > body .suggestions{margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:Window;font-size:0.8em;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;background-color:Window;font-size:0.8em;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;color:WindowText;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left}.suggestions-result-current{background-color:#4C59A6;background-color:Highlight;color:white;color:HighlightText}.suggestions-special .special-label{font-size:0.8em;color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white;color:HighlightText}.autoellipsis-matched,.highlight{font-weight:bold}
+
+/* cache key: plwikibooks:resourceloader:filter:minify-css:5:8d395f27880b6ffcab73b1c74b0217ea */</style><style type="text/css" media="all">#mw-panel.collapsible-nav div.portal{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAABCAMAAAA7MLYKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAEtQTFRF29vb2tra4ODg6urq5OTk4uLi6+vr7e3t7Ozs8PDw5+fn4+Pj4eHh3d3d39/f6Ojo5eXl6enp8fHx8/Pz8vLy7+/v3Nzc2dnZ2NjYnErj7QAAAD1JREFUeNq0wQUBACAMALDj7hf6JyUFGxzEnYhC9GaNPG1xVffGDErk/iCigLl1XV2xM49lfAxEaSM+AQYA9HMKuv4liFQAAAAASUVORK5CYII=);background-image:url(http://bits.wikimedia.org/w/extensions-1.17/Vector/modules/./images/portal-break.png?2011-02-12T21:25:00Z)!ie;background-position:left top;background-repeat:no-repeat;padding:0.25em 0 !important;margin:-11px 9px 10px 11px}#mw-panel.collapsible-nav div.portal h5{color:#4D4D4D;font-weight:normal;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA9QTFRFeXl53d3dmpqasbGx////GU0iEgAAAAV0Uk5T/////wD7tg5TAAAAK0lEQVQI12NwgQIG0hhCDAwMTCJAhqMCA4MiWEoIJABiOCooQhULi5BqMgB2bh4svs8t+QAAAABJRU5ErkJggg==) left center no-repeat;background:url(http://bits.wikimedia.org/w/extensions-1.17/Vector/modules/./images/open.png?2011-02-12T21:25:00Z) left center no-repeat!ie;padding:4px 0 3px 1.5em;margin-bottom:0px}#mw-panel.collapsible-nav div.collapsed h5{color:#0645AD;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAxQTFRF3d3deXl5////nZ2dQA6SoAAAAAN0Uk5T//8A18oNQQAAADNJREFUeNpiYEIDDMQKMKALMDOgCTDCRWACcBG4AEwEIcDITEAFuhnotmC4g4EEzwEEGAADqgHmQSPJKgAAAABJRU5ErkJggg==) left center no-repeat;background:url(http://bits.wikimedia.org/w/extensions-1.17/Vector/modules/./images/closed-ltr.png?2011-02-12T21:25:00Z) left center no-repeat!ie;margin-bottom:0px}#mw-panel.collapsible-nav div h5:hover{cursor:pointer;text-decoration:none}#mw-panel.collapsible-nav div.collapsed h5:hover{text-decoration:underline}#mw-panel.collapsible-nav div.portal div.body{background:none !important;padding-top:0px;display:none}#mw-panel.collapsible-nav div.persistent div.body{display:block}#mw-panel.collapsible-nav div.first h5{display:none}#mw-panel.collapsible-nav div.persistent h5{background:none !important;padding-left:0.7em;cursor:default}#mw-panel.collapsible-nav div.portal div.body ul li{padding:0.25em 0}#mw-panel.collapsible-nav div.first{background-image:none;margin-top:0px}#mw-panel.collapsible-nav div.persistent div.body{margin-left:0.5em}
+
+/* cache key: plwikibooks:resourceloader:filter:minify-css:5:c5cca4c308b0b64d12b1147b6871e86e */</style><meta name="ResourceLoaderDynamicStyles" content=""><link rel="stylesheet" href="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/load(1).php" type="text/css" media="all">
+<style type="text/css" media="all">a.new,#quickbar a.new{color:#ba0000}
+
+/* cache key: plwikibooks:resourceloader:filter:minify-css:5:f2a9127573a22335c2a9102b208c73e7 */</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins-1.17/vector/csshover.min.htc")}</style><![endif]--><script src="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/index.php" type="text/javascript"></script></head>
+<body class="mediawiki ltr ns-0 ns-subject page-Vim_Emacsowe_odpowiedniki skin-vector">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- sitenotice -->
+			<div id="siteNotice"><div id="centralNotice" class="expanded"><style type="text/css">
+
+#centralNotice.collapsed #wmplaction{
+  display: none;
+ }
+
+#wmplaction{
+  position: relative;
+  overflow: hidden;
+  background-position: center left;
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  margin-bottom: 0.5em !important;
+  background-color:#FFFFFF;
+  border: solid 1px black; 
+  height:93px;
+}
+
+#wmplaction-logo-02 {
+  background-image: url(http://upload.wikimedia.org/wikipedia/foundation/thumb/9/9c/MokaHands_CN.png/120px-MokaHands_CN.png);
+  height: 93px;
+  width: 120px;
+  background-position: top left;
+  position: relative;
+  overflow: hidden;
+ }
+
+a.cn-full-banner-click {
+ display:block;
+ position:relative;
+ height:100%;
+ width:100%;
+}
+
+/* Bigger bold, blue text */
+#wmplaction-text {
+ font-size: 2em;
+ font-weight: bold;
+ font-family: Helvetica, sans-serif;
+ color: #0019e8;
+ padding: 1em;
+ position:absolute;
+ left: 215px;
+ top: 7px;
+ line-height: 1em;
+ text-align:center;
+}
+
+#wmplaction-text:hover {
+ text-decoration: underline
+}
+
+#wmplaction a {
+ text-decoration: none;
+}
+
+#wmplaction div#cn-toggle-box {
+  position: absolute;
+  z-index: 1000;
+  top: .2em;
+  right: .2em;
+ }
+
+</style>
+
+
+
+<div id="wmplaction">
+<a class="variable_lp cn-full-banner-click" href="http://opp.wikimedia.pl/">
+<div id="wmplaction-logo-02"></div>
+<div id="wmplaction-text">
+ 1% podatku – Twój wybór, Twoje Wikibooks
+</div>
+
+</a>
+<div id="cn-toggle-box">
+<a href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#" onclick="toggleNotice();return false"><img border="0" src="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/closewindow.png" width="13" height="13" alt="Close"></a>
+</div>
+
+</div></div><!-- centralNotice loads here --></div>
+			<!-- /sitenotice -->
+						<!-- firstHeading -->
+			<div id="pwFHButtonDiv">[<a id="pwFHButton" href="javascript:pathway.toggleFirstHeading()">rozwiń</a>]</div><h1 id="firstHeading" class="firstHeading" style="position: relative; "><div>Vim/Emacsowe odpowiedniki</div><div class="editsection" style="position: absolute; right: 0px; font-size: x-small; bottom: -0.7em; ">[<a href="http://pl.wikibooks.org/w/index.php?title=Vim/Emacsowe_odpowiedniki&action=edit&section=0" title="edytuj sekcję nagłówkową artykułu">edytuj</a>]</div></h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<div id="siteSub">Z Wikibooks, biblioteki wolnych podręczników.</div>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"><div id="pwContent"><div id="pwPathway"> &gt; <a href="http://pl.wikibooks.org/wiki/Vim">Vim</a> &gt; Emacsowe odpowiedniki<a id="pwNavToggle" href="javascript:pathway.toggleNavigation()"> »</a></div><div id="pwNav" style="display: none; "><input id="pwNavInput" type="text"><span id="pwNavButtons"> <a id="pwNavGo" href="http://pl.wikibooks.org/wiki/Vim/Emacsowe%20odpowiedniki">Przejdź</a> | <a id="pwNavEdit" href="http://pl.wikibooks.org/w/index.php?action=edit&title=Vim/Emacsowe%20odpowiedniki">Edytuj</a></span></div></div><span class="subpages">&lt; <a href="http://pl.wikibooks.org/wiki/Vim">Vim</a></span></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Skocz do: <a href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#mw-head">nawigacji</a>,
+					<a href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#p-search">wyszukiwania</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<p><a href="http://pl.wikibooks.org/wiki/Aneks/Odpowiedniki_w_Emacs_i_Vim" title="Aneks/Odpowiedniki w Emacs i Vim">Przejdź do aneksu</a></p>
+<p>Szablon użyty w <a href="http://pl.wikibooks.org/wiki/Vim">Vim</a> i <a href="http://pl.wikibooks.org/wiki/Emacs">Emacs</a></p>
+<table id="toc" class="toc">
+<tbody><tr>
+<td>
+<div id="toctitle">
+<h2>Spis treści</h2>
+ <span class="toctoggle">[<a id="togglelink" class="internal" href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#">ukryj</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#Legenda"><span class="tocnumber">1</span> <span class="toctext">Legenda</span></a></li>
+<li class="toclevel-1"><a href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#Og.C3.B3lne"><span class="tocnumber">2</span> <span class="toctext">Ogólne</span></a></li>
+<li class="toclevel-1"><a href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#Zaznaczanie.2C_kopiowanie.2C_wycinanie_i_wklejanie"><span class="tocnumber">3</span> <span class="toctext">Zaznaczanie, kopiowanie, wycinanie i wklejanie</span></a></li>
+<li class="toclevel-1"><a href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#.C5.81atwiejsze_kopiowanie_linii_w_Emacsie"><span class="tocnumber">4</span> <span class="toctext">Łatwiejsze kopiowanie linii w Emacsie</span></a></li>
+<li class="toclevel-1"><a href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#Szukanie_i_zamiania"><span class="tocnumber">5</span> <span class="toctext">Szukanie i zamiania</span></a></li>
+<li class="toclevel-1"><a href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#Sprawdzanie_pisowni"><span class="tocnumber">6</span> <span class="toctext">Sprawdzanie pisowni</span></a></li>
+<li class="toclevel-1"><a href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#Kodowanie"><span class="tocnumber">7</span> <span class="toctext">Kodowanie</span></a></li>
+<li class="toclevel-1"><a href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#Dla_programist.C3.B3w"><span class="tocnumber">8</span> <span class="toctext">Dla programistów</span></a></li>
+<li class="toclevel-1"><a href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#Bufory.2C_okna_itp."><span class="tocnumber">9</span> <span class="toctext">Bufory, okna itp.</span></a></li>
+<li class="toclevel-1"><a href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#Adresy"><span class="tocnumber">10</span> <span class="toctext">Adresy</span></a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=Aneks/Odpowiedniki_w_Emacs_i_Vim&action=edit&section=T-1" title="Aneks/Odpowiedniki w Emacs i Vim">edytuj</a>]</span> <span class="mw-headline" id="Legenda">Legenda</span></h2>
+<p>C Ctrl, M Alt, RET Enter, SPC spacja, TAB Tabulator, ZNAK wprowadzony znak, SŁOWO wprowadzone słowo</p>
+<h2><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=Aneks/Odpowiedniki_w_Emacs_i_Vim&action=edit&section=T-2" title="Aneks/Odpowiedniki w Emacs i Vim">edytuj</a>]</span> <span class="mw-headline" id="Og.C3.B3lne">Ogólne</span></h2>
+<table border="0" width="100%" cellpadding="0" cellspacing="0" style="background: #fafafa; border:1px dashed silver">
+<tbody><tr>
+<td style="width: 40%; vertical-align: top; font-weight: bold">
+<p>Polecenie</p>
+</td>
+<td style="width: 30%; vertical-align: top; font-weight: bold">
+<p>vim</p>
+</td>
+<td style="width: 30%; vertical-align:top; font-weight: bold">
+<p>emacs</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Cofnij zmianę w tekście</p>
+</td>
+<td>
+<p>u (w trybie normal)</p>
+</td>
+<td>
+<p>C-/ (C-g przełącza między cofnij/ponów)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Otwórz linię</p>
+</td>
+<td>
+<p>o</p>
+</td>
+<td>
+<p>C-o</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Koniec linii i edycja</p>
+</td>
+<td>
+<p>A</p>
+</td>
+<td>
+<p>C-e</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Początek linii i edycja</p>
+</td>
+<td>
+<p>I</p>
+</td>
+<td>
+<p>C-a</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Wyjście do trybu podstawowego</p>
+</td>
+<td>
+<p>Esc</p>
+</td>
+<td>
+<p>C-g</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Bufor na write</p>
+</td>
+<td>
+<p>przy zapisie&nbsp;:w!</p>
+</td>
+<td>
+<p>C-x C-q</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Zapis</p>
+</td>
+<td>
+<p>:w</p>
+</td>
+<td>
+<p>C-x C-s</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Pokaż informacje o znaku</p>
+</td>
+<td>
+<p>ga</p>
+</td>
+<td>
+<p>C-x =</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Zwiększ wcięcie linii</p>
+</td>
+<td>
+<p>&gt;&gt;</p>
+</td>
+<td>
+<p>TAB (tylko zgodnie ze składnią)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Zwiększ wcięcie regionu</p>
+</td>
+<td>
+<p>&nbsp;</p>
+</td>
+<td>
+<p>C-M-\ (tylko zgodnie ze składnią)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Idź do linii numer NR</p>
+</td>
+<td>
+<p>:NR RET</p>
+</td>
+<td>
+<p>M-g g NR ENTER</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Dopełnianie</p>
+</td>
+<td>
+<p>C-x C-p (zobacz też. omni)</p>
+</td>
+<td>
+<p>M-/</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Poprawienie wcięć dla zaznaczenia</p>
+</td>
+<td>
+<p>=</p>
+</td>
+<td>
+<p>M-C-\</p>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=Aneks/Odpowiedniki_w_Emacs_i_Vim&action=edit&section=T-3" title="Aneks/Odpowiedniki w Emacs i Vim">edytuj</a>]</span> <span class="mw-headline" id="Zaznaczanie.2C_kopiowanie.2C_wycinanie_i_wklejanie">Zaznaczanie, kopiowanie, wycinanie i wklejanie</span></h2>
+<p><a href="http://www.gnu.org/software/emacs/manual/html_node/emacs/Killing.html" class="external text" rel="nofollow">W Emacs Manual</a></p>
+<table border="0" width="100%" cellpadding="0" cellspacing="0" style="background: #fafafa; border:1px dashed silver">
+<tbody><tr>
+<td style="width: 40%; vertical-align: top; font-weight: bold">
+<p>Polecenie</p>
+</td>
+<td style="width: 30%; vertical-align: top; font-weight: bold">
+<p>Vim</p>
+</td>
+<td style="width: 30%; vertical-align:top; font-weight: bold">
+<p>Emacs</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Włącz zaznaczanie znaków</p>
+</td>
+<td>
+<p>v</p>
+</td>
+<td>
+<p>C-SPC</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Zamień pozycję kursora i znacznika</p>
+</td>
+<td>
+<p>&nbsp;</p>
+</td>
+<td>
+<p>C-x C-x</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Skopiuj</p>
+</td>
+<td>
+<p>y</p>
+</td>
+<td>
+<p>M-w</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Wytnij</p>
+</td>
+<td>
+<p>d</p>
+</td>
+<td>
+<p>C-w</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Wklej (przed kursorem)</p>
+</td>
+<td>
+<p>P</p>
+</td>
+<td>
+<p>C-y</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Wklej poprzedni tekst ze schowka</p>
+</td>
+<td>
+<p>"0p</p>
+</td>
+<td>
+<p>C-y M-y</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Zaznacz cały tekst</p>
+</td>
+<td>
+<p>gg V S-g</p>
+</td>
+<td>
+<p>C-x h</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Usuń 5 linii</p>
+</td>
+<td>
+<p>5dd</p>
+</td>
+<td>
+<p>C-u 5 C-k</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Skopiuj linię</p>
+</td>
+<td>
+<p>yy</p>
+</td>
+<td>
+<p>C-a C-k C-y</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Skopiuj 3 linie wizualnie</p>
+</td>
+<td>
+<p>V jj y</p>
+</td>
+<td>
+<p>C-a C-SPC C-n C-n C-e M-w</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Usuń do znaku włącznie (edycja)</p>
+</td>
+<td>
+<p>cfZNAK</p>
+</td>
+<td>
+<p>M-zZNAK</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Usuń do znaku (edycja)</p>
+</td>
+<td>
+<p>ctZNAK</p>
+</td>
+<td>
+<p>M-C-k (prawie to samo)</p>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=Aneks/Odpowiedniki_w_Emacs_i_Vim&action=edit&section=T-4" title="Aneks/Odpowiedniki w Emacs i Vim">edytuj</a>]</span> <span class="mw-headline" id=".C5.81atwiejsze_kopiowanie_linii_w_Emacsie">Łatwiejsze kopiowanie linii w Emacsie</span></h2>
+<p><a href="http://emacs.wordpress.com/2007/01/22/killing-yanking-and-copying-lines/#comment-41" class="external autonumber" rel="nofollow">[1]</a></p>
+<p>Poniższy kod ustawiamy w <a href="http://pl.wikibooks.org/wiki/Emacs/Konfiguracja" title="Emacs/Konfiguracja">Konfiguracji</a>.</p>
+<p>Kopiowanie od początku wcięcia do końca linii. Enter mapujemy na newline-and-indent, tak więc można skopiować linię poniższymi funkcjami, przejść do wybranej linii, wcisnąć Enter i wkleić przez C-y.</p>
+<pre>(defun mark-line (&amp;optional arg)
+"Marks a line from start of indentation to end"
+(interactive “p”)
+(back-to-indentation)
+(end-of-line-mark arg))
+</pre>
+<pre>(defun copy-line (&amp;optional arg)
+"Kills a line, not including leading indentation"
+(interactive "p")
+(mark-line arg)
+(kill-ring-save (point) (mark)))
+</pre>
+<p>mark-line zmapowana na C-c l</p>
+<p>copy-line zmapowana na C-x l</p>
+<p>Funkcja przyjmuje także argumenty.</p>
+<h2><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=Aneks/Odpowiedniki_w_Emacs_i_Vim&action=edit&section=T-5" title="Aneks/Odpowiedniki w Emacs i Vim">edytuj</a>]</span> <span class="mw-headline" id="Szukanie_i_zamiania">Szukanie i zamiania</span></h2>
+<p><a href="http://marcin.af.gliwice.pl/oinkoink-20060705220035" class="external free" rel="nofollow">http://marcin.af.gliwice.pl/oinkoink-20060705220035</a></p>
+<table border="0" width="100%" cellpadding="0" cellspacing="0" style="background: #fafafa; border:1px dashed silver">
+<tbody><tr>
+<td style="width: 40%; vertical-align: top; font-weight: bold">
+<p>Polecenie</p>
+</td>
+<td style="width: 30%; vertical-align: top; font-weight: bold">
+<p>Vim (? do tyłu)</p>
+</td>
+<td style="width: 30%; vertical-align:top; font-weight: bold">
+<p>Emacs (C-r do tyłu)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Przyrostkowe szukanie</p>
+</td>
+<td>
+<p>/</p>
+</td>
+<td>
+<p>C-s</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Szukanie STRINGU</p>
+</td>
+<td>
+<p>&nbsp;</p>
+</td>
+<td>
+<p>C-s RET STRING RET</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Szukanie SŁOWA/SŁÓW.</p>
+</td>
+<td>
+<p>&nbsp;</p>
+</td>
+<td>
+<p>C-s RET C-w SŁOWO RET</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Szukanie tekstu z wykorzystaniem wyrażeń regularnych.</p>
+</td>
+<td>
+<p>/</p>
+</td>
+<td>
+<p>C-M-s</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Szukanie tekstu z wykorzystaniem wyrażeń regularnych.</p>
+</td>
+<td>
+<p>:%s/CO/NA_CO/g</p>
+</td>
+<td>
+<p>C-M-%</p>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=Aneks/Odpowiedniki_w_Emacs_i_Vim&action=edit&section=T-6" title="Aneks/Odpowiedniki w Emacs i Vim">edytuj</a>]</span> <span class="mw-headline" id="Sprawdzanie_pisowni">Sprawdzanie pisowni</span></h2>
+<p><a href="http://marcin.af.gliwice.pl/oinkoink-20060719001242" class="external free" rel="nofollow">http://marcin.af.gliwice.pl/oinkoink-20060719001242</a></p>
+<h2><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=Aneks/Odpowiedniki_w_Emacs_i_Vim&action=edit&section=T-7" title="Aneks/Odpowiedniki w Emacs i Vim">edytuj</a>]</span> <span class="mw-headline" id="Kodowanie">Kodowanie</span></h2>
+<p><a href="http://marcin.af.gliwice.pl/emacs-w-odcinkach-20061118110745" class="external free" rel="nofollow">http://marcin.af.gliwice.pl/emacs-w-odcinkach-20061118110745</a></p>
+<h2><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=Aneks/Odpowiedniki_w_Emacs_i_Vim&action=edit&section=T-8" title="Aneks/Odpowiedniki w Emacs i Vim">edytuj</a>]</span> <span class="mw-headline" id="Dla_programist.C3.B3w">Dla programistów</span></h2>
+<table border="0" width="100%" cellpadding="0" cellspacing="0" style="background: #fafafa; border:1px dashed silver">
+<tbody><tr>
+<td style="width: 40%; vertical-align: top; font-weight: bold">
+<p>Polecenie</p>
+</td>
+<td style="width: 30%; vertical-align: top; font-weight: bold">
+<p>Vim</p>
+</td>
+<td style="width: 30%; vertical-align:top; font-weight: bold">
+<p>Emacs</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Zakomentuj/odkomentuj zaznaczenie</p>
+</td>
+<td></td>
+<td>
+<p>M-;</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Idź do linii 20</p>
+</td>
+<td>
+<p>:20</p>
+</td>
+<td>
+<p>M-g-g 20 RET</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Autodopełnianie na podstawie buforów</p>
+</td>
+<td>
+<p>C-n lub C-p</p>
+</td>
+<td>
+<p>M-/</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Autodopełnianie na podstawie języka programowania</p>
+</td>
+<td>
+<p>Ctrl-x Ctrl-o</p>
+</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=Aneks/Odpowiedniki_w_Emacs_i_Vim&action=edit&section=T-9" title="Aneks/Odpowiedniki w Emacs i Vim">edytuj</a>]</span> <span class="mw-headline" id="Bufory.2C_okna_itp.">Bufory, okna itp.</span></h2>
+<table border="0" width="100%" cellpadding="0" cellspacing="0" style="background: #fafafa; border:1px dashed silver">
+<tbody><tr>
+<td style="width: 40%; vertical-align: top; font-weight: bold">
+<p>Polecenie</p>
+</td>
+<td style="width: 30%; vertical-align: top; font-weight: bold">
+<p>Vim</p>
+</td>
+<td style="width: 30%; vertical-align:top; font-weight: bold">
+<p>Emacs</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Podziel okno w poziomie i otwórz plik</p>
+</td>
+<td>
+<p>:sp file</p>
+</td>
+<td>
+<p>C-x 4 f file</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Przełącz między oknami</p>
+</td>
+<td>
+<p>C-w C-w</p>
+</td>
+<td>
+<p>C-x o</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Zamknij okno oraz plik</p>
+</td>
+<td>
+<p>:bw</p>
+</td>
+<td>
+<p>C-b k C-x 0</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Przełącz między buforami</p>
+</td>
+<td>
+<p>:bn lub :bp</p>
+</td>
+<td>
+<p>C-x lewa/prawa strzałka</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Wyświetl zawartość buforów</p>
+</td>
+<td>
+<p>:li</p>
+</td>
+<td>
+<p>C-x C-b</p>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=Aneks/Odpowiedniki_w_Emacs_i_Vim&action=edit&section=T-10" title="Aneks/Odpowiedniki w Emacs i Vim">edytuj</a>]</span> <span class="mw-headline" id="Adresy">Adresy</span></h2>
+<p><a href="http://www.math.uh.edu/~bgb/emacs_keys.html" class="external free" rel="nofollow">http://www.math.uh.edu/~bgb/emacs_keys.html</a></p>
+<p><a href="http://karl-voit.at/editors.shtml" class="external free" rel="nofollow">http://karl-voit.at/editors.shtml</a></p>
+<p><br></p>
+<div class="noprint" style="clear:both; margin-top: 2em;">
+<hr>
+<table width="100%">
+<tbody><tr>
+<td style="width:40%; text-align:left;">
+<div>« <a href="http://pl.wikibooks.org/w/index.php?title=Vim/Upiekszanie_Vima&action=edit&redlink=1" class="new" title="Vim/Upiekszanie Vima (strona nie istnieje)">Upiekszanie Vima</a></div>
+</td>
+<td style="width:20%; text-align:center;"><b><a href="http://pl.wikibooks.org/wiki/Vim" title="Vim">Spis treści</a></b></td>
+<td style="width:40%; text-align:right;">
+<div><a href="http://pl.wikibooks.org/w/index.php?title=Vim/Przyk%C5%82ady_II&action=edit&redlink=1" class="new" title="Vim/Przykłady II (strona nie istnieje)">Przykłady II</a> »</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 69/1000000
+Post-expand include size: 7131/2048000 bytes
+Template argument size: 153/2048000 bytes
+Expensive parser function count: 1/500
+-->
+
+<!-- Saved in parser cache with key plwikibooks:pcache:idhash:13700-0!*!0!!pl!* and timestamp 20110428134453 -->
+<div class="printfooter">
+Źródło „<a href="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników.htm">http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki</a>”</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks catlinks-allhidden"></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		<div id="mw-head" class="noprint">
+			
+<!-- 0 -->
+<div id="p-personal" class="">
+	<h5>Osobiste</h5>
+	<ul>
+					<li id="pt-login"><a href="http://pl.wikibooks.org/w/index.php?title=Specjalna:Zaloguj&returnto=Vim/Emacsowe_odpowiedniki" title="Zachęcamy do zalogowania się, choć nie jest to obowiązkowe. [alt-o]" accesskey="o">Logowanie i rejestracja</a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+			<div id="left-navigation">
+				
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Przestrzenie nazw</h5>
+	<ul>
+					<li id="ca-nstab-main" class="selected"><span><a href="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników.htm" title="Zobacz stronę treści [alt-c]" accesskey="c">Moduł</a></span></li>
+					<li id="ca-talk"><span><a href="http://pl.wikibooks.org/wiki/Dyskusja:Vim/Emacsowe_odpowiedniki" title="Dyskusja o zawartości tej strony. [alt-t]" accesskey="t">Dyskusja</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+		<h5><span>Warianty</span><a href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+			</div>
+			<div id="right-navigation">
+				
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Widok</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników.htm">Czytaj</a></span></li>
+					<li id="ca-edit"><span><a href="http://pl.wikibooks.org/w/index.php?title=Vim/Emacsowe_odpowiedniki&action=edit" title="Możesz edytować tę stronę. Przed zapisaniem zmian użyj przycisku podgląd. [alt-e]" accesskey="e">Edytuj</a></span></li>
+					<li id="ca-history" class="collapsible "><span><a href="http://pl.wikibooks.org/w/index.php?title=Vim/Emacsowe_odpowiedniki&action=history" title="Starsze wersje tej strony. [alt-h]" accesskey="h">Wyświetl historię</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Działania</span><a href="http://pl.wikibooks.org/wiki/Vim/Emacsowe_odpowiedniki#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search">
+	<h5><label for="searchInput">Szukaj</label></h5>
+	<form action="http://pl.wikibooks.org/w/index.php" id="searchform">
+		<input type="hidden" name="title" value="Specjalna:Szukaj">
+				<div id="simpleSearch">
+						<input id="searchInput" name="search" type="text" title="Przeszukaj Wikibooks [alt-f]" accesskey="f" value="" tabindex="1" placeholder="Szukaj" autocomplete="off">
+						<button id="searchButton" type="submit" name="button" title="Szukaj wprowadzonego tekstu w treści stron"><img src="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/search-ltr.png" alt="Szukaj"></button>
+					</div>
+			</form>
+</div>
+
+<!-- /2 -->
+			</div>
+		</div>
+		<!-- /header -->
+		<!-- panel -->
+			<div id="mw-panel" class="noprint collapsible-nav">
+				<!-- logo -->
+					<div id="p-logo"><a style="background-image: url(http://upload.wikimedia.org/wikipedia/commons/4/49/Wikibooks-logo-en-noslogan.png);" href="http://pl.wikibooks.org/wiki/Wikibooks:Strona_g%C5%82%C3%B3wna" title="Strona główna"></a></div>
+				<!-- /logo -->
+				
+<!-- navigation -->
+<div class="portal first persistent" id="p-navigation">
+	<h5>Nawigacja</h5>
+	<div class="body">
+				<ul>
+					<li id="n-Strona-g.C5.82.C3.B3wna"><a href="http://pl.wikibooks.org/wiki/Wikibooks:Strona_g%C5%82%C3%B3wna">Strona główna</a></li>
+					<li id="n-Wikijunior"><a href="http://pl.wikibooks.org/wiki/Wikijunior">Wikijunior</a></li>
+					<li id="n-Ksi.C4.99gozbi.C3.B3r"><a href="http://pl.wikibooks.org/wiki/Wikibooks:Ksi%C4%99gozbi%C3%B3r">Księgozbiór</a></li>
+					<li id="n-Ksi.C4.85.C5.BCka-kucharska"><a href="http://pl.wikibooks.org/wiki/Ksi%C4%85%C5%BCka_kucharska">Książka kucharska</a></li>
+					<li id="n-portal"><a href="http://pl.wikibooks.org/wiki/Wikibooks:Portal_wikipedyst%C3%B3w" title="O projekcie, co możesz zrobić, gdzie możesz znaleźć informacje">Portal użytkowników</a></li>
+					<li id="n-recentchanges"><a href="http://pl.wikibooks.org/wiki/Specjalna:Ostatnie_zmiany" title="Lista ostatnich zmian na Wikibooks. [alt-r]" accesskey="r">Ostatnie zmiany</a></li>
+					<li id="n-randompage"><a href="http://pl.wikibooks.org/wiki/Specjalna:Losowa_strona" title="Pokaż stronę wybraną losowo [alt-x]" accesskey="x">Losowa strona</a></li>
+					<li id="n-help"><a href="http://pl.wikibooks.org/wiki/Pomoc:Spis_tre%C5%9Bci" title="Tutaj możesz się wielu rzeczy dowiedzieć.">Pomoc</a></li>
+					<li id="n-Kontakt"><a href="http://pl.wikibooks.org/wiki/Wikibooks:Kontakt">Kontakt</a></li>
+				</ul>
+			</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- coll-print_export -->
+<div class="portal expanded" id="p-coll-print_export">
+	<h5 tabindex="2">Drukuj lub eksportuj</h5>
+	<div class="body" style="display: block; ">
+				<ul id="collectionPortletList"><li id="coll-create_a_book"><a href="http://pl.wikibooks.org/w/index.php?title=Specjalna:Ksi%C4%85%C5%BCka&bookcmd=book_creator&referer=Vim%2FEmacsowe+odpowiedniki" title="Tworzenie książki lub kolekcji stron" rel="nofollow">Utwórz książkę</a></li><li id="coll-download-as-rl"><a href="http://pl.wikibooks.org/w/index.php?title=Specjalna:Ksi%C4%85%C5%BCka&bookcmd=render_article&arttitle=Vim%2FEmacsowe+odpowiedniki&oldid=145925&writer=rl" title="Pobierz wersję PDF tej strony wiki" rel="nofollow">Pobierz jako PDF</a></li><li id="t-print"><a href="http://pl.wikibooks.org/w/index.php?title=Vim/Emacsowe_odpowiedniki&printable=yes" title="Wersja do wydruku [alt-p]" accesskey="p">Wersja do druku</a></li></ul>			</div>
+</div>
+
+<!-- /coll-print_export -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- TOOLBOX -->
+<div class="portal collapsed" id="p-tb">
+	<h5 tabindex="3">Narzędzia</h5>
+	<div class="body">
+		<ul>
+					<li id="t-whatlinkshere"><a href="http://pl.wikibooks.org/wiki/Specjalna:Linkuj%C4%85ce/Vim/Emacsowe_odpowiedniki" title="Pokaż listę wszystkich stron linkujących do tej strony [alt-j]" accesskey="j">Linkujące</a></li>
+						<li id="t-recentchangeslinked"><a href="http://pl.wikibooks.org/wiki/Specjalna:Zmiany_w_linkuj%C4%85cych/Vim/Emacsowe_odpowiedniki" title="Ostatnie zmiany w stronach, do których ta strona linkuje [alt-k]" accesskey="k">Zmiany w dolinkowanych</a></li>
+																																										<li id="t-specialpages"><a href="http://pl.wikibooks.org/wiki/Specjalna:Strony_specjalne" title="Lista wszystkich specjalnych stron [alt-q]" accesskey="q">Strony specjalne</a></li>
+											<li id="t-permalink"><a href="http://pl.wikibooks.org/w/index.php?title=Vim/Emacsowe_odpowiedniki&oldid=145925" title="Stały link do tej wersji strony">Link do tej wersji</a></li>
+						</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- LANGUAGES -->
+
+<!-- /LANGUAGES -->
+			</div>
+		<!-- /panel -->
+		<!-- footer -->
+		<div id="footer">
+											<ul id="footer-info">
+																	<li id="footer-info-lastmod"> Tę stronę ostatnio zmodyfikowano 04:22, 19 lis 2010.</li>
+																							<li id="footer-info-copyright">Tekst udostępniany na <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.pl">licencji Creative Commons: uznanie autorstwa, na tych samych warunkach</a>, z możliwością obowiązywania dodatkowych ograniczeń.
+Zobacz szczegółowe informacje o <a href="http://wikimediafoundation.org/wiki/Terms_of_Use">warunkach korzystania</a>.</li>
+															</ul>
+															<ul id="footer-places">
+																	<li id="footer-places-privacy"><a href="http://wikimediafoundation.org/wiki/Zasady_ochrony_prywatno%C5%9Bci" title="wikimedia:Zasady ochrony prywatności">Zasady zachowania poufności</a></li>
+																							<li id="footer-places-about"><a href="http://pl.wikibooks.org/wiki/Wikibooks:O_Wikibooks" title="Wikibooks:O Wikibooks">O Wikibooks</a></li>
+																							<li id="footer-places-disclaimer"><a href="http://pl.wikibooks.org/wiki/Wikibooks:Informacje_prawne" title="Wikibooks:Informacje prawne">Informacje prawne</a></li>
+															</ul>
+											<ul id="footer-icons" class="noprint">
+					<li id="footer-copyrightico">
+						<a href="http://wikimediafoundation.org/"><img src="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/wikimedia-button.png" width="88" height="31" alt="Wikimedia Foundation"></a>
+					</li>
+					<li id="footer-poweredbyico">
+						<a href="http://www.mediawiki.org/"><img src="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31"></a>
+					</li>
+				</ul>
+						<div style="clear:both"></div>
+		</div>
+		<!-- /footer -->
+		
+<script src="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/load(2).php" type="text/javascript"></script><script src="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/load(3).php" type="text/javascript"></script>
+<script type="text/javascript">if ( window.mediaWiki ) {
+	mediaWiki.config.set({"wgCanonicalNamespace": "", "wgCanonicalSpecialPageName": false, "wgNamespaceNumber": 0, "wgPageName": "Vim/Emacsowe_odpowiedniki", "wgTitle": "Vim/Emacsowe odpowiedniki", "wgAction": "view", "wgArticleId": 13700, "wgIsArticle": true, "wgUserName": null, "wgUserGroups": ["*"], "wgCurRevisionId": 145925, "wgCategories": [], "wgBreakFrames": false, "wgRestrictionEdit": [], "wgRestrictionMove": [], "wgSearchNamespaces": [0], "wgVectorEnabledModules": {"collapsiblenav": true, "collapsibletabs": true, "editwarning": true, "expandablesearch": false, "footercleanup": false, "sectioneditlinks": false, "simplesearch": true, "experiments": true}, "wgWikiEditorEnabledModules": {"toolbar": true, "dialogs": true, "templateEditor": false, "templates": false, "addMediaWizard": false, "preview": false, "previewDialog": false, "publish": false, "toc": false}, "Geo": {"city": "", "country": ""}, "wgNoticeProject": "wikibooks"});
+}
+</script>
+<script type="text/javascript">if ( window.mediaWiki ) {
+	mediaWiki.loader.load(["mediawiki.legacy.wikibits", "mediawiki.util", "mediawiki.legacy.ajax", "mediawiki.legacy.mwsuggest", "ext.vector.collapsibleNav", "ext.vector.collapsibleTabs", "ext.vector.editWarning", "ext.vector.simpleSearch"]);
+	mediaWiki.loader.go();
+}
+</script><script type="text/javascript" src="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/load(4).php"></script><script type="text/javascript" src="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/load(5).php"></script>
+
+<script src="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/index(1).php" type="text/javascript"></script>
+<script src="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/load(6).php" type="text/javascript"></script>
+<script type="text/javascript">if ( window.mediaWiki ) {
+	mediaWiki.user.options.set({"ccmeonemails":0,"cols":80,"contextchars":50,"contextlines":5,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":1,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":4,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":0,"watchdeletion":0,
+	"watchlistdays":"3","watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"vector-simplesearch":1,"useeditwarning":1,"vector-collapsiblenav":1,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"variant":"pl","language":"pl","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs104":false,"searchNs105":false});;mediaWiki.loader.state({"user.options":"ready"});
+	
+	/* cache key: plwikibooks:resourceloader:filter:minify-js:5:a577519b29754f5e2e3044b8a3e37b1c */
+}
+</script><script type="text/javascript" src="./Vim Emacsowe odpowiedniki - Wikibooks, biblioteka wolnych podręczników_files/saved_resource"></script>		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+		<!-- /fixalpha -->
+		<!-- Served by srv183 in 0.074 secs. -->			
+
+<div style="top: 71px; width: 203px; display: none; left: auto; right: 30px; " class="suggestions"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

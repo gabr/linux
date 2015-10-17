@@ -1,0 +1,11 @@
+Edit this file:
+
+vim /etc/udev/rules.d/70-persistent-net.rules
+
+# PCI device 0x1022:0x2000 (pcnet32)
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:0c:29:bf:c8:1b", ATTR{type}=="1", KERNEL=="eth*", NAME="eth0"
+
+# PCI device 0x1022:0x2000 (pcnet32)
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:0c:29:bf:c8:1b", ATTR{type}=="1", KERNEL=="eth*", NAME="eth1"
+
+delete eth0 line, and change eth1 line to eth0:

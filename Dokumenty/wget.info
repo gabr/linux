@@ -1,0 +1,21 @@
+wget
+Najprostszy (lecz zaawansowany jeśli chodzi o funkcjonalność) „download manager” pod Linux
+to programik o nazwie wget, działający z konsoli. Funkcji ma on mnóstwo, ale w praktyce
+wykorzystuję tylko trzy z nich:
+
+wget -c http://ścieżka/do/pliku – pobiera plik z sieci, jeśli przerwiemy pobieranie a następnie wykonamy to samo polecenie, plik zostanie dociągnięty z miejsca, w którym skończyliśmy,
+wget --limit-rate=10k http://ścieżka/do/pliku – ściągamy plik z maksymalną szybkością 10 kilo na sekundę,
+wget -r -l 1 http://ścieżka/do/strony – ściągamy całą stronę WWW, razem z obrazkami.
+
+aby pobrać całą stronę należy wpisać:
+$ wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains kursyonline.pl --no-parent www.kursyonline.pl/kursy/php
+
+Dobrze, a teraz przeanalizujmy poszczególne wpisy:
+--recursive - ściągaj całą stronę z podstronami.
+--no-clobber - nie nadpisuj plików, które już istnieją (przydatne jeszcze wcześniej nie ściągnęliśmy całej strona a teraz chcemy kontynuować ściąganie).
+--page-requisites - ściągaj wszystkie pliki związane ze stroną, czyli css, js, etc.
+--html-extension - zapisuj pliki używając rozszerzenia html.
+--convert-links - skonwertuj linki tak aby działały lokalnie, czyli off-line.
+--restrict-file-names=windows - zmodyfikuj nazwy linków tak by działały również na windowsie.
+--domains kursyonline.pl - ściągaj strony tylko z domeny kursyonline.pl. Nie podążaj za linkami zewnętrznymi.
+--no-parent - nie podążaj za linkami z poza katalogu /kursy/php/.

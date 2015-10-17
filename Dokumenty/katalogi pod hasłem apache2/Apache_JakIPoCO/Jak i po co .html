@@ -1,0 +1,209 @@
+
+<!-- saved from url=(0056)http://www.fizyka.umk.pl/~milosz/PSPiZK/frontp/htacc.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Jak i po co?</title>
+</head>
+
+<body bgcolor="#FFF1D7" link="#808000" vlink="#800000" style="font-size: 14pt; text-align:center">
+<p align="center">&nbsp;</p>
+<p align="center"><b><font size="7">HTACCESS </font></b>
+</p>
+
+<p style="text-align: left">
+&nbsp;</p>
+<p style="text-align: left">
+<font size="5">HTACCESS jest wbudowanym mechanizmem konfiguracyjnym serwera stron WWW Apache, pozwaląjcym 
+określać sposób jego działania w odniesieniu do 
+indywidualnych katalogów. W katalogu, do zawartości którego ma się odnosić mechanizm konfiguracyjny umieszcza się plik o nazwie&nbsp;
+<b><font face="Times New Roman">.htaccess</font></b>&nbsp;&nbsp; z&nbsp; 
+jednowierszowymi poleceniami. Działanie poleceń rozciąga się na podkatalogi, 
+chyba że umieszczono w nich ich własne pliki <b>.htaccess</b></font></p>
+
+
+
+<p align="center">&nbsp;</p>
+<p align="center"><font size="6"><b>Mechanizm autoryzacji dostępu do stron
+</b>
+<font face="Courier"><b>"htaccess"</b></font></font></p>
+<p align="left">&nbsp;</p>
+<p align="left"><font size="5">Kontrola dostępu po stronie serwera, nie klienta. 
+Dzięki temu mechamizm należy do bezpiecznych.</font></p>
+<p align="left">&nbsp;</p>
+<p align="left"><b><font size="5">Dostęp typu "user/password"</font></b></p>
+
+<ol>
+	<li>
+	<p style="text-align: left"><font size="5">Tworzymy plik o nazwie&nbsp; <b>.htaccess</b>&nbsp; o następującej treści<br>
+	<br>
+	</font>
+	<font size="5" face="Courier"><b>AuthName "Prywatna strona" <br>
+	AuthType Basic <br>
+	AuthUserFile </b>/<i><font face="Times New Roman">pełna_scieżka_do_pliku</font></i>/<b>.htpasswd
+	<br>
+	Require valid-user<br>
+	</b>
+	<br>
+	</font><font face="Times New Roman" size="5">Plik ten umieszczamy w 
+	zabezpieczanym katalogu www. <br>
+	Informacje o innych opcjach znaleźć można na stronie<br>
+	<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="http://www.freewebmasterhelp.com/tutorials/htaccess/">
+	http://www.freewebmasterhelp.com/tutorials/htaccess/</a></font><br>
+	<br>
+&nbsp;</p></li>
+	<li>
+	<p style="text-align: left"><font size="5">Tworzymy plik o nazwie&nbsp; <b>.htpasswd
+	</b>&nbsp;(w katalogu określonym poleceniem <b> <font face="Courier">
+	AuthUserFile</font></b>) przy pomocy narzędzia Unix<br>
+	<br>
+	<font face="Courier"><b>htpasswd -c .htpasswd &lt;nazwa uzytkownika&gt;</b><br>
+	<br>
+	</font><font face="Times New Roman">Program pyta nas dwukrotnie o podanie 
+	hasła dla wskazanego użytkownika. Hasło to jest szyfrowane algorytmem MD5 i zapisywane w 
+	pliku&nbsp; <b>.htpasswd</b>&nbsp; - tu przykład dla użytkownika "swoj"<br>
+	<br>
+	</font><font face="Courier"><b>swoj :UCAEbGuuBa.YU</b><br>
+	<br>
+	</font><font face="Times New Roman">Alternatywnie można posłużyć się usługą 
+	sieciową <br>
+	<br>
+	</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a class="moz-txt-link-freetext" href="http://www.kxs.net/support/htaccess_pw.html">
+	http://www.kxs.net/support/htaccess_pw.html</a></font><font size="5"><a class="moz-txt-link-freetext" href="http://www.kxs.net/support/htaccess_pw.html">
+	</a></font><br>
+	<font face="Times New Roman" size="5"><br>
+	która generuje szyfrowane hasło j.w. Można je następnie ręcznie wkleić do 
+	pliku&nbsp; .htpasswd&nbsp; jeśli nasz serwer nie udostępnia narzędzia 
+	htpasswd<br>
+&nbsp;</font></p></li>
+	<li>
+	<p style="text-align: left"><font face="Times New Roman" size="5">Obydwa 
+	pliki&nbsp; <b>.htaccess</b>&nbsp; i&nbsp; <b>.htpasswd</b>&nbsp; muszą być 
+	dostępne do odczytu dla serwera http (można np. ustawić im tryby dostępu 
+	przez&nbsp; <br>
+	<br>
+	</font><b><font size="5" face="Courier">chmod 644 .htaccess</font></b><br>&nbsp;</p></li>
+	<li>
+	<p style="text-align: left"><font face="Times New Roman" size="5">Jeśli 
+	ochroną mają być objęte tylko niektóre pliki w katalogu, dla każdego z nich 
+	(np.&nbsp;
+		</font><b><font face="Courier" size="5">plik-A.html, plik-B.html</font></b><font face="Times New Roman" size="5">,&nbsp; 
+	itd.) tworzymy w <b>.htaccess</b> następującą grupę:<br>&nbsp;
+	<br>
+		</font><b><font face="Courier" size="5">&lt;File plik-A.html&gt;</font></b><br></p></li>
+
+	&nbsp;<font size="5" face="Courier"><b>&nbsp; Require valid-user<br>
+	&lt;/File&gt;</b></font>
+</ol>
+
+<p style="text-align: left">&nbsp;</p>
+
+<p style="text-align: left"><b><font size="5">Dostęp </font></b><font size="5">
+<b>wg. numeru IP</b></font></p>
+
+<p style="text-align: left"><font size="5">W pliku &nbsp; <b>.htaccess</b>&nbsp; 
+umieszczamy polecenia</font></p>
+<blockquote>
+	<p style="text-align: left"><font size="5" face="Courier"><b>Order allow,deny
+	<br>deny from 
+	151.75.6.15<br>deny from 151.75.6. <br>allow from .umk.pl</b></font></p>
+</blockquote>
+<p style="text-align: left"><font size="5">
+odpowiednio blokujące dostęp do katalogu z konkretnego adresu IP, z grupy 
+adresów, lub też zezwalające na dostęp z serwerów wskazasnej grupy.</font></p>
+<p align="left"><font size="5">Blokada możliwości podglądu samego pliku .htaccess</font></p>
+<blockquote>
+	<p style="text-align: left"><font size="5" face="Courier"><b>&lt;File .htaccess&gt;<br>
+&nbsp; Order allow,deny
+	<br>&nbsp; deny from all<br>&lt;/File&gt;</b></font></p>
+</blockquote>
+<p style="text-align: left">&nbsp;</p>
+<p align="left">&nbsp;</p>
+<p align="center"><font size="6"><b>Inne zastosowania </b>
+<font face="Courier"><b>"htaccess"</b></font></font></p>
+<p align="center">&nbsp;</p>
+<ol>
+	<li>
+	<p align="left"><font size="5">Ustawienia domyślne serwera Apache mogą 
+	<b>zezwalać lub zabraniać</b> gościom <b>listowania zawartości odwiedzanych 
+	katalogów</b>.&nbsp; .htaccess&nbsp; umożliwia zmianę tych ustawień w 
+	odniesieniu do poszczególnych katalogów.<br>
+	<br>
+	</font><b><font size="5" face="Courier">IndexIgnore *&nbsp;&nbsp;&nbsp;&nbsp; </font>
+	<font size="5">&nbsp;&nbsp; </font></b><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	zawartość katalogu nie będzie wyświetlana <b><br>
+	<font face="Courier">IndexIgnore *.gif *.jpg</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b>
+	nazwy plików graficznych z bieżącego katalogu nie pojawią się w listingu<br>
+	<b><font face="Courier">Options +Indexes (-Indexes)</font></b>&nbsp;&nbsp; 
+	zezwolenie/zakaz listingu dla katalogu<br>
+	<br>
+&nbsp;</font></p></li>
+	<li>
+	<p align="left"><font size="5"><b>Przekierowania</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<br>
+	<br>
+	</font><b><font size="5" face="Courier">:Location /stara.html&nbsp;&nbsp;&nbsp;&nbsp; </font>
+	<font size="5" face="Courier">&nbsp;&nbsp; </font></b>
+	<font size="5" face="Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<b><br>
+	Redirect /nowa.html<br>
+	<br>
+	:Location /stara.html<br>
+	Redirect http://www.nowy_adres.pl<br>
+	<br>
+	</b></font><font size="5">Inne parametry "<b><font face="Courier">Redirect</font></b>"&nbsp; 
+	(np.</font><b><font size="5" face="Courier"> temp, permanent, forbidden, </font></b>
+	<font size="5">...)&nbsp; generują rozmaite kody błędu, na podstawie których 
+	serwer podejmie określoną akcję. <br>
+	<br>
+	</font><font size="5" face="Courier"><b>:Location *.gif<br>
+	Expires A600<br>
+	<br>
+	</b></font><font size="5">Pliki graficzne&nbsp; *.gif&nbsp; tracą ważność po 
+	10 minutach, przeglądarka klienta musi pobrać je ponownie po upływie tego 
+	czasu.<br>
+	<br>
+&nbsp;</font></p></li>
+	<li>
+	<p align="left"><font size="5"><b>Definiowanie strony głównej</b> w katalogu&nbsp; 
+	(domyślnie&nbsp; <b>Index.html</b>)</font>
+	<br>
+	<br>
+	<b><font face="Courier" size="5">Index&nbsp; glowna.html&nbsp; 
+	glowna-alt.html&nbsp;&nbsp;&nbsp;&nbsp; <br>
+	<br>
+	</font></b><font size="5">Strony&nbsp; <b>glowna.html</b>, a przy jej braku&nbsp;
+	<b>glowna-alt.html</b>&nbsp; będą traktowane jako główne w katalogu.<br>
+	<br>
+&nbsp;</font></p></li>
+	<li>
+	<p align="left"><font size="5"><b>Obsługa błędów</b>.&nbsp;&nbsp; Typowa 
+	sytuacja - błąd 404: brak zasobu o podanym przez klienta adresie url 
+	powoduje wyświetlenie komunikatu przeglądarki "Not found". Można to zmienić:<br>
+	<br>
+	</font><font size="5" face="Courier"><b>ErrDoc 404 /obsluga/brak_pliku.html
+	<br>
+	<br>
+&nbsp;</b></font></p></li>
+	<li>
+	<p align="left"><font size="5"><b>Redefiniowanie typów MIME</b>.&nbsp; 
+	Przeglądarka domyślnie kojarzy pobierane pliki określonego typu ze 
+	stosownymi "wtyczkami", np.&nbsp; *.doc - MSWord,&nbsp;&nbsp; *.pdf - 
+	Acrobat Reader&nbsp; itp.&nbsp; Można te powiązania zmienić/podpowiedzieć, 
+	np.:<br>
+	<br>
+	<b><font face="Courier">:Location&nbsp; *.jpg<br>
+	SetMime application/gimp</font></b></font></p></li>
+</ol>
+<p align="left">&nbsp;</p>
+<p align="left">&nbsp;</p>
+
+
+
+
+
+</body></html>

@@ -1,0 +1,2359 @@
+with (quadIx_akon) {
+  trace('initializing intertext static');
+  static.fstarts = [];
+
+try {x.x.x} catch(e) {static.fstarts.push(['conf', e.lineNumber, 0])};
+conf.ctr_url = '_U_';
+conf.intertext_file_prefix = 'http://adsearch.adkontekst.pl/_/static/akon/igr2/_FILE_/?no_cache=9xudj';
+conf.spliter2Url = 'http://adsearch.adkontekst.pl/quad/intext_spliter/?prid=_PRID_&caid=_CAID_'
+  + '&nc=_NC_&cc=_CC_&form=_FORM_&content=_CONTENT_';
+conf.adtesterUrl = 'http://adtester-front';
+conf.raportUrl = 'http://adsearch.adkontekst.pl/_/raport/?ft=ix&';
+conf.imager_url = 'http://adsearch.adkontekst.pl/akon/imager/?_ID_&nc=_NC_';
+conf.f_imager_url = 'http://adsearch.adkontekst.pl/akon/f_imager/?_ID_&nc=_NC_';
+conf.nf_imager_url = 'http://adsearch.adkontekst.pl/akon/nf_imager/?_ID_&nc=_NC_';
+conf.gsp_imager_url = 'http://adsearch.adkontekst.pl/_/getImage?vid=_ID_&typ=imgSP&nc=_NC_';
+//*****************************************************************************
+
+conf.prefix = 'akon';
+conf.version = '52';
+conf.enableRaports = true;
+conf.raportLimit = 10;
+conf.coile = 100;
+conf.mod100 = 55;
+conf.tag_boost = {h1: 2, h2: 2, h3: 2, h4: 2, h5: 2, h6: 2, bold: 2, strong: 2, em: 2, i: 2, u: 2};
+conf.whiteChars_str = '!@#$$%^&*()_+-=[]{};\':",/?\\|<>\n\t\r ' + unescape('%u201C%u201D');
+conf.adc_skip_tags = ['SCRIPT', 'STYLE', 'SELECT', 'A', 'NOSCRIPT', 'TEXTAREA'];
+conf.trim_chars = '.';
+conf.max_ad_count = 10;
+conf.def_ad_count = 4;
+conf.xAdRq = 0;
+conf.defaultTimeout = 400;
+conf.init_step = 7;
+conf.min_step = 7;
+conf.word_id_prefix = 'nsitsp_';
+conf.a_prefix = 'a_';
+conf.z0 = 1000000;
+conf.z_baloon = 0;
+conf.z_a = 3;
+conf.z_dbg = 10;
+conf.croneSpeed = 250;
+conf.baloon_hide_timeout = 2;
+conf.max_offset_error = 25;
+conf.min_err = 0.001;
+conf.different_ads_for_same_word = true;
+conf.different_ads = true;
+conf.different_words = false;
+conf.cacheTime = 900; //?
+conf.enableFlash = true;
+conf.deault_highlight_color = 'blue';
+conf.minClickTime = 250;
+conf.longTimeout = 15000;
+conf.twoLetterWords = '';
+conf.label_url = 'http://www.adkontekst.pl/autozamowienie_cpc/';
+conf.label_href = 'http://ad.hit.gemius.pl/hitredir/id=.WqVhm_brTxgwVaRdbrcZZbffQrsJu7_ZbngHvx5yVv.57/stparam=wgrmiuknxi/url=http%3A//www.adkontekst.pl/autozamowienie_cpc/%3Futm_source%3DAdkontekst%26utm_medium%3Dmetka%26utm_term%3D_EREF_%26utm_campaign%3Dintertext';
+conf.titleTxtFs = 13;
+conf.localDbg = false;
+conf.allowOnlyMeta = 0;
+conf.minSpanLength = 6;
+conf.minWordLength = 4;
+conf.c2aText = unescape('sprawd%u017A%20%3E%3E');
+conf.enableC2a =  true;
+conf.encoding = 'UTF-8';
+conf.cssclass = '';
+conf.enableCusomColors = false;
+conf.addCssClassName = false;
+conf.enders = [/ami$$./,/zie$$./,/ego$$./,/cie$$./,/em$$./,/ie$$./,/ym$$./,/sc$$./,/ow$$./];
+conf.enders_no = [/owy$$./,/owa$$./,/owe$$./,/owym$$./];
+conf.enders_ne = [/e$$./,/y$$./,/i$$./,/a$$./,/u$$./,/o$$./];
+conf.boldIx = true;
+conf.enableWordClick = true;
+conf.dragDropClick = false;
+conf.maxSameWords = 3;
+conf.flashvars = 'click=_EA_&clickTag=_EA_&clickTAG=_EA_&clickthru=_EA_';
+
+  
+try {x.x.x} catch(e) {static.fstarts.push(['utils', e.lineNumber, 0])};
+Utils = function(conf, options) {
+  var that = this;
+  this.options = options;
+  if (!options) this.options = function() {return false};
+  
+  conf.get = function(str, def) {
+    if (conf[str] != undefined) return conf[str];
+    if (def != undefined) return def;
+    if (that.busy) return;
+    that.busy = true;
+    that.raport('J3', 'No required configuration paramerer', str);
+    that.busy = false;
+    throw str;
+  }
+  
+  this.duzo = 1000000000;
+  this.sendstatlimit = 100;
+  this.errors = [];
+  this.raportLimit = conf.get('raportLimit', 5);
+  this.version = conf.get('version');
+  this.rndId = Math.floor(this.duzo * Math.random());
+  this.errcnt = 0;
+  this.stageNo = 0;
+  this.notDone = true;
+  this.timeArr = {};
+  this.lastTime = 0;
+  this.currTask = null;
+  this._dbg_ = {};
+  this._dbgc_ = {};
+  this.trash = [];
+  this.fstarts = [];
+  this.excList = [];
+  this.tmp_state = {};
+  this.busy_f = {};
+  this.s1cache = {};
+  this.reportsByType = {};
+  this.todo = [];
+  this.evlog = {s:'0'};
+  this.ie = navigator.appVersion.indexOf('MSIE') >= 0;
+  this.ie6 = navigator.appVersion.indexOf('MSIE 6') >= 0;
+  this.adTypes = {
+    text: 'T',
+    box: 'T',
+    skyscraper: 'S',
+    exclusive_sky: 'S',
+    rectangle: 'E',
+    billboard: 'E',
+    exclusive: 'G',
+    exclusive_normal: 'E',
+    flash: 'F',
+    avatar: 'A',
+    awatar: 'A',
+    imgK: 'Z',
+    imgSP: 'Y',
+    imgsp: 'Y',
+    imgDP: 'X',
+    imgDB: 'W',
+    imgSW: 'V',
+    imgMP: 'U',
+    imgMF: 'M',
+    csAvatar: 'D',
+    csFavico: 'C'
+  };
+  
+  this.show_rect = function() {};
+  this.show_point = function() {};
+  this.printRect = function() {};
+  this.show_tmp_state = function() {};
+  this.insert_ix_dbg = function() {};
+  this.printTimes = function() {};
+  this.dbgAlterForms = function() {};
+  this.addBoxDbg1 = function() {};
+  this.replaceAds = function() {};
+
+  this.emptyAd = function() {
+    return {title: '', desc: '', url: '', opis1: '', opis2: ''};
+  }
+
+  this.co100 = function(coile) {
+    var sto = that.ifnull(coile, conf.get('coile'));
+    return that.rndId % sto === conf.get('mod100') % sto;
+  }
+  
+  this.syso1 = function(str) {
+    if (that.s1cache[str]) return trace(str);
+    that.s1cache[str] = true;
+    syso(str);
+  }
+  
+  this.now = function() {
+    return (new Date()).getTime();
+  }
+  
+  this.byId = function(id) {
+    return document.getElementById(id);
+  }
+  
+  this.cel = function(par, tag) {
+    var el = document.createElement(tag);
+    if (par) par.appendChild(el);
+    return el;
+  }
+  
+  this.cel_back = function(par, tag) {
+    if (!par.firstChild) return that.cel(par, tag);
+    var el = document.createElement(tag);
+    par.insertBefore(el, par.firstChild);
+    return el;
+  }
+  
+  this.ctn = function(par, txt) {
+    par.appendChild(document.createTextNode(txt));
+  }
+  
+  this.rm = function(node) {
+    node.parentNode.removeChild(node);
+  }
+  
+  this.clr = function(node) {
+    while (node.firstChild) node.removeChild(node.firstChild);
+  }
+  
+  this.createIframe = function(node, x, y, src) {
+    if (that.ie && src) {
+      for (var i=0; i<utils.now() % 20; i++) {
+        that.cel(node, 'span');
+      }
+    }
+    var ifr = document.createElement('iframe');
+    ifr.marginWidth='0';
+    ifr.marginHeight='0';
+    ifr.scrolling='no';
+    ifr.style.display='block';
+    ifr.frameBorder='0';
+    ifr.style.width = x + 'px';
+    ifr.style.height = y + 'px';
+    ifr.style.maxWidth = x + 'px';
+    ifr.style.maxHeight = y + 'px';
+    ifr.style.overflow = 'hidden';
+    ifr.style.padding = ifr.style.margin = ifr.style.border = '0px';
+    ifr.id = 'rnd' + that.now();
+    ifr.name = 'rnd_name' + that.now();
+    if (src != undefined) ifr.src = src;
+    try {
+      ifr.allowTransparency = 'true';
+    } catch(e){}
+    node.appendChild(ifr);
+    return ifr;
+  }
+  
+  this.ifnull = function(x, onnull) {
+    if ((x === undefined)
+      || (x === null)
+      || (typeof(x) === 'number' && isNaN(x))
+      || (x === '')) {
+        return onnull;
+    }
+    return x;
+  }
+  
+  this.foreach = function(obj, f) {
+    for (var i in obj) {
+      if ({}[i] != undefined) continue;
+      f(i, obj[i]);
+    }
+  }
+  
+  this.apply = function(f, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) {
+    return function() {
+      return f(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+    }
+  }
+
+  this.apply1 = function(f, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) {
+    return function(e) {
+      if (e === undefined && typeof(event) === 'object') e = event;
+      return f(e, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+    }
+  }
+
+  this.shallowCopy = function(obj) {
+    var ret = {};
+    for (var i in obj) ret[i] = obj[i];
+    return ret;
+  }
+
+  this.getLno = function(e) {
+    if (typeof(e) != 'object') return '?';
+    var lno = e.lineNumber;
+    if (isNaN(lno)) return '-';
+    try {
+      if (e.fileName.indexOf('dbg_utils') >= 0) return 'dbg_utils ' + lno;
+    } catch(e) {}
+    try {
+      if (that.fstarts_closed === undefined) {
+        that.fstarts_closed = true;
+        that.fstarts.push('end', 100000, 0);
+        syso('no line number table');
+        return '-';
+      }
+      for (var i=0; i<that.fstarts.length; i++) {
+        if (that.fstarts[i][1] - that.fstarts[i][2] <= lno) continue;
+        return that.fstarts[i-1][0] + ' ' + (lno + that.fstarts[i-1][2] - that.fstarts[i-1][1]);
+      }
+    } catch(e) {};
+    syso('unknown line number');
+    return '--';
+  }
+  
+  this.ftry = function(str, f, def) {
+    return function(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) {
+      try {
+        return f(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+      } catch(e) {
+        that.errors.push(e);
+        that.exc(str, e);
+        return def;
+      }
+    }
+  }
+
+  this.retry = function(str, f, retries, oncomplete, to) {
+    if (oncomplete === undefined) oncomplete = function() {};
+    if (retries === undefined) retries = 1000000000;
+    var ret = function(rt, a, b, c, d, e, firsttry) {
+      try {
+        f(a, b, c, d, e);
+        that.ftry(str + '_done', that.apply(oncomplete, true, a, b, c, d, e))();
+      } catch(exc) {
+        if ((rt > 0) && (exc === 'retry')) {
+          return setTimeout(function() {
+            that.syso1('retrying: ' + str);
+            ret(rt - 1, a, b, c, d, e, false);
+          }, firsttry ? 0 : utils.ifnull(to, conf.get('defaultTimeout')));
+        } else if (rt > 0) {
+          that.ftry(str + '_failed', that.apply(oncomplete, false, a, b, c, d, e))();
+          that.errors.push(exc);
+          that.exc(str, exc);
+        } else {
+          that.ftry(str + '_timeout', that.apply(oncomplete, null, a, b, c, d, e))();
+          that.raport('J1-', 'all tries failed', str);
+        }
+      }
+    }
+    return function(a, b, c, d, e) {
+      return ret(retries, a, b, c, d, e, true);
+    };
+  }
+  
+  this.onlyOnce = function(f, name, uniqParams) {
+    if (name === undefined) name = f+'';
+    return function(p1, p2, p3, p4, p5) {
+      if (uniqParams) name += ' - ' + p1 + ',' + p2 + ',' + p3 + ',' + p4 + ',' + p5;
+      if (that.busy_f[name]) return trace('not invoking: ' + name);
+      that.busy_f[name] = true;
+      setTimeout(function() {
+        that.busy_f[name] = false;
+      }, 0);
+      f(p1, p2, p3, p4, p5);
+    }
+  }
+  
+  this.sendstat = function(str) {
+    if (that.sendstatlimit-- < 0) return syso('reporting failed: ' + str, 'pink');
+    if (conf.get('enableRaports') === false) return syso('not reporting: ' + str);
+    if (document.readyState === 'loading' || document.readyState === 'interactive') {
+      return setTimeout(that.apply(that.sendstat, str), conf.get('defaultTimeout'));
+    }
+    if (that.raportLimit < 0) return syso('raport limit exceeded: ' + str);
+    var logImage = that.byId('nsc_log_img_'+conf.get('prefix')+'_'+that.rndId+'_'+that.sendstatlimit);
+    if (logImage === null) {
+      logImage = new Image(1, 1);
+      logImage.id = 'nsc_log_img_'+conf.get('prefix');
+      logImage.style.position = 'absolute';
+      logImage.style.left = '0px';
+      logImage.style.top = '0px';
+      document.body.appendChild(logImage);
+    } else if (!logImage.complete) {
+      syso('cannot happen', 'red');
+      return setTimeout(that.apply(that.sendstat, str), conf.get('defaultTimeout'));
+    }
+    that.raportLimit--;
+    str = str.replace(/\s/g, '_').replace(/\{.*\}/g, '[...]').substring(0, 200);
+    logImage.src = conf.get('raportUrl')
+      + 'version=' + that.version
+      + '&rnd=' + that.rndId
+      + (that.prid ? ('&prid='+that.prid) : '')
+      + (that.caid ? ('&caid='+that.caid) : '')
+      + (that.plid ? ('&plid='+that.plid) : '')
+      + '&ie=' + (that.ie ? (that.ie6 ? '6' : 'T') : 'F')
+      + '&evlog=' + (that.evlog.s.length <= 100 ? that.evlog.s.replace(/ /g, '_') : '-') 
+      + str;
+    syso('reporting: ' + str.substring(1), 'white');
+  }
+  
+  this.exc = function(fname, exc, param) {
+    try {
+      if (that.fstarts.length > 0) {
+        syso('reporting exception at: ' + that.getLno(exc)
+          + ' (' + exc.lineNumber + ')', 'red');
+      }
+      that.excList.push(exc);
+      if (param === undefined) param = '-';
+      that.sendstat('&type=exception'
+        + '&c=' + that.errcnt++
+        + '&fname=' + fname
+        + '&e=' + that.ifnull(exc.message, '-')
+        + '&lno=' + that.getLno(exc)
+        + '&param=' + param
+      );
+    } catch(e) {
+      syso('raporting failed: ' + e.lineNumber);
+    }
+  }
+  
+  this.raportParams = function(all, msg, param) {
+    all = all.toLowerCase();
+    ret = {msg: msg, param: param};
+    if (all.indexOf('s') >= 0) ret.cause = 'server';
+    if (all.indexOf('j') >= 0) ret.cause = 'js';
+    if (all.indexOf('p') >= 0) ret.cause = 'placement';
+    if (all.indexOf('1') >= 0) ret.sev = 1;
+    if (all.indexOf('2') >= 0) ret.sev = 2;
+    if (all.indexOf('3') >= 0) ret.sev = 3;
+    if (all.indexOf('4') >= 0) ret.sev = 4;
+    if (all.indexOf('o') >= 0) ret.old = true;
+    if (all.indexOf('-') >= 0) ret.co100 = true;
+    if (all.indexOf('f') >= 0) ret.c0 = true;
+    return ret;
+  }
+  
+  this.report_prv = function(all, msg, param, stray) {
+    try {
+      if (stray != undefined) {
+        syso('stray params: ' + msg);
+        that.later('stray', function() {
+          that.raport('J1', 'stray raport params', msg);
+        });
+      }
+      if (typeof(all) === 'string') all = that.raportParams(all, msg, param);
+      if (all.msg === undefined) all.msg = '-';
+      if (all.param === undefined) all.param = '-';
+      if (all.old === undefined) all.old = false;
+      if (all.co100 === undefined) all.co100 = false;
+      if (all.sev === undefined) all.sev = 0;
+      if (all.cause === undefined) all.cause = 'unknown';
+      if (that.reportsByType[all.msg]) return trace(all.msg + ' - again');
+      that.reportsByType[all.msg] = all.param;
+      var sysostr = all.msg + ': ' + all.param;
+      var sysocolor = all.co100 ? 'navy' : ['yellow', 'gold', '#f50', 'red', '#70f'][all.sev];
+      if (all.co100 && !that.co100()) {
+        return syso('not reporting - ' + sysostr, sysocolor);
+      }
+      syso('reporting - ' + sysostr, sysocolor);
+      that.sendstat('&type=msg'
+        + '&sev=' + all.sev
+        + '&cause=' + all.cause
+        + '&coile=' + (all.co100 ? conf.get('coile') : 1)
+        + '&e=' + all.msg
+        + '&param=' + all.param
+        + '&old=' + all.old
+        + '&c=' + (all.c0 ? 0 : that.errcnt)
+      );
+      if (all.sev > 0) that.errcnt++;
+    } catch(e) {
+      syso('reporting failed! ' + e.lineNumber, 'pink');
+      try {
+        console.error(e);
+      } catch(e1) {};
+    }
+  }
+  
+  this.raport = this.report = this.report_prv;
+  
+  this.error = function(msg, param, old, co100) {//deprecated
+    that.report_prv({sev: 2, msg: msg, param: param, old: old, co100: co100});
+  }
+  
+  this.warning = function(msg, param, old, co100) {//deprecated
+    that.report_prv({sev: 1, msg: msg, param: param, old: old, co100: co100});
+  }
+  
+  this.placement = function(msg, param, old, co100) {//deprecated
+    if (co100 === undefined) co100 = true;
+    that.report_prv({sev: 2, msg: msg, param: param, old: old, co100: co100});
+  }
+  
+  this.info = function(msg, param, old, co100) {//deprecated
+    that.report_prv({sev: 0, msg: msg, param: param, old: old, co100: co100});
+  }
+  
+  this.unknown = function(msg, param) {//deprecated
+    that.report_prv({sev: 2, msg: msg, param: param});
+  }
+
+  this.noAds = this.noAds0 = function(co100) {
+    that.raport(co100 ? 'S3-o' : 'S3o', 'no ads');
+    that.stageNo = -1;
+  }
+  
+  this.loadsc = function(href, nohead, enc) {
+    if (!href) return that.raport('J2', 'no href');
+    if (that.options('no_cache')) href += '&noc=' + that.now();
+    syso('loading: ' + href.split('?')[0]);
+    trace('params: ' + href);
+    var sc = document.createElement('SCRIPT');
+    sc.src = href;
+    sc.type = 'text/javascript';
+    sc.defer = false;
+    sc.charset = that.ifnull(enc, conf.get('encoding'));
+    var adc_head = document.getElementsByTagName('head');
+    if (adc_head[0] && !nohead) {
+      adc_head[0].appendChild(sc);
+    } else {
+      that.raport('J1-', 'No head for document');
+      document.body.appendChild(sc);
+    }
+  }
+  
+  this.start = function(taskName, nr) {
+    var now = that.now();
+    if (that.currTask) {
+      that.timeArr[that.currTask] += now - that.lastTime;
+    }
+    that.lastTime = now;
+    that.currTask = taskName;
+    if (taskName != null && that.timeArr[taskName] === undefined) {
+      that.timeArr[taskName] = 0;
+    }
+    if (that.notDone && (nr === undefined || nr === 0)) {
+      that.stageNo++;
+      trace('stage ' + that.stageNo + ': ' + taskName);
+    }
+  }
+
+  this.done = function(stats, type, coile) {
+    if (coile === undefined) coile = conf.get('coile');
+    that.notDone = false;
+    that.start(null);
+    that.printTimes();
+    var msg = '&type=' + that.ifnull(type, 'done');
+    var total = 0;
+    for (var i in that.timeArr) {
+      if (i === 'null') continue;
+      msg += '&'+i+'='+that.timeArr[i];
+      total += that.timeArr[i];
+    }
+    for (var i in stats) {
+      msg += '&'+i+'='+stats[i];
+    }
+    if (that.co100(coile)) that.sendstat('&coile=' + coile + msg + '&total=' + total);
+  }
+
+  this.stages = function(n) {
+    that.start('spliter1');
+    setTimeout(function() {
+      if (that.evlog.s.split('BGI').length > 2) return that.raport('J2-', 'stray spliter call');
+      if (that.stageNo === n || that.stageNo === -1) return;
+      if (that.stageNo > n) return syso('skipping script timeout check');
+      that.raport('S3-o', 'script died at stage', that.stageNo);
+    }, conf.get('longTimeout'));
+    if (!that.co100()) return;
+    var to = Math.floor(that.rndId / that.duzo * conf.get('longTimeout'));
+    setTimeout(function() {
+      that.sendstat('&type=ok&t=' + to + '&max=' + conf.get('longTimeout'));
+      syso('ok');
+    }, to);
+  }
+
+  this.checkVersion = function(co, v) {
+    if (that.version+'' === v+'') return;
+    if (that.version === '_' || v === '_') {
+      return syso(co + ': skipping version chcek');
+    }
+    that.raport('S1-', co + ' version mismach', v);
+  }
+  
+  this.later = function(name, f) {
+    if (that.todo.length === 0) {
+      setTimeout(that.ftry('later - ' + name, function() {
+        syso('invoking ' + that.todo.length + ' delayed functions');
+        var todo = [];
+        for (var i=0; i<that.todo.length; i++) todo[i] = that.todo[i];
+        that.todo = [];
+        for (var i=0; i<todo.length; i++) {
+          todo[i]();
+        }
+      }), 0);
+    }
+    that.todo.push(f);
+  }
+
+  this.detached = that.ftry('checkDetached', function(node) {
+    for (var i=0; i<100; i++) {
+      if (!node) return true;
+      if (node == document.body) return false;
+      node = node.parentNode;
+    }
+    that.raport('J1', 'checkDetached - max. depth exceeded');
+    return null;
+  });
+
+  this.getScroll = function() {
+    var sx = 0;
+    var sy = 0;
+    var de = document.documentElement;
+    var b = document.body;
+    if(typeof(window.pageYOffset) === 'number') {
+      sy = window.pageYOffset;
+      sx = window.pageXOffset;
+    } else if(b && (b.scrollLeft || b.scrollTop)) {
+      sy = b.scrollTop;
+      sx = b.scrollLeft;
+    } else if(de && (de.scrollLeft || de.scrollTop)) {
+      sy = de.scrollTop;
+      sx = de.scrollLeft;
+    }
+    return {x: sx, y: sy};
+  }
+
+  this.mouseCoords = function(ev){
+    if (ev.pageX || ev.pageY) return {x: ev.pageX, y: ev.pageY};
+    var sc = that.getScroll();
+    return {
+      x: ev.clientX + sc.x,
+      y: ev.clientY + sc.y
+    };
+  }
+
+  this.offset = function(cont) {
+    var ret = {x: 0, y: 0, w: cont.offsetWidth, h: cont.offsetHeight};
+    while (cont.offsetParent != null) {
+      ret.x += cont.offsetLeft - utils.ifnull(cont.scrollLeft, 0);
+      ret.y += cont.offsetTop - utils.ifnull(cont.scrollTop, 0);
+      cont = cont.offsetParent;
+    }
+    if (document.body.offsetHeight != document.body.parentNode.offsetHeight
+        || document.body.offsetWidth != document.body.parentNode.offsetWidth) {
+      var diffX = document.body.parentNode.offsetWidth - document.body.offsetWidth;
+      var diffY = document.body.parentNode.offsetHeight - document.body.offsetHeight;
+      utils.raport('J1-o', 'html offset error', diffX + 'x' + diffY);
+    }
+    return ret;
+  }
+
+  this.preloadImage = function(url) {
+    new Image().src = url;
+  }
+
+  this.getValue = function(x) {
+    if (typeof(x) === 'string' && x.indexOf(',') > 0) {
+      var arr = x.split(',');
+      var ret = [];
+      for (var i=0; i<arr.length; i++) ret[i] = getValue(arr[i]);
+      return ret;
+    }
+    if (x === 'true') return true;
+    if (x === 'false') return false;
+    return utils.ifnull(1 * x, x);
+  }
+  
+  this.getDomain = that.ftry('getDomain', function(url) {
+    if (url === undefined) url = window.location + '';
+    if (url.substring(0, 4) != 'http') url = 'http://' + url;
+    return escape((url + '&').split('//')[1].split(/[\?\&\#\:\/]/g)[0]);
+  });
+
+}
+
+  
+try {x.x.x} catch(e) {static.fstarts.push(['parser', e.lineNumber, 0])};
+Parser = function(conf, utils, options) {
+    this.minSpanLength = conf.get('minSpanLength', 12);
+    this.minWordLength = conf.get('minWordLength', 2);
+    this.maxWordLength = conf.get('maxWordLength', 24);
+    this.input_boost = conf.get('input_boost', 1);
+    this.desc_boost = conf.get('desc_boost', 1);
+    this.kw_boost = conf.get('kw_boost', 1);
+    this.title_boost = conf.get('title_boost', 1);
+    this.tag_boost = conf.get('tag_boost');
+    this.important_word_bust = conf.get('important_word_bust', 2);
+    this.ix_boost = conf.get('ix_boost', 1);
+    this.allowOnlyMeta = conf.get('allowOnlyMeta');//0 or 1
+    this.minTitleLength = conf.get('minTitleLength', 3);
+    this.timeout = conf.get('timeout', 10000);
+    this.trim_chars = conf.get('trim_chars', '');
+    this.whiteChars_str = conf.get('whiteChars_str');
+    this.max_url = conf.get('max_url', 1900);
+    this.adc_skip_tags = conf.get('adc_skip_tags');
+    this.ha_prefix = conf.get('ha_prefix', '_-_');
+    this.enders = [];
+    this.enders_no = [];
+    this.enders_ne = [];
+    this.eplc_dict = {};
+    this.twoLetterWordsArr = conf.get('twoLetterWords');
+    var that = this;
+
+        this.eplc_dict[unescape('%u0142')]='l'; /* ł */
+        this.eplc_dict[unescape('%u0104')]='A'; /* Ą */
+        this.eplc_dict[unescape('%u0119')]='e'; /* ę */
+        this.eplc_dict[unescape('%u0143')]='N'; /* Ń */
+        this.eplc_dict[unescape('%u0179')]='Z'; /* Ź */
+        this.eplc_dict[unescape('%u017a')]='z'; /* ź */
+        this.eplc_dict[unescape('%u0106')]='C'; /* Ć */
+        this.eplc_dict[unescape('%u017b')]='Z'; /* Ż */
+        this.eplc_dict[unescape('%u0144')]='n'; /* ń */
+        this.eplc_dict[unescape('%u0105')]='a'; /* ą */
+        this.eplc_dict[unescape('%u017c')]='z'; /* ż */
+        this.eplc_dict[unescape('%u015a')]='S'; /* Ś */
+        this.eplc_dict[unescape('%u0118')]='E'; /* Ę */
+        this.eplc_dict[unescape('%u0107')]='c'; /* ć */
+        this.eplc_dict[unescape('%u00f3')]='o'; /* ó */
+        this.eplc_dict[unescape('%u00d3')]='O'; /* Ó */
+        this.eplc_dict[unescape('%u0141')]='L'; /* Ł */
+        this.eplc_dict[unescape('%u015b')]='s'; /* ś */
+    
+    this.word_sort_val = function(a) {
+        return a.so = a.bust*a.count*a.count*(1+a.count)*(8+a.word.length);
+    }
+
+    this.nonImportantWordArr = '';
+    this.importantWordsArr = '';
+
+    this.makeArray = function(str) {
+        var ret = {};
+        for (var i=0; i<str.length; i++) {
+            ret[str.charAt(i)] = true;
+        }
+        return ret;
+    }
+
+    this.init = function() {
+        for (var p in that) {//TODO check and rm
+            if ({}[p] === undefined) {
+                if (conf[p] != undefined) that[p] = conf[p];
+                if (that[p] === null) {
+                    syso('Warning: missing required configuration parameter - ' + p);
+                }
+            }
+        }
+        if (options('parsingTimeout')) {
+            that.timeout = 30000;
+            syso('overriding timeout to 30 ms');
+        }
+        that.trimArr = that.makeArray(that.trim_chars);
+        that.reject_chars = that.makeArray(that.whiteChars_str);
+        that.impWords = {};
+        that.twoLetterWords = {};
+        var indexAll = function(to, from, val) {
+            var arr = from.split(',');
+            for (var i = 0; i < arr.length; ++i) {
+               to[arr[i].toLowerCase()] = val;
+            }
+        }
+        indexAll(that.impWords, that.importantWordsArr, that.important_word_bust);
+        indexAll(that.impWords, that.nonImportantWordArr, 0);
+        indexAll(that.twoLetterWords, that.twoLetterWordsArr, 0);
+    }
+    this.init();
+
+    this.getBaseForm = function(w) {
+        var ret = {};
+        w = w.toLowerCase();
+        ret.word=w;
+        for(var key=0; key<that.enders.length; key++) {
+            if (w.match(that.enders[key])!=null) {
+                ret.bform = that.ha_prefix+w.replace(that.enders[key],'');
+                ret.bust = 1;
+                return ret;
+            }
+        }
+        for(var key=0; key<that.enders_no.length; key++) {
+            if (w.match(that.enders_no[key])!=null) return null;
+        }
+        for(var key=0; key<that.enders_ne; key++) {
+            if (w.match(that.enders_ne[key])!=null) {
+                ret.bform = that.ha_prefix+w.replace(that.enders_ne[key],'');
+                ret.bust = 1;
+                return ret;
+            }
+        }
+        ret.bform = that.ha_prefix+w;
+        ret.bust = 1;
+        return ret ;
+    }
+
+    this.ecapeNationalLowerCase = function(text) {
+        var ret = '';
+        for(var p = 0; p < text.length; p++) {
+            var ch = text.charAt(p);
+            var a = that.eplc_dict[ch];
+            ret += a ? a : ch;
+        }
+        return ret;
+    }
+
+    this.nsSplit = function(text, noTags) {
+        var array = [];
+        var word = '';
+        var tag = false;
+        var quotes = false;
+        var apostrof = false;
+        text += ' ';
+        for(var p=0; p<text.length; p++) {
+            var ch = text.charAt(p);
+            if(!tag) {
+                if(!that.reject_chars[ch]) {
+                    word+=ch;
+                } else {
+                    var o = {};
+                    o.begin = p - word.length;
+                    while (word.length > 0) {
+                        if (that.trimArr[word.charAt(0)]) {
+                            word = word.substring(1);
+                            o.begin++;
+                        } else if (that.trimArr[word.charAt(word.length - 1)]) {
+                            word = word.substring(0, word.length - 1);
+                        } else {
+                            break;
+                        }
+                    }
+                    var ok = true;
+                    for (var ch in that.trimArr) if (word.indexOf(ch) >= 0) ok = false;
+                    if (!ok) {
+                        trace('skipping word: ' + word);
+                        word = '';
+                        continue;
+                    }
+                    if(ch === '<' && noTags !== true) tag = true;
+                    o.orgin=word;
+                    o.content=that.ecapeNationalLowerCase(word);
+                    o.set=0;
+                    if (word.length > 1) array.push(o);
+                    word = '';
+                }
+            } else {
+                if(ch === '>' && !quotes && !apostrof) {
+                    tag=false;
+                } else if(ch === '"' && !apostrof) {
+                    quotes=!quotes;
+                } else if(ch === "'" && !quotes) {
+                    apostrof=!apostrof;
+                }
+            }
+        }
+        return array;
+    }
+
+    this.copy = function(obj) {
+        var ret = {};
+        for (var i in obj) ret[i] = obj[i];
+        return ret;
+    }
+
+    this.printObj = function(obj) {
+        var ret = '';
+        for (var i in obj) ret += ', ' + i + '=' + obj[i];
+        return ret.substring(2);
+    }
+
+    this.walk = function(node, state, onTextNode, onEnter, onExit, onLeaf) {
+        if ((node.nodeType === 3) && (node.nodeValue) && (node.nodeValue.length > 2) && (node.nodeValue[0] != '<')) {
+            return onTextNode(node, state);
+        }
+        var ch = node.childNodes;
+        var tag = 'unknown tag';
+        if (node.tagName != undefined) tag = node.tagName.toLowerCase();
+        if ((ch.length === 0) && onLeaf) return onLeaf(tag, node, state);
+        if (onEnter) {
+            try {
+                state = onEnter(tag, node, state);
+            } catch(e) {
+                if (typeof(e) === 'object') utils.exc('walk', e);
+                return;
+            }
+        }
+        for (var i=0; i<ch.length; i++) {
+            that.walk(ch[i], that.copy(state), onTextNode, onEnter, onExit, onLeaf);
+        }
+        if (onExit) onExit(tag, node, state);
+    }
+
+    this.mark = function(node, fg, bg, msg, ret) {
+        if (ret === undefined) ret = msg;
+        if (options('markIxTags')) {
+            var div = document.createElement('div');
+            div.style.display = node.style ? node.style.display : 'inline';
+            if (node === document.body) div = node;
+            div.style.backgroundColor = bg;
+            div.style.margin = 0;
+            div.style.padding = 0;
+            if (node === document.body) return ret;
+            node.parentNode.replaceChild(div, node);
+            div.appendChild(node);
+            if (msg != '') {
+                div.onclick = function() {
+                    alert(msg);
+                }
+            }
+        }
+        return ret;
+    }
+
+    this.getSpansAndTexts = function(hashArr, params) {
+        that.spans = [];
+        if (params.adareas === undefined) params.adareas = [];
+        if (params.adareas.length === 0) params.adareas = ['"body'];
+        if (params.positive === undefined) params.positive = [];
+        if (params.cutoff === undefined) params.cutoff = [];
+        var map = {};
+        for (var i=0; i<params.positive.length; i++) {
+            map[params.positive[i]] = '+';
+        }
+        for (var i=0; i<params.cutoff.length; i++) {
+            map[params.cutoff[i]] = '!';
+        }
+        for (var i=0; i<params.adareas.length; i++) {
+            var span = params.adareas[i];
+            if (typeof(span) === 'string') span = utils.byId(span);
+            if (params.adareas[i] === '"body') span = document.body;
+            if (span === null) {
+                utils.raport('P3-o', 'no adareas defined', params.adareas[i]);
+                continue;
+            }
+            var init_state = {
+                    on: params.positive.length === 0,
+                    tb: 1
+            }
+            if (init_state.on) {
+                that.mark(span, '#af0', '#cf7', 'ads enabled by default');
+            }
+            that.walk(span, init_state, function(node, state) {
+                if (!state.on) return;
+                var s = {};
+                s.dom = node;
+                s.oarea = span;
+                s.HTML = node.nodeValue;
+                s.text = that.nsSplit(s.HTML, true);
+                s.contextBust = state.tb;
+                if (s.text.length < 1) return;
+                if ((s.text.length < that.minSpanLength) && (state.tb <= 1) || (s.text.length < that.minTitleLength)) {
+                    return that.mark(node, '#f33', '#f88', 'text node too short');
+                }
+                var color = ['#0ff', '#7ff'];
+                if (state.tb > 1) color = ['#00a', '#22f'];
+                that.mark(node, color[0], color[1], 'text node');
+                that.spans.push(s);
+            }, function(tag, node, state) {
+                if ((new Date()).getTime() > that.timeEnd) {
+                    throw that.mark(node, '#000', '#222', 'timeout');
+                }
+                for (var t=0; t<that.adc_skip_tags.length; t++) {
+                    if (that.adc_skip_tags[t].toLowerCase() === tag.toLowerCase()) {
+                        throw that.mark(node, '#333', '#999', 'def cutoff: ' + tag.toLowerCase());
+                    }
+                }
+                if (node.style && node.style.display === 'none') {
+                    throw that.mark(node, '#d60', '#f90', 'display: none');
+                }
+                var props = [tag];
+                if (node.id) props.push('#'+node.id);
+                if (node.className) {
+                    var cn = node.className.split(' ');
+                    for (var c=0; c<cn.length; c++) {
+                        props.push('.'+cn[c]);
+                    }
+                }
+                for (var p=0; p<props.length; p++) {
+                    if (map[props[p]] === '!') {
+                        throw that.mark(node, '#700', '#f44', 'user-defined cutoff on ' + props[p]);
+                    }
+                }
+                if (that.tag_boost[tag.toLowerCase()]) {
+                    state.tb = that.tag_boost[tag.toLowerCase()];
+                    that.mark(node, '#00a', '#22f', 'bust=' + state.tb + ' for tag: ' + tag.toLowerCase());
+                }
+                for (var p=0; p<props.length; p++)
+                    if (map[props[p]] === '+') {
+                        state.on = true;
+                        return that.mark(node, '#0f0', '#7f7', 'user-defined positive area: ' + props[p], state);
+                    }
+                return state;
+            });
+        }
+        for(var t = 0; t < that.spans.length; t++) {
+            var arr = that.spans[t].text;
+            for(var p = 0; p < arr.length; p++) {
+            	var content = arr[p].content;
+                if(content.length < that.minWordLength) continue;               
+                if(content.length > that.maxWordLength) continue;               
+                that.addWord(hashArr, content, that.spans[t].contextBust, 1, arr.length);
+            }
+        }
+    }
+
+    this.addWord = function(hashArr, word, bust, only, msl) {    	
+        word = word.toLowerCase();
+        if (word.length === 2 && that.twoLetterWords[word] === undefined) return;
+        if (bust === undefined) bust = 1;
+        var o = that.getBaseForm(word);
+        if (o === null) return;
+        if (hashArr[o.bform]) {
+            hashArr[o.bform].only |= only;
+            hashArr[o.bform].msl = Math.max(hashArr[o.bform].msl, msl);
+            hashArr[o.bform].count++;
+            hashArr[o.bform].words += ',' + word;
+            hashArr[o.bform].totalbust += bust;
+            hashArr[o.bform].bust = hashArr[o.bform].totalbust * hashArr[o.bform].origBust / hashArr[o.bform].count;
+            hashArr[o.bform].busts.push(bust);
+            return;
+        }
+        o.only = only;//przynajmniej jedno wystapienie w kontencie dla Ix
+        o.msl = msl;//max. span length
+        o.count = 1;
+        o.words = word;
+        if (that.impWords[word] !== undefined) {
+            o.important = that.impWords[word];//dbg
+            o.bust *= that.impWords[word];
+        }
+        o.origBust = o.bust;
+        o.busts = [o.bust];//dbg
+        o.bust = o.bust * bust;
+        o.totalbust = bust;
+        hashArr[o.bform] = o;
+    }
+
+    this.getReturnStr = function(hashArr) {
+        var array_tmp = [];
+        for(var key in hashArr) {
+            if ({}[key] === undefined) {
+                var val = hashArr[key];
+                if (typeof(val) != 'object') continue;
+                if ((!val.only) || (val.so <= 0)) continue;
+                array_tmp.push(val);
+            }
+        }
+        if (array_tmp.length === 0) {
+            utils.raport('P1-o', 'no content', undefined);
+            return '';
+        } else if (array_tmp.length < 30) {
+            utils.raport('P0-o', 'low content', array_tmp.length);
+        }
+        for (var i=0; i<array_tmp.length; i++) {
+            array_tmp[i].val = that.word_sort_val(array_tmp[i]);
+        }
+        array_tmp.sort(function(a,b){return (a.val < b.val)?1:-1;});
+        var c_val=512;
+        var content = '_' + c_val + '+';
+        var val=array_tmp[0].val/2;
+        for(var p=0;p<array_tmp.length;p++) {
+            if (array_tmp[p].val <= 0) break;
+            if (content.length+array_tmp[p].word.length>that.max_url) break;
+            content += escape(array_tmp[p].word);
+            content += '+';
+            array_tmp[p].normal_val = c_val;
+            trace(c_val + ' ---> ' + array_tmp[p].word + ' (' + array_tmp[p].bform + ', ' + hashArr[array_tmp[p].bform].val + ')');
+            if (array_tmp[p].val < val){
+                c_val = c_val/2;
+                val = array_tmp[p].val / 2;
+                if (c_val < 1) break;
+                content +='_' + c_val + '+';
+            }
+        }
+        return content;
+    }
+
+    this.addWords = function(hashArr, words, bust, only) {
+        var arr = that.nsSplit(words);
+        for (var i=0; i<arr.length; i++) {
+        	var content = arr[i].content;
+            if (content.length >= that.minWordLength && content.length <= that.maxWordLength) {
+            	that.addWord(hashArr, arr[i].content, bust, only, arr.length);
+            }
+        }
+    }
+
+    this.getInputContent = function(hashArr) {
+        var m = document.getElementsByTagName('input');
+        for (var i=0;i<m.length;i++){
+            var d = m[i].type.toLowerCase();
+            if ((d.match('text')) || (d.length === 0)) {
+                that.addWords(hashArr, m[i].value, that.input_boost, that.allowOnlyMeta);
+            }
+        }
+    }
+
+    this.getMetaContent = function(hashArr) {
+        var m=document.getElementsByTagName('meta');
+        for (var i=0;i<m.length;i++){
+            var d=m[i].name.toLowerCase();
+            if (d.indexOf('description') >= 0) {
+                that.addWords(hashArr, m[i].content, that.desc_boost, that.allowOnlyMeta);
+            } else if (d.indexOf('keywords') >= 0) {
+                that.addWords(hashArr, m[i].content, that.kw_boost, that.allowOnlyMeta);
+            }
+        }
+        var t = document.getElementsByTagName('title');
+        for (var i=0; i<t.length; i++) {
+            that.addWords(hashArr, t[i].innerHTML, that.title_boost, that.allowOnlyMeta);
+        }
+    }
+
+    this.content = null;
+
+    this.parseAll = function(co, params) {
+        syso('parsing started');
+        that.timeEnd = (new Date()).getTime() + that.timeout;
+        if (params === undefined) params = {};
+        that.content = {};
+        if (co.indexOf('M') >= 0) that.getMetaContent(that.content);
+        if (co.indexOf('I') >= 0) that.getInputContent(that.content);
+        if (co.indexOf('C') >= 0) that.getSpansAndTexts(that.content, params);
+        var ret = that.getReturnStr(that.content);
+        var exceeded = (new Date()).getTime() - that.timeEnd;
+        trace('parsing time='+(exceeded+that.timeout));
+        if (exceeded >= 0) utils.raport('P1-o', 'timeout exceeded', exceeded);
+        syso('parsing completed');
+        return ret;
+    }
+
+}
+
+
+try {x.x.x} catch(e) {static.fstarts.push(['writer', e.lineNumber, 0])};
+IxWriter = function(conf, utils, cookie_params, host, prid, caid, version, events, ref) {
+  this.baloon = document.createElement('div');
+  this.window_status = '';
+  this.croneId = 0;
+  this.divsCache = {};
+  this.click_disabled = false;
+  this.stats = {cnt: 0};
+  this.counter = 0;
+  this.underlined = {};
+  this.aaa = !conf.get('dragDropClick') || (utils.ie === cookie_params('mclick'));
+  this.aarr = [];
+  this.ixForms = {};
+  var that = this;
+  var fire = utils.ifnull(events, function() {});
+
+  this.init_imgs = function() {
+    that.imgs = [
+      [282, 131, -18, -131, 'intertext_back.png',
+        [nsa_r(3, 3, 246, 96), nsa_t({x:24,y:99},{x:14,y:125},{x:49,y:99}),
+         nsa_l(250, 22, 264, 80)], 0],
+      [284, 136, -18, -5, 'intertext_back2.png',
+        [nsa_r(3, 30, 246, 124), nsa_t({x:15,y:0},{x:26,y:28},{x:51,y:28}),
+         nsa_l(251, 48, 265, 107)], 1],
+      [283, 134, -236, -5, 'intertext_back3.png',
+        [nsa_r(3, 29, 246, 122), nsa_t({x:202,y:26},{x:229,y:27},{x:237,y:1}),
+         nsa_l(250, 47, 264, 106)], 2],
+      [281, 129, -236, -133, 'intertext_back4.png',
+        [nsa_r(3, 3, 246, 96), nsa_t({x:204,y:96},{x:230,y:96},{x:241,y:124}),
+         nsa_l(249, 22, 265, 79)], 3],
+      [274, 232, -18, -4, 'it-tl.png',
+        [nsa_r(4, 26, 247, 218), nsa_t({x:17,y:0},{x:21,y:24},{x:50,y:23}),
+         nsa_l(251, 144, 264, 204)], 1],
+      [274, 232, -231, -5, 'it-tr.png',
+        [nsa_r(4, 26, 247, 218), nsa_t({x:234,y:1},{x:200,y:24},{x:229,y:24}),
+         nsa_l(251, 144, 264, 203)], 2],
+      [274, 232, -19, -228, 'it-bl.png',
+        [nsa_r(4, 3, 246, 195), nsa_t({x:15,y:222},{x:22,y:197},{x:53,y:197}),
+         nsa_l(251, 122, 264, 179)], 0],
+      [274, 232, -230, -226, 'it-br.png',
+        [nsa_r(3, 2, 247, 197), nsa_t({x:199,y:199},{x:234,y:222},{x:228,y:199}),
+         nsa_l(251, 122, 265, 179)], 3],
+      [324, 338, -21, -5, 'itf-tl.png',
+        [nsa_r(2, 35, 300, 329, false), nsa_t({x:19,y:0},{x:26,y:33},{x:60,y:33}, false),
+         nsa_l(303, 235, 316, 294), nsa_a(280, 40, 300, 60), nsa_l(2, 35, 100, 60)], 0],
+      [324, 338, -279, -4, 'itf-tr.png',
+        [nsa_r(2, 35, 299, 327, false), nsa_t({x:241,y:32},{x:277,y:34},{x:283,y:2}, false),
+         nsa_l(302, 236, 317, 294), nsa_a(280, 40, 300, 60), nsa_l(2, 35, 100, 60)], 3],
+      [324, 338, -21, -326, 'itf-bl.png',
+        [nsa_r(2, 3, 299, 296, false), nsa_t({x:25,y:298},{x:18,y:332},{x:61,y:298}, false),
+         nsa_l(303, 203, 316, 262), nsa_a(280, 5, 300, 25), nsa_l(2, 2, 100, 34)], 1],
+      [324, 338, -280, -327, 'itf-br.png',
+        [nsa_r(3, 4, 299, 296, false), nsa_t({x:283,y:331},{x:241,y:297},{x:276,y:298}, false),
+         nsa_l(303, 203, 316, 262), nsa_a(280, 5, 300, 25), nsa_l(2, 2, 100, 34)], 2]
+    ];
+    fire('updateimgs', that.imgs);
+  };
+
+  this.highlight_str = '<span id="#id#" #CSS#'
+    + ' style="display: inline;'
+    + '  border-bottom:1px #color# solid;'
+    + '  color:#color#;'
+    + '  #bold#'
+    + '  text-decoration:underline;'
+    + '  padding-left:0px; padding-top:0px; padding-right:0px; padding-bottom:1px;'
+    + '  cursor:pointer;'
+    + '  margin:0;'
+    + '  float: none;">#orig#</span>';
+
+  this.highlighter = function(orig, mysp_id, color) {
+    var b = that.params.bold || conf.get('boldIx') && that.params.bold !== false;
+    var bold = b === undefined ? ''
+      : ('font-weight: ' + (b+'' === 'true' ? 'bold;' : 'normal;'));
+    return that.highlight_str
+      .replace(/#CSS#/g, conf.get('cssclass'))
+      .replace(/#id#/g, mysp_id)
+      .replace(/#bold#/g, bold)
+      .replace(/#color#/g, color)
+      .replace(/#orig#/g, orig);
+  }
+
+  this.adddbg = function(src) {
+    if (!utils.co100()) return src.replace(/_DBG_/g, '');
+    return src.replace(/_DBG_/g, '&iid=' + utils.rndId);
+  }
+
+  var nsa_r = that.nsa_r = function(x1, y1, x2, y2, cc) {
+    if (cc === undefined) cc = true;
+    var ret = {};
+    ret.beforeclick = function() {};
+    ret.onmousemove = utils.onlyOnce(function(box) {
+      if (cc && !utils.ie6) that.baloon.style.cursor = 'pointer';
+      that.window_status = box.url;
+    }, 'windowstatus');
+    ret.onclick = function(box, extra) {
+      var from = 'W';
+      if (y2-y1 > 50) from='R'+(x2-x1)+'x'+(y2-y1);
+      if (cc) that.mainaction(box.aa, extra, from);
+    }
+    ret.inside = function(x, y) {
+      return (x+1 >= x1) && (y+1 >= y1) && (x-1 <= x2) && (y-1 <= y2);
+    }
+    ret.x1 = x1;
+    ret.y1 = y1;
+    ret.x2 = x2;
+    ret.y2 = y2;
+    ret.w = x2-x1;
+    ret.h = y2-y1;
+    return ret;
+  }
+
+  var nsa_a = that.nsa_a = function(x1, y1, x2, y2) {
+    var ret = nsa_r(x1, y1, x2, y2, false);
+    ret.onmousemove = function() {
+      trace('over');
+      if (that.curr_a) {
+        that.curr_a.style.backgroundPosition = '0 0';
+        that.curr_a.style.cursor = 'pointer';
+      } else {
+        if (!utils.ie6) that.baloon.style.cursor = 'pointer';
+      }
+      that.window_status = 'X';
+      ret.onmouseout = function() {
+        trace('out');
+        if (that.curr_a) {
+          that.curr_a.style.backgroundPosition = '-100px 0';
+          that.curr_a.style.cursor = '';
+        } else {
+          if (!utils.ie6) that.baloon.style.cursor = '';
+        }
+        ret.onmouseout = null;
+        that.window_status = '';
+      };
+    };
+    ret.onclick = function() {
+      that.baloon.style.display = 'none';
+      that.onAdOut();
+    }
+    return ret;
+  }
+
+  var nsa_r1 = that.nsa_r1 = function(r, cc) {
+    return nsa_r(r.x, r.y, r.x+r.w, r.y+r.h, cc);
+  }
+
+  var nsa_n = that.nsa_n = function(x1, y1, x2, y2) {
+    var ret = nsa_r(x1, y1, x2, y2, false);
+    ret.beforeclick = function(x, y) {
+      if (ret.inside(x, y)) {
+        syso('unclickable area');
+        that.dont_click();
+      }
+    }
+    return ret;
+  }
+
+  var nsa_l = that.nsa_l = function(x1, y1, x2, y2) {
+    var ret = nsa_r(x1, y1, x2, y2, true);
+    ret.onmousemove = utils.onlyOnce(function() {
+      that.baloon.style.cursor = 'pointer';
+      that.window_status = conf.get('label_url');
+    }, 'windowstatus');
+    ret.onclick = function(_, extra) {
+      extra.label = true;
+      that.mainaction(conf.get('label_href').replace(/_EREF_/g, escape(escape(ref))), extra, 'L');
+    }
+    return ret;
+  }
+
+  var nsa_t = that.nsa_t = function(p1, p2, p3, cc) {
+    if (cc === undefined) cc = true;
+    var ret = nsa_r(0, 0, 0, 0, cc);
+    var sqr = function(x) {
+      return x*x;
+    }
+    var d = function(p1, p2) {
+      return Math.sqrt(sqr(p1.x - p2.x) + sqr(p1.y - p2.y));
+    }
+    var a = d(p1, p2);
+    var b = d(p2, p3);
+    var c = d(p3, p1);
+    var pt = function(a, b, c) {
+      var p = (a + b + c) / 2;
+      return Math.sqrt(p*(p-a)*(p-b)*(p-c));
+    }
+    var p = pt(a, b, c);
+    ret.inside = function(x, y) {
+      var s = {x:x, y:y};
+      var sa = d(s, p3);
+      var sb = d(s, p1);
+      var sc = d(s, p2);
+      var val = pt(sa, sb, c) + pt(sb, sc, a) + pt(sc, sa, b);
+      return p * 1.01 > val;
+    }
+    ret.onclick = function(box, extra) {
+      if (cc) that.mainaction(box.aa, extra, 'T');
+    }
+    return ret;
+  }
+
+  this.setImg = function(n) {
+    var gdzie = conf.get('intertext_file_prefix')
+      .replace(/_FILE_/g, that.imgs[n][4])
+    gdzie = that.adddbg(gdzie);
+    if (utils.ie6) {
+      that.baloon.style.filter = 'progid:DXImageTransform.Microsoft.AlphaImageLoader (src='
+        + gdzie + ',sizingMethod="image")';
+    } else {
+      that.baloon.style.background = 'transparent url('+gdzie+') no-repeat';
+    }
+  }
+
+  this.cachedDiv = function(div, key) {
+    var ky = ''+key;
+    var d = that.divsCache[key];
+    var off = that.offset(div);
+    if (d === undefined) {
+      d = utils.cel(document.body, 'div');
+      d.style.width = off.w + 'px';
+      d.style.height = off.h + 'px';
+      d.style.position = 'absolute';
+      d.style.zIndex = div.style.zIndex ? div.style.zIndex + 1 : 1;//XXX
+      d.oldIndex = d.style.zIndex;
+      d.old = false;
+      that.divsCache[key] = d;
+    } else {
+      d.old = true;
+      d.style.zIndex = d.oldIndex;
+      d.style.display = '';
+    }
+    d.style.left = off.x + 'px';
+    d.style.top = off.y + 'px';
+    return d;
+  }
+
+  this.setz = function(el, confPos) {
+    el.style.zIndex = conf.get('z0') + conf.get(confPos);
+  }
+
+  this.style = function(el, st) {
+    var a = st.replace(/: /g, ':').replace(/; /g, ';').split(';');
+    for (var i=0; i<a.length; i++) {
+      try {
+        if (a[i].length < 3) continue;
+        el.style[a[i].split(':')[0]] = a[i].split(':')[1];
+      } catch(e) {
+        utils.raport('J1-', 'style not supported', a[i].split(':')[0] + ' ' + a[i].split(':')[1]);
+      }
+    }
+    return el;
+  }
+
+  this.pad = function(div, l, t, r, b, w, h) {
+    var ds = div.style;
+    ds.paddingLeft = l + 'px';
+    ds.paddingTop = t + 'px';
+    ds.paddingRight = r + 'px';
+    ds.paddingBottom = b + 'px';
+    if (w != undefined) ds.width = w;
+    if (h != undefined) ds.height = h;
+    return div;
+  }
+  
+  this.className = function(node, className) {
+    if (!conf.get('addCssClassName')) return;
+    node.className = className;
+  }
+
+  this.cel = function(par, tag, style) {
+    var ret = utils.cel(par, tag);
+    var es = ret.style;
+    es.margin = es.padding = es.border = '0px';
+    es.background = '';
+    es.color = 'black';
+    es.cssFloat = 'none';
+    es.styleFloat = 'none';
+    es.textAlign = '';
+    es.lineHeight = '15px';
+    if (style) that.style(ret, style);
+    return ret;
+  }
+
+  this.ctn = function(par, txt) {
+    var ret = document.createTextNode(txt);
+    par.appendChild(ret);
+  }
+
+  this.getSize = function() {
+    var w = 0;
+    var h = 0;
+    var d = document;
+    var b = document.body;
+    if(typeof(window.innerWidth) === 'number') {
+      w = window.innerWidth;
+      h = window.innerHeight;
+    } else if(d.documentElement && (d.documentElement.clientWidth || d.documentElement.clientHeight)) {
+      w = d.documentElement.clientWidth;
+      h = d.documentElement.clientHeight;
+    } else if(b && (b.clientWidth || b.clientHeight)) {
+      w = b.clientWidth;
+      h = b.clientHeight;
+    }
+    return {w: w, h: h};
+  }
+
+  this.getScroll = utils.getScroll; //bc
+
+  this.mouseCoords = utils.mouseCoords; //bc
+
+  this.offset = utils.offset; //bc
+
+  this.insideR = function(r, p, e) {
+    return (p.x >= r.x - e) && (p.x <= r.x + r.w + e) && (p.y >= r.y - e) && (p.y <= r.y + r.h + e);
+  }
+
+  this.extend_rect = function(rect, point) {
+    rect.w = Math.max(rect.w, rect.x - point.x + rect.w, point.x - rect.x);
+    rect.h = Math.max(rect.h, rect.y - point.y + rect.h, point.y - rect.y);
+    rect.x = Math.min(rect.x, point.x);
+    rect.y = Math.min(rect.y, point.y);
+    return rect;
+  }
+
+  that.shift_rect = function(rect, v, mult) {
+    if (mult === undefined) mult = 1;
+    var ret = {
+      x: rect.x + mult * v.x,
+      y: rect.y + mult * v.y
+    }
+    if (rect.w != undefined) {
+      ret.w = rect.w;
+      ret.h = rect.h;
+    }
+    return ret;
+  }
+
+  this.getWordCoords = function(a, mpos) {
+    var ret = that.offset(a);
+    if (that.insideR(ret, mpos, conf.get('max_offset_error')) && (ret.w <= 120) && (ret.h <= 40)) {
+      if (utils.ie) {
+        for (var dx=-1; dx<2; dx+=2) {
+          for (var dy=-1; dy<2; dy+=2) {
+            ret = that.extend_rect(ret, {
+              x: mpos.x + 10 * dx,
+              y: mpos.y + 10 * dy
+            });
+          }
+        }
+      }
+      return ret;
+    } else {
+      return {x: mpos.x - 100, y: mpos.y - 20, w: 200, h: 30}
+    }
+  }
+
+  this.getAdPos = function(aoff, mpos) {
+    if (that.insideR(aoff, mpos, conf.get('max_offset_error'))) {
+      return {x: aoff.x + aoff.w / 2, y: aoff.y + aoff.h - 3};
+    } else {
+      return mpos;
+    }
+  }
+
+  this.onAdOut = function() {
+    utils.foreach(that.divsCache, function(i, v) {
+      v.style.display = 'none';
+      v.style.zIndex = -utils.duzo;
+    });
+    if (that.last_a) that.last_a.style.zIndex = 0;
+  }
+
+  this.mouseOverOut = function(el, evt) {
+    el.onmouseover = utils.apply(evt, true);
+    el.onmouseout = utils.apply(evt, false);
+    return el;
+  }
+
+  this.dont_click = function() {
+    that.click_disabled = true;
+    utils.later('dontClick', function() {
+      that.click_disabled = false;
+    });
+  }
+
+  /******************************************************************************/
+
+  this.mainaction = utils.ftry('mainaction', function(aa, extra, from) {
+    if (!conf.get('enableWordClick') && (from === 'W' || from === 'T')) {
+      return syso('word click disabled');
+    }
+    if (that.click_disabled || that.dont_hide_ix) {
+      return syso("don't click");
+    }
+    syso(that.aaa ? 'mouse down' : 'click-main');
+    var aabox = {aa: aa};
+    fire('onbeforemainaction', aabox, extra, from);
+    aa = aabox.aa;
+    if (!extra.label) {
+      try {
+        var teraz = (new Date()).getTime();
+        if (teraz - extra.showTime < conf.get('minClickTime')) {
+          that.dont_click();
+          utils.raport('P1o', 'early click', teraz - extra.showTime);
+          return;
+        }
+        extra.totalTime = utils.ifnull(extra.totalTime, 0) + teraz - extra.showTime;
+        var aaa = '&etag='+version+'&IXRND='+escape(utils.rndId)+'&type=click';
+        aaa += '&word='+escape(extra.word)+'&shows='+escape(extra.shows);
+        aaa += '&lastTime='+escape(teraz-extra.showTime);
+        aaa += '&totalTime='+escape(extra.totalTime);
+        aaa += '&prid='+escape(prid)+'&caid='+escape(caid);
+        if (from) aaa += '&frm='+from;
+        aa += aaa;
+        syso(aa);
+        extra.showTime = teraz;
+        setTimeout(utils.ftry('afterClick', function() {
+          utils.sendstat('&type=afterClick' + aaa.split('&type=click')[1]
+            + '&c2a=' + that.fromC2a + '&lpm=' + that.lpm);
+          that.oldlpm = that.lpm;
+          that.fromC2a = false;
+          that.lpm = false;
+        }), 500);//XXX
+      } catch(e) {
+        utils.exception('mainaction stats', e);
+      }
+    }
+    if (that.aaa) {
+      for (var i=0; i<that.aarr.length; i++) {
+        that.aarr[i].target = '_blank';
+        that.aarr[i].href = aa;
+      }
+    } else {
+      window.open(aa, '_blank');
+    }
+    that.dont_click();
+    that.mainaction_done = true;
+  });
+
+  this.drawUrl = function(node, tag, style, url) {
+    var ret = utils.cel(node, tag, style);
+    var inn = ret;
+    if (that.aaa && !utils.ie) {
+      inn = utils.cel(inn, 'a');
+      inn.id = 'extra_ff_a';
+      inn.style.color = 'inherit';
+      inn.style.backgroundColor = 'transparent';
+      inn.style.textDecoration = 'inherit';
+      inn.style.fontWeight = 'inherit';
+      inn.style.cssFloat = 'none';
+      inn.style.fontSize = 'inherit';
+    }
+    if (url.length > 20) {
+      url = url.substring(0, 12)
+        + url.substring(12, url.length - 5).replace(/\./g, '<wbr>.')
+        + url.substring(url.length - 5);
+    }
+    inn.innerHTML = url;
+    return ret;
+  }
+
+  this.drawFlashBox = utils.ftry('drawFlashBox', function(box, main, dir, extra) {
+    var extraTop = parseInt(main.parentNode.style.paddingTop);
+    var sp = that.cel(main, 'span', 'height: 338px');
+    var a = that.cel(sp, 'div', 'right: 26px; height: 19px; width: 19px; position: absolute');
+    a.style.top = 2 + extraTop + 'px';
+    a.style.background = 'transparent url('
+      + that.adddbg(conf.get('intertext_file_prefix').replace(/_FILE_/g, 'itf-btn-close-a.gif'))
+      + ') no-repeat scroll -100px 0';
+    var main_sp = that.cel(sp, 'span');
+    var d = that.cel(main_sp, 'div', 'width: 300px; height: 250px; marginTop: 24px; position: absolute');
+    that.className(d, 'nsix_noFlash');
+    d.style.background = 'transparent url('
+      + that.adddbg(conf.get(box.typ === utils.adTypes.flash ? 'nf_imager_url' : 'gsp_imager_url')
+        .replace(/_ID_/g, box.vis_id)
+        .replace(/_NC_/g, box.timestamp))
+      + ') no-repeat';
+    d.onclick = function() {
+      that.mainaction(box.aa, extra, 'F');
+    }
+    d.style.cursor = 'pointer';
+    if (box.typ === utils.adTypes.flash) {
+      var dd = that.cachedDiv(d, box.id);
+      if (!dd.old) {
+        var emb = that.cel(dd, 'embed');
+        that.className(emb, 'nsix_flash');
+        emb.width = '300px';
+        emb.height = '250px';
+        emb.src = conf.get('f_imager_url').replace(/_ID_/g, box.vis_id).replace(/_NC_/g, box.timestamp)
+        emb.type = 'application/x-shockwave-flash';
+        emb.setAttribute('flashvars', conf.get('flashvars').replace(/_EA_/g, escape(box.aa)));
+      }
+    }
+    var urlSp = that.drawUrl(sp, 'span', 'width: 300px; height: 20px; position: absolute;'
+      + ' fontSize: 10px; textAlign: center; fontFamily: Arial; color: blue', box.url);
+    that.style(utils.ie ? urlSp : urlSp.firstChild,
+      'position: absolute; color: blue; top: '
+        + (extraTop + 278) + 'px; width: 300px; textAlign: center;');
+    that.className(urlSp, 'nsix_urlF');
+    urlSp.style.top = extraTop + 278 + 'px';
+    that.curr_a = a;
+    that.mouseOverOut(urlSp, function(over) {
+      urlSp.style.fontWeight = over ? 'bold' : 'normal';
+      urlSp.style.cursor = over ? 'pointer' : '';
+    });
+    urlSp.onclick = function() {
+      that.mainaction(box.aa, extra, 'U');
+    }
+    if (conf.get('enableCusomColors')) {
+      if (that.params.colorUrl) urlSp.style.color = that.params.colorUrl;
+    }
+  });
+
+  this.drawExBox = utils.ftry('drawExBox', function(box, main, dir, extra) {
+    main.style.textAlign = 'center';
+    var imgDiv = that.cel(main, 'div', 'textAlign: center; width: 100%');
+    that.className(imgDiv, 'nsix_imgE');
+    var img = that.cel(imgDiv, 'img');
+    that.style(img, 'margin: 5px; maxWidth: 200px; maxHeight: 200px; display: inline;');
+    img.src = that.adddbg(conf.get('imager_url')
+      .replace(/_ID_/g, box.vis_id)
+      .replace(/_NC_/g, box.timestamp));
+    var udiv = that.pad(that.drawUrl(main, 'div', '', box.url), 10, 3, 10, 15, '85%');
+    that.className(udiv, 'nsix_urlE');
+    that.style(udiv, 'font: 12px Arial; color: green; borderBottom: 1px solid #E0E0E0; textAlign: center; marginLeft: 8px');
+    var tdiv = that.cel(that.pad(that.cel(main, 'div', 'textAlign: center'), 10, 12, 10, 0, '85%'), 'b');
+    that.className(tdiv, 'nsix_titleE');
+    that.style(tdiv, 'color: #1C4676; textAlign: center; font: 15px Arial');
+    that.ctn(tdiv, box.title);
+    var ddiv = that.cel(that.pad(that.cel(main, 'div', 'textAlign: center'), 10, 12, 10, 0, '85%'), 'span');
+    that.className(ddiv, 'nsix_descE');
+    that.style(ddiv, 'color: #6E6E6E; textAlign: center; font: 12px Arial');
+    that.ctn(ddiv, box.desc);
+    if (conf.get('enableCusomColors')) {
+      if (that.params.colorTitle) tdiv.style.color = that.params.colorTitle;
+      if (that.params.colorDesc) ddiv.style.color = that.params.colorDesc;
+      if (that.params.colorUrl) udiv.style.color = that.params.colorUrl;
+    }
+  });
+  
+  this.drawTextBox = utils.ftry('drawTextBox', function(box, main, dir, extra) {
+    var tdiv = that.pad(that.cel(main, 'div'), 10, 4, 10, 0);
+    that.className(tdiv, 'nsix_titleT');
+    var _u = that.cel(tdiv, 'u');
+    that.className(_u, 'nsix_titleTu');
+    var _b = that.cel(_u, 'b', 'font: ' + conf.get('titleTxtFs') + 'px Arial; fontWeight: bold');
+    that.className(_b, 'nsix_titleTb');
+    that.ctn(_b, box.title);
+    var ddiv = that.pad(that.cel(main, 'div'), 10, 4, 10, 0, '85%');
+    that.className(ddiv, 'nsix_descT');
+    ddiv.style.font = '11px Arial';
+    that.ctn(ddiv, box.desc);
+    var udiv = that.pad(that.drawUrl(main, 'div', '', box.url), 10, 4, 10, 0, '85%');
+    that.className(udiv, 'nsix_urlT');
+    that.style(udiv, 'font: 11px Arial; color: blue');
+    if (conf.get('enableCusomColors')) {
+      if (that.params.colorTitle) _b.style.color = that.params.colorTitle;
+      if (that.params.colorDesc) ddiv.style.color = that.params.colorDesc;
+      if (that.params.colorUrl) udiv.style.color = that.params.colorUrl;
+    }
+  });
+
+  this.drawC2a = function(main, fs, proc) {
+    if (!conf.get('enableC2a', false)) return;
+    var c2adiv = that.cel(main.parentNode, 'div');
+    that.ctn(c2adiv, conf.get('c2aText'));
+    that.className(c2adiv, 'nsix_c2a');
+    c2adiv.style.color = 'blue';
+    c2adiv.style.textAlign = 'right';
+    c2adiv.style.fontFamily = 'Arial';
+    c2adiv.style.fontSize = fs + 'px';
+    c2adiv.style.cursor = 'pointer';
+    c2adiv.style.marginRight = '5px';
+    c2adiv.style.width = '100%';
+    main.style.height = proc;
+    return;
+  }
+
+  this.draw_ad_content = function(box, main, dir, extra) {
+    if (box.typ === utils.adTypes.flash || box.typ === utils.adTypes.imgSP) {
+      return that.drawFlashBox(box, main, dir, extra);
+    } else if (box.typ === utils.adTypes.exclusive || box.typ === utils.adTypes.billboard) {
+      that.drawC2a(main, 12, '90%');
+      return that.drawExBox(box, main, dir, extra);
+    } else if (box.typ != utils.adTypes.text) {
+      utils.raport('J2', 'unknown ad type', box.typ);
+    }
+    that.drawC2a(main, 11, '80%');
+    return that.drawTextBox(box, main, dir, extra);
+  }
+
+  this.showIx = utils.ftry('showIx', function(ev, art, spanId, box, extra, params) {
+    if (that.ads_are_showed === spanId) return;
+    that.ads_are_showed = spanId;
+    syso('showing ad #' + box.box_id + ' ' + box.typ);
+    if ((box.shows === 0) && (utils.rndId % conf.coile === conf.get('mod100'))) {
+      utils.sendstat('&type=firstshow&box_id=' + box.id + '&word=' + extra.word);
+    }
+    extra.showTime = (new Date()).getTime();
+    fire('onbeforeshowix');
+    that.onAdOut();
+    utils.clr(that.baloon);
+    that.style(that.baloon, 'display: inline; textAlign: left');
+    that.setz(that.baloon, 'z_baloon');
+    var to = conf.get('baloon_hide_timeout');
+    var prev_status = that.prev_status = that.window_status;
+    extra.shows = box.shows++;
+    var exType = 0;
+    if (box.typ === utils.adTypes.exclusive) exType = 1;
+    if (box.typ === utils.adTypes.billboard) exType = 1;
+    if (box.typ === utils.adTypes.flash) exType = 2;
+    if (box.typ === utils.adTypes.imgSP) exType = 2;
+    var scrol = that.getScroll();
+    var size = that.getSize();
+    var mpos = that.mpos = that.mouseCoords(ev);
+    var a = that.aarr[1] = utils.byId(conf.get('a_prefix', 'a_') + spanId);
+    that.last_a = a;
+    that.setz(a, 'z_a');
+    var arto = that.offset(art);
+    utils.show_rect('article', arto, 'gray');
+    utils.show_point('mouse_pos', mpos, 'brown', 'z_point');
+    var aoff = that.getWordCoords(a, mpos);
+    utils.show_rect('aoff', aoff, 'blue');
+    var off = that.getAdPos(aoff, mpos);
+    utils.show_point('off', off, 'green');
+    var dir = -1;
+    var minerr = utils.duzo;
+    var adirs = utils.ifnull(params.allow_dirs, [0, 0, 0, 0]);
+    var conferr = conf.get('min_err');
+    for (d=0; d<4; d++) {
+      var img = that.imgs[d + exType * 4];
+      var dd = img[6];
+      var err = typeof(adirs[dd]) === 'number' ? -adirs[dd] : adirs[dd] ? 0 : conf.get('max_err');
+      err += Math.max(err, - (off.x + img[2] - scrol.x));
+      err += Math.max(err, (off.x + img[2] + img[0] - (size.w + scrol.x)));
+      err += Math.max(err, - (off.y + img[3] - scrol.y));
+      err += Math.max(err, (off.y + img[3] + img[1] - (size.h + scrol.y)));
+      err += Math.max(err, conferr * (arto.x - (off.x + img[2])));
+      err += Math.max(err, conferr * (off.x + img[2] + img[0] - (arto.x + arto.w)));
+      err += Math.max(err, conferr * (arto.y - (off.y + img[3])));
+      err += Math.max(err, conferr * (off.y + img[3] + img[1] - (arto.y + arto.h)));
+      if (err < minerr) {
+        minerr = err;
+        dir = d;
+      }
+    }
+    dir += exType * 4;
+    if (minerr > 1) syso('minerr= ' + minerr, '#ff4400');
+    var img = that.img = that.imgs[dir];
+    if (img === null) return utils.raport('J2', 'showIx - img is null', dir);
+    utils.tmp_state.img_src = img[4];
+    that.setImg(dir);
+    var img_pos = {
+      x: off.x + img[2],
+      y: off.y + img[3],
+      w: img[0],
+      h: img[1]
+    }
+    utils.printRect('img_pos', img_pos);
+    utils.show_rect('r00', img_pos, 'green');
+    var cont0 = img[5][0];
+    that.baloon.style.left = img_pos.x + 'px';
+    that.baloon.style.top = img_pos.y + 'px';
+    that.baloon.style.width = cont0.w + 'px';
+    that.baloon.style.height = cont0.h + 'px';
+    if (utils.ie6) that.baloon.style.cursor = 'pointer';
+    that.pad(that.baloon, cont0.x1, cont0.y1, img_pos.w - cont0.x2, img_pos.h - cont0.y2);
+    var main = that.pad(utils.cel(that.baloon, 'div'), 0, 0, 0, 0, '100%', '100%');
+    utils.later('fixBaloon', function() {
+      if (that.baloon.offsetWidth === img_pos.w) return;
+      syso('ie width');
+      that.baloon.style.width = img_pos.w + 'px';
+      that.baloon.style.height = img_pos.h + 'px';
+    });
+    if (cookie_params('adc_dbgL2')) main.style.border = '1px solid olive';
+    that.draw_ad_content(box, main, dir, extra);
+    var oldmousemove = document.onmousemove;
+    var oldkeypress = document.onkeypress;
+    var oldscroll = document.onscroll;
+    document.onkeypress = document.onscroll = document.onmousemove = function(ev) {
+      if (typeof(oldmousemove) === 'function') oldmousemove(ev);
+      if (ev === undefined) ev = event;
+      if (ev === undefined) return;
+      that.mpos = that.mouseCoords(ev);
+      utils.printRect('cursor', that.mpos);
+      if (that.baloon.style.display != 'none') utils.show_tmp_state();
+    }
+    if (!img[5].done) img[5].done = img[5].length
+    img[5][img[5].done] = nsa_r1(that.shift_rect(aoff, img_pos, -1), true);
+    var runf = function(evn) {
+      var x = that.mpos.x - img_pos.x;
+      var y = that.mpos.y - img_pos.y;
+      utils.printRect('pos', {x: x, y: y});
+      var str = '';
+      if (evn === 'onclick') {
+        for (var i=0; i<img[5].length; i++) {
+          img[5][i].beforeclick(x, y);
+        }
+      }
+      for (var i=img[5].length-1; i>=0; --i) {
+        var obj = img[5][i];
+        if (ch = obj.inside(x, y, img[0], img[1], box)) {
+          obj[evn](box, extra);
+        } else if (typeof(obj.onmouseout) === 'function') {
+          obj.onmouseout(box, extra);
+        }
+        str += ch ? 'X' : 'O';
+      }
+      utils.tmp_state.inside = str;
+    }
+    var onwhat = that.aaa ? 'onmousedown' : 'onclick'
+    var setLPM = that.baloon.onclick = function() {
+      syso('mouse click');
+      that.lpm = true;
+    };
+    that.baloon[onwhat] = utils.apply(runf, 'onclick');
+    var falseclick = function(where) {
+      return function() {
+        syso('mouse up');
+        setTimeout(function() {
+          if (that.mainaction_done) return;
+          that.mainaction_done = true;
+          utils.raport('J1o', 'no click ' + where, utils.now());
+        }, conf.get('dontClickTimeout', 3000));
+      }
+    }
+    that.baloon.onmouseup = falseclick('b');
+    a.onclick = setLPM;
+    a[onwhat] = function(ev) {
+      if (conf.get('dragDropClick')) {
+        try {
+          ev.preventDefault();
+        } catch(e) {};
+      }
+      that.mainaction(box.aa, extra, 'W')
+    };
+    a.onmouseup = falseclick('a');
+    var crone = function(croneId) {
+      if (that.croneId != croneId) return;
+      that.window_status = '';
+      runf('onmousemove');
+      if (that.prev_status != that.window_status) {
+        window.status = that.prev_status = that.window_status;
+      }
+      var ok = that.window_status != '';
+      if (mpos.x < that.baloon.offsetLeft - 75) ok = false;
+      if (mpos.x > that.baloon.offsetLeft + that.baloon.offsetWidth + 75) ok = false;
+      if (mpos.y < that.baloon.offsetTop - 75) ok = false;
+      if (mpos.y > that.baloon.offsetTop + that.baloon.offsetHeight + 75) ok = false;
+      if (!ok && !that.dont_hide_ix) {
+        if (!utils.ie6) that.baloon.style.cursor = '';
+        to--;
+        if (to < 0) {
+          if (cookie_params('adc_dbgL2')) {
+            utils.ieout.style.backgroundColor = 'gray';
+            if (utils.rects) {
+              utils.foreach(utils.rects, function(r, v) {
+                v.parentNode.removeChild(utils.rects[r]);
+              });
+              utils.rects = {};
+            }
+          }
+          document.onmousemove = oldmousemove;
+          document.onscroll = oldscroll;
+          document.onkeypress = oldkeypress;
+          window.status = '';
+          that.baloon.style.display = 'none';
+          a.style.zIndex = '';
+          that.ads_are_showed = false;
+          that.onAdOut();
+          trace('out');
+          var teraz = (new Date()).getTime();
+          if (that.aaa && that.oldlpm != undefined) {
+            if (that.oldlpm === true) {
+              utils.raport('P0o', 'return', teraz - extra.showTime);
+            } else {
+              utils.raport('P0o', 'mclick', teraz - extra.showTime);
+            }
+            that.oldlpm = undefined;
+          }
+          extra.totalTime = utils.ifnull(extra.totalTime, 0) + teraz - extra.showTime;
+          extra.showTime = teraz;
+          return;
+        }
+      } else {
+        to = conf.get('baloon_hide_timeout');
+      }
+      setTimeout(utils.apply(crone, croneId), conf.get('croneSpeed'));
+    }
+    crone(++that.croneId);
+    if (utils.ie && document.readyState === 'complete') {
+      var tomv = that.baloon.parentNode;
+      tomv.style.zIndex = that.baloon.style.zIndex;
+      tomv.parentNode.removeChild(tomv);
+      document.body.appendChild(tomv);
+    }
+  });
+
+  this.initIx = utils.ftry('initIx', function() {
+    that.init_imgs();
+    that.baloon.style.position = 'absolute';
+    that.baloon.style.display = 'none';
+    that.baloon.id = 'nsix_baloon';
+    var dymek_zewn = that.aarr[0] = utils.cel_back(document.body, that.aaa ? 'a' : 'div');
+    dymek_zewn.style.position = 'absolute';
+    dymek_zewn.style.padding = dymek_zewn.style.margin = dymek_zewn.style.width = dymek_zewn.style.height = '0';
+    dymek_zewn.style.top = dymek_zewn.style.left = '0';
+    dymek_zewn.style.color = '';
+    dymek_zewn.style.textDecoration = 'none';
+    dymek_zewn.appendChild(that.baloon);
+    that.setImg(0);
+  });
+
+  this.putIx = utils.ftry('putIx', function(coms, spans, params) {
+    that.params = params;
+    that.counter;//wstawione slowa
+    for (var i=0; i<coms.length; i++) {
+      if (coms[i].desc === undefined) coms[i].desc = coms[i].opis1 + ' ' + coms[i].opis2;
+      if (coms[i].opis2 === '') coms[i].desc = coms[i].opis1;
+    }
+    var boxes_tmp = [];  // kopia tablicy boksow, (bedziemy je permutowac)
+    for (var i=0; i<coms.length; i++) {
+      boxes_tmp[i] = coms[i];
+      boxes_tmp[i].box_id = i;
+    }
+    var page_pos = 0;
+    var zajete1 = [];
+    for (var s=0; s<spans.length; s++) {
+      for (var k=0; k<spans[s].text.length; k++) {
+        zajete1[page_pos++] = 1000000;
+      }
+    }
+    var any_words = []; // slowa z jakiejkolwiek reklamy
+    for (var box_id = 0; box_id < boxes_tmp.length; box_id++) {
+      var box = boxes_tmp[box_id];
+      if (!box) continue;
+      for (var i=0; i<box.wordsArr.length; i++) {
+        any_words[box.wordsArr[i]] = true;
+      }
+    }
+    var used_words = []; // podswietlone juz slowa
+    var color = params.fcolor;
+    if ((color === undefined) || (color === '#3c5')) {
+      color = conf.get('deault_highlight_color');
+    }
+    var why_not = {};
+    var dbg_msg = '';
+    var used_positions = {};
+    var to_update = [];
+    var underlined = {};
+    that.to_update = to_update;//dbg
+    for (var i=0; i<spans.length; i++) to_update[i] = [];
+    for (var krok = conf.get('init_step'); krok >= conf.get('min_step'); krok /= 2) {
+      for (var box_id = 0; box_id < boxes_tmp.length; box_id++) {
+        page_pos = 0;
+        for (var span_id = 0; span_id < spans.length; span_id++) {
+          var span = spans[span_id];
+          var box = boxes_tmp[box_id];
+          if (!box) continue;
+          for (var slowo_id = 0; slowo_id < span.text.length; slowo_id++) {
+            if (that.counter === params.ad_count) break;
+            page_pos++;
+            var slowo = span.text[slowo_id];
+            var tresc = slowo.content.toLowerCase();
+            if (!any_words[tresc]) continue;
+            var orig = slowo.orgin;
+            if (conf.get('different_words') && used_words[tresc]) continue;
+            if (zajete1[page_pos] < krok) {
+              if (((';'+box.iwords).indexOf(';'+tresc+',') >= 0)
+                  && (why_not['#'+box.id] === undefined)
+                  && (zajete1[page_pos] > 0)) {
+                why_not['#'+box.id] = {m: 'too near', w: tresc, d: zajete1[page_pos]};
+              }
+              continue;
+            }
+            if (used_positions['_' + span_id + '_' + slowo_id]) {
+              trace('same ad for word: ' + jej_slowo);
+              if (why_not['#'+box.id] === undefined) {
+                why_not['#'+box.id] = {m: 'same word', w: tresc, d: 0};
+              }
+              continue;
+            }
+            for (var jej_slowo in box.wordsArr) {
+              if (tresc != box.wordsArr[jej_slowo]) continue;
+              if ({}[jej_slowo] !== undefined) continue;
+              underlined[tresc] = utils.ifnull(underlined[tresc], 0) + 1;
+              if (underlined[tresc] > conf.get('maxSameWords')) {
+                utils.raport('S2o-', 'too many same words');
+                continue;
+              }
+              trace('added ad: step='+krok+', span_id='+span_id+', slowo_id='+slowo_id+', box_id='+box_id
+                +', begin='+slowo.begin+', tresc='+tresc+', pos='+(page_pos-1)+', old='+zajete1[page_pos-1]);
+              var ind = slowo.begin;
+              var mysp_id = conf.get('word_id_prefix') + that.counter;
+              var newWord = that.highlighter(orig, mysp_id, color);
+              if (span.HTML.substring(ind, ind + orig.length) != orig) {
+                utils.raport('J2', 'putIx - offsetError', span.HTML.substring(ind,ind+orig.length) + ' != ' + orig);
+                continue;
+              }
+              why_not['#'+box.id] = false;
+              box.real_word = tresc;
+              box.shows = 0;
+              to_update[span_id].push({
+                pos  : ind,
+                ow   : tresc,
+                nw   : newWord,
+                skip : orig.length,
+                spid : conf.get('word_id_prefix') + that.counter,
+                boxId: box.box_id
+              });
+              used_positions['_' + span_id + '_' + slowo_id] = true;
+              dbg_msg += '\n' + (box_id+1) + ': ' + box.wordsArr[jej_slowo];
+              that.counter++;
+              if (conf.get('different_ads_for_same_word')) box.wordsArr[jej_slowo] = null;
+              used_words[tresc] = true;
+              for (var k = page_pos - krok; k <= page_pos + krok; k++) {
+                if ((k < 0) || (k >= zajete1.length)) continue;
+                zajete1[k] = Math.min(zajete1[k], Math.abs(page_pos - k));
+              }
+              if (conf.get('different_ads')) {
+                boxes_tmp[box_id] = null;
+              } else {
+                for (var i=box_id; i<boxes_tmp.length - 1; i++)
+                  boxes_tmp[i] = boxes_tmp[i+1];
+                boxes_tmp[boxes_tmp.length - 1] = box;
+              }
+              slowo_id = span.text.length;
+              break;
+            }
+          }
+        }
+      }
+    }
+    that.stats.cnt = that.counter;
+    if (cookie_params('usedAdSlots')) alert(dbg_msg);
+    for (var s=0; s<spans.length; s++) {
+      spans[s].pNode = spans[s].dom.parentNode;
+    }
+    var dbg = null;
+    if (cookie_params('adc_dbgBtns')) dbg = utils.insert_ix_dbg();
+    var nopNodeC = 0;
+    var ixspanids = {};
+    for (var i=0; i<params.adareas.length; i++) {
+      ixspanids[params.adareas[i]] = true;
+    }
+    for (var i=0; i<to_update.length; i++) {
+      if (to_update[i].length === 0) continue;
+      if (!spans[i].pNode) {
+        syso('no parent node', 'orange');
+        if (nopNodeC++ === 0) utils.raport('J3', 'main_inside - no parent nodes !');
+        continue;
+      }
+      for (var a=0; a<to_update[i].length; a++) {
+        for (var b=a; b<to_update[i].length; b++) {
+          if (to_update[i][a].pos > to_update[i][b].pos) {
+            var tmp = to_update[i][a];
+            to_update[i][a] = to_update[i][b];
+            to_update[i][b] = tmp;
+          }
+        }
+      }
+      var oldHTML = spans[i].HTML;
+      var prev = 0;
+      for (var j=0; j<to_update[i].length; j++) {
+        var tu = to_update[i][j];
+        if (tu.pos < prev) {
+          syso(i + ',' + j + ',' + tu.pos + ',' + prev);
+          utils.raport('J2', 'wrong word position - skipping', tu.ow);
+          that.counter--;
+          continue;
+        }
+        var substr = oldHTML.substring(prev, tu.pos);
+        var textPart = document.createTextNode(substr);
+        var ixWord = document.createElement(that.aaa ? 'a' : 'span');
+        ixWord.style.cssFloat = 'none';
+        ixWord.style.styleFloat = 'none';
+        ixWord.style.textDecoration = 'none';
+        ixWord.style.position = 'relative';
+        ixWord.style.margin = '0px';
+        ixWord.style.padding = '0px';
+        ixWord.style.textIndent = '0px';
+        ixWord.style.display = 'inline';
+        ixWord.style.textAlign = '';
+        ixWord.id = 'a_'+tu.spid;
+        if (conf.acssclass) {
+          ixWord.className = conf.acssclass;
+        }
+        var art = spans[i].pNode;
+        while (art.parentNode && art.parentNode != art && art != document.body && !ixspanids[art.id]) {
+          art = art.parentNode;
+        }
+        ixWord.onmouseover = utils.apply1(that.showIx, art, tu.spid, coms[tu.boxId], {word: tu.ow}, params);
+        ixWord.innerHTML = tu.nw;
+        that.underlined[ixWord.id] = {omo: ixWord.onmouseover, word: tu.ow};
+        if ((substr.length === 0) || (substr.charAt(0) === ' ')) {
+          spans[i].pNode.insertBefore(document.createElement('nbsp'), spans[i].dom);
+        }
+        spans[i].pNode.insertBefore(textPart, spans[i].dom);
+        if ((substr.length === 0) || (substr.charAt(substr.length - 1) === ' ')) {
+          spans[i].pNode.insertBefore(document.createElement('nbsp'), spans[i].dom);
+        }
+        fire('onIxAElementAdded', ixWord, spans[i], tu);
+        that.ixForms[tu.ow] = ixWord;
+        spans[i].pNode.insertBefore(ixWord, spans[i].dom);
+        if (dbg) {
+          var dbg_buttons = document.createElement('span');
+          dbg_buttons.style.paddingLeft = '5px';
+          dbg_buttons.style.cssFloat = 'none';
+          dbg_buttons.innerHTML = dbg;
+          spans[i].pNode.insertBefore(dbg_buttons, spans[i].dom);
+        }
+        prev = tu.pos + tu.skip;
+      }
+      var substr = oldHTML.substring(prev);
+      if ((substr.length === 0) || (substr.charAt(0) === ' ')) {
+        spans[i].pNode.insertBefore(document.createElement('nbsp'), spans[i].dom);
+      }
+      var textPart = document.createTextNode(substr);
+      spans[i].pNode.insertBefore(textPart, spans[i].dom);
+      spans[i].pNode.removeChild(spans[i].dom);
+    }
+    if (dbg && (that.counter === 0)) {
+      var dbg_buttons = utils.cel(document.body, 'span');
+      dbg_buttons.style.position = 'fixed';
+      dbg_buttons.style.left = '0';
+      dbg_buttons.style.top = '0';
+      dbg_buttons.style.zIndex = 32100;
+      dbg_buttons.innerHTML = dbg;
+    }
+    for (var i=0; i<coms.length; i++) {
+      var wn = why_not['#'+coms[i].id];
+      if (!wn) continue;
+      utils.raport('S2-o', 'unplaceble box - ' + wn.m, wn.w + '&par2=' + wn.d + '&par3=' + i);
+    }
+    syso('caching of images started.');
+    var imgcache = utils.cel(document.body, 'div');
+    imgcache.style.display = 'none';
+    var cacheImage = function(src) {
+      var tmpimg = new Image();
+      tmpimg.src = src;
+      imgcache.appendChild(tmpimg);
+    }
+    for (var i=0; i<that.imgs.length; i++) {
+      if (conf.get('enableFlash') || i < 8) {
+        cacheImage(that.adddbg(conf.get('intertext_file_prefix')
+          .replace(/_FILE_/g, that.imgs[i][4])));
+      }
+    }
+    for (var i=0; i<coms.length; i++) {
+      var box = coms[i];
+      var fill = function(str, box) {
+        return that.adddbg(str
+          .replace(/_HOST_/g, host)
+          .replace(/_ID_/g, box.vis_id)
+          .replace(/_NC_/g, box.timestamp));
+      }
+      if (box.typ === utils.adTypes.exclusive) {
+        cacheImage(fill(conf.get('imager_url'), box));
+      } else if (box.typ === utils.adTypes.flash) {
+        var dd = imgcache;// that.cachedDiv(imgcache, box.id);
+        dd.style.display = 'none';
+        var emb = utils.cel(dd, 'embed');
+        syso('creating EMBED element');
+        emb.width = '300px';
+        emb.height = '250px';
+        var src = emb.src = fill(conf.get('f_imager_url'), box);
+        emb.type = 'application/x-shockwave-flash';
+        emb.setAttribute('flashvars', conf.get('flashvars').replace(/_EA_/g, escape(box.aa)));
+        cacheImage(src);
+      }
+    }
+    syso('caching of images completed.');
+  });
+  
+  this.fixEvents = utils.ftry('fixEvents', function() {
+    that.baloon = utils.byId('nsix_baloon');
+    for (var sp in that.underlined) {
+      var node = utils.byId(sp);
+      if (!node) {
+        utils.raport('P2', 'ix word removed', sp);
+        continue;
+      }
+      if (node.onmouseover) continue;
+      node.onmouseover = that.underlined[sp].omo;
+      syso('fixed underlined word: ' + that.underlined[sp].word);
+    }
+  });
+
+}
+
+  
+try {x.x.x} catch(e) {static.fstarts.push(['custom', e.lineNumber, 0])};
+//cusom ix features
+
+  
+try {x.x.x} catch(e) {static.fstarts.push(['ixStatic', e.lineNumber, 20])};
+  utils = new Utils(conf, spliter.cookie_params);
+  utils.checkVersion('spliter', spliter.ver);
+  utils.fstarts = static.fstarts;
+  utils.evlog = nslog_akon;
+  utils.evlog.s += ' XS';
+  utils.prid = spliter.prid;
+  utils.caid = spliter.caid;
+  static.parser = new Parser(conf, utils, spliter.cookie_params);
+  static.writer = static.ix_writer = new IxWriter(conf, utils, spliter.cookie_params,
+    spliter.rqh, spliter.prid, spliter.caid, utils.version, spliter.fire, (spliter.ref+'').substring(2));
+
+  static.go2 = utils.retry('go2', function() {
+    trace('go2');
+    if (params.delay) {
+      syso('stage2 delayed');
+      params.delay = false;
+      params.run = static.go2;
+      return;
+    }
+    if (params.delay_1) throw 'retry';
+    if (typeof(scripts_sync) === 'undefined') scripts_sync = {};
+    if (scripts_sync.busy) throw 'retry';
+    utils.start('other');
+    scripts_sync.busy = true;
+    scripts_sync.who = 'nsix';
+    scripts_sync.started = (new Date()).getTime();
+    spliter.fire('onstaticloaded');
+    params.ad_count = Math.max(0, Math.min(conf.get('max_ad_count'),
+      utils.ifnull(params.max_ad_cnt, conf.get('def_ad_count'))));
+    if (!spliter.go3_ready) return;
+    if (spliter.cookie_params('pprev') && !static.betaPluginReady) {
+      return utils.waitForBetaPlugin(static.go3);
+    }
+    static.go3();
+  });
+  
+  static.go3 = utils.ftry('go3', function() {
+    spliter.fire('onbeforeparse');
+    utils.start('parsing');
+    static.content = static.parser.parseAll('C,I,M', params);
+    if (static.content.length === 0) {
+      setTimeout(function() {
+        if (static.content2 = static.parser.parseAll('C, I, M', params).length > 0) {
+          utils.raport('P3-f', 'wrong script position');
+        } else {
+          utils.raport('P3-of', 'no content (2)');
+        }
+      }, conf.get('longTimeout'));
+      return;
+    }
+    utils.start('other');
+    spliter.fire('onafterparse');
+    form_id=utils.ifnull(spliter.form, "-1:").split(":")[0];   
+    var scsrc=conf.get('spliter2Url')
+      .replace(/_HOST_/g, spliter.rqh)
+      .replace(/_PRID_/g, spliter.prid)
+      .replace(/_CAID_/g, spliter.caid)
+      .replace(/_FORM_/g, form_id+':_CC_:'+(params.noEx || spliter.cookie_params('noex') ? 'i' : 'I'))
+      .replace(/_CC_/g, params.ad_count + conf.get('xAdRq', 0))
+      .replace(/_NC_/g, (new Date()).getTime())
+      .replace(/_CONTENT_/g, static.content);
+    utils.start('server');
+    utils.loadsc(scsrc, false, spliter.encoding);
+  });
+
+  static.dbg1 = function(){};
+
+  static.writeIx = utils.ftry('writeIx', function(coms) {
+    utils.start('other');
+    static.rstate = document.readyState + '';
+    if (coms.length === 0) {
+      var dbg = utils.insert_ix_dbg();
+      if (dbg) {
+        var dbg_buttons = utils.cel(document.body, 'span');
+        dbg_buttons.style.position = 'fixed';
+        dbg_buttons.style.left = '0';
+        dbg_buttons.style.top = '0';
+        dbg_buttons.style.zIndex = conf.get('z0') + conf.get('z_dbg');
+        dbg_buttons.innerHTML = dbg;        
+      }
+      return utils.noAds(true);
+    }
+    var detached = false;
+    var spans = static.parser.spans;
+    for (var i=0; i<spans.length; i++) {
+      if (utils.detached(spans[i].dom)) detached = true;
+    }
+    if (detached) {
+      utils.raport('P1-o', 'dom changed');
+      static.parser.parseAll('C', params);
+    }
+    for (var c=0; c<coms.length; c++) {
+      var b = coms[c];
+      b.aa=conf.get('ctr_url')
+        .replace(/_HOST_/g, spliter.rqh)
+        .replace(/_A_/g, b.a)
+        .replace(/_U_/g, b.a)
+        .replace(/_UE_/g, escape(b.a))
+        .replace(/_K_/g, b.bu)
+        .replace(/_D_/g, b._d)
+        .replace(/_E_/g, b.bcpe);
+      b.typ = utils.ifnull(utils.adTypes[b.typ.toLowerCase()], b.typ);
+      var tmp = b.iwords.split(';');
+      b.wordsArr = [];
+      for (var w=0; w<tmp.length; w++) {
+        var wo = static.parser.ecapeNationalLowerCase(tmp[w].substring(0,tmp[w].indexOf(',')));
+        if (wo.length >= conf.get('minWordLength')) b.wordsArr.push(wo);
+      }
+    }
+    static.dbg1(coms, spliter.cookie_params);
+    spliter.fire('onbeforewrite');
+    if (coms.length > 0) {
+      utils.start('other');
+      static.writer.initIx();
+      utils.start('putIx');
+      static.writer.putIx(coms, static.parser.spans, params);
+    }
+    var sws = static.writer.stats;
+    sws.ss_cnt = coms.length;
+    sws.rq_cnt = params.ad_count;
+    sws.rs = static.rstate;
+    utils.evlog.s += ' XD';
+    utils.done(sws);
+    if (spliter.cookie_params('force_dbg')) {
+      utils.inx_showPopup();
+    }
+    spliter.fire('onafterwrite');
+    scripts_sync.busy = false;
+    syso('intertext initialized.');
+  });
+
+  static.rm_itx = utils.ftry('rmitx', function() {
+    var torm = static.writer.ixForms;
+    for (var inn in torm) {
+      var sp = utils.cel(null, 'span');
+      sp.innerHTML = inn;
+      torm[inn].parentNode.replaceChild(sp, torm[inn]);
+    }
+    static.writer.ixForms = [];
+    static.writer.counter = 0;
+    syso('intertext removed.');
+  });
+
+  static.reload_itx = utils.ftry('reloadItx', function() {
+    static.rm_itx();
+    static.go2();
+    utils.raport('P1-', 'reloaded');
+  });
+
+  intertext_akon = {
+    remove: static.rm_itx,
+    reload: static.reload_itx
+  }
+
+  static.init = utils.ftry('toolkit initialization', function() {
+    if (spliter.cookie_params('co100')) utils.rndId -= utils.rndId % conf.get('coile') - conf.get('mod100');
+    utils.stages(8);
+    syso('loaded js toolkit v.' + utils.version);
+    static.initialized = true;
+    utils.fstarts_closed = true;
+  });
+  
+  try {x.x.x} catch(e) {static.fstarts.push(['end', e.lineNumber, -3])};
+  static.init();
+}
