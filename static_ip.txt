@@ -1,0 +1,11 @@
+/etc/network/interfaces:
+
+auto lo
+auto eth0
+allow-hotplug eth0
+iface eth0 inet static
+address 10.10.102.13
+netmask 255.255.255.0
+gateway 10.10.102.1
+
+/etc/init.d/networking restart
