@@ -1,0 +1,4 @@
+watch -n 1 "ls -ltr"
+
+-n <liczba sekund>
+"<komenda>"
