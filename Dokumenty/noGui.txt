@@ -1,0 +1,70 @@
+There are occasions when I want to boot into Kali as quickly as possible to run a few simple tasks. So, rather than dealing with a Desktop Environment, I like the default to be simply command line and have the option to load gdm3 if needed. Here's how to do that:
+
+
+QUICK METHOD
+
+If you want a quick copy/paste method:
+
+
+cp -n /etc/X11/default-display-manager{,.bkup}
+echo > /etc/X11/default-display-manager
+cp -n /etc/gdm3/daemon.conf{,.bkup}
+sed -i 's/^.*AutomaticLoginEnable = .*/AutomaticLoginEnable = True/' /etc/gdm3/daemon.conf
+sed -i 's/^.*AutomaticLogin = .*/AutomaticLogin = root/' /etc/gdm3/daemon.conf
+ln -s /usr/sbin/gdm3 /usr/bin/startx # Old school ;)
+
+Thank you, g0tmi1k (http://forums.kali.org/member.php?34-g0tmi1k)!
+
+
+STEP-BY-STEP WALKTHROUGH WITH EXPLINATIONS 
+
+
+STEP 1: Remove our Default Display Manager.
+
+Since we don't want any graphical defualt display, we're going to simply clear the file out completely. 
+First, open a terminal. Fom here, we will backup our default display manager before we clear it out:
+
+cp /etc/X11/default-display-manager /etc/X11/default-display-manager.backup
+echo "" > /etc/X11/default-display-manager
+
+
+STEP 2: Set GDM3 to autologin.
+
+Since we're forced to login to even use the command line, there is really no reason to have GDM3 prompt us to login -- in a situation where we boot up wanting the desktop environment. So, we can tell gdm3 to autologin (to an account of your choosing) when, and if, you decide to load it.
+
+
+cp /etc/gdm3/daemon.conf /etc/gdm3/daemon.conf.backup
+leafpad /etc/gdm3/daemon.conf
+
+Now, under section "[daemon]" we want to change both AutomaticLoginEnable and AutomaticLogin lines
+
+
+[daemon]
+# Enabling automatic login
+# AutomaticLoginEnable = true
+# AutomaticLogin = user1
+
+Should now look like:
+
+
+[daemon]
+# Enabling automatic login
+AutomaticLoginEnable = true
+AutomaticLogin = root
+
+
+NOTES
+
+Now, whenever you boot into Kali, you'll be prompted to login at the command line, rather than the gdm3 GUI. Once logged in, you can always startup your desktop environment by simply typing in
+
+gdm3
+
+
+(optional) STEP 3: Use the the classic 'startx' command to run GNOME.
+Thanks to user wlan0 (http://forums.kali.org/member.php?1266-wlan0) for the suggestion ;)
+
+
+Simply open a terminal and type the following:
+
+ln -s /usr/sbin/gdm3 /usr/sbin/startx
+Now, rather than using gdm3 to start gnome, you'd use 'startx'.
